@@ -1,0 +1,18 @@
+  - platform: tplink
+    host: 192.168.131.97
+    name: Derek Bedroom Lamp
+  - platform: tplink
+    host: 192.168.131.96
+    name: The Sparkle
+  - platform: tplink
+    host: 192.168.131.94
+    name: Bonnie Bedroom Lamp
+  - platform: broadlink
+    host: 192.168.131.4
+    mac: 'b4:43:0d:f9:34:99'
+    timeout: 15
+    switches:
+        bedroom_air:
+            friendly_name: "Bedroom Air"
+            command_on: 'JgBgAAABJJUTEREUEBQTNxMRExIQFBEUEzYTERE5ExEROBM3EzYQORE4ERQQFBEUEDkRFBAUERQQFBE4EjYTNhIUETkQORA5EAAFOQABIk0RAAxBAAEiShIADEEAASFLEwANBQAAAAAAAAAA'
+            command_off: 'JgBgAAABJJUTEREUEBQTNxMRExIQFBEUEzYTERE5ExEROBM3EzYQORE4ERQQFBEUEDkRFBAUERQQFBE4EjYTNhIUETkQORA5EAAFOQABIk0RAAxBAAEiShIADEEAASFLEwANBQAAAAAAAAAA'

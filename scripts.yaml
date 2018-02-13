@@ -1,0 +1,143 @@
+  # Set AC to on + cool + auto fan
+  bedtime_ac:
+    alias: Bedroom AC Cool
+    sequence:
+      - service: broadlink.send_packet_192_168_131_4
+        data:
+          packet:
+            - JgBgAAABJJUTEREUEBQTNxMRExIQFBEUEzYTERE5ExEROBM3EzYQORE4ERQQFBEUEDkRFBAUERQQFBE4EjYTNhIUETkQORA5EAAFOQABIk0RAAxBAAEiShIADEEAASFLEwANBQAAAAAAAAAA
+            - JgBQAAABJ5MTEhISExISNxITEhISExISEjgSEhI3ExISNxI3EjcTNxI3EhMSEhI3ExISEhMSEhITEhI3EzcTERI3EzcSNxM2EwAFNwABJEoTAA0FAAAAAAAAAAA=
+            - JgBgAAABIJYTERAVExETNhMSEBQTEhMREzcTERM2ExIQORM2EzYTNxE4EzYTNhM2ExITERQRExERFBAUFBETERE5EzYTNhE4EwAFNgABIkwTAAw/AAEhTBMADD4AASFMEAANBQAAAAAAAAAA
+  # Harmony Hub
+  watch_kodi:
+    alias: TV Watch Kodi
+    sequence:
+      - service: remote.turn_on
+        data:
+          activity: 31479535
+  watch_sling:
+    alias: TV Watch Sling
+    sequence:
+      - service: remote.turn_on
+        data:
+          activity: 31480008
+  watch_netflix:
+    alias: TV Watch Netflix
+    sequence:
+      - service: remote.turn_on
+        data:
+          activity: 31478989
+  watch_amazon:
+    alias: TV Watch Amazon
+    sequence:
+      - service: remote.turn_on
+        data:
+          activity: 31480109
+  watch_ota:
+    alias: TV Watch Over The Air
+    sequence:
+      - service: remote.turn_on
+        data:
+          activity: 31480260
+  watch_plex:
+    alias: TV Watch Plex
+    sequence:
+      - service: remote.turn_on
+        data:
+          activity: 31571897
+  play_switch:
+    alias: TV Play Switch
+    sequence:
+      - service: remote.turn_on
+        data:
+          activity: 31480190
+  media_off:
+    alias: TV Off
+    sequence:
+      - service: remote.turn_on
+        data:
+          activity: -1
+  media_volume_up:
+    alias: TV Volume Up
+    sequence:
+      - service: remote.send_command
+        data:
+          device: 51736886
+          command: VolumeUp
+          num_repeats: 2
+  media_volume_down:
+    alias: TV Volume Down
+    sequence:
+      - service: remote.send_command
+        data:
+          device: 51736886
+          command: VolumeDown
+          num_repeats: 2
+  media_stop:
+    alias: TV Stop
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              51738178
+            {% else %}
+              51736885
+            {% endif %}
+          command: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              Stop
+            {% else %}
+              Exit
+            {% endif %}
+          num_repeats: 1
+  media_pause:
+    alias: TV Pause
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              51738178
+            {% else %}
+              51736885
+            {% endif %}
+          command: Pause
+          num_repeats: 1
+  media_play:
+    alias: TV Play
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              51738178
+            {% else %}
+              51736885
+            {% endif %}
+          command: Play
+          num_repeats: 1
+  media_input1:
+    alias: TV Input Kodi
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: 51736886
+          command: InputHdmi1
+          num_repeats: 1
+  media_input2:
+    alias: TV Input Switch
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: 51736886
+          command: InputHdmi2
+          num_repeats: 1
+  media_input3:
+    alias: TV Input Roku
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: 51736886
+          command: InputHdmi3
+          num_repeats: 1

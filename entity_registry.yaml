@@ -1,0 +1,36 @@
+sensor.netatmo_indoor_pressure:
+  platform: netatmo
+  unique_id: 0-pressure
+sensor.netatmo_indoor_temperature:
+  platform: netatmo
+  unique_id: 0-temperature
+sensor.netatmo_outdoor_humidity:
+  platform: netatmo
+  unique_id: 2-humidity
+sensor.netatmo_outdoor_temperature:
+  platform: netatmo
+  unique_id: 2-temperature
+sensor.netatmo_indoor_humidity:
+  platform: netatmo
+  unique_id: 0-humidity
+sensor.netatmo_indoor_co2:
+  platform: netatmo
+  unique_id: 0-co2
+sensor.netatmo_indoor_noise:
+  platform: netatmo
+  unique_id: 0-noise
+sensor.netatmo_outdoor_battery:
+  platform: netatmo
+  unique_id: 2-battery_vp
+sensor.netatmo_outdoor_radio:
+  platform: netatmo
+  unique_id: 2-rf_status
+sensor.netatmo_indoor_wifi:
+  platform: netatmo
+  unique_id: 0-wifi_status
+media_player.plex_web_chrome:
+  platform: plex
+  unique_id: cay7cixtssaarkax4r5vhwpf
+media_player.plex_web_chrome_2:
+  platform: plex
+  unique_id: 4lg2neikpexeudhfo9a9b735

@@ -1,0 +1,6 @@
+  - platform: roku
+    host: 192.168.131.5
+  - platform: kodi
+    host: 192.168.131.3
+    port: 9090
+  - platform: plex

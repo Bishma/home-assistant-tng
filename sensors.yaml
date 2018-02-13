@@ -1,0 +1,102 @@
+# Weather Prediction
+  - platform: darksky
+    api_key: !secret forcastio_api
+    monitored_conditions:
+      - summary
+      - icon
+      - precip_type
+      - precip_intensity
+      - precip_probability
+      - temperature
+      - apparent_temperature
+      - wind_speed
+      - cloud_cover
+      - humidity
+      - visibility
+      - temperature_max
+      - temperature_min
+
+# Internet
+  - platform: fastdotcom
+    minute:
+      - 0
+      - 30
+
+# Travel Times
+  - platform: google_travel_time
+    name: Home to IDX
+    origin: zone.home
+    destination: zone.idx
+    api_key: !secret google_api
+  - platform: google_travel_time
+    name: Home to Bend
+    origin: zone.home
+    destination: zone.bend
+    api_key: !secret google_api
+  - platform: google_travel_time
+    name: Home to Florence
+    origin: zone.home
+    destination: zone.florence
+    api_key: !secret google_api
+  - platform: google_travel_time
+    name: Home to Portland
+    origin: zone.home
+    destination: zone.portland
+    api_key: !secret google_api
+
+# NZB Get
+  - platform: nzbget
+    host: 192.168.131.2
+    port: 6789
+#   username: apiuser
+#   password: apipass
+    monitored_variables:
+      - average_download_rate
+      - download_rate
+      - download_paused
+      - free_disk_space
+      - remaining_size
+      - uptime
+
+# Synology NAS
+  - platform: synologydsm
+    host: 192.168.131.2
+    port: 5000
+    username: !secret nas_user
+    password: !secret nas_passwd
+    monitored_conditions:
+      - cpu_total_load
+      - network_up
+      - network_down
+      - disk_smart_status
+      - disk_status
+      - disk_temp
+      - volume_status
+      - volume_size_total
+      - volume_percentage_used
+      - volume_disk_temp_avg
+      
+# Harmony
+  - platform: template
+    sensors:
+      living_room_remote_state:
+        value_template: '{{ states.remote.living_room.attributes.current_activity }}'
+        friendly_name: 'Current Activity:'
+
+# Pollen
+  - platform: pollen
+    zip_code: 97404
+    monitored_conditions:
+      - allergy_average_forecasted
+      - allergy_average_historical
+      - allergy_index_today
+      - allergy_index_tomorrow
+      - allergy_index_yesterday
+      - disease_average_forecasted
+        
+# simple bool for decided if the house is empty of residents
+  - platform: template
+    sensors:
+      home_empty:
+        friendly_name: 'Are Derek and Bonnie Both Gone?'
+        value_template: '{% if is_state("states.device_tracker.tile_keys_derek", "home") or is_state("states.device_tracker.tile_bonnies_keys", "home") %}true{% else %}false{% endif %}'

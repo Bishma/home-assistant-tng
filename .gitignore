@@ -1,0 +1,14 @@
+.cloud/*
+deps/*
+tts/*
+
+.HA_VERSION
+.uuid
+secrets.yaml
+known_devices.yaml
+
+*.pickle
+*.conf
+*.json
+*.log
+*.db

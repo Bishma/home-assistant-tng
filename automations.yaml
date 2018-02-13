@@ -1,0 +1,10 @@
+- id: bed_lamp_dusk_on
+  alias: Dusk on
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+    offset: +00:45:00
+  action:
+    service: switch.turn_on
+    entity_id: switch.derek_bedroom_lamp

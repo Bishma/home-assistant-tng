@@ -1,0 +1,140 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Yggdresil
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret me_lat
+  longitude: !secret me_long
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 516
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Los_Angeles
+  # customizing entities
+  customize: !include customizations.yaml
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Home Assistant Cloud
+cloud:
+  alexa:
+    filter:
+      include_entities:
+        - script.watch_kodi
+        - script.watch_netflix
+        - script.watch_sling
+        - script.watch_amazon
+        - script.watch_plex
+        - script.watch_ota
+        - script.play_switch
+        - script.media_volume_up
+        - script.media_volume_down
+        - script.media_stop
+        - script.media_play
+        - script.media_pause
+        - script.media_off
+        - script.media_input1
+        - script.media_input2
+        - script.media_input3
+      exclude_domains:
+        - alert
+        - automation
+        - cover
+        - fan
+        - group
+        - input_boolean
+        - lock
+        - media_player
+        - scene
+        - switch
+
+http:
+  # Add password to keep out the randos
+  api_password: !secret hass_password
+  ip_ban_enabled: True
+  login_attempts_threshold: 5
+  server_port: 443
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+device_tracker:
+  - platform: tile
+    username: !secret tile_user
+    password: !secret tile_passwd
+    monitored_variables:
+      - TILE
+      
+remote:
+  - platform: harmony
+    name: Living Room
+    host: 192.168.131.89
+    activity: Watch Kodi
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# thermostat
+ecobee:
+  api_key: !secret ecobee_api
+
+# Netatmo
+netatmo:
+  api_key: !secret netatmo_key
+  secret_key: !secret netatmo_secret
+  username: !secret netatmo_user
+  password: !secret netatmo_passwd
+
+ring:
+  username: !secret ring_user
+  password: !secret ring_passwd
+
+automation: !include automations.yaml
+ 
+group: !include groups.yaml
+
+media_player: !include media_players.yaml
+  
+# A lights... except the lights that are controlled by sensors
+light: !include lights.yaml
+
+# Sensors and API interfaces
+sensor: !include sensors.yaml
+
+# Switches
+switch: !include switches.yaml
+
+# Text to speech
+tts:
+  - platform: google
+
+zone: !include zones.yaml
+
+camera:
+  - platform: ring
+
+script: !include scripts.yaml
