@@ -7,17 +7,16 @@ After Home Assistant started adding in-app config editors that required a certai
 * Files are broken up by functionality. Switches, sensors, scripts, etc.
 * Generated files (.conf, .log, .json, etc) are not committed.
 * All sensitive information is stored on secrets.yaml which is also not committed.
-* Some customization still reference the hue bridge even though I don't use that any more.
 
 ## Platforms in use
 * TP-Link
 * Ecobee
 * Harmony
 * Tile
-* Alexa (using Home Assistant Cloud)
+* Alexa (using a custom skill / intents / scripts)
 * Ring
-* Kodi
+* Broadlink
 * Roku
 * Dark Sky
-* fast.com
+* Speedtest.net
 * Synology
