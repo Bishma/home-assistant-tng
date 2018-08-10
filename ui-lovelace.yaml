@@ -1,0 +1,10 @@
+title: Yggdrasil
+
+views:
+    # Home Tab
+  - icon: mdi:home-assistant
+  - icon: mdi:weather-partlycloudy
+  - icon: mdi:file-document
+    cards: !include lovelace_cards/view_documentation.yaml
+  - icon: mdi:cctv
+  - icon: mdi:youtube-tv

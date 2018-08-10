@@ -1,0 +1,105 @@
+- type: markdown
+  id: view_documentation_alexa
+  content: >
+    # Alexa
+
+    ## Routines
+
+    + Begin Derek's Morning
+      1. Set volume to 4
+      1. Turn the sink light to 100%
+      1. Turn "Teddy" the living room lamp to 20%
+      1. Read weather report
+      1. Set volume to 7 
+    + Make it dark
+      1. Turn off Bonnie Lamp
+      1. Turn off Derek Lamp
+    + Operation Mongoose
+      1. Turn off living room lamp
+      1. Turn off living room light strip. A.K.A. "The Sparkle"
+      1. Set kitchen light "The Sink Hole" to 2% brightness
+      1. Turn on Bonnie Bedroom Lamp
+    + Rise and Shine
+      1. Turn on living room light strip. A.K.A. "The Sparkle"
+      1. Set living room lamp ro 100% brightness
+    + Shut It Down
+      1. Turn off living room lamp
+      1. Turn off living room light strip. A.K.A. "The SParkle"
+
+    ## Jason
+
+    Alexa ask Jason to:
+
+    + Watch
+      - Kodi
+      - Hulu
+      - Netflix
+      - Amazon
+      - Plex
+      - Over The Air
+    + Turn the TV
+      - Up by X
+      - Up
+      - Down by X
+      - Down
+      - Off
+
+    Alexa ask Jason about:
+
+    + The Weather
+- type: markdown
+  content: >
+    # Harmony
+- type: markdown
+  content: >
+    # Links
+
+    ## Our Network
+
+    + [Plex](https://app.plex.tv)
+
+    + [Heimdall](http://192.168.131.2:5000/index.cgi)
+    
+    + [Downloads](http://192.168.131.2:6789/)
+
+    ---
+
+    ## Our Services
+
+    + Tile
+
+    + Ecobee
+
+    + Netatmo
+
+    + Ring
+
+- type: markdown
+  content: >
+    # Technical Links
+
+    + [Home Assistant](https://www.home-assistant.io/lovelace/)
+      - [Components](https://www.home-assistant.io/components/)
+        + [Alexa Integration](https://www.home-assistant.io/components/alexa/)
+      - [Lovelace](https://www.home-assistant.io/lovelace/)
+    + Alexa Skill Kit
+
+    + Ecobee dev
+
+    + VPN
+
+- type: markdown
+  content: >
+    # Todo List
+
+    + Documentation
+
+    + Home Tab
+
+    + Weather UI
+    
+    + Cameras
+    
+    + Media Center UI
+
+    + Style
