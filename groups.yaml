@@ -10,7 +10,6 @@
       - group.travel_times
       - group.automations
       - group.carmen_san_diego
-      - camera.front_door
   climate_view:
     view: yes
     name: Climate
@@ -20,21 +19,27 @@
       - group.pollen
       - climate.cottage
       - group.weather_station
+  camera_view:
+    view: yes
+    name: Cameras
+    entities:
+      - camera.front_door
+      - camera.beltline_at_river_rd
+      - camera.downtown_eugene
   the_net:
     view: yes
     name: The Net
     entities:
       - group.synology
+      - group.internet
       - group.nzb_get
   media:
     view: yes
     name: Media
     entities:
-      - media_player.roku_yu00uj710265
-      - group.media_activity
+#      - group.media_activity
       - group.media_universal
       - group.media_source
-      - media_player.kodi
 #
 # groups - AKA cards in tabs
 #
@@ -84,10 +89,15 @@
       - sensor.nzbget_download_paused
       - sensor.nzbget_disk_free
       - sensor.nzbget_speed
+  internet:
+    name: Internet
+    entities:
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.speedtest_ping
   synology:
     name: Synology NAS
     entities:
-      - sensor.fastcom_download
       - sensor.network_up
       - sensor.network_down
       - sensor.cpu_system_load
@@ -123,6 +133,7 @@
       - sensor.home_to_bend
       - sensor.home_to_florence
       - sensor.home_to_portland
+      - sensor.home_to_lincoln_city
   carmen_san_diego:
     name: Where In The World Is
     entities:
@@ -134,13 +145,14 @@
     name: Choose Activity
     entities:
       - sensor.living_room_remote_state
-      - script.watch_kodi
-      - script.watch_netflix
-      - script.watch_sling
-      - script.watch_amazon
-      - script.watch_plex
-      - script.watch_ota
-      - script.play_switch
+#      - script.watch_kodi
+#      - script.watch_hulu
+#      - script.watch_netflix
+#      - script.watch_sling
+#      - script.watch_amazon
+#      - script.watch_plex
+#      - script.watch_ota
+#      - script.play_switch
   media_universal:
     control: hidden
     name: Universal Controls
