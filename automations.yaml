@@ -1,10 +1,24 @@
 - id: bed_lamp_dusk_on
   alias: Dusk on
-  initial_state: true
   trigger:
+  - event: sunset
+    offset: +00:15:00
     platform: sun
-    event: sunset
-    offset: +00:45:00
   action:
+  - entity_id: switch.derek_bedroom_lamp
     service: switch.turn_on
-    entity_id: switch.derek_bedroom_lamp
+  initial_state: true
+- id: '1532278514912'
+  alias: Sleep Cool
+  trigger:
+  - at: '21:00:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: sensor.home_empty
+    state: 'false'
+  - above: '70'
+    condition: numeric_state
+    entity_id: sensor.netatmo_outdoor_temperature_2
+  action:
+  - service: script.bedtime_ac
