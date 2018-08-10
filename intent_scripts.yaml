@@ -1,0 +1,33 @@
+  turntvupby:
+    action:
+      service: script.alexa_volume_up
+      data_template:
+        amount: '{{ amount | int }}'
+    speech_template:
+      text: !include jason_confirm.yaml
+  turntvdownby:
+    action:
+      service: script.alexa_volume_down
+      data_template:
+        amount: '{{ amount | int }}'
+  turntvup:
+    action:
+      service: script.media_volume_up
+  turntvdown:
+    action:
+      service: script.media_volume_down
+  thetv:
+    action:
+      service: script.turn_on
+      data_template:
+        entity_id: script.media_{{ media_script | replace(" ", "_") }}
+  watch:
+    action:
+      service: script.watch_activity
+      data_template:
+        media_activity: '{{ media_scripts | replace(" ", "_") }}'
+    speech:
+      text: "Switching to  {{ media_scripts }}"
+  theweather:
+    speech:
+      text: "The inside temperature is {{ states('sensor.netatmo_indoor_temperature_2') }} degrees with {{ states('sensor.netatmo_indoor_humidity_2') }} percent humidity. Outside it's {{ states('sensor.netatmo_outdoor_temperature_2') }} degrees and {{ states('sensor.netatmo_outdoor_humidity_2') }} percent humidity."

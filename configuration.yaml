@@ -19,45 +19,13 @@ frontend:
 # Enables configuration UI
 config:
 
-# Home Assistant Cloud
-cloud:
-  alexa:
-    filter:
-      include_entities:
-        - script.watch_kodi
-        - script.watch_netflix
-        - script.watch_sling
-        - script.watch_amazon
-        - script.watch_plex
-        - script.watch_ota
-        - script.play_switch
-        - script.media_volume_up
-        - script.media_volume_down
-        - script.media_stop
-        - script.media_play
-        - script.media_pause
-        - script.media_off
-        - script.media_input1
-        - script.media_input2
-        - script.media_input3
-      exclude_domains:
-        - alert
-        - automation
-        - cover
-        - fan
-        - group
-        - input_boolean
-        - lock
-        - media_player
-        - scene
-        - switch
-
 http:
   # Add password to keep out the randos
   api_password: !secret hass_password
   ip_ban_enabled: True
   login_attempts_threshold: 5
   server_port: 443
+  base_url: !secret hass_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
@@ -71,7 +39,7 @@ updater:
   # include_used_components: true
 
 # Discover some devices automatically
-discovery:
+#discovery:
 
 device_tracker:
   - platform: tile
@@ -91,9 +59,18 @@ conversation:
 
 # Enables support for tracking state changes over time
 history:
+recorder:
+  purge_keep_days: 14
 
 # View all events in a logbook
 logbook:
+
+# Enable the HASSIO tab
+hassio:
+
+# Enable Hass for custom intents
+alexa:
+intent_script: !include intent_scripts.yaml
 
 # Track the sun
 sun:
@@ -134,7 +111,6 @@ tts:
 
 zone: !include zones.yaml
 
-camera:
-  - platform: ring
+camera: !include camera.yaml
 
 script: !include scripts.yaml

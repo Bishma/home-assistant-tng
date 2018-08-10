@@ -2,55 +2,36 @@
   bedtime_ac:
     alias: Bedroom AC Cool
     sequence:
-      - service: broadlink.send_packet_192_168_131_4
+      - service: switch.broadlink_send_packet_192_168_131_4
         data:
           packet:
             - JgBgAAABJJUTEREUEBQTNxMRExIQFBEUEzYTERE5ExEROBM3EzYQORE4ERQQFBEUEDkRFBAUERQQFBE4EjYTNhIUETkQORA5EAAFOQABIk0RAAxBAAEiShIADEEAASFLEwANBQAAAAAAAAAA
             - JgBQAAABJ5MTEhISExISNxITEhISExISEjgSEhI3ExISNxI3EjcTNxI3EhMSEhI3ExISEhMSEhITEhI3EzcTERI3EzcSNxM2EwAFNwABJEoTAA0FAAAAAAAAAAA=
             - JgBgAAABIJYTERAVExETNhMSEBQTEhMREzcTERM2ExIQORM2EzYTNxE4EzYTNhM2ExITERQRExERFBAUFBETERE5EzYTNhE4EwAFNgABIkwTAAw/AAEhTBMADD4AASFMEAANBQAAAAAAAAAA
   # Harmony Hub
-  watch_kodi:
-    alias: TV Watch Kodi
+  watch_activity:
+    alias: Switch Activity
     sequence:
       - service: remote.turn_on
-        data:
-          activity: 31479535
-  watch_sling:
-    alias: TV Watch Sling
-    sequence:
-      - service: remote.turn_on
-        data:
-          activity: 31480008
-  watch_netflix:
-    alias: TV Watch Netflix
-    sequence:
-      - service: remote.turn_on
-        data:
-          activity: 31478989
-  watch_amazon:
-    alias: TV Watch Amazon
-    sequence:
-      - service: remote.turn_on
-        data:
-          activity: 31480109
-  watch_ota:
-    alias: TV Watch Over The Air
-    sequence:
-      - service: remote.turn_on
-        data:
-          activity: 31480260
-  watch_plex:
-    alias: TV Watch Plex
-    sequence:
-      - service: remote.turn_on
-        data:
-          activity: 31571897
-  play_switch:
-    alias: TV Play Switch
-    sequence:
-      - service: remote.turn_on
-        data:
-          activity: 31480190
+        data_template:
+          activity: >
+            {% if media_activity == "Cody" or media_activity == "cody" %}
+              31479535
+            {% elif media_activity == "Hulu" or media_activity == "hulu" %}
+              31949557
+            {% elif media_activity == "Sling" or media_activity == "sling" %}
+              31480008
+            {% elif media_activity == "Netflix" or media_activity == "netflix" %}
+              31478989
+            {% elif media_activity == "Amazon" or media_activity == "amazon" %}
+              31480109
+            {% elif media_activity == "Plex" or media_activity == "plex" %}
+              31571897
+            {% elif media_activity == "switch" %}
+              31480190
+            {% elif media_activity == "over_the_air" %}
+              31480260
+            {% endif %} 
   media_off:
     alias: TV Off
     sequence:
@@ -61,10 +42,18 @@
     alias: TV Volume Up
     sequence:
       - service: remote.send_command
-        data:
+        data_template:
           device: 51736886
           command: VolumeUp
           num_repeats: 2
+  alexa_volume_up:
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: 51736886
+          command: VolumeUp
+          num_repeats: >
+            {{ amount }}
   media_volume_down:
     alias: TV Volume Down
     sequence:
@@ -73,6 +62,14 @@
           device: 51736886
           command: VolumeDown
           num_repeats: 2
+  alexa_volume_down:
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: 51736886
+          command: VolumeDown
+          num_repeats: >
+            {{ amount }}
   media_stop:
     alias: TV Stop
     sequence:
@@ -117,6 +114,47 @@
             {% endif %}
           command: Play
           num_repeats: 1
+  media_confirm:
+    alias: TV Confirm
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              51738178
+            {% else %}
+              51736885
+            {% endif %}
+          command: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              Enter
+            {% else %}
+              OK
+            {% endif %}
+          num_repeats: 1
+  media_skip_back:
+    alias: TV Skip Back
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              51738178
+            {% else %}
+              51736885
+            {% endif %}
+          command: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              DirectionLeft
+            {% else %}
+              InstantReplay
+            {% endif %}
+          num_repeats: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              2
+            {% else %}
+              1
+            {% endif %}
   media_input1:
     alias: TV Input Kodi
     sequence:
