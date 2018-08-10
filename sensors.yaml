@@ -13,14 +13,18 @@
       - cloud_cover
       - humidity
       - visibility
-      - temperature_max
-      - temperature_min
+      - temperature_high
+      - temperature_low
 
 # Internet
-  - platform: fastdotcom
+  - platform: speedtest
     minute:
       - 0
       - 30
+    monitored_conditions:
+      - ping
+      - download
+      - upload
 
 # Travel Times
   - platform: google_travel_time
@@ -42,6 +46,11 @@
     name: Home to Portland
     origin: zone.home
     destination: zone.portland
+    api_key: !secret google_api
+  - platform: google_travel_time
+    name: Home to Lincoln City
+    origin: zone.home
+    destination: zone.lincoln_city
     api_key: !secret google_api
 
 # NZB Get
@@ -85,7 +94,7 @@
 
 # Pollen
   - platform: pollen
-    zip_code: 97404
+    zip_code: "97404"
     monitored_conditions:
       - allergy_average_forecasted
       - allergy_average_historical
