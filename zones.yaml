@@ -23,3 +23,7 @@
     longitude: -122.6765
     radius: 25000
     icon: mdi:emoticon-poop
+  - name: Lincoln City
+    latitude: 45.003445
+    longitude: -124.006801
+    radius: 500
