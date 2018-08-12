@@ -3,8 +3,6 @@
       service: script.alexa_volume_up
       data_template:
         amount: '{{ amount | int }}'
-    speech_template:
-      text: !include jason_confirm.yaml
   turntvdownby:
     action:
       service: script.alexa_volume_down
