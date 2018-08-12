@@ -114,3 +114,7 @@ zone: !include zones.yaml
 camera: !include camera.yaml
 
 script: !include scripts.yaml
+
+weather:
+  - platform: darksky
+    api_key: !secret forcastio_api
