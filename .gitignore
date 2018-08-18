@@ -13,3 +13,7 @@ known_devices.yaml
 *.json
 *.log
 *.db
+
+options.xml
+OZW_Log.txt
+pyozw.sqlite
