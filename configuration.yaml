@@ -118,3 +118,6 @@ script: !include scripts.yaml
 weather:
   - platform: darksky
     api_key: !secret forcastio_api
+
+zwave:
+  usb_path: /dev/ttyACM0
