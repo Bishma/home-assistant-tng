@@ -1,3 +1,6 @@
+# THE MOON!!!
+  - platform: moon
+
 # Weather Prediction
   - platform: darksky
     api_key: !secret forcastio_api
