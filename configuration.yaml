@@ -41,21 +41,8 @@ updater:
 # Discover some devices automatically
 #discovery:
 
-device_tracker:
-  - platform: tile
-    username: !secret tile_user
-    password: !secret tile_passwd
-    monitored_variables:
-      - TILE
-      
-remote:
-  - platform: harmony
-    name: Living Room
-    host: 192.168.131.89
-    activity: Watch Kodi
-
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+#conversation:
 
 # Enables support for tracking state changes over time
 history:
@@ -68,16 +55,34 @@ logbook:
 # Enable the HASSIO tab
 hassio:
 
+### --- Above: Stuff that configures HASS     --- ###
+### --- Below: My stuff I'm feeding into HASS --- ###
+
 # Enable Hass for custom intents
 alexa:
 intent_script: !include intent_scripts.yaml
 
-# Track the sun
-sun:
+automation: !include automations.yaml
+
+camera: !include camera.yaml
+
+device_tracker:
+  - platform: tile
+    username: !secret tile_user
+    password: !secret tile_passwd
+    monitored_variables:
+      - TILE
 
 # thermostat
 ecobee:
   api_key: !secret ecobee_api
+ 
+group: !include groups.yaml
+  
+# A lights... except the lights that are controlled by sensors
+light: !include lights.yaml
+
+media_player: !include media_players.yaml
 
 # Netatmo
 netatmo:
@@ -85,22 +90,24 @@ netatmo:
   secret_key: !secret netatmo_secret
   username: !secret netatmo_user
   password: !secret netatmo_passwd
+      
+remote:
+  - platform: harmony
+    name: Living Room
+    host: 192.168.131.89
+    activity: Watch Kodi
 
 ring:
   username: !secret ring_user
   password: !secret ring_passwd
 
-automation: !include automations.yaml
- 
-group: !include groups.yaml
-
-media_player: !include media_players.yaml
-  
-# A lights... except the lights that are controlled by sensors
-light: !include lights.yaml
+script: !include scripts.yaml
 
 # Sensors and API interfaces
 sensor: !include sensors.yaml
+
+# Track the sun
+sun:
 
 # Switches
 switch: !include switches.yaml
@@ -109,15 +116,11 @@ switch: !include switches.yaml
 tts:
   - platform: google
 
-zone: !include zones.yaml
-
-camera: !include camera.yaml
-
-script: !include scripts.yaml
-
 weather:
   - platform: darksky
     api_key: !secret forcastio_api
+
+zone: !include zones.yaml
 
 zwave:
   usb_path: /dev/ttyACM0
