@@ -66,6 +66,8 @@ automation: !include automations.yaml
 
 camera: !include camera.yaml
 
+cloud:
+
 device_tracker:
   - platform: tile
     username: !secret tile_user
@@ -90,6 +92,11 @@ netatmo:
   secret_key: !secret netatmo_secret
   username: !secret netatmo_user
   password: !secret netatmo_passwd
+
+notify:
+  - name: General
+    platform: telegram
+    chat_id: !secret telegram_chat_id_1
       
 remote:
   - platform: harmony
@@ -112,6 +119,13 @@ sun:
 # Switches
 switch: !include switches.yaml
 
+# Telegram Platform for use with notifications
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id_1
+
 # Text to speech
 tts:
   - platform: google
@@ -119,6 +133,7 @@ tts:
 weather:
   - platform: darksky
     api_key: !secret forcastio_api
+  - platform: yweather
 
 zone: !include zones.yaml
 
