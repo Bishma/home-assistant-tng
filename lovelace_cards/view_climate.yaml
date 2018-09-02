@@ -1,0 +1,39 @@
+- type: vertical-stack
+  cards:
+    - type: horizontal-stack
+      cards:
+      - type: weather-forecast
+        title: Forcast
+        entity: weather.yweather
+      - type: entities
+        title: Illness
+        entities:
+          - sensor.allergy_index_forecasted_average
+          - type: custom:entity-attributes-card
+            entity: sensor.allergy_index_forecasted_average
+            filter:
+              include:
+                - sensor.allergy_index_forecasted_average.outlook
+                - sensor.allergy_index_forecasted_average.season
+                - sensor.allergy_index_forecasted_average.trend
+          - sensor.cold__flu_forecasted_average
+    - type: horizontal-stack
+      cards:
+        - type: iframe
+          url: https://embed.windy.com/embed2.html?lat=44.410&lon=-122.701&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.187&detailLon=-122.964&metricWind=mph&metricTemp=default&radarRange=-1
+          aspect_ratio: 50%
+        - type: entities
+          title: Exterior Conditions
+          entities:
+            - entity: sensor.netatmo_outdoor_temperature_2
+              name: Current Temperature
+            - entity: sensor.netatmo_outdoor_humidity_2
+              name: Current Humidity
+            - entity: sensor.dark_sky_cloud_coverage
+            - entity: sensor.dark_sky_precip_probability
+              name: Chance of Precipitation
+            - entity: sensor.dark_sky_wind_speed
+            - entity: sensor.dark_sky_visibility
+            - entity: sensor.moon
+              name: Moon Phase
+            - entity: sun.sun

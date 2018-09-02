@@ -82,6 +82,9 @@
       - [Components](https://www.home-assistant.io/components/)
         + [Alexa Integration](https://www.home-assistant.io/components/alexa/)
       - [Lovelace](https://www.home-assistant.io/lovelace/)
+      - Custom Cards
+        + [Button Cards](https://community.home-assistant.io/t/lovelace-button-card/65981)
+        + [Attribute Cards](https://community.home-assistant.io/t/lovelace-attributes-card-entity-row/59122)
     + Alexa Skill Kit
 
     + Ecobee dev

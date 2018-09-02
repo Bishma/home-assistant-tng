@@ -1,0 +1,94 @@
+- type: vertical-stack
+  cards:
+    - type: entities
+      title: Living Room
+      entities:
+        - switch.the_sparkle
+        - light.living_room_lamp
+    - type: entities
+      title: Kitchen
+      entities:
+        - light.the_sink_hole
+    - type: entities
+      title: Bedroom
+      entities:
+        - switch.derek_bedroom_lamp
+        - switch.bonnie_bedroom_lamp
+    - type: entities
+      title: Exterior
+      entities:
+        - switch.ge_12720_outdoor_smart_switch_switch
+- type: vertical-stack
+  cards:
+    - type: entities
+      title: Where Are We
+      entities:
+        - device_tracker.tile_keys_derek
+        - device_tracker.tile_bonnies_keys
+    - type: entities
+      entities:
+        - sensor.home_to_idx
+        - sensor.home_to_bend
+        - sensor.home_to_florence
+        - sensor.home_to_portland
+        - sensor.home_to_lincoln_city
+      icon: mdi:power-plug-off
+- type: horizontal-stack
+  title: TV Quick Controls       
+  cards:
+    - type: custom:button-card
+      entity: script.media_pause
+      color: rgb(3, 169, 244)
+      icon: mdi:pause
+    - type: custom:button-card
+      entity: script.media_play
+      color: rgb(3, 169, 244)
+      icon: mdi:play
+    - type: custom:button-card
+      entity: script.media_off
+      color: rgb(3, 169, 244)
+      icon: mdi:power-plug-off
+    - type: custom:button-card
+      entity: script.media_volume_down
+      color: rgb(3, 169, 244)
+      icon: mdi:volume-minus
+    - type: custom:button-card
+      entity: script.media_volume_up
+      color: rgb(3, 169, 244)
+      icon: mdi:volume-plus
+- type: vertical-stack
+  cards:
+    - type: entities
+      entities:
+        - climate.cottage
+    - type: horizontal-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              entity: script.bedtime_ac
+              name: Bedroom
+              icon: mdi:air-conditioner
+              style:
+                - text-transform: none
+                - color: white
+                - background-color: var(--primary-color)
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              entity: script.livingroom_fan_on
+              name: Living Room
+              icon: mdi:fan
+              style:
+                - text-transform: none
+                - color: var(--primary-color)
+                - background-color: white
+            - type: custom:button-card
+              entity: script.livingroom_fan_osc
+              name: Living Room
+              icon: mdi:rotate-3d
+              color: white
+              style:
+                - text-transform: none
+                - color: var(--primary-color)
+                - background-color: white

@@ -1,48 +1,85 @@
+resources:
+  - url: /local/entity-attributes-card.js?v=2
+    type: js
+  - url: /local/button-card.js
+    type: module
+
 title: Yggdrasil
 
 views:
     # Home Tab
   - id: home
     icon: mdi:home-assistant
+    cards: !include lovelace_cards/view_home.yaml
   - id: climate
     icon: mdi:weather-partlycloudy
     panel: true
+    cards: !include lovelace_cards/view_climate.yaml
+  - id: indoors
+    icon: mdi:thermostat
     cards:
-      - type: vertical-stack
-        cards:
-          - type: weather-forecast
-            entity: weather.dark_sky
-          - type: horizontal-stack
-            cards:
-              - type: iframe
-                url: https://embed.windy.com/embed2.html?lat=44.410&lon=-122.701&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.187&detailLon=-122.964&metricWind=mph&metricTemp=default&radarRange=-1
-                aspect_ratio: 50%
-              - type: entities
-                entities:
-                  - sensor.netatmo_outdoor_temperature
-                  - sensor.netatmo_outdoor_humidity
-                  - sensor.netatmo_indoor_temperature
-                  - sensor.netatmo_indoor_humidity
-                  - sensor.netatmo_indoor_co2
-                  - sensor.netatmo_indoor_noise
-                  - sensor.cottage_temperature
-                  - sensor.cottage_humidity
-                  - sensor.dark_sky_cloud_coverage
-                  - sensor.dark_sky_wind_speed
-                  - sensor.dark_sky_visibility
-                  - sun.sun
-              - type: entities
-                entities:
-                  - sensor.allergy_average_forecasted
-                  - sensor.allergy_average_historical
-                  - sensor.allergy_index_today
-                  - sensor.allergy_index_tomorrow
-                  - sensor.allergy_index_yesterday
-                  - sensor.disease_average_forecasted
-  - id: documentation
-    icon: mdi:file-document
-    cards: !include lovelace_cards/view_documentation.yaml
+      - type: history-graph
+        title: Temperature
+        entities:
+          - entity: sensor.netatmo_indoor_temperature_2
+            name: Living Room Temp.
+          - entity: sensor.netatmo_outdoor_temperature_2
+            name: Outdoor Temp.
   - id: cameras
     icon: mdi:cctv
   - id: media
     icon: mdi:youtube-tv
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                action: more_info
+                entity: sensor.living_room_remote_state
+                icon: mdi:information-outline
+              - type: custom:button-card
+                entity: script.media_up_arrow
+                icon: mdi:arrow-up-bold-outline
+              - type: custom:button-card
+                entity: script.media_page_up
+                icon: mdi:chevron-double-up
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.media_arrow_left
+                icon: mdi:arrow-left-bold-outline
+              - type: custom:button-card
+                entity: script.media_confirm
+                name: OK
+              - type: custom:button-card
+                entity: script.media_arrow_right
+                icon: mdi:arrow-right-bold-outline
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: General Automations
+            entities:
+              - entity: automation.temperatures_equal
+                name: Equal Temp. Notification
+          - type: entities
+            title: Occupied Automations
+            entities:
+              - entity:  automation.predusk_tasks
+                name: Pre-Dusk Lights Auto-On
+              - entity: automation.back_porch_off
+                name: Back Porch Auto-Off
+              - entity: automation.sleep_cool
+                name: Bedroom AC Cool
+          - type: entities
+            title: Unoccupied Automations
+            entities:
+              - entity: automation.away_morning
+                name: Away Morning Lights
+              - entity: automation.away_evening
+                name: Away Evening Lights
+              - entity: automation.away_night
+                name: Away Night Lights
+  - id: documentation
+    icon: mdi:file-document
+    cards: !include lovelace_cards/view_documentation.yaml
