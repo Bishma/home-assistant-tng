@@ -1,13 +1,3 @@
-- id: bed_lamp_dusk_on
-  alias: Dusk on
-  trigger:
-  - event: sunset
-    offset: +00:15:00
-    platform: sun
-  action:
-  - entity_id: switch.derek_bedroom_lamp
-    service: switch.turn_on
-  initial_state: true
 - id: '1532278514912'
   alias: Sleep Cool
   trigger:
@@ -37,13 +27,13 @@
     data_template:
       message: Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature_2")
         }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity_2")
-        }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_temperature_2")
+        }}%. Outdoor humidity is {{ states("sensor.netatmo_humidity_temperature_2")
         }}%.
 - id: '1535836945192'
-  alias: Back Porch On
+  alias: Pre-Dusk Tasks
   trigger:
   - event: sunset
-    offset: -00:30:00
+    offset: -00:15:00
     platform: sun
   condition:
   - condition: state
@@ -54,8 +44,8 @@
       entity_id: switch.ge_12720_outdoor_smart_switch_switch
     service: switch.turn_on
   - data:
-      message: Back porch turned on.
-    service: notify.general
+      entitiy_id: switch.derek_bedroom_lamp
+    service: switch.turn_on
 - id: '1535837544489'
   alias: Back Porch Off
   trigger:
@@ -66,6 +56,65 @@
   - data:
       entity_id: switch.ge_12720_outdoor_smart_switch_switch
     service: switch.turn_off
+- id: '1535920489195'
+  alias: Away Morning
+  trigger:
+  - event: sunrise
+    offset: -00:10:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: sensor.home_empty
+    state: 'true'
+  action:
   - data:
-      message: Back porch turned off.
-    service: notify.general
+      data:
+        brightness: 20
+      entity_id: light.living_room_lamp
+    service: light.turn_on
+  - data:
+      data:
+        brightness: 100
+      entity_id: light.the_sink_hole
+    service: light.turn_on
+- id: '1535920745991'
+  alias: Away Evening
+  trigger:
+  - event: sunset
+    offset: -00:45:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: sensor.home_empty
+    state: 'true'
+  action:
+  - data:
+      data:
+        brightness: 100
+      entity_id: light.living_room_lamp
+    service: light.turn_on
+  - data:
+      entitiy_id: switch.derek_bedroom_lamp
+    service: switch.turn_on
+- id: '1535921022697'
+  alias: Away Night
+  trigger:
+  - at: '21:46'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: sensor.home_empty
+    state: 'true'
+  action:
+  - data:
+      entity_id: light.living_room_lamp
+    service: light.turn_off
+  - data:
+      data:
+        brightness: 2
+      entity_id: light.the_sink_hole
+    service: camera.turn_on
+  - delay: 22 minutes
+  - data:
+      entitiy_id: switch.derek_bedroom_lamp
+    service: switch.turn_off
