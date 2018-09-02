@@ -167,15 +167,6 @@
   media_off:
     alias: TV Off
     sequence:
-      - service: remote.send_command
-        data_template:
-          device: >
-            {% if states.remote.living_room.attribures.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736886
-            {% endif %}
-    sequence:
       - service: remote.turn_on
         data:
           activity: -1
