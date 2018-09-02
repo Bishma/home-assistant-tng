@@ -59,7 +59,7 @@
 - id: '1535837544489'
   alias: Back Porch Off
   trigger:
-  - at: '22:00'
+  - at: '21:00'
     platform: time
   condition: []
   action:
