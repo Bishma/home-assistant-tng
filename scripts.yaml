@@ -11,21 +11,24 @@
   livingroom_fan_on:
     alias: Living Room Fan Power
     sequence:
-        - service: remote.turn_on
+        - service: remote.send_command
           data:
-            activity: PowerToggle
+            device: 55184762
+            command: PowerToggle
   livingroom_fan_osc:
     alias: Living Room Fan Oscillate
     sequence:
-        - service: remote.turn_on
+        - service: remote.send_command
           data:
-            activity: Oscillation
+            device: 55184762
+            command: Oscillation
   livingroom_fan_speed:
     alias: Living Room Fan Speed
     sequence:
-        - service: remote.turn_on
+        - service: remote.send_command
           data:
-            activity: FanSpeed        
+            device: 55184762
+            command: FanSpeed        
   # Harmony Hub
   watch_activity:
     alias: Switch Activity
