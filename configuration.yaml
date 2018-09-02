@@ -66,7 +66,15 @@ automation: !include automations.yaml
 
 camera: !include camera.yaml
 
+# Allows for direct on/off control through alexa w/o having to invoce my custom skill
 cloud:
+  alexa:
+    filter:
+      include_entities:
+        - switch.ge_12720_outdoor_smart_switch_switch
+    entity_config:
+      switch.ge_12720_outdoor_smart_switch_switch:
+        name: Back Porch
 
 device_tracker:
   - platform: tile
