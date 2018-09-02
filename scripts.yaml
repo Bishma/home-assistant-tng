@@ -8,6 +8,24 @@
             - JgBgAAABJJUTEREUEBQTNxMRExIQFBEUEzYTERE5ExEROBM3EzYQORE4ERQQFBEUEDkRFBAUERQQFBE4EjYTNhIUETkQORA5EAAFOQABIk0RAAxBAAEiShIADEEAASFLEwANBQAAAAAAAAAA
             - JgBQAAABJ5MTEhISExISNxITEhISExISEjgSEhI3ExISNxI3EjcTNxI3EhMSEhI3ExISEhMSEhITEhI3EzcTERI3EzcSNxM2EwAFNwABJEoTAA0FAAAAAAAAAAA=
             - JgBgAAABIJYTERAVExETNhMSEBQTEhMREzcTERM2ExIQORM2EzYTNxE4EzYTNhM2ExITERQRExERFBAUFBETERE5EzYTNhE4EwAFNgABIkwTAAw/AAEhTBMADD4AASFMEAANBQAAAAAAAAAA
+  livingroom_fan_on:
+    alias: Living Room Fan Power
+    sequence:
+        - service: remote.turn_on
+          data:
+            activity: PowerToggle
+  livingroom_fan_osc:
+    alias: Living Room Fan Oscillate
+    sequence:
+        - service: remote.turn_on
+          data:
+            activity: Oscillation
+  livingroom_fan_speed:
+    alias: Living Room Fan Speed
+    sequence:
+        - service: remote.turn_on
+          data:
+            activity: FanSpeed        
   # Harmony Hub
   watch_activity:
     alias: Switch Activity
