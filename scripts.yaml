@@ -264,6 +264,42 @@
               OK
             {% endif %}
           num_repeats: 1
+  media_context:
+    alias: TV Context
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              51738178
+            {% else %}
+              51736885
+            {% endif %}
+          command: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              c.
+            {% else %}
+              Options*
+            {% endif %}
+          num_repeats: 1
+  media_info:
+    alias: TV Info
+    sequence:
+      - service: remote.send_command
+        data_template:
+          device: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              51738178
+            {% else %}
+              51736885
+            {% endif %}
+          command: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              i.
+            {% else %}
+              Info
+            {% endif %}
+          num_repeats: 1
   media_skip_back:
     alias: TV Skip Back
     sequence:
