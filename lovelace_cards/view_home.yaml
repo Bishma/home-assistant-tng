@@ -33,32 +33,40 @@
         - sensor.home_to_portland
         - sensor.home_to_lincoln_city
       icon: mdi:power-plug-off
-- type: horizontal-stack
-  title: TV Quick Controls       
-  cards:
-    - type: custom:button-card
-      entity: script.media_pause
-      color: rgb(3, 169, 244)
-      icon: mdi:pause
-    - type: custom:button-card
-      entity: script.media_play
-      color: rgb(3, 169, 244)
-      icon: mdi:play
-    - type: custom:button-card
-      entity: script.media_off
-      color: rgb(3, 169, 244)
-      icon: mdi:power-plug-off
-    - type: custom:button-card
-      entity: script.media_volume_down
-      color: rgb(3, 169, 244)
-      icon: mdi:volume-minus
-    - type: custom:button-card
-      entity: script.media_volume_up
-      color: rgb(3, 169, 244)
-      icon: mdi:volume-plus
 - type: vertical-stack
   cards:
     - type: entities
+      title: TV Quick Controls
+      entities:
+        - type: divider
+          style:
+            - display: none
+    - type: horizontal-stack
+      cards:
+        - type: custom:button-card
+          entity: script.media_pause
+          color: rgb(3, 169, 244)
+          icon: mdi:pause
+        - type: custom:button-card
+          entity: script.media_play
+          color: rgb(3, 169, 244)
+          icon: mdi:play
+        - type: custom:button-card
+          entity: script.media_off
+          color: rgb(3, 169, 244)
+          icon: mdi:power-plug-off
+        - type: custom:button-card
+          entity: script.media_volume_down
+          color: rgb(3, 169, 244)
+          icon: mdi:volume-minus
+        - type: custom:button-card
+          entity: script.media_volume_up
+          color: rgb(3, 169, 244)
+          icon: mdi:volume-plus
+- type: vertical-stack
+  cards:
+    - type: entities
+      title: Comfort Quick Controls
       entities:
         - climate.cottage
     - type: horizontal-stack
@@ -77,18 +85,9 @@
           cards:
             - type: custom:button-card
               entity: script.livingroom_fan_on
-              name: Living Room
+              name: LR Fan Power
               icon: mdi:fan
-              style:
-                - text-transform: none
-                - color: var(--primary-color)
-                - background-color: white
             - type: custom:button-card
               entity: script.livingroom_fan_osc
-              name: Living Room
+              name: LR Fan Osc.
               icon: mdi:rotate-3d
-              color: white
-              style:
-                - text-transform: none
-                - color: var(--primary-color)
-                - background-color: white

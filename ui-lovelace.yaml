@@ -18,68 +18,72 @@ views:
   - id: indoors
     icon: mdi:thermostat
     cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Living Room
+            entities:
+              - entity: sensor.netatmo_indoor_temperature_2
+                name: Temperature
+                icon: mdi:thermometer
+              - entity:  sensor.netatmo_indoor_humidity_2
+                name: Humidity
+                icon: mdi:water-percent
+              - entity: sensor.netatmo_indoor_pressure_2
+                name: Barametric Pressure
+                icon: mdi:gauge
+              - entity:  sensor.netatmo_indoor_co2_2
+                name: CO2 PPM
+                icon: mdi:periodic-table-co2
+              - entity: sensor.netatmo_indoor_noise_2
+                name: Noise Level
+                icon: mdi:ear-hearing
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.livingroom_fan_on
+                name: Fan Toggle
+                icon: mdi:fan
+              - type: custom:button-card
+                entity: script.livingroom_fan_osc
+                name: Fan Oscillate
+                icon: mdi:rotate-3d
+              - type: custom:button-card
+                entity: script.livingroom_fan_speed
+                name: Fan Speed
+                icon: mdi:speedometer
+      - type: entities
+        title: Hallway
+        entities:
+          - entity: sensor.cottage_temperature
+            name: Temperature
+            icon: mdi:thermometer
+          - entity: sensor.cottage_humidity
+            name: Humidity
+            icon: mdi:water-percent
+          - entity: climate.cottage
       - type: history-graph
-        title: Temperature
+        title: Temperature (Last 12 Hours)
+        hours_to_show: 12
         entities:
           - entity: sensor.netatmo_indoor_temperature_2
             name: Living Room Temp.
           - entity: sensor.netatmo_outdoor_temperature_2
             name: Outdoor Temp.
+      - type: entities
+        title: Netatmo Status
+        entities:
+          - entity: sensor.netatmo_indoor_wifi_2
+            name: Indoor Connection Strength
+          - entity: sensor.netatmo_outdoor_radio_2
+            name: Outdoor Connection Strength
+          - entity: sensor.netatmo_outdoor_battery_2
+            name: Outdoor Battery Level
   - id: cameras
     icon: mdi:cctv
   - id: media
     icon: mdi:youtube-tv
-    cards:
-      - type: vertical-stack
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                action: more_info
-                entity: sensor.living_room_remote_state
-                icon: mdi:information-outline
-              - type: custom:button-card
-                entity: script.media_up_arrow
-                icon: mdi:arrow-up-bold-outline
-              - type: custom:button-card
-                entity: script.media_page_up
-                icon: mdi:chevron-double-up
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                entity: script.media_arrow_left
-                icon: mdi:arrow-left-bold-outline
-              - type: custom:button-card
-                entity: script.media_confirm
-                name: OK
-              - type: custom:button-card
-                entity: script.media_arrow_right
-                icon: mdi:arrow-right-bold-outline
-      - type: vertical-stack
-        cards:
-          - type: entities
-            title: General Automations
-            entities:
-              - entity: automation.temperatures_equal
-                name: Equal Temp. Notification
-          - type: entities
-            title: Occupied Automations
-            entities:
-              - entity:  automation.predusk_tasks
-                name: Pre-Dusk Lights Auto-On
-              - entity: automation.back_porch_off
-                name: Back Porch Auto-Off
-              - entity: automation.sleep_cool
-                name: Bedroom AC Cool
-          - type: entities
-            title: Unoccupied Automations
-            entities:
-              - entity: automation.away_morning
-                name: Away Morning Lights
-              - entity: automation.away_evening
-                name: Away Evening Lights
-              - entity: automation.away_night
-                name: Away Night Lights
+    cards: !include lovelace_cards/view_media.yaml
   - id: documentation
     icon: mdi:file-document
     cards: !include lovelace_cards/view_documentation.yaml
