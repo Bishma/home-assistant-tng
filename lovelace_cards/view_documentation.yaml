@@ -95,14 +95,14 @@
   content: >
     # Todo List
 
-    + Documentation
+    + Camera Tab
 
-    + Home Tab
+    + Conditional UI for when TV is on Over the Air (need channels)
 
-    + Weather UI
+    + Set up IR sequence that turns the bedroom ac unit to fan only
+
+      + Add UI and automations
     
-    + Cameras
-    
-    + Media Center UI
+    + Input switching controls for media center
 
-    + Style
+    + Network tab
