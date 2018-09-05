@@ -30,31 +30,51 @@
       - upload
 
 # Travel Times
-  - platform: google_travel_time
+  - platform: waze_travel_time
     name: Home to IDX
     origin: zone.home
     destination: zone.idx
-    api_key: !secret google_api
-  - platform: google_travel_time
+    region: 'US'
+  - platform: waze_travel_time
     name: Home to Bend
     origin: zone.home
     destination: zone.bend
-    api_key: !secret google_api
-  - platform: google_travel_time
+    region: 'US'
+  - platform: waze_travel_time
     name: Home to Florence
     origin: zone.home
     destination: zone.florence
-    api_key: !secret google_api
-  - platform: google_travel_time
+    region: 'US'
+  - platform: waze_travel_time
     name: Home to Portland
     origin: zone.home
     destination: zone.portland
-    api_key: !secret google_api
-  - platform: google_travel_time
+    region: 'US'
+  - platform: waze_travel_time
     name: Home to Lincoln City
     origin: zone.home
     destination: zone.lincoln_city
-    api_key: !secret google_api
+    region: 'US'
+#  - platform: google_travel_time
+#    name: Home to Bend
+#    origin: zone.home
+#    destination: zone.bend
+#    api_key: !secret google_api
+#  - platform: google_travel_time
+#    name: Home to Florence
+#    origin: zone.home
+#    destination: zone.florence
+#    api_key: !secret google_api
+#  - platform: google_travel_time
+#    name: Home to Portland
+#    origin: zone.home
+#    destination: zone.portland
+#    api_key: !secret google_api
+#  - platform: google_travel_time
+#    name: Home to Lincoln City
+#    origin: zone.home
+#    destination: zone.lincoln_city
+#    api_key: !secret google_api
 
 # NZB Get
   - platform: nzbget
