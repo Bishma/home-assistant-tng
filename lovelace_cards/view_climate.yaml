@@ -5,23 +5,27 @@
       - type: weather-forecast
         title: Forcast
         entity: weather.yweather
-      - type: entities
-        title: Illness
-        entities:
-          - sensor.allergy_index_forecasted_average
-          - type: custom:entity-attributes-card
-            entity: sensor.allergy_index_forecasted_average
-            filter:
-              include:
-                - sensor.allergy_index_forecasted_average.outlook
-                - sensor.allergy_index_forecasted_average.season
-                - sensor.allergy_index_forecasted_average.trend
-          - sensor.cold__flu_forecasted_average
+      - type: iframe
+        url: https://embed.windy.com/embed2.html?lat=44.410&lon=-122.701&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.187&detailLon=-122.964&metricWind=mph&metricTemp=default&radarRange=-1
+        aspect_ratio: 37%
     - type: horizontal-stack
       cards:
-        - type: iframe
-          url: https://embed.windy.com/embed2.html?lat=44.410&lon=-122.701&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.187&detailLon=-122.964&metricWind=mph&metricTemp=default&radarRange=-1
-          aspect_ratio: 50%
+        - type: entities
+          title: Illness
+          entities:
+            - entity: sensor.allergy_index_forecasted_average
+              name: Allergy Index Forcase
+            - entity: sensor.allergy_index_forecasted_average
+              type: custom:entity-attributes-card
+              filter:
+                include:
+                  - sensor.allergy_index_forecasted_average.outlook
+                  - sensor.allergy_index_forecasted_average.season
+                  - sensor.allergy_index_forecasted_average.trend
+            - entity: sensor.cold__flu_forecasted_average
+              name: Cold/Flu Index Average
+            - entity: sensor.waqi_eugene__highway_99_oregon_usa
+              name: Air Quality Index
         - type: entities
           title: Exterior Conditions
           entities:
