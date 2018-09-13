@@ -125,6 +125,12 @@
       - allergy_index_tomorrow
       - allergy_index_yesterday
       - disease_average_forecasted
+
+# Air Quality
+  - platform: waqi
+    token: 4c430aede0b393e4baa425b9ca43dd5c9afa29df
+    locations:
+      - eugene
         
 # simple bool for decided if the house is empty of residents
   - platform: template
