@@ -81,6 +81,8 @@ views:
             name: Outdoor Battery Level
   - id: cameras
     icon: mdi:cctv
+  - id: network
+    icon: mdi:nas
   - id: media
     icon: mdi:youtube-tv
     cards: !include lovelace_cards/view_media.yaml
