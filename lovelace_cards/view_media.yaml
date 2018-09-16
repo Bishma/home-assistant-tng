@@ -215,7 +215,7 @@
   - type: conditional
     conditions:
       - entity: sensor.living_room_remote_state
-        state: "Watch Kodi"
+        state: "Watch OTA"
     card:
       type: entities
       title: OTA Tools
