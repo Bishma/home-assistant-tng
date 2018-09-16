@@ -85,8 +85,10 @@
       - Custom Cards
         + [Button Cards](https://community.home-assistant.io/t/lovelace-button-card/65981)
         + [Attribute Cards](https://community.home-assistant.io/t/lovelace-attributes-card-entity-row/59122)
-    + Alexa Skill Kit
-
+    + [Alexa Web App](https://alexa.amazon.com/spa/index.html#cards)
+    
+    + [Alexa Skill Kit](https://developer.amazon.com/alexa/console/ask)
+      - Our Skill is "hass.1"
     + Ecobee dev
 
     + VPN
@@ -97,12 +99,8 @@
 
     + Camera Tab
 
-    + Conditional UI for when TV is on Over the Air (need channels)
-
     + Set up IR sequence that turns the bedroom ac unit to fan only
 
       + Add UI and automations
     
-    + Input switching controls for media center
-
-    + Network tab
+    + Upcoming Events on home tab
