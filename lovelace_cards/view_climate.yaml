@@ -2,12 +2,23 @@
   cards:
     - type: horizontal-stack
       cards:
-      - type: weather-forecast
-        title: Forcast
-        entity: weather.yweather
-      - type: iframe
-        url: https://embed.windy.com/embed2.html?lat=44.410&lon=-122.701&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.187&detailLon=-122.964&metricWind=mph&metricTemp=default&radarRange=-1
-        aspect_ratio: 37%
+        - type: vertical-stack
+          cards:
+            - type: weather-forecast
+              title: Forcast
+              entity: weather.yweather
+            - type: horizontal-stack
+              cards:
+                - type: entities
+                  entities:
+                    - entity: sun.sun
+                - type: entities
+                  entities:
+                    - entity: sensor.moon
+                      name: Moon Phase
+        - type: iframe
+          url: https://embed.windy.com/embed2.html?lat=44.410&lon=-122.701&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.187&detailLon=-122.964&metricWind=mph&metricTemp=default&radarRange=-1
+          aspect_ratio: 40%
     - type: horizontal-stack
       cards:
         - type: entities
@@ -38,6 +49,3 @@
               name: Chance of Precipitation
             - entity: sensor.dark_sky_wind_speed
             - entity: sensor.dark_sky_visibility
-            - entity: sensor.moon
-              name: Moon Phase
-            - entity: sun.sun
