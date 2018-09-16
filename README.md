@@ -15,6 +15,9 @@ After Home Assistant started adding in-app config editors that required a certai
   * "Alexa ask home assistant to turn the tv up by 5"
 * Presence detection using Tile trackers.
   * Sensor template to indicate when the house is empty.
+* Custom Button Card from [kuuji/button-card](https://github.com/kuuji/button-card)
+* Custom Attribute Card from [ciotlosm/custom-lovelace](https://github.com/ciotlosm/custom-lovelace)
+* IFrame-able weather map from [windy.com](https://www.windy.com/) 
 
 ## Screen Shots
 
