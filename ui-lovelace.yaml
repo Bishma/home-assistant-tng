@@ -20,6 +20,7 @@ views:
     cards: !include lovelace_cards/view_indoor-climate.yaml
   - id: cameras
     icon: mdi:cctv
+    cards: !include lovelace_cards/view_camer.yaml
   - id: network
     icon: mdi:nas
     cards:
