@@ -1,0 +1,6 @@
+- type: picture-entity
+  entity: camera.front_door
+- type: picture
+  image: https://www.tripcheck.com/roadcams/cams/Eugene%20River%20Ave._pid2539.JPG
+- type: picture
+  image: http://70.102.97.236/cameras/video2.jpg
