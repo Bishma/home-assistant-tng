@@ -134,10 +134,6 @@ telegram_bot:
     allowed_chat_ids:
       - !secret telegram_chat_id_1
 
-# Text to speech
-tts:
-  - platform: google
-
 weather:
   - platform: darksky
     api_key: !secret forcastio_api

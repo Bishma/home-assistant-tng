@@ -55,26 +55,6 @@
     origin: zone.home
     destination: zone.lincoln_city
     region: 'US'
-#  - platform: google_travel_time
-#    name: Home to Bend
-#    origin: zone.home
-#    destination: zone.bend
-#    api_key: !secret google_api
-#  - platform: google_travel_time
-#    name: Home to Florence
-#    origin: zone.home
-#    destination: zone.florence
-#    api_key: !secret google_api
-#  - platform: google_travel_time
-#    name: Home to Portland
-#    origin: zone.home
-#    destination: zone.portland
-#    api_key: !secret google_api
-#  - platform: google_travel_time
-#    name: Home to Lincoln City
-#    origin: zone.home
-#    destination: zone.lincoln_city
-#    api_key: !secret google_api
 
 # NZB Get
   - platform: nzbget
@@ -89,24 +69,6 @@
       - free_disk_space
       - remaining_size
       - uptime
-
-# Synology NAS
-  - platform: synologydsm
-    host: 192.168.131.2
-    port: 5000
-    username: !secret nas_user
-    password: !secret nas_passwd
-    monitored_conditions:
-      - cpu_total_load
-      - network_up
-      - network_down
-      - disk_smart_status
-      - disk_status
-      - disk_temp
-      - volume_status
-      - volume_size_total
-      - volume_percentage_used
-      - volume_disk_temp_avg
       
 # Harmony
   - platform: template
