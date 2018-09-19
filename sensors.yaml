@@ -1,6 +1,9 @@
 # THE MOON!!!
   - platform: moon
 
+# Ring Doorbell
+  - platform: ring
+
 # Weather Prediction
   - platform: darksky
     api_key: !secret forcastio_api
@@ -28,6 +31,21 @@
       - ping
       - download
       - upload
+
+# Synology DSM
+  - platform: synologydsm
+    host: 192.168.131.2
+    username: !secret nas_user
+    password: !secret nas_passwd
+    monitored_conditions:
+      - cpu_total_load
+      - cpu_1min_load
+      - cpu_5min_load
+      - memory_real_usage
+      - network_up
+      - network_down
+      - disk_status
+      - volume_percentage_used
 
 # Travel Times
   - platform: waze_travel_time
