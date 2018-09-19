@@ -20,35 +20,10 @@ views:
     cards: !include lovelace_cards/view_indoor-climate.yaml
   - id: cameras
     icon: mdi:cctv
-    cards: !include lovelace_cards/view_camer.yaml
+    cards: !include lovelace_cards/view_camera.yaml
   - id: network
     icon: mdi:nas
-    cards:
-      - type: history-graph
-        title: Speedtest.net (Last 12 Hours)
-        hours_to_show: 12
-        entities:
-          - entity: sensor.speedtest_download
-            name: Download Speed
-          - entity: sensor.speedtest_upload
-            name: Upload Speed
-          - entity: sensor.speedtest_ping
-            name: ICMP Ping the Corvallis
-      - type: entities
-        title: Downloads
-        entities:
-          - entity: sensor.nzbget_average_speed
-            name: Average Speed
-          - entity: sensor.nzbget_queue_size
-            name: Download Queue Size
-          - entity: sensor.nzbget_speed
-            name: Current Speed
-          - entity: sensor.nzbget_disk_free
-            name: Free Disk Space
-          - entity: sensor.nzbget_download_paused
-            name: Downloading Paused
-          - entity: sensor.nzbget_uptime
-            name: Uptime
+    cards: !include lovelace_cards/view_network.yaml
   - id: media
     icon: mdi:youtube-tv
     cards: !include lovelace_cards/view_media.yaml
