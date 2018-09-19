@@ -24,7 +24,7 @@
       1. Set living room lamp ro 100% brightness
     + Shut It Down
       1. Turn off living room lamp
-      1. Turn off living room light strip. A.K.A. "The SParkle"
+      1. Turn off living room light strip. A.K.A. "The Sparkle"
 
     ## Jason
 
@@ -52,27 +52,15 @@
     # Harmony
 - type: markdown
   content: >
-    # Links
+    # Our Services
 
-    ## Our Network
+    + [Tile](https://www.thetileapp.com/en-us/dashboard/account)
 
-    + [Plex](https://app.plex.tv)
+    + [Ecobee](https://www.ecobee.com/consumerportal/index.html#/login)
 
-    + [Heimdall](http://192.168.131.2:5000/index.cgi)
-    
-    + [Downloads](http://192.168.131.2:6789/)
+    + [Netatmo](https://my.netatmo.com/app/station)
 
-    ---
-
-    ## Our Services
-
-    + Tile
-
-    + Ecobee
-
-    + Netatmo
-
-    + Ring
+    + [Ring](https://ring.com/account)
 
 - type: markdown
   content: >
@@ -96,8 +84,6 @@
 - type: markdown
   content: >
     # Todo List
-
-    + Camera Tab
 
     + Set up IR sequence that turns the bedroom ac unit to fan only
 
