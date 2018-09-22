@@ -79,4 +79,4 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 
 The Next Generation: In 2017 in app config editors started to become available. When it was clear that I'd have to rework how I have split up my cofigs to make them work I decided to just start over from scratch.
 
-The old conig is [here](https://github.com/Bishma/homeassistant). Yes, if I ever start over again the new repo will be ds9.
+The old config is [here](https://github.com/Bishma/homeassistant). Yes, if I ever start over again the new repo will be ds9.
