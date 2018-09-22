@@ -50,17 +50,36 @@
 - type: markdown
   content: >
     # Harmony
+
+    The "living room" harmony hub controls the media center and the living room fan. Controls in home assistant are accompished throught remote.turn_on and remote.send_command.
+
+    The media center consists of
+
+    + Visio TV
+    + HTPC
+      - Kodi is what's controlled via Harmony
+    + Roku
+      - Amazon Video
+      - Hulu
+      - Netflix
+      - Plex
+      - Youtube
+    + Nintendo Switch
+      - Just switching to the correct TV input
+    + Over The Air
 - type: markdown
   content: >
     # Our Services
 
     + [Tile](https://www.thetileapp.com/en-us/dashboard/account)
-
+      - Used in presense detection automations. Different light schedules if we're away.
     + [Ecobee](https://www.ecobee.com/consumerportal/index.html#/login)
-
+      - Mainly used as a sensor.
     + [Netatmo](https://my.netatmo.com/app/station)
-
+      - 1 indoor module in living room
+      - 1 outdoor module on porch on opposite corner of the house.
     + [Ring](https://ring.com/account)
+      - 1 doorbell
 
 - type: markdown
   content: >
@@ -79,14 +98,24 @@
       - Our Skill is "hass.1"
     + Ecobee dev
 
-    + VPN
-
 - type: markdown
   content: >
     # Todo List
 
-    + Set up IR sequence that turns the bedroom ac unit to fan only
+    + Rebuild outdoor climate lovelace tab so it's phone friendly.
 
+    + Set up IR sequence that turns the bedroom ac unit to fan only
       + Add UI and automations
-    
     + Automation that sends telegram message is disk status not normal
+
+    + Hide the media controls when Switch is active or when the system is off.
+
+    + TorqueODB2
+
+    + Themes
+      - Scripted?
+    + Integration with Synology Surveillance Station
+    
+    + Make use of lovelace notification drawer
+
+    + Floorplan
