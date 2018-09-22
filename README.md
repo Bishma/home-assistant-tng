@@ -1,12 +1,12 @@
-# Home Assistant
+# Home Assistant Config by Bishma
 
 ![Universal remote phone view](screenshots/mobile_media.png)
 
-I have been work to automate my home as much as my 50 year old wiring allows. I aim to accomplish all my automations with a RaspPi, no other hubs apart from the usb z-wave stick. This has been a slow evolutionary config.
+I have been working to automate my home as much as my 50 year old wiring allows. I aim to accomplish all my automations with a RaspPi, no other hubs apart from the usb z-wave stick. This has been a slowly evolving config.
 
 # Features
 
-* Meant for default lovelace.
+* I've gone to default Lovelace.
   * My legacy config is still in place but far less capable.
 * Fully managed for all my sensors and devices. No auto discovery.
 * Universal remote for my media center.
@@ -23,13 +23,12 @@ I have been work to automate my home as much as my 50 year old wiring allows. I 
 
 ## Screen Shots
 
-* [Home Tab](screenshots/view_home.png)
-* [Climate Tab](screenshots/view_climate.png)
-* [Indoor Climate Tab](screenshots/view_ndoor-climate.png)
-* [Camera Tab](screenshots/view_camera.png)
-* [Network Tab](screenshots/view_network.png)
-* [Media Center Tab](screenshots/view_media.gif)
-
+![Home Tab](screenshots/view_home.png | width=250)
+![Climate Tab](screenshots/view_climate.png | width=250)
+![Indoor Climate Tab](screenshots/view_ndoor-climate.png | width=250)
+![Camera Tab](screenshots/view_camera.png | width=250)
+![Network Tab](screenshots/view_network.png | width=250)
+![Media Center Tab](screenshots/view_media.gif | width=250)
 # My Setup
 
 ## Hardware
