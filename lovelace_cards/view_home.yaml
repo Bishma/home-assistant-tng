@@ -33,6 +33,8 @@
         - sensor.home_to_portland
         - sensor.home_to_lincoln_city
       icon: mdi:power-plug-off
+- type: picture-entity
+  entity: camera.front_door
 - type: vertical-stack
   cards:
     - type: entities
