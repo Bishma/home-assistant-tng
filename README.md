@@ -1,6 +1,6 @@
 # Home Assistant
 
-![Universal remote phone view](/screenshots/mobile_media.gif)
+![Universal remote phone view](screenshots/mobile_media.png)
 
 I have been work to automate my home as much as my 50 year old wiring allows. I aim to accomplish all my automations with a RaspPi, no other hubs apart from the usb z-wave stick. This has been a slow evolutionary config.
 
