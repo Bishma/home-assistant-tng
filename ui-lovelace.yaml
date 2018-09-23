@@ -1,6 +1,8 @@
 resources:
   - url: /local/entity-attributes-card.js?v=2
     type: js
+  - url: /local/slider-entity-row.js
+    type: js
   - url: /local/button-card.js
     type: module
 
@@ -13,7 +15,6 @@ views:
     cards: !include lovelace_cards/view_home.yaml
   - id: climate
     icon: mdi:weather-partlycloudy
-    panel: true
     cards: !include lovelace_cards/view_climate.yaml
   - id: indoors
     icon: mdi:thermostat

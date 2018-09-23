@@ -3,12 +3,14 @@
     - type: entities
       title: Living Room
       entities:
-        - switch.the_sparkle
-        - light.living_room_lamp
+        - entity: switch.the_sparkle
+        - entity: light.living_room_lamp
+          type: custom:slider-entity-row
     - type: entities
       title: Kitchen
       entities:
-        - light.the_sink_hole
+        - entity: light.the_sink_hole
+          type: custom:slider-entity-row
     - type: entities
       title: Bedroom
       entities:

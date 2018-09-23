@@ -19,6 +19,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Documentation tab in the app through markdown cards
 * Custom Button Card from [kuuji/button-card](https://github.com/kuuji/button-card)
 * Custom Attribute Card from [ciotlosm/custom-lovelace](https://github.com/ciotlosm/custom-lovelace)
+* Cutom Slider Entity Card from [thomasloven/lovelace-slider-entity-row](https://github.com/thomasloven/lovelace-slider-entity-row)
 * IFrame-able weather map from [windy.com](https://www.windy.com/)
 
 ## Screen Shots
