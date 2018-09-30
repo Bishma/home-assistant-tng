@@ -20,12 +20,13 @@
       | int %}true{% endif %}'
   condition: []
   action:
-    service: notify.general
-    data_template:
+  - data_template:
       message: Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature_2")
         }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity_2")
         }}%. Outdoor humidity is {{ states("sensor.netatmo_humidity_temperature_2")
         }}%.
+    service: notify.general
+  - delay: 02:30:00
 - id: '1535836945192'
   alias: Pre-Dusk Tasks
   trigger:
