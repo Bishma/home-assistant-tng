@@ -24,12 +24,12 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 
 ## Screen Shots
 
-* [Home Tab](screenshots/view_home.png)
-* [Climate Tab](screenshots/view_climate.png)
-* [Indoor Climate Tab](screenshots/view_ndoor-climate.png)
-* [Camera Tab](screenshots/view_camera.png)
-* [Network Tab](screenshots/view_network.png)
-* [Media Center Tab](screenshots/view_media.gif)
+![](screenshots/view_home.png | width=250)
+![](screenshots/view_climate.png | width=250)
+![](screenshots/view_ndoor-climate.png | width=250)
+![](screenshots/view_camera.png | width=250)
+![](screenshots/view_network.png | width=250)
+![](screenshots/view_media.gif | width=250)
 
 # My Setup
 
@@ -63,6 +63,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Dask Sky and Yahoo Weather
 * Speedtest.net
 * Waze Travel Time
+* Lyft and Uber
 * Windy.com
 
 # This Repo
