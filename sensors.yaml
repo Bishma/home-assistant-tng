@@ -111,6 +111,17 @@
     token: 4c430aede0b393e4baa425b9ca43dd5c9afa29df
     locations:
       - eugene
+
+# Lyft and Uber
+  - platform: lyft
+    client_id: !secret lyft_client_id
+    client_secret: !secret lyft_client_secret
+    start_latitude: !secret me_lat
+    start_longitude: !secret me_long
+  - platform: uber
+    server_token: !secret uber_client_id
+    start_latitude: !secret me_lat
+    start_longitude: !secret me_long
         
 # simple bool for decided if the house is empty of residents
   - platform: template
