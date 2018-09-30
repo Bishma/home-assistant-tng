@@ -15,7 +15,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Presence detection using Tile trackers.
   * Sensor template to indicate when the house is empty.
 * On/Off control for Z-Waze through Home Assistant Cloud / Nebu Casa
-  * Mainly to suppost the Home Assisant.
+  * Mainly to suppost the Home Assisant team.
 * Documentation tab in the app through markdown cards
 * Custom Button Card from [kuuji/button-card](https://github.com/kuuji/button-card)
 * Custom Attribute Card from [ciotlosm/custom-lovelace](https://github.com/ciotlosm/custom-lovelace)
