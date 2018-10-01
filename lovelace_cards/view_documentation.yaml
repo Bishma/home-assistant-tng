@@ -37,12 +37,18 @@
       - Amazon
       - Plex
       - Over The Air
-    + Turn the TV
-      - Up by X
-      - Up
-      - Down by X
-      - Down
-      - Off
+    + ____ the TV
+      - **Turn** _the tv_ up by X
+      - **Turn** _the tv_ up
+      - **Turn** _the tv_ down by X
+      - **Turn** _the tv_ down
+      - **Turn** _the tv_ off
+      - **Confirm** _the tv_
+      - **Pause** _the tv_ 
+      - **Play** _the tv_ 
+      - **Stop** _the tv_ 
+    + Skip Back
+
 
     Alexa ask Janet about:
 
