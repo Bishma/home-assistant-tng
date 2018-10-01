@@ -38,7 +38,7 @@
       title: Transport
       entities:
         - entity: sensor.lyft_time
-          name: Lyft Pickup Time (Minutes)
+          name: Lyft Pickup Time
         - entity: sensor.lyft_xl_time
           name: Lyft XL Pickup Time
         - type: divider
