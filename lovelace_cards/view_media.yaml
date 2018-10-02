@@ -142,12 +142,9 @@
           name: Delete
           action_name: Delete
           icon: mdi:trash-can
-          service: remote.send_command
+          service: script.kodi_delete
           service_data:
-            entity_id: remote.living_room
-            num_repeats: 1
-            device: 51738178
-            command: "Delete"
+            entity_id: script.kodi_delete
   - type: conditional
     conditions:
       - entity: sensor.living_room_remote_state
