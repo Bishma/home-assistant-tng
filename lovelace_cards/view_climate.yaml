@@ -22,6 +22,10 @@
       name: Chance of Precipitation
     - entity: sensor.dark_sky_wind_speed
     - entity: sensor.dark_sky_visibility
+    - type: weblink
+      name: Eugene, Or - Weather Underground
+      icon: mdi:link-variant
+      url: https://www.wunderground.com/weather/us/or/eugene
 - type: entities
   title: Illness
   entities:
