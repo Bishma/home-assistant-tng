@@ -111,8 +111,6 @@
   content: >
     # Todo List
 
-    + Rebuild outdoor climate lovelace tab so it's phone friendly.
-
     + Set up IR sequence that turns the bedroom ac unit to fan only
       + Add UI and automations
     + Automation that sends telegram message is disk status not normal
