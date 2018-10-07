@@ -29,3 +29,14 @@
   theweather:
     speech:
       text: "The inside temperature is {{ states('sensor.netatmo_indoor_temperature_2') }} degrees with {{ states('sensor.netatmo_indoor_humidity_2') }} percent humidity. Outside it's {{ states('sensor.netatmo_outdoor_temperature_2') }} degrees and {{ states('sensor.netatmo_outdoor_humidity_2') }} percent humidity."
+  whatitslike:
+    action:
+      # script will set the value in the sensor template below
+      service: script.alexa_weather
+      data_template:
+        locale: '{{ where }}'
+        city: '{{ in_city }}'
+    # Even though this is default, we're going to set it to be sure
+    async_action: false
+    speech:
+      text: "{{ states('sensor.netatmo_indoor_temperature_2') }}" #sensor.last_alexa_weather_request
