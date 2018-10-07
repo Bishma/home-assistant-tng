@@ -23,8 +23,7 @@
   - data_template:
       message: Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature_2")
         }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity_2")
-        }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity_2")
-        }}%.
+        }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity_2") }}%.
     service: notify.general
   - delay: 02:30:00
 - id: '1535836945192'
@@ -111,8 +110,23 @@
       data:
         brightness: 2
       entity_id: light.the_sink_hole
-    service: camera.turn_on
+    service: light.turn_on
   - delay: 22 minutes
   - data:
       entitiy_id: switch.derek_bedroom_lamp
     service: switch.turn_off
+- id: 'weather_alert_doooooom'
+  alias: NWS Notification Weather Alert
+  trigger:
+    platform: state
+    entity_id: sensor.nws_alert_count
+  condition:
+    condition: template
+    value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
+  action:
+  - data_template:
+      message: There has been a change in the weather alert status for our area.
+      
+        {{ state_attr('sensor.nws_alert_event', 'features')[0].properties.headline }}
+        {{ state_attr('sensor.nws_alert_event', 'features')[0].properties.description }}
+    service: notify.general
