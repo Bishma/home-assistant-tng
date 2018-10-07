@@ -21,6 +21,8 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Custom Attribute Card from [ciotlosm/custom-lovelace](https://github.com/ciotlosm/custom-lovelace)
 * Cutom Slider Entity Card from [thomasloven/lovelace-slider-entity-row](https://github.com/thomasloven/lovelace-slider-entity-row)
 * IFrame-able weather map from [windy.com](https://www.windy.com/)
+* US National Weather System Alerts pushed through Telegram
+  * Using NWS API and a rest sensor as demonstrated by [Finity on the HASS Forums](https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853)
 
 ## Screen Shots
 
