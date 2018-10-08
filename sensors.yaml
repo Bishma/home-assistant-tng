@@ -122,13 +122,18 @@
     server_token: !secret uber_client_id
     start_latitude: !secret me_lat
     start_longitude: !secret me_long
-        
-# simple bool for decided if the house is empty of residents
+
   - platform: template
     sensors:
+      # simple bool for decided if the house is empty of residents
       home_empty:
         friendly_name: 'Are Derek and Bonnie Both Gone?'
-        value_template: '{% if is_state("states.device_tracker.tile_keys_derek", "home") or is_state("states.device_tracker.tile_bonnies_keys", "home") %}true{% else %}false{% endif %}'
+        value_template: >
+          {% if is_state("states.device_tracker.tile_keys_derek", "home") or is_state("states.device_tracker.tile_bonnies_keys", "home") %}
+            true
+          {% else %}
+            false
+          {% endif %}
 
 # US Weather Service Emergency Data
 # https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853
