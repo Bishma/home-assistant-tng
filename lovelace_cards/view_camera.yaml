@@ -1,5 +1,9 @@
 - type: picture-entity
   entity: camera.pitz_1
+  show_name: true
+- type: picture-entity
+  entity: camera.pitz_2
+  show_name: true
 - type: vertical-stack
   cards:
   - type: picture-entity
