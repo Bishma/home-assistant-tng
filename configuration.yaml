@@ -88,6 +88,11 @@ ecobee:
   api_key: !secret ecobee_api
  
 group: !include groups.yaml
+
+input_boolean:
+  fan_out:
+    name: Is the stand fan out?
+    icon: mdi:fan
   
 # A lights... except the lights that are controlled by sensors
 light: !include lights.yaml

@@ -782,6 +782,12 @@ views:
             name: Plex Web Player
             url: https://app.plex.tv/desktop
             icon: mdi:link-variant
+      - id: ui_and_automation
+        type: entities
+        title: UI and Automation Controls
+        show_header_toggle: false
+        entities:
+          - entity: input_boolean.fan_out
       - id: 934068fca4db49b4bbc56fd4eb6fa58a  # Automatically created id
         type: vertical-stack
         cards:
