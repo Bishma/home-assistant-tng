@@ -154,11 +154,6 @@
       {% else %}
         0
       {% endif %}
-    #json_attributes:
-    #  - event
-    #  - description
-    #  - instructions
-    #  - expires
     headers:
       User-Agent: Homeassistant
       Accept: application/ld+json
@@ -175,9 +170,6 @@
       {% endif %}
     json_attributes:
       - features
-    #  - description
-    #  - instructions
-    #  - expires
     headers:
       User-Agent: Homeassistant
       Accept: application/geo+json
