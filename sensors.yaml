@@ -50,6 +50,7 @@
       - network_up
       - network_down
       - disk_status
+      - volume_size_used
       - volume_percentage_used
 
 # Travel Times

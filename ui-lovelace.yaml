@@ -12,22 +12,937 @@ views:
     # Home Tab
   - id: home
     icon: mdi:home-assistant
-    cards: !include lovelace_cards/view_home.yaml
+    cards:
+      - id: f9fe7531b8524014a72964f60f326b45  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: entities
+            title: Living Room
+            entities:
+              - entity: switch.the_sparkle
+              - entity: light.living_room_lamp
+                type: custom:slider-entity-row
+          - type: entities
+            title: Kitchen
+            entities:
+              - entity: light.the_sink_hole
+                type: custom:slider-entity-row
+          - type: entities
+            title: Bedroom
+            entities:
+              - switch.derek_bedroom_lamp
+              - switch.bonnie_bedroom_lamp
+          - type: entities
+            title: Exterior
+            entities:
+              - switch.ge_12720_outdoor_smart_switch_switch
+      - id: 69814682132a434dad83aa51013fc334  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: entities
+            title: Where Are We
+            entities:
+              - device_tracker.tile_keys_derek
+              - device_tracker.tile_bonnies_keys
+          - type: entities
+            entities:
+              - sensor.home_to_idx
+              - sensor.home_to_bend
+              - sensor.home_to_florence
+              - sensor.home_to_portland
+              - sensor.home_to_lincoln_city
+          - type: entities
+            title: Transport
+            entities:
+              - entity: sensor.lyft_time
+                name: Lyft Pickup Time
+              - entity: sensor.lyft_xl_time
+                name: Lyft XL Pickup Time
+              - type: divider
+              - entity: sensor.uberx_time
+                name: Uber X Pickup Time
+                icon: mdi:uber
+              - entity: sensor.uberxl_time
+                name: Uber XL Pickup Time
+                icon: mdi:uber
+      - id: 1d36c5375813402ab8a5b66e09d6ff73  # Automatically created id
+        type: picture-entity
+        entity: camera.front_door
+      - id: d974cc0a07924820996de89c6c5a81c4  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: entities
+            title: TV Quick Controls
+            entities:
+              - type: divider
+                style:
+                  - display: none
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.media_pause
+                color: rgb(3, 169, 244)
+                icon: mdi:pause
+              - type: custom:button-card
+                entity: script.media_play
+                color: rgb(3, 169, 244)
+                icon: mdi:play
+              - type: custom:button-card
+                entity: script.media_off
+                color: rgb(3, 169, 244)
+                icon: mdi:power-plug-off
+              - type: custom:button-card
+                entity: script.media_volume_down
+                color: rgb(3, 169, 244)
+                icon: mdi:volume-minus
+              - type: custom:button-card
+                entity: script.media_volume_up
+                color: rgb(3, 169, 244)
+                icon: mdi:volume-plus
+      - id: eee344575acb465a8a4c6314ca0890db  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: entities
+            title: Comfort Quick Controls
+            entities:
+              - climate.cottage
+          - type: horizontal-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    entity: script.bedtime_ac
+                    name: Bedroom
+                    icon: mdi:air-conditioner
+                    style:
+                      - text-transform: none
+                      - color: white
+                      - background-color: var(--primary-color)
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    entity: script.livingroom_fan_on
+                    name: LR Fan Power
+                    icon: mdi:fan
+                  - type: custom:button-card
+                    entity: script.livingroom_fan_osc
+                    name: LR Fan Osc.
+                    icon: mdi:rotate-3d
   - id: climate
     icon: mdi:weather-partlycloudy
-    cards: !include lovelace_cards/view_climate.yaml
+    cards:
+      - id: 38a481c0dbca41aeabc89f2385e2515c  # Automatically created id
+        type: weather-forecast
+        title: Forcast
+        entity: weather.yweather
+      - id: 9f929e456f4e47bca1612ce4f5f97185  # Automatically created id
+        type: horizontal-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sun.sun
+          - type: entities
+            entities:
+              - entity: sensor.moon
+                name: Moon
+      - id: abe07a2edec049629d89c2e9561895a3  # Automatically created id
+        type: entities
+        title: Exterior Conditions
+        entities:
+          - entity: sensor.netatmo_outdoor_temperature_2
+            name: Current Temperature
+          - entity: sensor.netatmo_outdoor_humidity_2
+            name: Current Humidity
+          - entity: sensor.dark_sky_cloud_coverage
+          - entity: sensor.dark_sky_precip_probability
+            name: Chance of Precipitation
+          - entity: sensor.dark_sky_wind_speed
+          - entity: sensor.dark_sky_visibility
+          - type: weblink
+            name: Eugene, Or - Weather Underground
+            icon: mdi:link-variant
+            url: https://www.wunderground.com/weather/us/or/eugene
+      - id: 54791c6401b14f729b37e6e7cafda122  # Automatically created id
+        type: entities
+        title: Illness
+        entities:
+          - entity: sensor.allergy_index_forecasted_average
+            name: Allergy Index Forcase
+          - entity: sensor.allergy_index_forecasted_average
+            type: custom:entity-attributes-card
+            filter:
+              include:
+                - sensor.allergy_index_forecasted_average.outlook
+                - sensor.allergy_index_forecasted_average.season
+                - sensor.allergy_index_forecasted_average.trend
+          - entity: sensor.cold__flu_forecasted_average
+            name: Cold/Flu Index Average
+          - entity: sensor.waqi_eugene__highway_99_oregon_usa
+            name: Air Quality Index
+      - id: d498e573e51045e29f170a83c9c72819  # Automatically created id
+        type: iframe
+        url: https://embed.windy.com/embed2.html?lat=44.159&lon=-123.162&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.159&detailLon=-123.162&metricWind=default&metricTemp=default&radarRange=-1
+        aspect_ratio: 100%
   - id: indoors
     icon: mdi:thermostat
-    cards: !include lovelace_cards/view_indoor-climate.yaml
+    cards:
+      - id: 1e8d4ab93a884d6fa1571d3d23bc04c6  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: entities
+            title: Living Room
+            entities:
+              - entity: sensor.netatmo_indoor_temperature_2
+                name: Temperature
+                icon: mdi:thermometer
+              - entity: sensor.netatmo_indoor_humidity_2
+                name: Humidity
+                icon: mdi:water-percent
+              - entity: sensor.netatmo_indoor_pressure_2
+                name: Barametric Pressure
+                icon: mdi:gauge
+              - entity: sensor.netatmo_indoor_co2_2
+                name: CO2 PPM
+                icon: mdi:periodic-table-co2
+              - entity: sensor.netatmo_indoor_noise_2
+                name: Noise Level
+                icon: mdi:ear-hearing
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.livingroom_fan_on
+                name: Fan Toggle
+                icon: mdi:fan
+              - type: custom:button-card
+                entity: script.livingroom_fan_osc
+                name: Fan Oscillate
+                icon: mdi:rotate-3d
+              - type: custom:button-card
+                entity: script.livingroom_fan_speed
+                name: Fan Speed
+                icon: mdi:speedometer
+      - id: 75d53a2d600e4ddb93ac09b6825e27e8  # Automatically created id
+        type: entities
+        title: Hallway
+        entities:
+          - entity: sensor.cottage_temperature
+            name: Temperature
+            icon: mdi:thermometer
+          - entity: sensor.cottage_humidity
+            name: Humidity
+            icon: mdi:water-percent
+          - entity: climate.cottage
+      - id: 2110f20859004dd29dd610b46a480028  # Automatically created id
+        type: history-graph
+        title: Temperature (Last 12 Hours)
+        hours_to_show: 12
+        entities:
+          - entity: sensor.netatmo_indoor_temperature_2
+            name: Living Room Temp.
+          - entity: sensor.netatmo_outdoor_temperature_2
+            name: Outdoor Temp.
+      - id: f86c49f6e6f34654b089d54ff3e86303  # Automatically created id
+        type: entities
+        title: Netatmo Status
+        entities:
+          - entity: sensor.netatmo_indoor_wifi_2
+            name: Indoor Connection Strength
+          - entity: sensor.netatmo_outdoor_radio_2
+            name: Outdoor Connection Strength
+          - entity: sensor.netatmo_outdoor_battery_2
+            name: Outdoor Battery Level
   - id: cameras
     icon: mdi:cctv
-    cards: !include lovelace_cards/view_camera.yaml
+    cards:
+      - id: 6c2d7dc3324245a7ab2f555ec353854d  # Automatically created id
+        type: picture-entity
+        entity: camera.pitz_1
+        show_name: true
+      - id: d71264f871f34af289d50cffd3d3f3c2  # Automatically created id
+        type: picture-entity
+        entity: camera.pitz_2
+        show_name: true
+      - id: d6e403b2cfa24b1c835feae5f10be966  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: picture-entity
+            entity: camera.front_door
+          - type: entities
+            entities:
+              - entity: sensor.ring_front_door_last_motion
+                icon: mdi:walk
+                name: Motion Last Detected
+              - entity: sensor.ring_front_door_last_ding
+                icon: mdi:bell-ring-outline
+                name: Last Ring
+              - entity: sensor.ring_front_door_battery
+                icon: mdi:battery-outline
+                name: Battery Level
+              - entity: sensor.ring_front_door_wifi_signal_category
+                icon: mdi:wifi
+                name: WiFi Connection Strength
+      - id: 0c7fdd2bb03e4c5d979b4c332d5fbeaa  # Automatically created id
+        type: picture
+        image: https://www.tripcheck.com/roadcams/cams/Eugene%20River%20Ave._pid2539.JPG
+      - id: 7b3478feed8a47d29e64df8610591dda  # Automatically created id
+        type: picture
+        image: http://70.102.97.236/cameras/video2.jpg
   - id: network
     icon: mdi:nas
-    cards: !include lovelace_cards/view_network.yaml
+    cards:
+      - id: 894474fbf7ea4b36848e22ef5cc996e3  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: entities
+            title: NAS
+            entities:
+              - entity: sensor.used_space_volume_1
+                name: Disk Space Used
+              - entity: sensor.cpu_load_total
+                name: CPU Use
+              - entity: sensor.memory_usage_real
+                name: Memory Use
+              - entity: sensor.network_down
+                name: Download Speed
+              - entity: sensor.network_up
+                name: Upload Speed
+              - type: divider
+              - entity: sensor.status_sda
+                name: Disk A Status
+              - entity: sensor.status_sdb
+                name: Disk B Status
+              - entity: sensor.status_sdc
+                name: Disk C Status
+          - type: gauge
+            entity: sensor.volume_used_volume_1
+            title: Disk Use
+            unit_of_measurement: '%'
+            min: 0
+            max: 100
+            severity:
+              green: 0
+              yellow: 90
+              red: 95
+      - id: 5ac33fdfaceb437b804896f431df49fe  # Automatically created id
+        type: entities
+        title: Downloads
+        entities:
+          - entity: sensor.nzbget_average_speed
+            name: Average Speed
+          - entity: sensor.nzbget_queue_size
+            name: Download Queue Size
+          - entity: sensor.nzbget_speed
+            name: Current Speed
+          - entity: sensor.nzbget_disk_free
+            name: Free Disk Space
+          - entity: sensor.nzbget_download_paused
+            name: Downloading Paused
+          - entity: sensor.nzbget_uptime
+            name: Uptime
+      - id: 3f45ab35c9634c1b9b7c2c72e7035b22  # Automatically created id
+        type: history-graph
+        title: Speedtest.net (Last 12 Hours)
+        hours_to_show: 12
+        entities:
+          - entity: sensor.speedtest_download
+            name: Download Speed
+          - entity: sensor.speedtest_upload
+            name: Upload Speed
+          - entity: sensor.speedtest_ping
+            name: ICMP Ping the Corvallis
+      - id: 7af9b8809c92401d91e037b19b182fed  # Automatically created id
+        type: entities
+        title: Local Links
+        entities:
+          - type: weblink
+            name: Plex (plays anywhere)
+            icon: mdi:plex
+            url: https://app.plex.tv/desktop
+          - type: weblink
+            name: Kodi Web Control
+            icon: mdi:kodi
+            url: http://192.168.131.3:9090/
+          - type: weblink
+            name: Heimdall NAS
+            icon: mdi:nas
+            url: http://192.168.131.2:5000/index.cgi
+          - type: weblink
+            name: Cable Modem
+            icon: mdi:ethernet-cable
+            url: http://10.1.10.1/
   - id: media
     icon: mdi:youtube-tv
-    cards: !include lovelace_cards/view_media.yaml
+    cards:
+      - id: 5ff2da5798854f3b9d9edc9df0666534  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    action: more_info
+                    entity: sensor.living_room_remote_state
+                    icon: mdi:details
+                    size: calc(100% / 4)
+                  - type: custom:button-card
+                    entity: script.media_up_arrow
+                    icon: mdi:arrow-up-box
+                    style:
+                      - text-transform: none
+                      - color: white
+                      - background-color: var(--primary-color)
+                    size: calc(100% / 4)
+                  - type: custom:button-card
+                    entity: script.media_back
+                    icon: mdi:rotate-left
+                    size: calc(100% / 4)
+                  - type: custom:button-card
+                    entity: script.media_page_up
+                    icon: mdi:chevron-double-up
+                    size: calc(100% / 4)
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    entity: script.media_left_arrow
+                    icon: mdi:arrow-left-box
+                    style:
+                      - text-transform: none
+                      - color: white
+                      - background-color: var(--primary-color)
+                    size: calc(100% / 4)
+                  - type: custom:button-card
+                    entity: script.media_confirm
+                    icon: mdi:check-circle
+                    size: calc(100% / 4)
+                  - type: custom:button-card
+                    entity: script.media_right_arrow
+                    icon: mdi:arrow-right-box
+                    style:
+                      - text-transform: none
+                      - color: white
+                      - background-color: var(--primary-color)
+                    size: calc(100% / 4)
+                  - type: custom:button-card
+                    entity: script.media_page_down
+                    icon: mdi:chevron-double-down
+                    size: calc(100% / 4)
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    entity: script.media_skip_back
+                    icon: mdi:backburger
+                    size: calc(100% / 4)
+                  - type: custom:button-card
+                    entity: script.media_down_arrow
+                    icon: mdi:arrow-down-box
+                    style:
+                      - text-transform: none
+                      - color: white
+                      - background-color: var(--primary-color)
+                    size: calc(100% / 4)
+                  - type: custom:button-card
+                    entity: script.media_context
+                    icon: mdi:menu
+                    size: calc(100% / 4)
+                  - type: custom:button-card
+                    entity: script.media_info
+                    icon: mdi:information-outline
+                    size: calc(100% / 4)
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.media_pause
+                icon: mdi:pause
+              - type: custom:button-card
+                entity: script.media_play
+                icon: mdi:play
+              - type: custom:button-card
+                entity: script.media_stop
+                icon: mdi:stop
+              - type: custom:button-card
+                entity: script.media_volume_down
+                icon: mdi:volume-minus
+              - type: custom:button-card
+                entity: script.media_volume_up
+                icon: mdi:volume-plus
+          - type: conditional
+            conditions:
+              - entity: sensor.living_room_remote_state
+                state: Watch Kodi
+            card:
+              type: entities
+              title: HTPC Tools
+              entities:
+                - type: call-service
+                  name: Fix Input
+                  action_name: HDMI 1
+                  icon: mdi:video-input-hdmi
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    device: 51736886
+                    command: InputHdmi1
+                    num_repeats: 1
+                - type: call-service
+                  name: Watched Status
+                  action_name: Toggle
+                  icon: mdi:eye
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51738178
+                    command: w.
+                - type: call-service
+                  name: Launch Kodi
+                  action_name: Ctrl+Alt+4
+                  icon: mdi:kodi
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51738178
+                    command: Ctrl+Alt+3
+                - type: call-service
+                  name: Fix Kodi
+                  action_name: Ctrl+Alt+3
+                  icon: mdi:kodi
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51738178
+                    command: Ctrl+Alt+3
+                - type: call-service
+                  name: Kodi Power / Shutdown Menu
+                  action_name: Power
+                  icon: mdi:power-standby
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51738178
+                    command: s.
+                - type: call-service
+                  name: Switch Windows
+                  action_name: Alt+Tab
+                  icon: mdi:window-restore
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51738178
+                    command: Alt+Tab
+                - type: call-service
+                  name: Windows Key
+                  action_name: Engage
+                  icon: mdi:windows
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51738178
+                    command: Windows
+                - type: call-service
+                  name: Delete
+                  action_name: Delete
+                  icon: mdi:trash-can
+                  service: script.kodi_delete
+                  service_data:
+                    entity_id: script.kodi_delete
+          - type: conditional
+            conditions:
+              - entity: sensor.living_room_remote_state
+                state_not: Watch Kodi
+              - entity: sensor.living_room_remote_state
+                state_not: Watch OTA
+              - entity: sensor.living_room_remote_state
+                state_not: Play Switch
+              - entity: sensor.living_room_remote_state
+                state_not: PowerOff
+            card:
+              type: entities
+              title: Roku Tools
+              entities:
+                - type: call-service
+                  name: Fix Input
+                  action_name: HDMI 3
+                  icon: mdi:video-input-hdmi
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    device: 51736886
+                    command: InputHdmi3
+                    num_repeats: 1
+                - type: call-service
+                  name: Home
+                  action_name: Home
+                  icon: mdi:home
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51736885
+                    command: Home
+                - type: call-service
+                  name: Exit
+                  action_name: Exit
+                  icon: mdi:exit-run
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51736885
+                    command: Exit
+                - type: call-service
+                  name: Rewind
+                  action_name: '<<'
+                  icon: mdi:rewind
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51736885
+                    command: Rewind
+                - type: call-service
+                  name: Fast Forward
+                  action_name: '>>'
+                  icon: mdi:fast-forward
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51736885
+                    command: FastForward
+          - type: conditional
+            conditions:
+              - entity: sensor.living_room_remote_state
+                state: Watch OTA
+            card:
+              type: entities
+              title: OTA Tools
+              entities:
+                - type: call-service
+                  name: Fix Input
+                  action_name: Input TV
+                  icon: mdi:video-input-hdmi
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    device: 51736886
+                    command: InputTv
+                    num_repeats: 1
+                - type: call-service
+                  name: Channel Up
+                  action_name: Up
+                  icon: mdi:arrow-up
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51736886
+                    command: ChannelUp
+                - type: call-service
+                  name: Channel Down
+                  action_name: Down
+                  icon: mdi:arrow-down
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51736886
+                    command: ChannelDown
+                - type: call-service
+                  name: Menu
+                  action_name: Menu
+                  icon: mdi:menu
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51736886
+                    command: Menu
+                - type: call-service
+                  name: Back
+                  action_name: Back
+                  icon: mdi:backburger
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51736886
+                    command: Back
+                - type: call-service
+                  name: Exit
+                  action_name: Exit
+                  icon: mdi:exit-run
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    num_repeats: 1
+                    device: 51736886
+                    command: Exit
+          - type: conditional
+            conditions:
+              - entity: sensor.living_room_remote_state
+                state: Play Switch
+            card:
+              type: entities
+              title: Switch Tool
+              entities:
+                - type: call-service
+                  name: Fix Input
+                  action_name: Input TV
+                  icon: mdi:video-input-hdmi
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.living_room
+                    device: 51736886
+                    command: HDMI2
+                    num_repeats: 1
+      - id: 98a13858d28845579d19399692378dbd  # Automatically created id
+        type: entities
+        title: TV Activity
+        entities:
+          - type: call-service
+            icon: mdi:kodi
+            name: Kodi
+            action_name: Watch
+            service: remote.turn_on
+            service_data:
+              entity_id: remote.living_room
+              activity: 31479535
+          - type: call-service
+            icon: mdi:hulu
+            name: Hulu
+            action_name: Watch
+            service: remote.turn_on
+            service_data:
+              entity_id: remote.living_room
+              activity: 31949557
+          - type: call-service
+            icon: mdi:netflix
+            name: Netflix
+            action_name: Watch
+            service: remote.turn_on
+            service_data:
+              entity_id: remote.living_room
+              activity: 31478989
+          - type: call-service
+            icon: mdi:amazon
+            name: Amazon
+            action_name: Watch
+            service: remote.turn_on
+            service_data:
+              entity_id: remote.living_room
+              activity: 31480109
+          - type: call-service
+            icon: mdi:plex
+            name: Plex
+            action_name: Watch
+            service: remote.turn_on
+            service_data:
+              entity_id: remote.living_room
+              activity: 31571897
+          - type: call-service
+            icon: mdi:youtube
+            name: Youtube
+            action_name: Watch
+            service: remote.turn_on
+            service_data:
+              entity_id: remote.living_room
+              activity: 33323580
+          - type: call-service
+            icon: mdi:nintendo-switch
+            name: Nintendo Switch
+            action_name: Play
+            service: remote.turn_on
+            service_data:
+              entity_id: remote.living_room
+              activity: 31480190
+          - type: call-service
+            icon: mdi:television-classic
+            name: Over The Air
+            action_name: Watch
+            service: remote.turn_on
+            service_data:
+              entity_id: remote.living_room
+              activity: 31480260
+          - type: call-service
+            icon: mdi:power-plug-off
+            name: Media Center Off
+            action_name: Turn Off
+            service: remote.turn_on
+            service_data:
+              entity_id: remote.living_room
+              activity: -1
+          - type: divider
+          - type: weblink
+            name: Plex Web Player
+            url: https://app.plex.tv/desktop
+            icon: mdi:link-variant
+      - id: 934068fca4db49b4bbc56fd4eb6fa58a  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: entities
+            title: General Automations
+            entities:
+              - entity: automation.temperatures_equal
+                name: Equal Temp. Notification
+          - type: entities
+            title: Occupied Automations
+            entities:
+              - entity: automation.predusk_tasks
+                name: Pre-Dusk Lights Auto-On
+              - entity: automation.back_porch_off
+                name: Back Porch Auto-Off
+              - entity: automation.sleep_cool
+                name: Bedroom AC Cool
+          - type: entities
+            title: Unoccupied Automations
+            entities:
+              - entity: automation.away_morning
+                name: Away Morning Lights
+              - entity: automation.away_evening
+                name: Away Evening Lights
+              - entity: automation.away_night
+                name: Away Night Lights
   - id: documentation
     icon: mdi:file-document
-    cards: !include lovelace_cards/view_documentation.yaml
+    cards:
+      - type: markdown
+        id: view_documentation_alexa
+        content: >
+          # Alexa
+
+          ## Routines
+
+          + Begin Derek's Morning
+            1. Set volume to 4
+            1. Turn the sink light to 100%
+            1. Turn "Teddy" the living room lamp to 20%
+            1. Read weather report
+            1. Set volume to 7 
+          + Make it dark
+            1. Turn off Bonnie Lamp
+            1. Turn off Derek Lamp
+          + Operation Mongoose
+            1. Turn off living room lamp
+            1. Turn off living room light strip. A.K.A. "The Sparkle"
+            1. Set kitchen light "The Sink Hole" to 2% brightness
+            1. Turn on Bonnie Bedroom Lamp
+          + Rise and Shine
+            1. Turn on living room light strip. A.K.A. "The Sparkle"
+            1. Set living room lamp ro 100% brightness
+          + Shut It Down
+            1. Turn off living room lamp
+            1. Turn off living room light strip. A.K.A. "The Sparkle"
+
+          ## Janet
+
+          Alexa ask Janet to:
+
+          + Watch
+            - Kodi
+            - Hulu
+            - Netflix
+            - Amazon
+            - Plex
+            - Over The Air
+          + ____ the TV
+            - **Turn** _the tv_ up by X
+            - **Turn** _the tv_ up
+            - **Turn** _the tv_ down by X
+            - **Turn** _the tv_ down
+            - **Turn** _the tv_ off
+            - **Confirm** _the tv_
+            - **Pause** _the tv_ 
+            - **Play** _the tv_ 
+            - **Stop** _the tv_ 
+          + Skip Back
+
+
+          Alexa ask Janet about:
+
+          + The Weather
+      - id: b320bf2b9de0427289b386f86a206cb5  # Automatically created id
+        type: markdown
+        content: >
+          # Harmony
+
+          The "living room" harmony hub controls the media center and the living room
+          fan. Controls in home assistant are accompished throught remote.turn_on
+          and remote.send_command.
+
+          The media center consists of
+
+          + Visio TV
+          + HTPC
+            - Kodi is what's controlled via Harmony
+          + Roku
+            - Amazon Video
+            - Hulu
+            - Netflix
+            - Plex
+            - Youtube
+          + Nintendo Switch
+            - Just switching to the correct TV input
+          + Over The Air
+      - id: ef15b6dc01a542919c4484e5f86aa3b9  # Automatically created id
+        type: markdown
+        content: >
+          # Our Services
+
+          + [Tile](https://www.thetileapp.com/en-us/dashboard/account)
+            - Used in presense detection automations. Different light schedules if
+          we're away.
+          + [Ecobee](https://www.ecobee.com/consumerportal/index.html#/login)
+            - Mainly used as a sensor.
+          + [Netatmo](https://my.netatmo.com/app/station)
+            - 1 indoor module in living room
+            - 1 outdoor module on porch on opposite corner of the house.
+          + [Ring](https://ring.com/account)
+            - 1 doorbell
+
+      - id: df8d84341ec04dba87907de0822dc4a0  # Automatically created id
+        type: markdown
+        content: >
+          # Technical Links
+
+          + [Home Assistant](https://www.home-assistant.io/lovelace/)
+            - [Components](https://www.home-assistant.io/components/)
+              + [Alexa Integration](https://www.home-assistant.io/components/alexa/)
+            - [Lovelace](https://www.home-assistant.io/lovelace/)
+            - Custom Cards
+              + [Button Cards](https://community.home-assistant.io/t/lovelace-button-card/65981)
+              + [Attribute Cards](https://community.home-assistant.io/t/lovelace-attributes-card-entity-row/59122)
+            - Home Assistant Cloud / [Nebu Casa](https://www.nabucasa.com/)
+          + [Home Assisant Developer Docs](https://developers.home-assistant.io/)
+
+          + [Alexa Web App](https://alexa.amazon.com/spa/index.html#cards)
+
+          + [Alexa Skill Kit](https://developer.amazon.com/alexa/console/ask)
+            - Our Skill is "hass.1"
+          + Ecobee dev
+
+      - id: 9808d8afcef54ab09a1ffd7485752184  # Automatically created id
+        type: markdown
+        content: >-
+          # Todo List
+
+          + Set up IR sequence that turns the bedroom ac unit to fan only
+            + Add UI and automations
+          + Automation that sends telegram message is disk status not normal
+
+          + Hide the media controls when Switch is active or when the system is off.
+
+          + TorqueODB2
+
+          + Themes
+            - Scripted?
+          + Integration with Synology Surveillance Station
+
+          + Make use of lovelace notification drawer
+
+          + Floorplan
