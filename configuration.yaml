@@ -135,8 +135,6 @@ telegram_bot:
       - !secret telegram_chat_id_1
 
 weather:
-  - platform: darksky
-    api_key: !secret forcastio_api
   - platform: yweather
 
 zone: !include zones.yaml

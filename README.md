@@ -62,7 +62,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Home Assisant Cloud
 * Hass.io
 * Custom Alexa Skill
-* Dask Sky and Yahoo Weather
+* Dark Sky (sensor) and Yahoo Weather
 * Speedtest.net
 * Waze Travel Time
 * Lyft and Uber

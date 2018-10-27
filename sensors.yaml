@@ -7,6 +7,8 @@
 # Weather Prediction
   - platform: darksky
     api_key: !secret forcastio_api
+    update_interval:
+      minutes: 10
     monitored_conditions:
       - summary
       - icon
@@ -21,6 +23,9 @@
       - visibility
       - temperature_high
       - temperature_low
+      - minutely_summary
+      - hourly_summary
+      - daily_summary
 
 # Internet
   - platform: speedtest
