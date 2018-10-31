@@ -22,6 +22,8 @@ views:
               - entity: switch.the_sparkle
               - entity: light.living_room_lamp
                 type: custom:slider-entity-row
+              - entity: light.living_room_lamp_middle
+                type: custom:slider-entity-row
           - type: entities
             title: Kitchen
             entities:

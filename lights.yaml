@@ -4,3 +4,6 @@
 #Sinkhole
   - platform: tplink
     host: 192.168.131.90
+# Living Room Lamp Middle
+  - platform: tplink
+    host: 192.168.131.91
