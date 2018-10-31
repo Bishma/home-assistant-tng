@@ -357,9 +357,9 @@
             {% endif %}
           num_repeats: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              2
+              3
             {% else %}
-              1
+              4
             {% endif %}
   media_input1:
     alias: TV Input Kodi
