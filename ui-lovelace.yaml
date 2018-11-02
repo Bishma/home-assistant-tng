@@ -251,7 +251,8 @@ views:
           - entity: sensor.cottage_humidity
             name: Humidity
             icon: mdi:water-percent
-          - entity: climate.cottage
+      - type: thermostat
+        entity: climate.cottage
       - id: 2110f20859004dd29dd610b46a480028  # Automatically created id
         type: history-graph
         title: Temperature (Last 12 Hours)
@@ -805,6 +806,9 @@ views:
             name: Plex Web Player
             url: https://app.plex.tv/desktop
             icon: mdi:link-variant
+  - id: settings
+    icon: mdi:settings-outline
+    cards:
       - id: ui_and_automation
         type: entities
         title: UI and Automation Controls
