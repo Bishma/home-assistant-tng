@@ -204,7 +204,10 @@ views:
   - id: indoors
     icon: mdi:thermostat
     cards:
-      - id: 1e8d4ab93a884d6fa1571d3d23bc04c6  # Automatically created id
+      - id: thermostat
+        type: thermostat
+        entity: climate.cottage
+      - id: living-room-stack
         type: vertical-stack
         cards:
           - type: entities
@@ -247,19 +250,15 @@ views:
                   name: Speed
                   icon: mdi:speedometer
                   tap_action: toggle
-      - id: 75d53a2d600e4ddb93ac09b6825e27e8  # Automatically created id
+      - id: hallway-sensors
         type: entities
         title: Hallway
         entities:
-          - entity: sensor.cottage_temperature
-            name: Temperature
-            icon: mdi:thermometer
+          - entity: climate.cottage
           - entity: sensor.cottage_humidity
             name: Humidity
             icon: mdi:water-percent
-      - type: thermostat
-        entity: climate.cottage
-      - id: 2110f20859004dd29dd610b46a480028  # Automatically created id
+      - id: indoor-outdoor-temperature-graph
         type: history-graph
         title: Temperature (Last 12 Hours)
         hours_to_show: 12
@@ -268,7 +267,7 @@ views:
             name: Living Room Temp.
           - entity: sensor.netatmo_outdoor_temperature_2
             name: Outdoor Temp.
-      - id: f86c49f6e6f34654b089d54ff3e86303  # Automatically created id
+      - id: weather-station-status
         type: entities
         title: Netatmo Status
         entities:
