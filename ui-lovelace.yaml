@@ -3,8 +3,6 @@ resources:
     type: js
   - url: /local/slider-entity-row.js
     type: js
-  - url: /local/button-card.js
-    type: module
 
 title: Yggdrasil
 
@@ -13,7 +11,7 @@ views:
   - id: home
     icon: mdi:home-assistant
     cards:
-      - id: f9fe7531b8524014a72964f60f326b45  # Automatically created id
+      - id: lighting-stack
         type: vertical-stack
         cards:
           - type: entities
@@ -38,7 +36,7 @@ views:
             title: Exterior
             entities:
               - switch.ge_12720_outdoor_smart_switch_switch
-      - id: 69814682132a434dad83aa51013fc334  # Automatically created id
+      - id: location-stack
         type: vertical-stack
         cards:
           - type: entities
@@ -70,7 +68,7 @@ views:
       - id: 1d36c5375813402ab8a5b66e09d6ff73  # Automatically created id
         type: picture-entity
         entity: camera.front_door
-      - id: d974cc0a07924820996de89c6c5a81c4  # Automatically created id
+      - id: media-center-stack
         type: vertical-stack
         cards:
           - type: entities
@@ -81,26 +79,31 @@ views:
                   - display: none
           - type: horizontal-stack
             cards:
-              - type: custom:button-card
+              - type: entity-button
                 entity: script.media_pause
-                color: rgb(3, 169, 244)
+                name: Pause
                 icon: mdi:pause
-              - type: custom:button-card
+                tap_action: toggle
+              - type: entity-button
                 entity: script.media_play
-                color: rgb(3, 169, 244)
+                name: Play
                 icon: mdi:play
-              - type: custom:button-card
+                tap_action: toggle
+              - type: entity-button
                 entity: script.media_off
-                color: rgb(3, 169, 244)
+                name: "Off"
                 icon: mdi:power-plug-off
-              - type: custom:button-card
+                tap_action: toggle
+              - type: entity-button
                 entity: script.media_volume_down
-                color: rgb(3, 169, 244)
+                name: Vol -
                 icon: mdi:volume-minus
-              - type: custom:button-card
+                tap_action: toggle
+              - type: entity-button
                 entity: script.media_volume_up
-                color: rgb(3, 169, 244)
+                name: Vol +
                 icon: mdi:volume-plus
+                tap_action: toggle
       - id: f829d4952bd8469cac53b057bf4a2ecb  # Automatically created id
         type: entities
         title: Comfort Quick Controls
@@ -229,18 +232,21 @@ views:
             card:
               type: horizontal-stack
               cards:
-                - type: custom:button-card
+                - type: entity-button
                   entity: script.livingroom_fan_on
-                  name: Fan Toggle
+                  name: Fan Power
                   icon: mdi:fan
-                - type: custom:button-card
+                  tap_action: toggle
+                - type: entity-button
                   entity: script.livingroom_fan_osc
-                  name: Fan Oscillate
+                  name: Oscillate
                   icon: mdi:rotate-3d
-                - type: custom:button-card
+                  tap_action: toggle
+                - type: entity-button
                   entity: script.livingroom_fan_speed
-                  name: Fan Speed
+                  name: Speed
                   icon: mdi:speedometer
+                  tap_action: toggle
       - id: 75d53a2d600e4ddb93ac09b6825e27e8  # Automatically created id
         type: entities
         title: Hallway
@@ -403,95 +409,105 @@ views:
               - id: arrow-top-row
                 type: horizontal-stack
                 cards:
-                  - type: custom:button-card
-                    action: more_info
-                    entity: sensor.living_room_remote_state
-                    icon: mdi:details
-                    size: calc(100% / 4)
-                  - type: custom:button-card
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Off
+                    icon: mdi:power-plug-off
+                    tap_action: call-service
+                    theme: danger
+                    service: remote.turn_on
+                    service_data:
+                      entity_id: remote.living_room
+                      activity: -1
+                  - type: entity-button
                     entity: script.media_up_arrow
+                    name: Up
                     icon: mdi:arrow-up-box
-                    style:
-                      - text-transform: none
-                      - color: white
-                      - background-color: var(--primary-color)
-                    size: calc(100% / 4)
-                  - type: custom:button-card
+                    tap_action: toggle
+                  - type: entity-button
                     entity: script.media_back
+                    name: Back
                     icon: mdi:rotate-left
-                    size: calc(100% / 4)
-                  - type: custom:button-card
+                    tap_action: toggle
+                  - type: entity-button
                     entity: script.media_page_up
+                    name: Pg Up
                     icon: mdi:chevron-double-up
-                    size: calc(100% / 4)
+                    tap_action: toggle
               - id: arrow-middle-row
                 type: horizontal-stack
                 cards:
-                  - type: custom:button-card
+                  - type: entity-button
                     entity: script.media_left_arrow
+                    name: Left
                     icon: mdi:arrow-left-box
-                    style:
-                      - text-transform: none
-                      - color: white
-                      - background-color: var(--primary-color)
-                    size: calc(100% / 4)
-                  - type: custom:button-card
+                    tap_action: toggle
+                  - type: entity-button
                     entity: script.media_confirm
+                    name: Confirm
                     icon: mdi:check-circle
-                    size: calc(100% / 4)
-                  - type: custom:button-card
+                    tap_action: toggle
+                  - type: entity-button
                     entity: script.media_right_arrow
+                    name: Right
                     icon: mdi:arrow-right-box
-                    style:
-                      - text-transform: none
-                      - color: white
-                      - background-color: var(--primary-color)
-                    size: calc(100% / 4)
-                  - type: custom:button-card
+                    tap_action: toggle
+                  - type: entity-button
                     entity: script.media_page_down
+                    name: Pg Dwn
                     icon: mdi:chevron-double-down
-                    size: calc(100% / 4)
+                    tap_action: toggle
               - id: arrow-bottom-row
                 type: horizontal-stack
                 cards:
-                    - type: custom:button-card
+                    - type: entity-button
                       entity: script.media_skip_back
+                      name: Skip Back
                       icon: mdi:backburger
-                      size: calc(100% / 4)
-                    - type: custom:button-card
+                      tap_action: toggle
+                    - type: entity-button
                       entity: script.media_down_arrow
+                      name: Down
                       icon: mdi:arrow-down-box
-                      style:
-                        - text-transform: none
-                        - color: white
-                        - background-color: var(--primary-color)
-                      size: calc(100% / 4)
-                    - type: custom:button-card
+                      tap_action: toggle
+                    - type: entity-button
                       entity: script.media_context
+                      name: Context
                       icon: mdi:menu
-                      size: calc(100% / 4)
-                    - type: custom:button-card
+                      tap_action: toggle
+                    - type: entity-button
                       entity: script.media_info
+                      name: Info
                       icon: mdi:information-outline
-                      size: calc(100% / 4)
+                      tap_action: toggle
           - id: media-button-row
             type: horizontal-stack
             cards:
-              - type: custom:button-card
+              - type: entity-button
                 entity: script.media_pause
+                name: Pause
                 icon: mdi:pause
-              - type: custom:button-card
+                tap_action: toggle
+              - type: entity-button
                 entity: script.media_play
+                name: Play
                 icon: mdi:play
-              - type: custom:button-card
+                tap_action: toggle
+              - type: entity-button
                 entity: script.media_stop
+                name: Stop
                 icon: mdi:stop
-              - type: custom:button-card
+                tap_action: toggle
+              - type: entity-button
                 entity: script.media_volume_down
+                name: Vol -
                 icon: mdi:volume-minus
-              - type: custom:button-card
+                tap_action: toggle
+              - type: entity-button
                 entity: script.media_volume_up
+                name: Vol +
                 icon: mdi:volume-plus
+                tap_action: toggle
           - id: activity-specific-kodi
             type: conditional
             conditions:
@@ -965,8 +981,8 @@ views:
               + [Alexa Integration](https://www.home-assistant.io/components/alexa/)
             - [Lovelace](https://www.home-assistant.io/lovelace/)
             - Custom Cards
-              + [Button Cards](https://community.home-assistant.io/t/lovelace-button-card/65981)
               + [Attribute Cards](https://community.home-assistant.io/t/lovelace-attributes-card-entity-row/59122)
+              + [Slider Entity]https://github.com/thomasloven/lovelace-slider-entity-row
             - Home Assistant Cloud / [Nebu Casa](https://www.nabucasa.com/)
           + [Home Assisant Developer Docs](https://developers.home-assistant.io/)
 
