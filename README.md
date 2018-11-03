@@ -8,6 +8,8 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 
 * I've gone to default Lovelace.
   * My legacy config is still in place but far less capable.
+* Conditional UI based on settings (binary inputs)
+  * E.g. The buttons to control my stand fan (via Harmony IR) only show if I indicate that my stand fan is out. It gets put away for the winter.
 * Fully managed for all my sensors and devices. No auto discovery.
 * Universal remote for my media center.
 * Dynamic alexa intents. So far just for my media center.
