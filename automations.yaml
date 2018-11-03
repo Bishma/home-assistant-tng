@@ -5,8 +5,8 @@
     platform: time
   condition:
   - condition: state
-    entity_id: sensor.home_empty
-    state: 'false'
+    entity_id: sensor.unoccupied_mode
+    state: "off"
   - above: '75'
     condition: numeric_state
     entity_id: sensor.dark_sky_daytime_high_temperature
@@ -34,8 +34,8 @@
     platform: sun
   condition:
   - condition: state
-    entity_id: sensor.home_empty
-    state: 'false'
+    entity_id: sensor.unoccupied_mode
+    state: "off"
   action:
   - service: switch.turn_on
     data:
@@ -61,8 +61,8 @@
     platform: sun
   condition:
   - condition: state
-    entity_id: sensor.home_empty
-    state: 'true'
+    entity_id: sensor.unoccupied_mode
+    state: "on"
   action:
   - data:
       data:
@@ -82,8 +82,8 @@
     platform: sun
   condition:
   - condition: state
-    entity_id: sensor.home_empty
-    state: 'true'
+    entity_id: sensor.unoccupied_mode
+    state: "on"
   action:
   - data:
       data:
@@ -100,8 +100,8 @@
     platform: time
   condition:
   - condition: state
-    entity_id: sensor.home_empty
-    state: 'true'
+    entity_id: sensor.unoccupied_mode
+    state: "on"
   action:
   - data:
       entity_id: light.living_room_lamp

@@ -98,6 +98,7 @@
   - platform: template
     sensors:
       living_room_remote_state:
+        entity_id: remote.living_room
         value_template: '{{ states.remote.living_room.attributes.current_activity }}'
         friendly_name: 'Current Activity:'
 
@@ -132,13 +133,17 @@
   - platform: template
     sensors:
       # simple bool for decided if the house is empty of residents
-      home_empty:
-        friendly_name: 'Are Derek and Bonnie Both Gone?'
+      unoccupied_mode:
+        entity_id:
+          - device_tracker.tile_keys_derek
+          - device_tracker.tile_bonnies_keys
+        friendly_name: 'Unoccuped Mode'
         value_template: >
-          {% if is_state("states.device_tracker.tile_keys_derek", "home") or is_state("states.device_tracker.tile_bonnies_keys", "home") %}
-            true
+          {% if is_state("device_tracker.tile_keys_derek", "home")
+            or is_state("device_tracker.tile_bonnies_keys", "home") %}
+            off
           {% else %}
-            false
+            on
           {% endif %}
 
 # US Weather Service Emergency Data
