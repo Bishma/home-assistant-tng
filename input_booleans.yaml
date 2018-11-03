@@ -1,0 +1,9 @@
+fan_out:
+  name: Is the stand fan out?
+  icon: mdi:fan
+enable_kodi_delete:
+  name: Enable Delete?
+  icon: mdi:eye-off
+force_away_mode:
+  name: Force Unoccupied Mode?
+  icon: mdi:home-minus

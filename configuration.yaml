@@ -90,13 +90,7 @@ ecobee:
  
 group: !include groups.yaml
 
-input_boolean:
-  fan_out:
-    name: Is the stand fan out?
-    icon: mdi:fan
-  enable_kodi_delete:
-    name: Enable Delete?
-    icon: mdi:eye-off
+input_boolean: !include input_booleans.yaml
   
 # A lights... except the lights that are controlled by sensors
 light: !include lights.yaml
