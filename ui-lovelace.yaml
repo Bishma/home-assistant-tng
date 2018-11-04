@@ -847,7 +847,8 @@ views:
         show_header_toggle: false
         entities:
           - entity: input_boolean.fan_out
-      - id: 934068fca4db49b4bbc56fd4eb6fa58a  # Automatically created id
+          - entity: input_boolean.force_away_mode
+      - id: grouped-automation-controls
         type: vertical-stack
         cards:
           - type: entities

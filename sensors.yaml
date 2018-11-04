@@ -137,9 +137,12 @@
         entity_id:
           - device_tracker.tile_keys_derek
           - device_tracker.tile_bonnies_keys
+          - input_boolean.force_away_mode
         friendly_name: 'Unoccuped Mode'
         value_template: >
-          {% if is_state("device_tracker.tile_keys_derek", "home")
+          {% if is_state("input_boolean.force_away_mode", "on") %}
+            on
+          {% elif is_state("device_tracker.tile_keys_derek", "home")
             or is_state("device_tracker.tile_bonnies_keys", "home") %}
             off
           {% else %}
