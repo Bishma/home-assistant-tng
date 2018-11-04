@@ -825,14 +825,6 @@ views:
             service_data:
               entity_id: remote.living_room
               activity: 31480260
-          - type: call-service
-            icon: mdi:power-plug-off
-            name: Media Center Off
-            action_name: Turn Off
-            service: remote.turn_on
-            service_data:
-              entity_id: remote.living_room
-              activity: -1
           - type: divider
           - type: weblink
             name: Plex Web Player
