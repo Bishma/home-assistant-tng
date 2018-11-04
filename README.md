@@ -49,12 +49,13 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Synology
 * Amazon Echo
 * Amazon Echo Dot
-* TP Link LB120 Tunable A19
+* 2x TP Link LB120 Tunable A19
 * TP Link LB230 Multi-Color BR30
 * 2x TP Link HS100 Wifi Switch
 * TP Link HS105 Mini Wifi Switch
 * 3x Tile Trackers
 * Ring Video Doorbell 2
+* 2x Amcrest Pan/Tilt/Zoom security cameras (via synology surveillance stations)
 * Netatmo Indoor and Outdoor climate sensors
 
 ## Software / API
