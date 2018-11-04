@@ -32,7 +32,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * [Indoor Climate Tab](screenshots/view_ndoor-climate.png)
 * [Camera Tab](screenshots/view_camera.png)
 * [Network Tab](screenshots/view_network.png)
-* [Media Center Tab](screenshots/view_media.gif)
+* [Media Center Tab](screenshots/mobile_media.png)
 
 # My Setup
 
