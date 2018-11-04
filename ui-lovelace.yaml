@@ -1007,8 +1007,10 @@ views:
 
           + Themes
             - Scripted?
-          + Integration with Synology Surveillance Station
-
-          + Make use of lovelace notification drawer
-
           + Floorplan
+
+          + Add summaries from darksky to climate tab
+
+          + python scripts to extent alexa skill functionality
+
+          + tract rss feed display with media center
