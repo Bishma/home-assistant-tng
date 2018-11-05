@@ -860,11 +860,11 @@ views:
           - type: entities
             title: Unoccupied Automations
             entities:
-              - entity: automation.away_morning
+              - entity: automation.unoccupied_morning
                 name: Away Morning Lights
-              - entity: automation.away_evening
+              - entity: automation.unoccupied_evening
                 name: Away Evening Lights
-              - entity: automation.away_night
+              - entity: automation.unoccupied_night
                 name: Away Night Lights
   - id: documentation
     icon: mdi:file-document
@@ -953,10 +953,9 @@ views:
           # Our Services
 
           + [Tile](https://www.thetileapp.com/en-us/dashboard/account)
-            - Used in presense detection automations. Different light schedules if
-          we're away.
+            - Used in presense detection automations. Different light schedules if we're away.
           + [Ecobee](https://www.ecobee.com/consumerportal/index.html#/login)
-            - Mainly used as a sensor.
+          
           + [Netatmo](https://my.netatmo.com/app/station)
             - 1 indoor module in living room
             - 1 outdoor module on porch on opposite corner of the house.
