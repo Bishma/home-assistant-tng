@@ -6,7 +6,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: "off"
+    state: 'off'
   - above: '75'
     condition: numeric_state
     entity_id: sensor.dark_sky_daytime_high_temperature
@@ -16,8 +16,10 @@
   alias: Temperatures Equal
   trigger:
   - platform: template
-    value_template: '{% if states("sensor.cottage_temperature") | int == states("sensor.netatmo_outdoor_temperature_2")
-      | int %}true{% endif %}'
+    value_template: >
+      {% if states("sensor.cottage_temperature") | round(1) == states("sensor.netatmo_outdoor_temperature_2") | round(1) %}
+        true
+      {% endif %}
   condition: []
   action:
   - data_template:
@@ -35,7 +37,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: "off"
+    state: 'off'
   action:
   - service: switch.turn_on
     data:
@@ -54,7 +56,7 @@
       entity_id: switch.ge_12720_outdoor_smart_switch_switch
     service: switch.turn_off
 - id: '1535920489195'
-  alias: Away Morning
+  alias: Unoccupied Morning
   trigger:
   - event: sunrise
     offset: -00:10:00
@@ -62,7 +64,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: "on"
+    state: 'on'
   action:
   - data:
       data:
@@ -75,7 +77,7 @@
       entity_id: light.the_sink_hole
     service: light.turn_on
 - id: '1535920745991'
-  alias: Away Evening
+  alias: Unoccupied Evening
   trigger:
   - event: sunset
     offset: -00:45:00
@@ -83,7 +85,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: "on"
+    state: 'on'
   action:
   - data:
       data:
@@ -94,14 +96,14 @@
       entitiy_id: switch.derek_bedroom_lamp
     service: switch.turn_on
 - id: '1535921022697'
-  alias: Away Night
+  alias: Unoccupied Night
   trigger:
   - at: '21:46'
     platform: time
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: "on"
+    state: 'on'
   action:
   - data:
       entity_id: light.living_room_lamp
@@ -115,7 +117,7 @@
   - data:
       entitiy_id: switch.derek_bedroom_lamp
     service: switch.turn_off
-- id: 'weather_alert_doooooom'
+- id: weather_alert_doooooom
   alias: NWS Notification Weather Alert
   trigger:
     platform: state
@@ -125,8 +127,9 @@
     value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
   action:
   - data_template:
-      message: There has been a change in the weather alert status for our area.
-      
-        {{ state_attr('sensor.nws_alert_event', 'features')[0].properties.headline }}
-        {{ state_attr('sensor.nws_alert_event', 'features')[0].properties.description }}
+      message: 'There has been a change in the weather alert status for our area.
+
+        {{ state_attr(''sensor.nws_alert_event'', ''features'')[0].properties.headline
+        }} {{ state_attr(''sensor.nws_alert_event'', ''features'')[0].properties.description
+        }}'
     service: notify.general
