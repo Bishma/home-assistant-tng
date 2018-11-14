@@ -138,8 +138,8 @@
   carmen_san_diego:
     name: Where In The World Is
     entities:
-      - device_tracker.tile_keys_derek
-      - device_tracker.tile_bonnies_keys
+      - device_tracker.tile_78bc53da2fdc0a07
+      - device_tracker.tile_6ddd67e2e9a0ad94
   # Media
   media_activity:
     control: hidden

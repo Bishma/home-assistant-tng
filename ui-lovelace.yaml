@@ -42,8 +42,8 @@ views:
           - type: entities
             title: Where Are We
             entities:
-              - device_tracker.tile_keys_derek
-              - device_tracker.tile_bonnies_keys
+              - device_tracker.tile_78bc53da2fdc0a07
+              - device_tracker.tile_6ddd67e2e9a0ad94
           - type: entities
             entities:
               - sensor.home_to_idx

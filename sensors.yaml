@@ -135,15 +135,15 @@
       # simple bool for decided if the house is empty of residents
       unoccupied_mode:
         entity_id:
-          - device_tracker.tile_keys_derek
-          - device_tracker.tile_bonnies_keys
+          - ddevice_tracker.tile_78bc53da2fdc0a07
+          - device_tracker.tile_6ddd67e2e9a0ad94
           - input_boolean.force_away_mode
         friendly_name: 'Unoccuped Mode'
         value_template: >
           {% if is_state("input_boolean.force_away_mode", "on") %}
             on
-          {% elif is_state("device_tracker.tile_keys_derek", "home")
-            or is_state("device_tracker.tile_bonnies_keys", "home") %}
+          {% elif is_state("device_tracker.tile_78bc53da2fdc0a07", "home")
+            or is_state("device_tracker.tile_6ddd67e2e9a0ad94", "home") %}
             off
           {% else %}
             on
