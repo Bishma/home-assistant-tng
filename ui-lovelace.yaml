@@ -195,8 +195,15 @@ views:
                 - sensor.allergy_index_forecasted_average.trend
           - entity: sensor.cold__flu_forecasted_average
             name: Cold/Flu Index Average
-          - entity: sensor.waqi_eugene__highway_99_oregon_usa
-            name: Air Quality Index
+      - id: air-quality-gauge
+        type: gauge
+        entity: sensor.waqi_eugene__highway_99_oregon_usa
+        title: Air Quality Index
+        max: 500
+        severity:
+          green: 0
+          yellow: 75
+          red: 151
       - id: d498e573e51045e29f170a83c9c72819  # Automatically created id
         type: iframe
         url: https://embed.windy.com/embed2.html?lat=44.159&lon=-123.162&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.159&detailLon=-123.162&metricWind=default&metricTemp=default&radarRange=-1
