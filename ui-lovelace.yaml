@@ -277,6 +277,12 @@ views:
             name: Outdoor Connection Strength
           - entity: sensor.netatmo_outdoor_battery_2
             name: Outdoor Battery Level
+      - id: idx-climate
+        type: entities
+        title: IDX
+        show_header_toggle: false
+        entities:
+          - entity: input_boolean.idx_heater_on
   - id: cameras
     icon: mdi:cctv
     cards:

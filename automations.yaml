@@ -16,10 +16,8 @@
   alias: Temperatures Equal
   trigger:
   - platform: template
-    value_template: >
-      {% if states("sensor.cottage_temperature") | round(1) == states("sensor.netatmo_outdoor_temperature_2") | round(1) %}
-        true
-      {% endif %}
+    value_template: "{% if states(\"sensor.cottage_temperature\") | round(1) == states(\"\
+      sensor.netatmo_outdoor_temperature_2\") | round(1) %}\n  true\n{% endif %}\n"
   condition: []
   action:
   - data_template:
@@ -133,3 +131,17 @@
         }} {{ state_attr(''sensor.nws_alert_event'', ''features'')[0].properties.description
         }}'
     service: notify.general
+- id: '1542163639030'
+  alias: Work Heater On
+  trigger:
+  - entity_id: device_tracker.tile_78bc53da2fdc0a07
+    from: 'IDX'
+    platform: state
+  condition:
+  - condition: state
+    entity_id: input_boolean.idx_heater_on
+    state: 'on'
+  action:
+  - service: notify.general
+    data:
+      message: 'It looks like you may have left your work with your heater on.'

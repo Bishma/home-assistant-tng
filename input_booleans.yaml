@@ -7,3 +7,6 @@ enable_kodi_delete:
 force_away_mode:
   name: Force Unoccupied Mode?
   icon: mdi:home-minus
+idx_heater_on:
+  name: Heater On
+  icon: mdi:radiator
