@@ -11,17 +11,17 @@
   - name: Bend
     latitude: 44.0582
     longitude: -121.3153
-    radius: 25000
+    radius: 5000
     icon: mdi:car
   - name: Florence
     latitude: 43.9826
     longitude: -124.0998
-    radius: 25000
+    radius: 5000
     icon: mdi:anchor
   - name: Portland
     latitude: 45.5231
     longitude: -122.6765
-    radius: 25000
+    radius: 5000
     icon: mdi:emoticon-poop
   - name: Lincoln City
     latitude: 45.003445
