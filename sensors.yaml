@@ -93,14 +93,6 @@
       - free_disk_space
       - remaining_size
       - uptime
-      
-# Harmony
-  - platform: template
-    sensors:
-      living_room_remote_state:
-        entity_id: remote.living_room
-        value_template: '{{ states.remote.living_room.attributes.current_activity }}'
-        friendly_name: 'Current Activity:'
 
 # Pollen
   - platform: pollen
@@ -132,7 +124,12 @@
 
   - platform: template
     sensors:
-      # simple bool for decided if the house is empty of residents
+      # Harmony current activity
+      living_room_remote_state:
+        entity_id: remote.living_room
+        value_template: '{{ states.remote.living_room.attributes.current_activity }}'
+        friendly_name: 'Current Activity:'
+      # Simple bool for decided if the house is empty of residents
       unoccupied_mode:
         entity_id:
           - ddevice_tracker.tile_78bc53da2fdc0a07
