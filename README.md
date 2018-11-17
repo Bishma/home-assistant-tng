@@ -1,6 +1,6 @@
 # Home Assistant Config by Bishma
 
-![Universal remote phone view](screenshots/mobile_media.png)
+![Universal remote phone view](images/screenshots/mobile_media.png)
 
 I have been working to automate my home as much as my 50 year old wiring allows. I aim to accomplish all my automations with a RaspPi, no other hubs apart from the usb z-wave stick. This has been a slowly evolving config.
 
@@ -27,12 +27,12 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 
 ## Screen Shots
 
-* [Home Tab](screenshots/view_home.png)
-* [Climate Tab](screenshots/view_climate.png)
-* [Indoor Climate Tab](screenshots/view_ndoor-climate.png)
-* [Camera Tab](screenshots/view_camera.png)
-* [Network Tab](screenshots/view_network.png)
-* [Media Center Tab](screenshots/mobile_media.png)
+* [Home Tab](images/screenshots/view_home.png)
+* [Climate Tab](images/screenshots/view_climate.png)
+* [Indoor Climate Tab](images/screenshots/view_ndoor-climate.png)
+* [Camera Tab](images/screenshots/view_camera.png)
+* [Network Tab](images/screenshots/view_network.png)
+* [Media Center Tab](images/screenshots/mobile_media.png)
 
 # My Setup
 
