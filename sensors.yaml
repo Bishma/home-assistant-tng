@@ -145,6 +145,24 @@
           {% else %}
             on
           {% endif %}
+      # WAQI States
+      waqi_state:
+        entity_id: sensor.waqi_eugene__highway_99_oregon_usa
+        friendly_name: West Eugene Air Quality
+        value_template: >
+          {% if states.sensor.waqi_eugene__highway_99_oregon_usa | int < 51 %}
+            good
+          {% elif states.sensor.waqi_eugene__highway_99_oregon_usa | int < 101 %}
+            moderate
+          {% elif states.sensor.waqi_eugene__highway_99_oregon_usa | int < 151 %}
+            unhealthy-1
+          {% elif states.sensor.waqi_eugene__highway_99_oregon_usa | int < 201 %}
+            unhealthy-2
+          {% elif states.sensor.waqi_eugene__highway_99_oregon_usa | int < 300 %}
+            unhealthy-3
+          {% else %}
+            hazardous
+          {% endif %}
 
 # US Weather Service Emergency Data
 # https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853
