@@ -1,0 +1,135 @@
+- id: lighting-stack
+  type: vertical-stack
+  cards:
+    - type: entities
+      title: Living Room
+      entities:
+        - entity: switch.the_sparkle
+        - entity: light.living_room_lamp
+          type: custom:slider-entity-row
+        - entity: light.living_room_lamp_middle
+          type: custom:slider-entity-row
+    - type: entities
+      title: Kitchen
+      entities:
+        - entity: light.the_sink_hole
+          type: custom:slider-entity-row
+    - type: entities
+      title: Bedroom
+      entities:
+        - switch.derek_bedroom_lamp
+        - switch.bonnie_bedroom_lamp
+    - type: entities
+      title: Exterior
+      entities:
+        - switch.ge_12720_outdoor_smart_switch_switch
+- id: location-stack
+  type: vertical-stack
+  cards:
+    - type: entities
+      title: Where Are We
+      entities:
+        - device_tracker.tile_78bc53da2fdc0a07
+        - device_tracker.tile_6ddd67e2e9a0ad94
+    - type: entities
+      entities:
+        - sensor.home_to_idx
+        - sensor.home_to_bend
+        - sensor.home_to_florence
+        - sensor.home_to_portland
+        - sensor.home_to_lincoln_city
+    - type: entities
+      title: Transport
+      entities:
+        - entity: sensor.lyft_time
+          name: Lyft Pickup Time
+        - entity: sensor.lyft_xl_time
+          name: Lyft XL Pickup Time
+        - type: divider
+        - entity: sensor.uberx_time
+          name: Uber X Pickup Time
+          icon: mdi:uber
+        - entity: sensor.uberxl_time
+          name: Uber XL Pickup Time
+          icon: mdi:uber
+- id: 1d36c5375813402ab8a5b66e09d6ff73  # Automatically created id
+  type: picture-entity
+  entity: camera.front_door
+- id: media-center-stack
+  type: vertical-stack
+  cards:
+    - type: entities
+      title: TV Quick Controls
+      entities:
+        - type: divider
+          style:
+            - display: none
+    - type: horizontal-stack
+      cards:
+        - type: entity-button
+          entity: script.media_pause
+          name: Pause
+          icon: mdi:pause
+          tap_action: toggle
+        - type: entity-button
+          entity: script.media_play
+          name: Play
+          icon: mdi:play
+          tap_action: toggle
+        - type: entity-button
+          entity: script.media_off
+          name: "Off"
+          icon: mdi:power-plug-off
+          tap_action: toggle
+        - type: entity-button
+          entity: script.media_volume_down
+          name: Vol -
+          icon: mdi:volume-minus
+          tap_action: toggle
+        - type: entity-button
+          entity: script.media_volume_up
+          name: Vol +
+          icon: mdi:volume-plus
+          tap_action: toggle
+- id: f829d4952bd8469cac53b057bf4a2ecb  # Automatically created id
+  type: entities
+  title: Comfort Quick Controls
+  entities:
+    - entity: climate.cottage
+    - type: call-service
+      name: Bedroom AC
+      action_name: Cool
+      icon: mdi:air-conditioner
+      service: script.bedtime_ac
+      service_data:
+        entity_id: script.bedtime_ac
+- id: 03686ce616f341d18b3d9b4de87adc85  # Automatically created id
+  type: conditional
+  conditions:
+    - entity: input_boolean.fan_out
+      state: on
+  card:
+    type: entities
+    title: Living Room Stand Fan
+    entities:
+      - type: call-service
+        name: Power
+        action_name: Toggle
+        icon: mdi:power-standby
+        service: livingroom_fan_on
+        service_data:
+          entity_id: livingroom_fan_on
+      - type: call-service
+        name: Oscillate
+        action_name: Toggle
+        icon: mdi:rotate-3d
+        service: script.livingroom_fan_osc
+        service_data:
+          entity_id: script.livingroom_fan_osc livingroom_fan_speed
+      - type: call-service
+        name: Speed
+        action_name: Cycle
+        icon: mdi:speedometer
+        service: script.livingroom_fan_speed
+        service_data:
+          entity_id: script.livingroom_fan_speed

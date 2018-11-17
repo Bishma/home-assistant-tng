@@ -1,0 +1,59 @@
+- id: 38a481c0dbca41aeabc89f2385e2515c  # Automatically created id
+  type: weather-forecast
+  title: Forcast
+  entity: weather.yweather
+- id: 9f929e456f4e47bca1612ce4f5f97185  # Automatically created id
+  type: horizontal-stack
+  cards:
+    - type: entities
+      entities:
+        - entity: sun.sun
+    - type: entities
+      entities:
+        - entity: sensor.moon
+          name: Moon
+- id: abe07a2edec049629d89c2e9561895a3  # Automatically created id
+  type: entities
+  title: Exterior Conditions
+  entities:
+    - entity: sensor.netatmo_outdoor_temperature_2
+      name: Current Temperature
+    - entity: sensor.netatmo_outdoor_humidity_2
+      name: Current Humidity
+    - entity: sensor.dark_sky_cloud_coverage
+    - entity: sensor.dark_sky_precip_probability
+      name: Chance of Precipitation
+    - entity: sensor.dark_sky_wind_speed
+    - entity: sensor.dark_sky_visibility
+    - type: weblink
+      name: Eugene, Or - Weather Underground
+      icon: mdi:link-variant
+      url: https://www.wunderground.com/weather/us/or/eugene
+- id: 54791c6401b14f729b37e6e7cafda122  # Automatically created id
+  type: entities
+  title: Illness
+  entities:
+    - entity: sensor.allergy_index_forecasted_average
+      name: Allergy Index Forcase
+    - entity: sensor.allergy_index_forecasted_average
+      type: custom:entity-attributes-card
+      filter:
+        include:
+          - sensor.allergy_index_forecasted_average.outlook
+          - sensor.allergy_index_forecasted_average.season
+          - sensor.allergy_index_forecasted_average.trend
+    - entity: sensor.cold__flu_forecasted_average
+      name: Cold/Flu Index Average
+- id: air-quality-gauge
+  type: gauge
+  entity: sensor.waqi_eugene__highway_99_oregon_usa
+  title: Air Quality Index
+  max: 500
+  severity:
+    green: 0
+    yellow: 75
+    red: 151
+- id: d498e573e51045e29f170a83c9c72819  # Automatically created id
+  type: iframe
+  url: https://embed.windy.com/embed2.html?lat=44.159&lon=-123.162&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.159&detailLon=-123.162&metricWind=default&metricTemp=default&radarRange=-1
+  aspect_ratio: 100%

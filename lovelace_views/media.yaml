@@ -1,0 +1,431 @@
+- id: active-controls
+  type: vertical-stack
+  cards:
+    - id: arrow-button-grid
+      type: vertical-stack
+      cards:
+        - id: arrow-top-row
+          type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: remote.living_room
+              name: Off
+              icon: mdi:power-plug-off
+              tap_action: call-service
+              theme: danger
+              service: remote.turn_on
+              service_data:
+                entity_id: remote.living_room
+                activity: -1
+            - type: entity-button
+              entity: script.media_up_arrow
+              name: Up
+              icon: mdi:arrow-up-box
+              tap_action: toggle
+            - type: entity-button
+              entity: script.media_back
+              name: Back
+              icon: mdi:rotate-left
+              tap_action: toggle
+            - type: entity-button
+              entity: script.media_page_up
+              name: Pg Up
+              icon: mdi:chevron-double-up
+              tap_action: toggle
+        - id: arrow-middle-row
+          type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: script.media_left_arrow
+              name: Left
+              icon: mdi:arrow-left-box
+              tap_action: toggle
+            - type: entity-button
+              entity: script.media_confirm
+              name: Confirm
+              icon: mdi:check-circle
+              tap_action: toggle
+            - type: entity-button
+              entity: script.media_right_arrow
+              name: Right
+              icon: mdi:arrow-right-box
+              tap_action: toggle
+            - type: entity-button
+              entity: script.media_page_down
+              name: Pg Dwn
+              icon: mdi:chevron-double-down
+              tap_action: toggle
+        - id: arrow-bottom-row
+          type: horizontal-stack
+          cards:
+              - type: entity-button
+                entity: script.media_skip_back
+                name: Skip Back
+                icon: mdi:backburger
+                tap_action: toggle
+              - type: entity-button
+                entity: script.media_down_arrow
+                name: Down
+                icon: mdi:arrow-down-box
+                tap_action: toggle
+              - type: entity-button
+                entity: script.media_context
+                name: Context
+                icon: mdi:menu
+                tap_action: toggle
+              - type: entity-button
+                entity: script.media_info
+                name: Info
+                icon: mdi:information-outline
+                tap_action: toggle
+    - id: media-button-row
+      type: horizontal-stack
+      cards:
+        - type: entity-button
+          entity: script.media_pause
+          name: Pause
+          icon: mdi:pause
+          tap_action: toggle
+        - type: entity-button
+          entity: script.media_play
+          name: Play
+          icon: mdi:play
+          tap_action: toggle
+        - type: entity-button
+          entity: script.media_stop
+          name: Stop
+          icon: mdi:stop
+          tap_action: toggle
+        - type: entity-button
+          entity: script.media_volume_down
+          name: Vol -
+          icon: mdi:volume-minus
+          tap_action: toggle
+        - type: entity-button
+          entity: script.media_volume_up
+          name: Vol +
+          icon: mdi:volume-plus
+          tap_action: toggle
+    - id: activity-specific-kodi
+      type: conditional
+      conditions:
+        - entity: sensor.living_room_remote_state
+          state: Watch Kodi
+      card:
+        type: vertical-stack
+        cards:
+          - type: entities
+            title: HTPC Tools
+            show_header_toggle: false
+            entities:
+              - type: call-service
+                name: Fix Input
+                action_name: HDMI 1
+                icon: mdi:video-input-hdmi
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 51736886
+                  command: InputHdmi1
+                  num_repeats: 1
+              - type: call-service
+                name: Watched Status
+                action_name: Toggle
+                icon: mdi:eye
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51738178
+                  command: w.
+              - type: call-service
+                name: Launch Kodi
+                action_name: Ctrl+Alt+4
+                icon: mdi:kodi
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51738178
+                  command: Ctrl+Alt+3
+              - type: call-service
+                name: Fix Kodi
+                action_name: Ctrl+Alt+3
+                icon: mdi:kodi
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51738178
+                  command: Ctrl+Alt+3
+              - type: call-service
+                name: Kodi Power / Shutdown Menu
+                action_name: Power
+                icon: mdi:power-standby
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51738178
+                  command: s.
+              - type: call-service
+                name: Switch Windows
+                action_name: Alt+Tab
+                icon: mdi:window-restore
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51738178
+                  command: Alt+Tab
+              - type: call-service
+                name: Windows Key
+                action_name: Engage
+                icon: mdi:windows
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51738178
+                  command: Windows
+              - entity: input_boolean.enable_kodi_delete
+          - type: conditional
+            conditions:
+              - entity: input_boolean.enable_kodi_delete
+                state: "on"
+            card:
+              type: entities
+              entities:
+                - type: call-service
+                  name: Delete
+                  action_name: Delete
+                  icon: mdi:trash-can
+                  service: script.kodi_delete
+                  service_data:
+                    entity_id: script.kodi_delete
+    - id: activity-specific-roku-multi
+      type: conditional
+      conditions:
+        - entity: sensor.living_room_remote_state
+          state_not: Watch Kodi
+        - entity: sensor.living_room_remote_state
+          state_not: Watch OTA
+        - entity: sensor.living_room_remote_state
+          state_not: Play Switch
+        - entity: sensor.living_room_remote_state
+          state_not: PowerOff
+      card:
+        type: entities
+        title: Roku Tools
+        entities:
+          - type: call-service
+            name: Fix Input
+            action_name: HDMI 3
+            icon: mdi:video-input-hdmi
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 51736886
+              command: InputHdmi3
+              num_repeats: 1
+          - type: call-service
+            name: Home
+            action_name: Home
+            icon: mdi:home
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              num_repeats: 1
+              device: 51736885
+              command: Home
+          - type: call-service
+            name: Exit
+            action_name: Exit
+            icon: mdi:exit-run
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              num_repeats: 1
+              device: 51736885
+              command: Exit
+          - type: call-service
+            name: Rewind
+            action_name: '<<'
+            icon: mdi:rewind
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              num_repeats: 1
+              device: 51736885
+              command: Rewind
+          - type: call-service
+            name: Fast Forward
+            action_name: '>>'
+            icon: mdi:fast-forward
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              num_repeats: 1
+              device: 51736885
+              command: FastForward
+    - id: activity-specific-ota
+      type: conditional
+      conditions:
+        - entity: sensor.living_room_remote_state
+          state: Watch OTA
+      card:
+        type: entities
+        title: OTA Tools
+        entities:
+          - type: call-service
+            name: Fix Input
+            action_name: Input TV
+            icon: mdi:video-input-hdmi
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 51736886
+              command: InputTv
+              num_repeats: 1
+          - type: call-service
+            name: Channel Up
+            action_name: Up
+            icon: mdi:arrow-up
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              num_repeats: 1
+              device: 51736886
+              command: ChannelUp
+          - type: call-service
+            name: Channel Down
+            action_name: Down
+            icon: mdi:arrow-down
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              num_repeats: 1
+              device: 51736886
+              command: ChannelDown
+          - type: call-service
+            name: Menu
+            action_name: Menu
+            icon: mdi:menu
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              num_repeats: 1
+              device: 51736886
+              command: Menu
+          - type: call-service
+            name: Back
+            action_name: Back
+            icon: mdi:backburger
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              num_repeats: 1
+              device: 51736886
+              command: Back
+          - type: call-service
+            name: Exit
+            action_name: Exit
+            icon: mdi:exit-run
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              num_repeats: 1
+              device: 51736886
+              command: Exit
+    - id: activity-specific-switch
+      type: conditional
+      conditions:
+        - entity: sensor.living_room_remote_state
+          state: Play Switch
+      card:
+        type: entities
+        title: Switch Tool
+        entities:
+          - type: call-service
+            name: Fix Input
+            action_name: Input TV
+            icon: mdi:video-input-hdmi
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 51736886
+              command: HDMI2
+              num_repeats: 1
+- id: activity-choice
+  type: entities
+  title: TV Activity
+  entities:
+    - type: call-service
+      icon: mdi:kodi
+      name: Kodi
+      action_name: Watch
+      service: remote.turn_on
+      service_data:
+        entity_id: remote.living_room
+        activity: 31479535
+    - type: call-service
+      icon: mdi:hulu
+      name: Hulu
+      action_name: Watch
+      service: remote.turn_on
+      service_data:
+        entity_id: remote.living_room
+        activity: 31949557
+    - type: call-service
+      icon: mdi:netflix
+      name: Netflix
+      action_name: Watch
+      service: remote.turn_on
+      service_data:
+        entity_id: remote.living_room
+        activity: 31478989
+    - type: call-service
+      icon: mdi:amazon
+      name: Amazon
+      action_name: Watch
+      service: remote.turn_on
+      service_data:
+        entity_id: remote.living_room
+        activity: 31480109
+    - type: call-service
+      icon: mdi:plex
+      name: Plex
+      action_name: Watch
+      service: remote.turn_on
+      service_data:
+        entity_id: remote.living_room
+        activity: 31571897
+    - type: call-service
+      icon: mdi:youtube
+      name: Youtube
+      action_name: Watch
+      service: remote.turn_on
+      service_data:
+        entity_id: remote.living_room
+        activity: 33323580
+    - type: call-service
+      icon: mdi:nintendo-switch
+      name: Nintendo Switch
+      action_name: Play
+      service: remote.turn_on
+      service_data:
+        entity_id: remote.living_room
+        activity: 31480190
+    - type: call-service
+      icon: mdi:television-classic
+      name: Over The Air
+      action_name: Watch
+      service: remote.turn_on
+      service_data:
+        entity_id: remote.living_room
+        activity: 31480260
+    - type: divider
+    - type: weblink
+      name: Plex Web Player
+      url: https://app.plex.tv/desktop
+      icon: mdi:link-variant

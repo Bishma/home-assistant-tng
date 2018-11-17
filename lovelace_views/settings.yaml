@@ -1,0 +1,33 @@
+- id: ui_and_automation
+  type: entities
+  title: UI and Automation Controls
+  show_header_toggle: false
+  entities:
+    - entity: input_boolean.fan_out
+    - entity: input_boolean.force_away_mode
+- id: grouped-automation-controls
+  type: vertical-stack
+  cards:
+    - type: entities
+      title: General Automations
+      entities:
+        - entity: automation.temperatures_equal
+          name: Equal Temp. Notification
+    - type: entities
+      title: Occupied Automations
+      entities:
+        - entity: automation.predusk_tasks
+          name: Pre-Dusk Lights Auto-On
+        - entity: automation.back_porch_off
+          name: Back Porch Auto-Off
+        - entity: automation.sleep_cool
+          name: Bedroom AC Cool
+    - type: entities
+      title: Unoccupied Automations
+      entities:
+        - entity: automation.unoccupied_morning
+          name: Away Morning Lights
+        - entity: automation.unoccupied_evening
+          name: Away Evening Lights
+        - entity: automation.unoccupied_night
+          name: Away Night Lights

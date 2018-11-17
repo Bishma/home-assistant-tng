@@ -1,0 +1,80 @@
+- id: 894474fbf7ea4b36848e22ef5cc996e3  # Automatically created id
+  type: vertical-stack
+  cards:
+    - type: entities
+      title: NAS
+      entities:
+        - entity: sensor.used_space_volume_1
+          name: Disk Space Used
+        - entity: sensor.cpu_load_total
+          name: CPU Use
+        - entity: sensor.memory_usage_real
+          name: Memory Use
+        - entity: sensor.network_down
+          name: Download Speed
+        - entity: sensor.network_up
+          name: Upload Speed
+        - type: divider
+        - entity: sensor.status_sda
+          name: Disk A Status
+        - entity: sensor.status_sdb
+          name: Disk B Status
+        - entity: sensor.status_sdc
+          name: Disk C Status
+    - type: gauge
+      entity: sensor.volume_used_volume_1
+      title: Disk Use
+      unit_of_measurement: '%'
+      min: 0
+      max: 100
+      severity:
+        green: 0
+        yellow: 90
+        red: 95
+- id: 5ac33fdfaceb437b804896f431df49fe  # Automatically created id
+  type: entities
+  title: Downloads
+  entities:
+    - entity: sensor.nzbget_average_speed
+      name: Average Speed
+    - entity: sensor.nzbget_queue_size
+      name: Download Queue Size
+    - entity: sensor.nzbget_speed
+      name: Current Speed
+    - entity: sensor.nzbget_disk_free
+      name: Free Disk Space
+    - entity: sensor.nzbget_download_paused
+      name: Downloading Paused
+    - entity: sensor.nzbget_uptime
+      name: Uptime
+- id: 3f45ab35c9634c1b9b7c2c72e7035b22  # Automatically created id
+  type: history-graph
+  title: Speedtest.net (Last 12 Hours)
+  hours_to_show: 12
+  entities:
+    - entity: sensor.speedtest_download
+      name: Download Speed
+    - entity: sensor.speedtest_upload
+      name: Upload Speed
+    - entity: sensor.speedtest_ping
+      name: ICMP Ping the Corvallis
+- id: 7af9b8809c92401d91e037b19b182fed  # Automatically created id
+  type: entities
+  title: Local Links
+  entities:
+    - type: weblink
+      name: Plex (plays anywhere)
+      icon: mdi:plex
+      url: https://app.plex.tv/desktop
+    - type: weblink
+      name: Kodi Web Control
+      icon: mdi:kodi
+      url: http://192.168.131.3:9090/
+    - type: weblink
+      name: Heimdall NAS
+      icon: mdi:nas
+      url: http://192.168.131.2:5000/index.cgi
+    - type: weblink
+      name: Cable Modem
+      icon: mdi:ethernet-cable
+      url: http://10.1.10.1/

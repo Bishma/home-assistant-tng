@@ -1,0 +1,139 @@
+- type: markdown
+  id: view_documentation_alexa
+  content: >
+    # Alexa
+
+    ## Routines
+
+    + Begin Derek's Morning
+      1. Set volume to 4
+      1. Turn the sink light to 100%
+      1. Turn "Teddy" the living room lamp to 20%
+      1. Read weather report
+      1. Set volume to 7 
+    + Make it dark
+      1. Turn off Bonnie Lamp
+      1. Turn off Derek Lamp
+    + Operation Mongoose
+      1. Turn off living room lamp
+      1. Turn off living room light strip. A.K.A. "The Sparkle"
+      1. Set kitchen light "The Sink Hole" to 2% brightness
+      1. Turn on Bonnie Bedroom Lamp
+    + Rise and Shine
+      1. Turn on living room light strip. A.K.A. "The Sparkle"
+      1. Set living room lamp ro 100% brightness
+    + Shut It Down
+      1. Turn off living room lamp
+      1. Turn off living room light strip. A.K.A. "The Sparkle"
+
+    ## Janet
+
+    Alexa ask Janet to:
+
+    + Watch
+      - Kodi
+      - Hulu
+      - Netflix
+      - Amazon
+      - Plex
+      - Over The Air
+    + ____ the TV
+      - **Turn** _the tv_ up by X
+      - **Turn** _the tv_ up
+      - **Turn** _the tv_ down by X
+      - **Turn** _the tv_ down
+      - **Turn** _the tv_ off
+      - **Confirm** _the tv_
+      - **Pause** _the tv_ 
+      - **Play** _the tv_ 
+      - **Stop** _the tv_ 
+    + Skip Back
+
+
+    Alexa ask Janet about:
+
+    + The Weather
+- id: b320bf2b9de0427289b386f86a206cb5  # Automatically created id
+  type: markdown
+  content: >
+    # Harmony
+
+    The "living room" harmony hub controls the media center and the living room
+    fan. Controls in home assistant are accompished throught remote.turn_on
+    and remote.send_command.
+
+    The media center consists of
+
+    + Visio TV
+    + HTPC
+      - Kodi is what's controlled via Harmony
+    + Roku
+      - Amazon Video
+      - Hulu
+      - Netflix
+      - Plex
+      - Youtube
+    + Nintendo Switch
+      - Just switching to the correct TV input
+    + Over The Air
+- id: ef15b6dc01a542919c4484e5f86aa3b9  # Automatically created id
+  type: markdown
+  content: >
+    # Our Services
+
+    + [Tile](https://www.thetileapp.com/en-us/dashboard/account)
+      - Used in presense detection automations. Different light schedules if we're away.
+    + [Ecobee](https://www.ecobee.com/consumerportal/index.html#/login)
+    
+    + [Netatmo](https://my.netatmo.com/app/station)
+      - 1 indoor module in living room
+      - 1 outdoor module on porch on opposite corner of the house.
+    + [Ring](https://ring.com/account)
+      - 1 doorbell
+
+- id: df8d84341ec04dba87907de0822dc4a0  # Automatically created id
+  type: markdown
+  content: >
+    # Technical Links
+
+    + [Home Assistant](https://www.home-assistant.io/lovelace/)
+      - [Components](https://www.home-assistant.io/components/)
+        + [Alexa Integration](https://www.home-assistant.io/components/alexa/)
+      - [Lovelace](https://www.home-assistant.io/lovelace/)
+      - Custom Cards
+        + [Attribute Cards](https://community.home-assistant.io/t/lovelace-attributes-card-entity-row/59122)
+        + [Slider Entity]https://github.com/thomasloven/lovelace-slider-entity-row
+      - Home Assistant Cloud / [Nebu Casa](https://www.nabucasa.com/)
+    + [Home Assisant Developer Docs](https://developers.home-assistant.io/)
+
+    + [Alexa Web App](https://alexa.amazon.com/spa/index.html#cards)
+
+    + [Alexa Skill Kit](https://developer.amazon.com/alexa/console/ask)
+      - Our Skill is "hass.1"
+    + Ecobee dev
+
+- id: 9808d8afcef54ab09a1ffd7485752184  # Automatically created id
+  type: markdown
+  content: >-
+    # Todo List
+
+    + Set up IR sequence that turns the bedroom ac unit to fan only
+      + Add UI and automations
+    + Automation that sends telegram message is disk status not normal
+
+    + Hide the media controls when Switch is active or when the system is off.
+
+    + TorqueODB2
+
+    + Themes
+      - Scripted?
+    + Floorplan
+
+    + Add summaries from darksky to climate tab
+
+    + python scripts to extent alexa skill functionality
+
+    + tract rss feed display with media center
+
+    + Add legend for the aqi guage
+      - picture card?

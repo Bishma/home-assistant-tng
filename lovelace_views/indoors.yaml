@@ -1,0 +1,79 @@
+- id: thermostat
+  type: thermostat
+  entity: climate.cottage
+- id: living-room-stack
+  type: vertical-stack
+  cards:
+    - type: entities
+      title: Living Room
+      entities:
+        - entity: sensor.netatmo_indoor_temperature_2
+          name: Temperature
+          icon: mdi:thermometer
+        - entity: sensor.netatmo_indoor_humidity_2
+          name: Humidity
+          icon: mdi:water-percent
+        - entity: sensor.netatmo_indoor_pressure_2
+          name: Barametric Pressure
+          icon: mdi:gauge
+        - entity: sensor.netatmo_indoor_co2_2
+          name: CO2 PPM
+          icon: mdi:periodic-table-co2
+        - entity: sensor.netatmo_indoor_noise_2
+          name: Noise Level
+          icon: mdi:ear-hearing
+    - type: conditional
+      conditions:
+        - entity: input_boolean.fan_out
+          state: on
+      card:
+        type: horizontal-stack
+        cards:
+          - type: entity-button
+            entity: script.livingroom_fan_on
+            name: Fan Power
+            icon: mdi:fan
+            tap_action: toggle
+          - type: entity-button
+            entity: script.livingroom_fan_osc
+            name: Oscillate
+            icon: mdi:rotate-3d
+            tap_action: toggle
+          - type: entity-button
+            entity: script.livingroom_fan_speed
+            name: Speed
+            icon: mdi:speedometer
+            tap_action: toggle
+- id: hallway-sensors
+  type: entities
+  title: Hallway
+  entities:
+    - entity: climate.cottage
+    - entity: sensor.cottage_humidity
+      name: Humidity
+      icon: mdi:water-percent
+- id: indoor-outdoor-temperature-graph
+  type: history-graph
+  title: Temperature (Last 12 Hours)
+  hours_to_show: 12
+  entities:
+    - entity: sensor.netatmo_indoor_temperature_2
+      name: Living Room Temp.
+    - entity: sensor.netatmo_outdoor_temperature_2
+      name: Outdoor Temp.
+- id: weather-station-status
+  type: entities
+  title: Netatmo Status
+  entities:
+    - entity: sensor.netatmo_indoor_wifi_2
+      name: Indoor Connection Strength
+    - entity: sensor.netatmo_outdoor_radio_2
+      name: Outdoor Connection Strength
+    - entity: sensor.netatmo_outdoor_battery_2
+      name: Outdoor Battery Level
+- id: idx-climate
+  type: entities
+  title: IDX
+  show_header_toggle: false
+  entities:
+    - entity: input_boolean.idx_heater_on
