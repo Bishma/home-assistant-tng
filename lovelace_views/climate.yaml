@@ -3,7 +3,7 @@
   title: Forcast
   entity: weather.yweather
 - id: 9f929e456f4e47bca1612ce4f5f97185  # Automatically created id
-  type: horizontal-stack
+  type: vertical-stack
   cards:
     - type: entities
       entities:
