@@ -150,17 +150,17 @@
         entity_id: sensor.waqi_eugene__highway_99_oregon_usa
         friendly_name: West Eugene Air Quality
         value_template: >
-          {% if states.sensor.waqi_eugene__highway_99_oregon_usa | int < 51 %}
+          {% if states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 51 %}
             good
-          {% elif states.sensor.waqi_eugene__highway_99_oregon_usa | int < 101 %}
+          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 101 %}
             moderate
-          {% elif states.sensor.waqi_eugene__highway_99_oregon_usa | int < 151 %}
+          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 151 %}
             unhealthy-1
-          {% elif states.sensor.waqi_eugene__highway_99_oregon_usa | int < 201 %}
+          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 201 %}
             unhealthy-2
-          {% elif states.sensor.waqi_eugene__highway_99_oregon_usa | int < 300 %}
+          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 300 %}
             unhealthy-3
-          {% elif states.sensor.waqi_eugene__highway_99_oregon_usa | int > 300 %}
+          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int > 300 %}
             hazardous
           {% else %}
             unknown
