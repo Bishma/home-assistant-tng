@@ -29,7 +29,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 
 * [Home Tab](images/screenshots/view_home.png)
 * [Climate Tab](images/screenshots/view_climate.png)
-* [Indoor Climate Tab](images/screenshots/view_ndoor-climate.png)
+* [Indoor Climate Tab](images/screenshots/view_indoor-climate.png)
 * [Camera Tab](images/screenshots/view_camera.png)
 * [Network Tab](images/screenshots/view_network.png)
 * [Media Center Tab](images/screenshots/mobile_media.png)
