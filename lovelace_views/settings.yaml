@@ -13,6 +13,8 @@
       entities:
         - entity: automation.temperatures_equal
           name: Equal Temp. Notification
+        - entity: automation.work_heater_on
+          name: Work heater warning
     - type: entities
       title: Occupied Automations
       entities:
