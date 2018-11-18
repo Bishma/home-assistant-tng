@@ -44,20 +44,25 @@
           - sensor.allergy_index_forecasted_average.trend
     - entity: sensor.cold__flu_forecasted_average
       name: Cold/Flu Index Average
-- id: west_eugene_air_quality
-  type: picture-entity
-  entity: sensor.waqi_state
-  aspect_ratio: 1.1
-  show_name: false
-  show_state: false
-  state_image:
-    "good": /local/air-quality/waqi-good.png
-    "moderate": /local/air-quality/waqi-moderate.png
-    "unhealthy-1": /local/air-quality/waqi-unhealthy-1.png
-    "unhealthy-2": /local/air-quality/waqi-unhealthy-2.png
-    "unhealthy-3": /local/air-quality/waqi-unhealthy-3.png
-    "hazardous": /local/air-quality/waqi-hazardous.png
-    "unknown": /local/air-quality/waqi-unknown.png
+- id: west_eugene_air_quality stack
+  type: vertical-stack
+  cards:
+    - type: picture-entity
+      entity: sensor.waqi_state
+      show_name: false
+      show_state: false
+      state_image:
+        "good": /local/air-quality/good.jpg
+        "moderate": /local/air-quality/moderate.jpg
+        "unhealthy-1": /local/air-quality/unhealthy-1.jpg
+        "unhealthy-2": /local/air-quality/unhealthy-2.jpg
+        "unhealthy-3": /local/air-quality/unhealthy-3.jpg
+        "hazardous": /local/air-quality/hazardous.jpg
+        "unknown": /local/air-quality/unknown.jpg
+    - type: entities
+      entities:
+        - entity: sensor.waqi_eugene__highway_99_oregon_usa
+          name: West Eugene Air Quality
 - id: d498e573e51045e29f170a83c9c72819  # Automatically created id
   type: iframe
   url: https://embed.windy.com/embed2.html?lat=44.159&lon=-123.162&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.159&detailLon=-123.162&metricWind=default&metricTemp=default&radarRange=-1
