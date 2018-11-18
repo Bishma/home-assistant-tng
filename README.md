@@ -13,10 +13,10 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Fully managed for all my sensors and devices. No auto discovery.
 * Universal remote for my media center.
 * Dynamic alexa intents. So far just for my media center.
-  * "Alexa ask home assistant to turn the tv up by 5."
+  * "Alexa ask home assistant to turn the tv up by _#_."
 * Presence detection using Tile trackers.
   * Sensor template to indicate when the house is empty.
-* On/Off control for Z-Waze through Home Assistant Cloud / Nebu Casa
+* On/Off control for Z-Wave through Home Assistant Cloud / Nebu Casa
   * Mainly to support the Home Assisant team.
 * Documentation tab in the app through markdown cards
 * Custom Attribute Card from [ciotlosm/custom-lovelace](https://github.com/ciotlosm/custom-lovelace)
