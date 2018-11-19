@@ -111,29 +111,3 @@
     + [Alexa Skill Kit](https://developer.amazon.com/alexa/console/ask)
       - Our Skill is "hass.1"
     + Ecobee dev
-
-- id: 9808d8afcef54ab09a1ffd7485752184  # Automatically created id
-  type: markdown
-  content: >-
-    # Todo List
-
-    + Set up IR sequence that turns the bedroom ac unit to fan only
-      + Add UI and automations
-    + Automation that sends telegram message is disk status not normal
-
-    + Hide the media controls when Switch is active or when the system is off.
-
-    + TorqueODB2
-
-    + Themes
-      - Scripted?
-    + Floorplan
-
-    + Add summaries from darksky to climate tab
-
-    + python scripts to extent alexa skill functionality
-
-    + tract rss feed display with media center
-
-    + Add legend for the aqi guage
-      - picture card?
