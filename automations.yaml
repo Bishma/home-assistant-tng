@@ -16,14 +16,15 @@
   alias: Temperatures Equal
   trigger:
   - platform: template
-    value_template: "{% if states(\"sensor.cottage_temperature\") | round(1) == states(\"\
-      sensor.netatmo_outdoor_temperature_2\") | round(1) %}\n  true\n{% endif %}\n"
+    value_template: >
+      {% if states('sensor.cottage_temperature') | round(1) == states('sensor.netatmo_outdoor_temperature_2') | round(1) %}
+        true
+      {% endif %}
   condition: []
   action:
   - data_template:
-      message: Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature_2")
-        }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity_2")
-        }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity_2") }}%.
+      message: >
+        Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature_2") }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity_2") }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity_2") }}%.
     service: notify.general
   - delay: 02:30:00
 - id: '1535836945192'
@@ -125,20 +126,20 @@
     value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
   action:
   - data_template:
-      message: 'There has been a change in the weather alert status for our area.
+      message: "There has been a change in the weather alert status for our area.
 
-        {{ state_attr(''sensor.nws_alert_event'', ''features'')[0].properties.headline
-        }} {{ state_attr(''sensor.nws_alert_event'', ''features'')[0].properties.description
-        }}'
+        {{ state_attr('sensor.nws_alert_event', 'features')[0].properties.headline
+        }} {{ state_attr('sensor.nws_alert_event', 'features')[0].properties.description
+        }}"
     service: notify.general
-- id: '1542163639030'
+- id: work_heater_on
   alias: Work Heater On
   trigger:
   - entity_id: device_tracker.tile_78bc53da2fdc0a07
     for: 00:00:30
     from: 'IDX'
     platform: state
-    to: 'Away'
+    to: 'away'
   condition:
   - condition: state
     entity_id: input_boolean.idx_heater_on
