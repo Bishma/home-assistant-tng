@@ -20,13 +20,16 @@
       {% if states('sensor.cottage_temperature') | round(1) == states('sensor.netatmo_outdoor_temperature_2') | round(1) %}
         true
       {% endif %}
-  condition: []
+  condition: 
+    - condition: template
+      value_template: '{{ as_timestamp(now()) | int - as_timestamp(states.automation.temperatures_equal.attributes.last_triggered) | int > 21600 }}'
   action:
   - data_template:
       message: >
+        Hi There,
+
         Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature_2") }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity_2") }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity_2") }}%.
     service: notify.general
-  - delay: 02:30:00
 - id: '1535836945192'
   alias: Pre-Dusk Tasks
   trigger:
@@ -122,24 +125,30 @@
     platform: state
     entity_id: sensor.nws_alert_count
   condition:
-    condition: template
-    value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
+    - condition: template
+      value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
+    - condition: template
+      value_template: '{{ as_timestamp(now()) | int - as_timestamp(states.automation.nws_notification_weather_alert.attributes.last_triggered) | int > 21600 }}'
   action:
   - data_template:
-      message: "There has been a change in the weather alert status for our area.
+      message: >
+        Hi There,
 
-        {{ state_attr('sensor.nws_alert_event', 'features')[0].properties.headline
-        }} {{ state_attr('sensor.nws_alert_event', 'features')[0].properties.description
-        }}"
+        I've detected a change in national weather service advisories for Eugene.
+        {% for i in range(states('sensor.nws_alert_count') | int) %}
+          {%- if i > 0 -%}
+            ---------
+          {%- endif %}
+          {{ state_attr('sensor.nws_alert_event', 'features')[i].properties.headline }}
+          {{ state_attr('sensor.nws_alert_event', 'features')[i].properties.description }}
+        {% endfor %}
     service: notify.general
 - id: work_heater_on
   alias: Work Heater On
   trigger:
   - entity_id: device_tracker.tile_78bc53da2fdc0a07
-    for: 00:00:30
     from: 'IDX'
     platform: state
-    to: 'away'
   condition:
   - condition: state
     entity_id: input_boolean.idx_heater_on
