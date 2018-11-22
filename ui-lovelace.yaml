@@ -11,6 +11,9 @@ views:
   - id: home
     icon: mdi:home-assistant
     cards: !include lovelace_views/home.yaml
+  - id: media
+    icon: mdi:youtube-tv
+    cards: !include lovelace_views/media.yaml
   - id: climate
     icon: mdi:weather-partlycloudy
     cards: !include lovelace_views/climate.yaml
@@ -23,9 +26,6 @@ views:
   - id: network
     icon: mdi:nas
     cards: !include lovelace_views/network.yaml
-  - id: media
-    icon: mdi:youtube-tv
-    cards: !include lovelace_views/media.yaml
   - id: settings
     icon: mdi:settings-outline
     cards: !include lovelace_views/settings.yaml
