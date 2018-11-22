@@ -29,6 +29,9 @@ views:
   - id: settings
     icon: mdi:settings-outline
     cards: !include lovelace_views/settings.yaml
+    badges:
+      - sensor.unoccupied_mode
+      - sensor.nws_alert_count
   - id: documentation
     icon: mdi:file-document
     cards: !include lovelace_views/documentation.yaml
