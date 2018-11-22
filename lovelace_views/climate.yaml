@@ -1,8 +1,8 @@
-- id: 38a481c0dbca41aeabc89f2385e2515c  # Automatically created id
+- id: yahoo-forcast-card
   type: weather-forecast
   title: Forcast
   entity: weather.yweather
-- id: 9f929e456f4e47bca1612ce4f5f97185  # Automatically created id
+- id: celestials
   type: vertical-stack
   cards:
     - type: entities
@@ -12,7 +12,7 @@
       entities:
         - entity: sensor.moon
           name: Moon
-- id: abe07a2edec049629d89c2e9561895a3  # Automatically created id
+- id: exterior-conditions
   type: entities
   title: Exterior Conditions
   entities:
@@ -29,7 +29,7 @@
       name: Eugene, Or - Weather Underground
       icon: mdi:link-variant
       url: https://www.wunderground.com/weather/us/or/eugene
-- id: 54791c6401b14f729b37e6e7cafda122  # Automatically created id
+- id: allergey-cold-and-flu
   type: entities
   title: Illness
   entities:
@@ -63,7 +63,7 @@
       entities:
         - entity: sensor.waqi_eugene__highway_99_oregon_usa
           name: West Eugene Air Quality
-- id: d498e573e51045e29f170a83c9c72819  # Automatically created id
+- id: embeded-windy-precip
   type: iframe
   url: https://embed.windy.com/embed2.html?lat=44.159&lon=-123.162&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.159&detailLon=-123.162&metricWind=default&metricTemp=default&radarRange=-1
   aspect_ratio: 100%
