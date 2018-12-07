@@ -1,201 +1,201 @@
 # THE MOON!!!
-  - platform: moon
+- platform: moon
 
 # Ring Doorbell
-  - platform: ring
+- platform: ring
 
 # Weather Prediction
-  - platform: darksky
-    api_key: !secret forcastio_api
-    update_interval:
-      minutes: 10
-    monitored_conditions:
-      - summary
-      - icon
-      - precip_type
-      - precip_intensity
-      - precip_probability
-      - temperature
-      - apparent_temperature
-      - wind_speed
-      - cloud_cover
-      - humidity
-      - visibility
-      - temperature_high
-      - temperature_low
-      - minutely_summary
-      - hourly_summary
-      - daily_summary
+- platform: darksky
+  api_key: !secret forcastio_api
+  update_interval:
+    minutes: 10
+  monitored_conditions:
+    - summary
+    - icon
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - temperature
+    - apparent_temperature
+    - wind_speed
+    - cloud_cover
+    - humidity
+    - visibility
+    - temperature_high
+    - temperature_low
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
 
 # Internet
-  - platform: speedtest
-    minute:
-      - 0
-      - 30
-    monitored_conditions:
-      - ping
-      - download
-      - upload
+- platform: speedtest
+  minute:
+    - 0
+    - 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 # Synology DSM
-  - platform: synologydsm
-    host: 192.168.131.2
-    username: !secret nas_user
-    password: !secret nas_passwd
-    monitored_conditions:
-      - cpu_total_load
-      - cpu_1min_load
-      - cpu_5min_load
-      - memory_real_usage
-      - network_up
-      - network_down
-      - disk_status
-      - volume_size_used
-      - volume_percentage_used
+- platform: synologydsm
+  host: 192.168.131.2
+  username: !secret nas_user
+  password: !secret nas_passwd
+  monitored_conditions:
+    - cpu_total_load
+    - cpu_1min_load
+    - cpu_5min_load
+    - memory_real_usage
+    - network_up
+    - network_down
+    - disk_status
+    - volume_size_used
+    - volume_percentage_used
 
 # Travel Times
-  - platform: waze_travel_time
-    name: Home to IDX
-    origin: zone.home
-    destination: zone.idx
-    region: 'US'
-  - platform: waze_travel_time
-    name: Home to Bend
-    origin: zone.home
-    destination: zone.bend
-    region: 'US'
-  - platform: waze_travel_time
-    name: Home to Florence
-    origin: zone.home
-    destination: zone.florence
-    region: 'US'
-  - platform: waze_travel_time
-    name: Home to Portland
-    origin: zone.home
-    destination: zone.portland
-    region: 'US'
-  - platform: waze_travel_time
-    name: Home to Lincoln City
-    origin: zone.home
-    destination: zone.lincoln_city
-    region: 'US'
+- platform: waze_travel_time
+  name: Home to IDX
+  origin: zone.home
+  destination: zone.idx
+  region: 'US'
+- platform: waze_travel_time
+  name: Home to Bend
+  origin: zone.home
+  destination: zone.bend
+  region: 'US'
+- platform: waze_travel_time
+  name: Home to Florence
+  origin: zone.home
+  destination: zone.florence
+  region: 'US'
+- platform: waze_travel_time
+  name: Home to Portland
+  origin: zone.home
+  destination: zone.portland
+  region: 'US'
+- platform: waze_travel_time
+  name: Home to Lincoln City
+  origin: zone.home
+  destination: zone.lincoln_city
+  region: 'US'
 
 # NZB Get
-  - platform: nzbget
-    host: 192.168.131.2
-    port: 6789
-#   username: apiuser
-#   password: apipass
-    monitored_variables:
-      - average_download_rate
-      - download_rate
-      - download_paused
-      - free_disk_space
-      - remaining_size
-      - uptime
+- platform: nzbget
+  host: 192.168.131.2
+  port: 6789
+# username: apiuser
+# password: apipass
+  monitored_variables:
+    - average_download_rate
+    - download_rate
+    - download_paused
+    - free_disk_space
+    - remaining_size
+    - uptime
 
 # Pollen
-  - platform: pollen
-    zip_code: "97404"
-    monitored_conditions:
-      - allergy_average_forecasted
-      - allergy_average_historical
-      - allergy_index_today
-      - allergy_index_tomorrow
-      - allergy_index_yesterday
-      - disease_average_forecasted
+- platform: pollen
+  zip_code: "97404"
+  monitored_conditions:
+    - allergy_average_forecasted
+    - allergy_average_historical
+    - allergy_index_today
+    - allergy_index_tomorrow
+    - allergy_index_yesterday
+    - disease_average_forecasted
 
 # Air Quality
-  - platform: waqi
-    token: 4c430aede0b393e4baa425b9ca43dd5c9afa29df
-    locations:
-      - eugene
+- platform: waqi
+  token: 4c430aede0b393e4baa425b9ca43dd5c9afa29df
+  locations:
+    - eugene
 
 # Lyft and Uber
-  - platform: lyft
-    client_id: !secret lyft_client_id
-    client_secret: !secret lyft_client_secret
-    start_latitude: !secret me_lat
-    start_longitude: !secret me_long
-  - platform: uber
-    server_token: !secret uber_client_id
-    start_latitude: !secret me_lat
-    start_longitude: !secret me_long
+- platform: lyft
+  client_id: !secret lyft_client_id
+  client_secret: !secret lyft_client_secret
+  start_latitude: !secret me_lat
+  start_longitude: !secret me_long
+- platform: uber
+  server_token: !secret uber_client_id
+  start_latitude: !secret me_lat
+  start_longitude: !secret me_long
 
-  - platform: template
-    sensors:
-      # Harmony current activity
-      living_room_remote_state:
-        entity_id: remote.living_room
-        value_template: '{{ states.remote.living_room.attributes.current_activity }}'
-        friendly_name: 'Current Activity:'
-      # Simple bool for decided if the house is empty of residents
-      unoccupied_mode:
-        entity_id:
-          - ddevice_tracker.tile_78bc53da2fdc0a07
-          - device_tracker.tile_6ddd67e2e9a0ad94
-          - input_boolean.force_away_mode
-        friendly_name: 'Unoccuped Mode'
-        value_template: >
-          {% if is_state("input_boolean.force_away_mode", "on") %}
-            on
-          {% elif is_state("device_tracker.tile_78bc53da2fdc0a07", "home")
-            or is_state("device_tracker.tile_6ddd67e2e9a0ad94", "home") %}
-            off
-          {% else %}
-            on
-          {% endif %}
-      # WAQI States
-      waqi_state:
-        entity_id: sensor.waqi_eugene__highway_99_oregon_usa
-        friendly_name: West Eugene Air Quality
-        value_template: >
-          {% if states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 51 %}
-            good
-          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 101 %}
-            moderate
-          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 151 %}
-            unhealthy-1
-          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 201 %}
-            unhealthy-2
-          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 300 %}
-            unhealthy-3
-          {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int > 300 %}
-            hazardous
-          {% else %}
-            unknown
-          {% endif %}
+- platform: template
+  sensors:
+    # Harmony current activity
+    living_room_remote_state:
+      entity_id: remote.living_room
+      value_template: '{{ states.remote.living_room.attributes.current_activity }}'
+      friendly_name: 'Current Activity:'
+    # Simple bool for decided if the house is empty of residents
+    unoccupied_mode:
+      entity_id:
+        - ddevice_tracker.tile_78bc53da2fdc0a07
+        - device_tracker.tile_6ddd67e2e9a0ad94
+        - input_boolean.force_away_mode
+      friendly_name: 'Unoccuped Mode'
+      value_template: >
+        {% if is_state("input_boolean.force_away_mode", "on") %}
+          on
+        {% elif is_state("device_tracker.tile_78bc53da2fdc0a07", "home")
+          or is_state("device_tracker.tile_6ddd67e2e9a0ad94", "home") %}
+          off
+        {% else %}
+          on
+        {% endif %}
+    # WAQI States
+    waqi_state:
+      entity_id: sensor.waqi_eugene__highway_99_oregon_usa
+      friendly_name: West Eugene Air Quality
+      value_template: >
+        {% if states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 51 %}
+          good
+        {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 101 %}
+          moderate
+        {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 151 %}
+          unhealthy-1
+        {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 201 %}
+          unhealthy-2
+        {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int < 300 %}
+          unhealthy-3
+        {% elif states('sensor.waqi_eugene__highway_99_oregon_usa') | int > 300 %}
+          hazardous
+        {% else %}
+          unknown
+        {% endif %}
 
 # US Weather Service Emergency Data
 # https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853
-  - platform: rest
-    resource: https://api.weather.gov/alerts/active/count
-    name: NWS Alert Count
-    value_template: >
-      {% if value_json.zones.ORZ604 is defined %}
-        {{ value_json.zones.ORZ604 }}
-      {% elif value_json.zones.ORC039 is defined %}
-        {{ value_json.zones.ORC039 }}
-      {% else %}
-        0
-      {% endif %}
-    headers:
-      User-Agent: Homeassistant
-      Accept: application/ld+json
-    scan_interval: 300
-      
-  - platform: rest
-    resource: https://api.weather.gov/alerts/active?zone=ORZ604,ORC039
-    name: NWS Alert Event
-    value_template: >
-      {% if value_json.features[0] is defined %}
-        {{ value_json['features'][0]['properties'].event }}
-      {% else %}
-        None
-      {% endif %}
-    json_attributes:
-      - features
-    headers:
-      User-Agent: Homeassistant
-      Accept: application/geo+json
-    scan_interval: 300
+- platform: rest
+  resource: https://api.weather.gov/alerts/active/count
+  name: NWS Alert Count
+  value_template: >
+    {% if value_json.zones.ORZ604 is defined %}
+      {{ value_json.zones.ORZ604 }}
+    {% elif value_json.zones.ORC039 is defined %}
+      {{ value_json.zones.ORC039 }}
+    {% else %}
+      0
+    {% endif %}
+  headers:
+    User-Agent: Homeassistant
+    Accept: application/ld+json
+  scan_interval: 300
+    
+- platform: rest
+  resource: https://api.weather.gov/alerts/active?zone=ORZ604,ORC039
+  name: NWS Alert Event
+  value_template: >
+    {% if value_json.features[0] is defined %}
+      {{ value_json['features'][0]['properties'].event }}
+    {% else %}
+      None
+    {% endif %}
+  json_attributes:
+    - features
+  headers:
+    User-Agent: Homeassistant
+    Accept: application/geo+json
+  scan_interval: 300
