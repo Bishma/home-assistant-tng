@@ -20,10 +20,17 @@
       name: Current Temperature
     - entity: sensor.netatmo_outdoor_humidity_2
       name: Current Humidity
+    - entity: sensor.netatmo_backyard_angle
+      name: Backyard Wind Direction
+    - entity: sensor.netatmo_backyard_strength
+      name: Backyard Wind Stength
+    - entity: sensor.netatmo_backyard_gust_angle
+      name: Backward Gust Direction
+    - entity: sensor.netatmo_backyard_gust_strength
+      name: Backyard Gust Strength
     - entity: sensor.dark_sky_cloud_coverage
     - entity: sensor.dark_sky_precip_probability
       name: Chance of Precipitation
-    - entity: sensor.dark_sky_wind_speed
     - entity: sensor.dark_sky_visibility
     - type: weblink
       name: Eugene, Or - Weather Underground
