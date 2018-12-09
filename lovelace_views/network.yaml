@@ -78,3 +78,21 @@
       name: Cable Modem
       icon: mdi:ethernet-cable
       url: http://10.1.10.1/
+- id: weather-station-status
+  type: vertical-stack
+  cards:
+    - type: entities
+      title: Netatmo Status
+      entities:
+        - entity: sensor.netatmo_indoor_wifi_2
+          name: Indoor Connection Strength
+        - entity: sensor.netatmo_outdoor_battery_2
+          name: Outdoor Battery Level
+        - entity: sensor.netatmo_backyard_battery
+          name: Wind Guage Battery Level
+    - type: history-graph
+      entities:
+        - entity: sensor.netatmo_backyard_radio
+          name: Backyard Wind Guage Radio Strength
+        - entity: sensor.netatmo_outdoor_radio_2
+          name: Outdoor Temp Sensor Radio Strength
