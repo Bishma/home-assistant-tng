@@ -17,6 +17,9 @@ homeassistant:
 frontend:
   themes: !include themes.yaml
 
+lovelace:
+  mode: yaml
+
 # Enables configuration UI
 config:
 

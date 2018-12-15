@@ -9,7 +9,7 @@
           cards:
             - type: entity-button
               entity: remote.living_room
-              name: Off
+              name: "Off"
               icon: mdi:power-plug-off
               tap_action: call-service
               theme: danger
@@ -21,17 +21,26 @@
               entity: script.media_up_arrow
               name: Up
               icon: mdi:arrow-up-box
-              tap_action: toggle
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
             - type: entity-button
               entity: script.media_back
               name: Back
               icon: mdi:rotate-left
-              tap_action: toggle
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
             - type: entity-button
               entity: script.media_page_up
               name: Pg Up
               icon: mdi:chevron-double-up
-              tap_action: toggle
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
         - id: arrow-middle-row
           type: horizontal-stack
           cards:
@@ -39,22 +48,34 @@
               entity: script.media_left_arrow
               name: Left
               icon: mdi:arrow-left-box
-              tap_action: toggle
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
             - type: entity-button
               entity: script.media_confirm
               name: Confirm
               icon: mdi:check-circle
-              tap_action: toggle
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
             - type: entity-button
               entity: script.media_right_arrow
               name: Right
               icon: mdi:arrow-right-box
-              tap_action: toggle
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
             - type: entity-button
               entity: script.media_page_down
               name: Pg Dwn
               icon: mdi:chevron-double-down
-              tap_action: toggle
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
         - id: arrow-bottom-row
           type: horizontal-stack
           cards:
@@ -62,22 +83,34 @@
                 entity: script.media_skip_back
                 name: Skip Back
                 icon: mdi:backburger
-                tap_action: toggle
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: none
               - type: entity-button
                 entity: script.media_down_arrow
                 name: Down
                 icon: mdi:arrow-down-box
-                tap_action: toggle
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: none
               - type: entity-button
                 entity: script.media_context
                 name: Context
                 icon: mdi:menu
-                tap_action: toggle
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: none
               - type: entity-button
                 entity: script.media_info
                 name: Info
                 icon: mdi:information-outline
-                tap_action: toggle
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: none
     - id: media-button-row
       type: horizontal-stack
       cards:
@@ -85,27 +118,42 @@
           entity: script.media_pause
           name: Pause
           icon: mdi:pause
-          tap_action: toggle
+          tap_action:
+            action: toggle
+          hold_action:
+            action: none
         - type: entity-button
           entity: script.media_play
           name: Play
           icon: mdi:play
-          tap_action: toggle
+          tap_action:
+            action: toggle
+          hold_action:
+            action: none
         - type: entity-button
           entity: script.media_stop
           name: Stop
           icon: mdi:stop
-          tap_action: toggle
+          tap_action:
+            action: toggle
+          hold_action:
+            action: none
         - type: entity-button
           entity: script.media_volume_down
           name: Vol -
           icon: mdi:volume-minus
-          tap_action: toggle
+          tap_action:
+            action: toggle
+          hold_action:
+            action: none
         - type: entity-button
           entity: script.media_volume_up
           name: Vol +
           icon: mdi:volume-plus
-          tap_action: toggle
+          tap_action:
+            action: toggle
+          hold_action:
+            action: none
     - id: activity-specific-kodi
       type: conditional
       conditions:
