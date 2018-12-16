@@ -265,6 +265,7 @@
       card:
         type: entities
         title: Roku Tools
+        show_header_toggle: false
         entities:
           - type: call-service
             name: Fix Input
@@ -318,6 +319,7 @@
               command: FastForward
     - id: activity-specific-ota
       type: conditional
+      show_header_toggle: false
       conditions:
         - entity: sensor.living_room_remote_state
           state: Watch OTA
@@ -387,6 +389,7 @@
               command: Exit
     - id: activity-specific-switch
       type: conditional
+      show_header_toggle: false
       conditions:
         - entity: sensor.living_room_remote_state
           state: Play Switch
@@ -407,6 +410,7 @@
 - id: activity-choice
   type: entities
   title: TV Activity
+  show_header_toggle: false
   entities:
     - type: call-service
       icon: mdi:kodi

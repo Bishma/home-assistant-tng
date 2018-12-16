@@ -15,6 +15,7 @@
 - id: exterior-conditions
   type: entities
   title: Exterior Conditions
+  show_header_toggle: false
   entities:
     - entity: sensor.netatmo_outdoor_temperature_2
       name: Current Temperature
@@ -39,6 +40,7 @@
 - id: allergey-cold-and-flu
   type: entities
   title: Illness
+  show_header_toggle: false
   entities:
     - entity: sensor.allergy_index_forecasted_average
       name: Allergy Index Forcase

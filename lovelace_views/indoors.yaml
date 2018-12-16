@@ -6,6 +6,7 @@
   cards:
     - type: entities
       title: Living Room
+      show_header_toggle: false
       entities:
         - entity: sensor.netatmo_indoor_temperature_2
           name: Temperature
@@ -47,6 +48,7 @@
 - id: hallway-sensors
   type: entities
   title: Hallway
+  show_header_toggle: false
   entities:
     - entity: climate.cottage
     - entity: sensor.cottage_humidity

@@ -10,6 +10,7 @@
   cards:
     - type: entities
       title: General Automations
+      show_header_toggle: false
       entities:
         - entity: automation.temperatures_equal
           name: Equal Temp. Notification
@@ -17,6 +18,7 @@
           name: Work heater warning
     - type: entities
       title: Occupied Automations
+      show_header_toggle: false
       entities:
         - entity: automation.predusk_tasks
           name: Pre-Dusk Lights Auto-On
@@ -26,6 +28,7 @@
           name: Bedroom AC Cool
     - type: entities
       title: Unoccupied Automations
+      show_header_toggle: false
       entities:
         - entity: automation.unoccupied_morning
           name: Away Morning Lights
