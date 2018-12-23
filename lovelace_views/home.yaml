@@ -9,6 +9,8 @@
           type: custom:slider-entity-row
         - entity: light.living_room_lamp_middle
           type: custom:slider-entity-row
+        - entity: switch.mega_sparkle
+          icon: mdi:pine-tree
     - type: entities
       title: Kitchen
       entities:
