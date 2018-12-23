@@ -90,6 +90,13 @@ device_tracker:
 # thermostat
 ecobee:
   api_key: !secret ecobee_api
+
+geo_location:
+  - platform: usgs_earthquakes_feed
+    feed_type: 'past_day_m45_earthquakes'
+    radius: 1500
+    latitude: !secret me_lat
+    longitude: !secret me_long
  
 group: !include groups.yaml
 
