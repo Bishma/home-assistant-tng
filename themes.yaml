@@ -1,4 +1,5 @@
 danger:
   primary-color: "#ffffff"
   primary-text-color: "#ffffff"
-  card-background-color: "#fc0909"
+  paper-item-icon-color: "#ffffff"
+  paper-card-background-color: "#ae0000"
