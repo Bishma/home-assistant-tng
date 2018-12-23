@@ -11,12 +11,15 @@
               entity: remote.living_room
               name: "Off"
               icon: mdi:power-plug-off
-              tap_action: call-service
+              tap_action: 
+                action: call-service
+                service: remote.turn_on
+                service_data:
+                  entity_id: remote.living_room
+                  activity: -1
+              hold_action:
+                action: none
               theme: danger
-              service: remote.turn_on
-              service_data:
-                entity_id: remote.living_room
-                activity: -1
             - type: entity-button
               entity: script.media_up_arrow
               name: Up
