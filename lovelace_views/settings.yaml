@@ -36,3 +36,35 @@
           name: Away Evening Lights
         - entity: automation.unoccupied_night
           name: Away Night Lights
+- id: location-stack
+  type: vertical-stack
+  cards:
+    - type: entities
+      title: Where Are We
+      show_header_toggle: false
+      entities:
+        - device_tracker.tile_78bc53da2fdc0a07
+        - device_tracker.tile_6ddd67e2e9a0ad94
+    - type: entities
+      show_header_toggle: false
+      entities:
+        - sensor.home_to_idx
+        - sensor.home_to_bend
+        - sensor.home_to_florence
+        - sensor.home_to_portland
+        - sensor.home_to_lincoln_city
+    - type: entities
+      title: Transport
+      show_header_toggle: false
+      entities:
+        - entity: sensor.lyft_time
+          name: Lyft Pickup Time
+        - entity: sensor.lyft_xl_time
+          name: Lyft XL Pickup Time
+        - type: divider
+        - entity: sensor.uberx_time
+          name: Uber X Pickup Time
+          icon: mdi:uber
+        - entity: sensor.uberxl_time
+          name: Uber XL Pickup Time
+          icon: mdi:uber
