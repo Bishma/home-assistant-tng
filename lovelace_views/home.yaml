@@ -1,116 +1,54 @@
-- id: lighting-stack
-  type: vertical-stack
-  cards:
-    - type: entities
-      title: Living Room
-      entities:
-        - entity: switch.the_sparkle
-        - entity: light.living_room_lamp
-          type: custom:slider-entity-row
-        - entity: light.living_room_lamp_middle
-          type: custom:slider-entity-row
-        - entity: switch.mega_sparkle
-          icon: mdi:pine-tree
-    - type: entities
-      title: Kitchen
-      entities:
-        - entity: light.the_sink_hole
-          type: custom:slider-entity-row
-    - type: entities
-      title: Bedroom
-      entities:
-        - switch.derek_bedroom_lamp
-        - switch.bonnie_bedroom_lamp
-    - type: entities
-      title: Exterior
-      entities:
-        - switch.ge_12720_outdoor_smart_switch_switch
-- id: location-stack
-  type: vertical-stack
-  cards:
-    - type: entities
-      title: Where Are We
-      show_header_toggle: false
-      entities:
-        - device_tracker.tile_78bc53da2fdc0a07
-        - device_tracker.tile_6ddd67e2e9a0ad94
-    - type: entities
-      show_header_toggle: false
-      entities:
-        - sensor.home_to_idx
-        - sensor.home_to_bend
-        - sensor.home_to_florence
-        - sensor.home_to_portland
-        - sensor.home_to_lincoln_city
-    - type: entities
-      title: Transport
-      show_header_toggle: false
-      entities:
-        - entity: sensor.lyft_time
-          name: Lyft Pickup Time
-        - entity: sensor.lyft_xl_time
-          name: Lyft XL Pickup Time
-        - type: divider
-        - entity: sensor.uberx_time
-          name: Uber X Pickup Time
-          icon: mdi:uber
-        - entity: sensor.uberxl_time
-          name: Uber XL Pickup Time
-          icon: mdi:uber
-- id: 1d36c5375813402ab8a5b66e09d6ff73  # Automatically created id
-  type: picture-entity
-  entity: camera.front_door
-- id: media-center-stack
-  type: vertical-stack
-  cards:
-    - type: entities
-      title: TV Quick Controls
-      show_header_toggle: false
-      entities:
-        - type: divider
-          style:
-            - display: none
-    - type: horizontal-stack
-      cards:
-        - type: entity-button
-          entity: script.media_pause
-          name: Pause
-          icon: mdi:pause
-          tap_action: toggle
-        - type: entity-button
-          entity: script.media_play
-          name: Play
-          icon: mdi:play
-          tap_action: toggle
-        - type: entity-button
-          entity: script.media_off
-          name: "Off"
-          icon: mdi:power-plug-off
-          tap_action: toggle
-        - type: entity-button
-          entity: script.media_volume_down
-          name: Vol -
-          icon: mdi:volume-minus
-          tap_action: toggle
-        - type: entity-button
-          entity: script.media_volume_up
-          name: Vol +
-          icon: mdi:volume-plus
-          tap_action: toggle
-- id: f829d4952bd8469cac53b057bf4a2ecb  # Automatically created id
+- id: Living_room_controls
   type: entities
-  title: Comfort Quick Controls
+  title: Living Room
+  entities:
+    - entity: switch.the_sparkle
+    - entity: light.living_room_lamp
+      type: custom:slider-entity-row
+    - entity: light.living_room_lamp_middle
+      type: custom:slider-entity-row
+    - entity: switch.mega_sparkle
+      icon: mdi:pine-tree
+- id: kitchen_controls
+  type: entities
+  title: Kitchen
+  entities:
+    - entity: light.the_sink_hole
+      type: custom:slider-entity-row
+- id: bedroom_controls
+  type: entities
+  title: Bedroom
+  entities:
+    - switch.derek_bedroom_lamp
+    - switch.bonnie_bedroom_lamp
+- id: exterior_controls
+  type: entities
+  title: Exterior
+  entities:
+    - switch.ge_12720_outdoor_smart_switch_switch
+- id: thermostat
+  type: thermostat
+  entity: climate.cottage
+- id: bedroom_ac
+  type: entities
+  title: Bedroom AC
   show_header_toggle: false
   entities:
-    - entity: climate.cottage
-    - type: call-service
-      name: Bedroom AC
-      action_name: Cool
-      icon: mdi:air-conditioner
-      service: script.bedtime_ac
-      service_data:
-        entity_id: script.bedtime_ac
-- id: 03686ce616f341d18b3d9b4de87adc85  # Automatically created id
+  - type: call-service
+    name: Bedroom AC
+    action_name: Power + Cool + Fan Auto
+    icon: mdi:air-conditioner
+    service: script.bedtime_ac_cool_auto
+    service_data:
+      entity_id: script.bedtime_ac_cool_auto
+  - type: call-service
+    name: Bedroom AC
+    action_name: Power Toggle
+    icon: mdi:air-conditioner
+    service: script.bedtime_ac_power
+    service_data:
+      entity_id: script.bedtime_ac_power
+- id: stand_fan_conditional_controls
   type: conditional
   conditions:
     - entity: input_boolean.fan_out
@@ -118,6 +56,7 @@
   card:
     type: entities
     title: Living Room Stand Fan
+    show_header_toggle: false
     entities:
       - type: call-service
         name: Power
