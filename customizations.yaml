@@ -23,7 +23,7 @@
   switch.bedroom_air:
     assumed_state: true
     icon: mdi:air-conditioner
-  script.bedtime_ac:
+  script.bedtime_ac_cool_auto:
     assumed_state: true
     icon: mdi:air-conditioner
   device_tracker.tile_78bc53da2fdc0a07:

@@ -1,5 +1,5 @@
   # Set AC to on + cool + auto fan
-  bedtime_ac:
+  bedtime_ac_cool_auto:
     alias: Bedroom AC Cool
     sequence:
       - service: switch.broadlink_send_packet_192_168_131_4

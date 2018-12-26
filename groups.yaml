@@ -125,7 +125,7 @@
       - light.living_room_lamp
       - light.the_sink_hole
       - switch.bedroom_air
-      - script.bedtime_ac
+      - script.bedtime_ac_cool_auto
       - switch.ge_12720_outdoor_smart_switch_switch
   travel_times:
     name: Travel Times

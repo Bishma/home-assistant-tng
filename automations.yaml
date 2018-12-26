@@ -11,7 +11,7 @@
     condition: numeric_state
     entity_id: sensor.dark_sky_daytime_high_temperature
   action:
-  - service: script.bedtime_ac
+  - service: script.bedtime_ac_cool_auto
 - id: '1535646752999'
   alias: Temperatures Equal
   trigger:
