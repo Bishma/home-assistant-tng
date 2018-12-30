@@ -52,7 +52,7 @@
 - id: 'unoccupied_night'
   alias: Unoccupied Night
   trigger:
-  - at: '21:46'
+  - at: '22:26'
     platform: time
   condition:
   - condition: state
@@ -61,7 +61,9 @@
   action:
   - service: switch.turn_off
     data:
-      entity_id: switch.ge_12720_outdoor_smart_switch_switch
+      entity_id:
+        - switch.ge_12720_outdoor_smart_switch_switch
+        - switch.the_sparkle # just in case
   - service: light.turn_off
     data:
       entity_id:
@@ -71,7 +73,7 @@
     data:
       brightness_pct: 2
       entity_id: light.the_sink_hole
-  - delay: '00:34:34'
+  - delay: '00:44:34'
   - service: switch.turn_off
     data:
       entity_id: 
