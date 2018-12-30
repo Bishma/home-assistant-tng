@@ -6,8 +6,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 
 # Features
 
-* I've gone to default Lovelace.
-  * My legacy config is still in place but far less capable.
+* My legacy config is still in place but far less capable.
 * Conditional UI based on settings (binary inputs)
   * E.g. The buttons to control my stand fan (via Harmony IR) only show if I indicate that my stand fan is out. It gets put away for the winter.
 * Fully managed for all my sensors and devices. No auto discovery.
@@ -17,7 +16,6 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Presence detection using Tile trackers.
   * Sensor template to indicate when the house is empty.
 * On/Off control for Z-Wave through Home Assistant Cloud / Nebu Casa
-  * Mainly to support the Home Assisant team.
 * Documentation tab in the app through markdown cards
 * Custom Attribute Card from [ciotlosm/custom-lovelace](https://github.com/ciotlosm/custom-lovelace)
 * Cutom Slider Entity Card from [thomasloven/lovelace-slider-entity-row](https://github.com/thomasloven/lovelace-slider-entity-row)
@@ -38,7 +36,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 
 ## Hardware
 
-* Raspberry Pi 3
+* Raspberry Pi 3b
 * Aeotech Z-Wave Stick
 * GE Outdoor Z-Wave Switch
 * EcoBee 2 Thermostat
@@ -52,11 +50,11 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * 2x TP Link LB120 Tunable A19
 * TP Link LB230 Multi-Color BR30
 * 2x TP Link HS100 Wifi Switch
-* TP Link HS105 Mini Wifi Switch
+* 2x TP Link HS105 Mini Wifi Switch
 * 3x Tile Trackers
 * Ring Video Doorbell 2
 * 2x Amcrest Pan/Tilt/Zoom security cameras (via synology surveillance stations)
-* Netatmo Indoor and Outdoor climate sensors
+* Netatmo Indoor, Outdoor, Wind climate sensors
 
 ## Software / API
 
