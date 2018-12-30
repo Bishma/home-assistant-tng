@@ -9,16 +9,26 @@
     entity_id: sensor.unoccupied_mode
     state: 'on'
   action:
-  - data:
-      data:
-        brightness: 20
-      entity_id: light.living_room_lamp
-    service: light.turn_on
-  - data:
-      data:
-        brightness: 100
-      entity_id: light.the_sink_hole
-    service: light.turn_on
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      entity_id:
+        - light.the_sink_hole
+        - light.living_room_lamp
+- id: 'unoccupied_afternoon'
+  alias: Unoccupied Afternoon
+  trigger:
+  - at: '16:12'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: sensor.unoccupied_mode
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      entity_id: light.living_room_lamp_middle
 - id: 'unoccupied_evening'
   alias: Unoccupied Evening
   trigger:
@@ -30,14 +40,15 @@
     entity_id: sensor.unoccupied_mode
     state: 'on'
   action:
-  - data:
-      data:
-        brightness: 100
-      entity_id: light.living_room_lamp
-    service: light.turn_on
-  - data:
-      entitiy_id: switch.derek_bedroom_lamp
-    service: switch.turn_on
+  - service: switch.turn_on
+    data:
+      entity_id:
+        - switch.derek_bedroom_lamp
+        - switch.ge_12720_outdoor_smart_switch_switch
+  - delay: '01:30:00'
+  - service: switch.turn_on
+    data:
+      entity_id: switch.bonnie_bedroom_lamp
 - id: 'unoccupied_night'
   alias: Unoccupied Night
   trigger:
@@ -48,15 +59,21 @@
     entity_id: sensor.unoccupied_mode
     state: 'on'
   action:
-  - data:
-      entity_id: light.living_room_lamp
-    service: light.turn_off
-  - data:
-      data:
-        brightness: 2
+  - service: switch.turn_off
+    data:
+      entity_id: switch.ge_12720_outdoor_smart_switch_switch
+  - service: light.turn_off
+    data:
+      entity_id:
+        - light.living_room_lamp
+        - light.living_room_lamp_middle
+  - service: light.turn_on
+    data:
+      brightness_pct: 2
       entity_id: light.the_sink_hole
-    service: light.turn_on
-  - delay: 22 minutes
-  - data:
-      entitiy_id: switch.derek_bedroom_lamp
-    service: switch.turn_off
+  - delay: '00:34:34'
+  - service: switch.turn_off
+    data:
+      entity_id: 
+        - switch.bonnie_bedroom_lamp
+        - switch.derek_bedroom_lamp
