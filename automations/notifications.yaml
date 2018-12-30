@@ -1,0 +1,42 @@
+- id: 'notification_temperatures-equal'
+  alias: Temperatures Equal
+  trigger:
+  - platform: template
+    value_template: >
+      {% if states('sensor.cottage_temperature') | round(1) == states('sensor.netatmo_outdoor_temperature_2') | round(1) %}
+        true
+      {% endif %}
+  condition: 
+    - condition: template
+      value_template: '{{ as_timestamp(now()) | int - as_timestamp(states.automation.temperatures_equal.attributes.last_triggered) | int > 21600 }}'
+  action:
+  - data_template:
+      message: >
+        Hi There,
+
+        Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature_2") }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity_2") }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity_2") }}%.
+    service: notify.general
+- id: notification_nws-weather-alert
+  alias: NWS Notification Weather Alert
+  trigger:
+    platform: state
+    entity_id: sensor.nws_alert_count
+  condition:
+    - condition: template
+      value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
+    - condition: template
+      value_template: '{{ as_timestamp(now()) | int - as_timestamp(states.automation.nws_notification_weather_alert.attributes.last_triggered) | int > 21600 }}'
+  action:
+  - data_template:
+      message: >
+        Hi There,
+
+        I've detected a change in national weather service advisories for Eugene.
+        {% for i in range(states('sensor.nws_alert_count') | int) %}
+          {%- if i > 0 -%}
+            ---------
+          {%- endif %}
+          {{ state_attr('sensor.nws_alert_event', 'features')[i].properties.headline }}
+          {{ state_attr('sensor.nws_alert_event', 'features')[i].properties.description }}
+        {% endfor %}
+    service: notify.general

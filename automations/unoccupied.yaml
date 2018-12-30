@@ -1,0 +1,62 @@
+- id: 'unoccupied_morning'
+  alias: Unoccupied Morning
+  trigger:
+  - event: sunrise
+    offset: -00:10:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: sensor.unoccupied_mode
+    state: 'on'
+  action:
+  - data:
+      data:
+        brightness: 20
+      entity_id: light.living_room_lamp
+    service: light.turn_on
+  - data:
+      data:
+        brightness: 100
+      entity_id: light.the_sink_hole
+    service: light.turn_on
+- id: 'unoccupied_evening'
+  alias: Unoccupied Evening
+  trigger:
+  - event: sunset
+    offset: -00:45:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: sensor.unoccupied_mode
+    state: 'on'
+  action:
+  - data:
+      data:
+        brightness: 100
+      entity_id: light.living_room_lamp
+    service: light.turn_on
+  - data:
+      entitiy_id: switch.derek_bedroom_lamp
+    service: switch.turn_on
+- id: 'unoccupied_night'
+  alias: Unoccupied Night
+  trigger:
+  - at: '21:46'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: sensor.unoccupied_mode
+    state: 'on'
+  action:
+  - data:
+      entity_id: light.living_room_lamp
+    service: light.turn_off
+  - data:
+      data:
+        brightness: 2
+      entity_id: light.the_sink_hole
+    service: light.turn_on
+  - delay: 22 minutes
+  - data:
+      entitiy_id: switch.derek_bedroom_lamp
+    service: switch.turn_off

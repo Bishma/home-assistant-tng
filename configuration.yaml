@@ -66,7 +66,7 @@ hassio:
 alexa:
 intent_script: !include intent_scripts.yaml
 
-automation: !include automations.yaml
+automation: !include_dir_merge_list automations
 
 camera: !include camera.yaml
 
