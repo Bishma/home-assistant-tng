@@ -54,6 +54,75 @@
     - entity: sensor.cottage_humidity
       name: Humidity
       icon: mdi:water-percent
+- id: bedroom-controls
+  type: entities
+  title: Bedroom
+  show_header_toggle: false
+  entities:
+  - type: call-service
+    name: "Bedroom AC: The Usual"
+    action_name: "Cool + Fan Auto"
+    icon: mdi:air-conditioner
+    service: script.bedtime_ac_cool_auto
+    service_data:
+      entity_id: script.bedtime_ac_cool_auto
+  - type: divider
+  - type: call-service
+    name: Bedroom AC Power
+    action_name: Toggle
+    icon: mdi:power-standby
+    service: script.bedtime_ac_power
+    service_data:
+      entity_id: script.bedtime_ac_power
+  - type: call-service
+    name: Bedroom AC Mode
+    action_name: Cool
+    icon: mdi:air-conditioner
+    service: script.bedtime_ac_cool
+    service_data:
+      entity_id: script.bedtime_ac_cool
+  - type: call-service
+    name: Bedroom AC Mode
+    action_name: Energy Saver
+    icon: mdi:air-conditioner
+    service: script.bedtime_ac_energy_saver
+    service_data:
+      entity_id: script.bedtime_ac_energy_saver
+  - type: call-service
+    name: Bedroom AC Mode
+    action_name: Fan Only
+    icon: mdi:air-conditioner
+    service: script.bedtime_ac_fan_only
+    service_data:
+      entity_id: script.bedtime_ac_fan_only
+  - type: call-service
+    name: Bedroom AC Fan
+    action_name: Faster
+    icon: mdi:fan
+    service: script.bedtime_ac_fan_faster
+    service_data:
+      entity_id: script.bedtime_ac_fan_faster
+  - type: call-service
+    name: Bedroom AC Fan
+    action_name: Slower
+    icon: mdi:fan
+    service: script.bedtime_ac_fan_slower
+    service_data:
+      entity_id: script.bedtime_ac_fan_slower
+  - type: call-service
+    name: Bedroom AC Timer
+    action_name: Up
+    icon: mdi:timer-sand
+    service: script.bedtime_ac_temp_timer_up
+    service_data:
+      entity_id: script.bedtime_ac_temp_timer_up
+  - type: call-service
+    name: Bedroom AC Timer
+    action_name: Down
+    icon: mdi:timer-sand-empty
+    service: script.bedtime_ac_temp_timer_down
+    service_data:
+      entity_id: script.bedtime_ac_temp_timer_down
 - id: indoor-outdoor-temperature-graph
   type: history-graph
   title: Temperature (Last 12 Hours)
