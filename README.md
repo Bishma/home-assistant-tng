@@ -43,7 +43,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * GE Outdoor Z-Wave Switch
 * EcoBee 2 Thermostat
 * Harmony Home Hub
-* Broadlink Mini 3 IP Blaster
+* Broadlink RM Mini 3 IR Blaster
 * Intel NUC D54250WYK1 Intel 4th Gen Core i5-4250U running Windows 10 (HTPC / Plex Server)
 * Roku Stick
 * Synology
