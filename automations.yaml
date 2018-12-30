@@ -1,4 +1,4 @@
-- id: '1532278514912'
+- id: 'occupied_hot-bedroom'
   alias: Sleep Cool
   trigger:
   - at: '21:00:00'
@@ -12,7 +12,7 @@
     entity_id: sensor.dark_sky_daytime_high_temperature
   action:
   - service: script.bedtime_ac_cool_auto
-- id: '1535646752999'
+- id: 'notification_temperatures-equal'
   alias: Temperatures Equal
   trigger:
   - platform: template
@@ -30,7 +30,7 @@
 
         Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature_2") }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity_2") }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity_2") }}%.
     service: notify.general
-- id: '1535836945192'
+- id: 'occupied_pre-dusk-tasks'
   alias: Pre-Dusk Tasks
   trigger:
   - event: sunset
@@ -47,7 +47,7 @@
   - service: switch.turn_on
     data:
       entity_id: switch.derek_bedroom_lamp
-- id: '1535837544489'
+- id: 'back-porch-off'
   alias: Back Porch Off
   trigger:
   - at: '21:00'
@@ -57,7 +57,7 @@
   - data:
       entity_id: switch.ge_12720_outdoor_smart_switch_switch
     service: switch.turn_off
-- id: '1535920489195'
+- id: 'unoccupied_morning'
   alias: Unoccupied Morning
   trigger:
   - event: sunrise
@@ -78,7 +78,7 @@
         brightness: 100
       entity_id: light.the_sink_hole
     service: light.turn_on
-- id: '1535920745991'
+- id: 'unoccupied_evening'
   alias: Unoccupied Evening
   trigger:
   - event: sunset
@@ -97,7 +97,7 @@
   - data:
       entitiy_id: switch.derek_bedroom_lamp
     service: switch.turn_on
-- id: '1535921022697'
+- id: 'unoccupied_night'
   alias: Unoccupied Night
   trigger:
   - at: '21:46'
