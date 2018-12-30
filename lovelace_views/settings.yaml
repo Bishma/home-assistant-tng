@@ -14,8 +14,12 @@
       entities:
         - entity: automation.temperatures_equal
           name: Equal Temp. Notification
+        - entity: automation.nws_notification_weather_alert
+          name: National Weather Service Alerts
         - entity: automation.work_heater_on
           name: Work heater warning
+        - entity: automation.lets_encrypt_renewal
+          name: Let's Encrypt Auto-Renewal
     - type: entities
       title: Occupied Automations
       show_header_toggle: false
