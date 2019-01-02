@@ -97,6 +97,13 @@
       entity_id: script.bedtime_ac_fan_only
   - type: call-service
     name: Bedroom AC Fan
+    action_name: Auto
+    icon: mdi:fan
+    service: script.bedtime_ac_auto_fan
+    service_data:
+      entity_id: script.bedtime_ac_auto_fan
+  - type: call-service
+    name: Bedroom AC Fan
     action_name: Faster
     icon: mdi:fan
     service: script.bedtime_ac_fan_faster
