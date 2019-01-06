@@ -149,7 +149,13 @@ telegram_bot:
       - !secret telegram_chat_id_1
 
 weather:
-  - platform: yweather
+  - platform: darksky
+    api_key: !secret forcastio_api
+    latitude: !secret me_lat
+    longitude: !secret me_long
+    units: us
+    name: Weather
+    mode: daily
 
 zone: !include zones.yaml
 

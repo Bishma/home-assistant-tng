@@ -1,7 +1,7 @@
-- id: yahoo-forcast-card
+- id: darksky-forcast-card
   type: weather-forecast
   title: Forcast
-  entity: weather.yweather
+  entity: weather.weather
 - id: celestials
   type: vertical-stack
   cards:
