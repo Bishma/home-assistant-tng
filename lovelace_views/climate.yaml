@@ -23,12 +23,14 @@
       name: Current Humidity
     - entity: sensor.netatmo_backyard_angle
       name: Backyard Wind Direction
-    - entity: sensor.netatmo_backyard_strength
+    - entity: sensor.convert_backyard_wind
       name: Backyard Wind Stength
+      icon: mdi:weather-windy
     - entity: sensor.netatmo_backyard_gust_angle
       name: Backward Gust Direction
-    - entity: sensor.netatmo_backyard_gust_strength
+    - entity: sensor.convert_backyard_gust
       name: Backyard Gust Strength
+      icon: mdi:weather-windy
     - entity: sensor.dark_sky_cloud_coverage
     - entity: sensor.dark_sky_precip_probability
       name: Chance of Precipitation
