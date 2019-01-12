@@ -128,10 +128,12 @@
     convert_backyard_wind:
       entity_id: sensor.netatmo_backyard_strength
       unit_of_measurement: "mph"
+      friendly_name: 'Backyard Wind Strength'
       value_template: "{{ (states('sensor.netatmo_backyard_strength') | float / 1.609) | round(2) }}"
     convert_backyard_gust:
       entity_id: sensor.netatmo_backyard_gust_strength
       unit_of_measurement: "mph"
+      friendly_name: 'Backyard Wind Gust Strenth'
       value_template: "{{ (states('sensor.netatmo_backyard_gust_strength') | float / 1.609) | round(2) }}"
     # Harmony current activity
     living_room_remote_state:
