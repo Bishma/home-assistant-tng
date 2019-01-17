@@ -156,6 +156,12 @@
         {% else %}
           on
         {% endif %}
+    # Utility Sensors
+    utility_dow:
+      entity_id: sensor.date
+      friendly_name: 'Day Of The Week'
+      value_template: >
+        {{ ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'][now().weekday()] }}
     # WAQI States
     waqi_state:
       entity_id: sensor.waqi_eugene__highway_99_oregon_usa
@@ -210,3 +216,4 @@
     User-Agent: Homeassistant
     Accept: application/geo+json
   scan_interval: 300
+  
