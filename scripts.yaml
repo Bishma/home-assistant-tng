@@ -427,17 +427,43 @@
               51736885
             {% endif %}
           command: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi"
+              or states.remote.living_room.attributes.current_activity == "Watch Sling"
+              or  states.remote.living_room.attributes.current_activity == "Watch Hulu"
+              or  states.remote.living_room.attributes.current_activity == "Watch Plex"
+              or states.remote.living_room.attributes.current_activity == "Watch Netflix" %}
               DirectionLeft
+            {% elif states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
+              Rewind
             {% else %}
               InstantReplay
             {% endif %}
           num_repeats: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
               3
-            {% else %}
+            {% elif states.remote.living_room.attributes.current_activity == "Watch Amazon" %}
               4
+            {% else %}
+              6
             {% endif %}
+      - service: remote.send_command
+        data_template:
+          device: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              51738178
+            {% else %}
+              51736885
+            {% endif %}
+          command: >
+            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+              DirectionLeft
+            {% elif states.remote.living_room.attributes.current_activity == "Watch Plex"
+              or  states.remote.living_room.attributes.current_activity == "Watch Hulu"
+              or states.remote.living_room.attributes.current_activity == "Watch Netflix"
+              or states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
+              Play
+            {% endif %}
+          num_repeats: 1
   media_input1:
     alias: TV Input Kodi
     sequence:
