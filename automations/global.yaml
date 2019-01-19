@@ -31,16 +31,3 @@
   - service: hassio.addon_restart
     data:
       addon: core_letsencrypt
-- id: 'mega-sparkle'
-  alias: Mega Sparkle On
-  trigger:
-  - at: '15:30'
-    platform: time
-  condition:
-  - condition: state
-    entity_id: sensor.unoccupied_mode
-    state: 'off'
-  action:
-  - service: switch.turn_on
-    data:
-      entity_id: switch.couch_lamp

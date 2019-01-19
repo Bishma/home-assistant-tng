@@ -30,8 +30,6 @@
           name: Back Porch Auto-Off
         - entity: automation.sleep_cool
           name: Bedroom AC Cool
-        - entity: automation.mega_sparkle_on
-          name: Mega Sparkle On
     - type: entities
       title: Unoccupied Automations
       show_header_toggle: false
