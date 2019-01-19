@@ -7,6 +7,7 @@
       entities:
         - entity: sensor.used_space_volume_1
           name: Disk Space Used
+          icon: mdi:harddisk
         - entity: sensor.cpu_load_total
           name: CPU Use
         - entity: sensor.memory_usage_real
@@ -32,6 +33,41 @@
         green: 0
         yellow: 90
         red: 95
+    - type: history-graph
+      title: NAS Load
+      hours_to_show: 12
+      entities:
+        - entity: sensor.cpu_load_1_min
+          name: Load 1
+        - entity: sensor.cpu_load_5_min
+          name: Load 5
+        - entity: sensor.cpu_load_15_min
+          name: Load 15
+- id: pi-stats
+  type: vertical-stack
+  cards:
+    - type: entities
+      title: Home Assistant (Pi)
+      show_header_toggle: false
+      entities:
+        - entity: sensor.processor_use
+          name: Processor Use
+        - entity: sensor.disk_use_percent
+          name: SSD Space Used
+        - entity: sensor.memory_use_percent
+          name: Memory Used
+        - entity: sensor.last_boot
+          name: Last Boot
+    - type: history-graph
+      title: Home Assistant Load
+      hours_to_show: 12
+      entities:
+        - entity: sensor.load_1m
+          name: Load 1
+        - entity: sensor.load_5m
+          name: Load 5
+        - entity: sensor.load_15m
+          name: Load 15
 - id: 5ac33fdfaceb437b804896f431df49fe  # Automatically created id
   type: entities
   title: Downloads
