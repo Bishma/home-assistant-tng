@@ -18,13 +18,13 @@
           name: National Weather Service Alerts
         - entity: automation.work_heater_on
           name: Work heater warning
-        - entity: automation.lets_encrypt_renewal
+        - entity: automation.let_s_encrypt_renewal
           name: Let's Encrypt Auto-Renewal
     - type: entities
       title: Occupied Automations
       show_header_toggle: false
       entities:
-        - entity: automation.predusk_tasks
+        - entity: automation.pre_dusk_tasks
           name: Pre-Dusk Lights Auto-On
         - entity: automation.back_porch_off
           name: Back Porch Auto-Off
