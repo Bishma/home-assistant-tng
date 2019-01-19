@@ -89,6 +89,7 @@
     alias: Living Room Fan Power
     sequence:
         - service: remote.send_command
+          entity_id: remote.living_room
           data:
             device: 55184762
             command: PowerToggle
@@ -96,6 +97,7 @@
     alias: Living Room Fan Oscillate
     sequence:
         - service: remote.send_command
+          entity_id: remote.living_room
           data:
             device: 55184762
             command: Oscillation
@@ -103,6 +105,7 @@
     alias: Living Room Fan Speed
     sequence:
         - service: remote.send_command
+          entity_id: remote.living_room
           data:
             device: 55184762
             command: FanSpeed        
@@ -111,22 +114,27 @@
     alias: Delete
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51738178
           command: "Delete"
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51738178
           command: "DirectionLeft"
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51738178
           command: "Enter"
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51738178
           command: "DirectionLeft"
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51738178
           command: "Enter"
@@ -134,6 +142,7 @@
     alias: Switch Activity
     sequence:
       - service: remote.turn_on
+        entity_id: remote.living_room
         data_template:
           activity: >
             {% if media_activity == "Cody" or media_activity == "cody" %}
@@ -157,6 +166,7 @@
     alias: TV Confirm
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -175,6 +185,7 @@
     alias: TV Up
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -189,6 +200,7 @@
     alias: Down
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -203,6 +215,7 @@
     alias: TV Left
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -217,6 +230,7 @@
     alias: TV Right
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -231,6 +245,7 @@
     alias: Back
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -245,6 +260,7 @@
     alias: Page Up
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -263,6 +279,7 @@
     alias: Page Down
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -281,6 +298,7 @@
     alias: Home
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -299,12 +317,14 @@
     alias: TV Off
     sequence:
       - service: remote.turn_on
+        entity_id: remote.living_room
         data:
           activity: -1
   media_volume_up:
     alias: TV Volume Up
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51736886
           command: VolumeUp
@@ -312,6 +332,7 @@
   alexa_volume_up:
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51736886
           command: VolumeUp
@@ -321,6 +342,7 @@
     alias: TV Volume Down
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data:
           device: 51736886
           command: VolumeDown
@@ -328,6 +350,7 @@
   alexa_volume_down:
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51736886
           command: VolumeDown
@@ -337,6 +360,7 @@
     alias: TV Stop
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -355,6 +379,7 @@
     alias: TV Pause
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -369,6 +394,7 @@
     alias: TV Play
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -383,6 +409,7 @@
     alias: TV Context
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -401,6 +428,7 @@
     alias: TV Info
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -419,6 +447,7 @@
     alias: TV Skip Back
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -447,6 +476,7 @@
               6
             {% endif %}
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
@@ -468,6 +498,7 @@
     alias: TV Input Kodi
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51736886
           command: InputHdmi1
@@ -476,6 +507,7 @@
     alias: TV Input Switch
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51736886
           command: InputHdmi2
@@ -484,6 +516,7 @@
     alias: TV Input Roku
     sequence:
       - service: remote.send_command
+        entity_id: remote.living_room
         data_template:
           device: 51736886
           command: InputHdmi3
