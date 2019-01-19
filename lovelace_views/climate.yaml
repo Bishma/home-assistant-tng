@@ -72,7 +72,7 @@
         "unknown": /local/air-quality/unknown.jpg
     - type: entities
       entities:
-        - entity: sensor.waqi_eugene__highway_99_oregon_usa
+        - entity: sensor.waqi_eugene_wilkes_drive_oregon_usa
           name: West Eugene Air Quality
 - id: embeded-windy-precip
   type: iframe
