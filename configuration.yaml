@@ -51,7 +51,7 @@ updater:
 # Enables support for tracking state changes over time
 history:
 recorder:
-  purge_keep_days: 14
+  purge_keep_days: 365
   db_url: !secret mariadb
 
 # View all events in a logbook
