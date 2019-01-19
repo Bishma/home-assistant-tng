@@ -216,4 +216,20 @@
     User-Agent: Homeassistant
     Accept: application/geo+json
   scan_interval: 300
-  
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: memory_use_percent
+    - type: swap_use_percent
+    - type: memory_free
+    - type: disk_free
+    - type: load_1m
+    - type: load_5m
+    - type: load_15m
+    - type: processor_use
+    - type: last_boot
+    - type: network_in
+    - type: network_out
+    - type: ipv4_address
