@@ -14,7 +14,7 @@
       brightness_pct: 100
       entity_id:
         - light.the_sink_hole
-        - light.living_room_lamp
+        - light.love_seat_up
 - id: 'unoccupied_afternoon'
   alias: Unoccupied Afternoon
   trigger:
@@ -28,7 +28,7 @@
   - service: light.turn_on
     data:
       brightness_pct: 100
-      entity_id: light.living_room_lamp_middle
+      entity_id: light.love_seat_middle
 - id: 'unoccupied_evening'
   alias: Unoccupied Evening
   trigger:
@@ -67,8 +67,8 @@
   - service: light.turn_off
     data:
       entity_id:
-        - light.living_room_lamp
-        - light.living_room_lamp_middle
+        - light.love_seat_up
+        - light.love_seat_middle
   - service: light.turn_on
     data:
       brightness_pct: 2

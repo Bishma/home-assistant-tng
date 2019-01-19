@@ -3,12 +3,14 @@
   title: Living Room
   entities:
     - entity: switch.the_sparkle
-    - entity: light.living_room_lamp
+    - entity: light.love_seat_up
       type: custom:slider-entity-row
-    - entity: light.living_room_lamp_middle
+      icon: mdi:lightbulb-on-outline
+    - entity: light.love_seat_middle
       type: custom:slider-entity-row
-    - entity: switch.mega_sparkle
-      icon: mdi:pine-tree
+      icon: mdi:lightbulb-on-outline
+    - entity: switch.couch_lamp
+      icon: mdi:floor-lamp
 - id: kitchen_controls
   type: entities
   title: Kitchen

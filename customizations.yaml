@@ -18,7 +18,7 @@
   switch.the_sparkle:
     assumed_state: false
     icon: mdi:star-outline
-  light.living_room_lamp:
+  light.love_seat_up:
     assumed_state: false
   switch.bedroom_air:
     assumed_state: true

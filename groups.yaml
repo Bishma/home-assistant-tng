@@ -8,9 +8,9 @@ livingroom:
   name: Living Room
   entities:
     - switch.the_sparkle
-    - light.living_room_lamp
-    - light.living_room_lamp_middle
-    - switch.mega_sparkle
+    - light.love_seat_up
+    - light.love_seat_middle
+    - switch.couch_lamp
 kitchen:
   name: Kitchen
   entities:

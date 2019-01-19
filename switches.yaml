@@ -9,7 +9,7 @@
     name: Bonnie Bedroom Lamp
   - platform: tplink
     host: 192.168.131.93
-    name: Mega Sparkle
+    name: Couch Lamp
   - platform: broadlink
     host: 192.168.131.4
     mac: 'b4:43:0d:f9:34:99'
