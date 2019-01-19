@@ -47,10 +47,10 @@
       title: Where Are We
       show_header_toggle: false
       entities:
-        - entity: device_tracker.tile_78bc53da2fdc0a07
+        - entity: device_tracker.tile_a8b3ea596f9b44fd
           Name: Derek
           icon: mdi:owl
-        - entity: device_tracker.tile_6ddd67e2e9a0ad94
+        - entity: device_tracker.tile_4c66b3d3606d440e
           Name: Bonnie
           icon: mdi:elephant
     - type: entities

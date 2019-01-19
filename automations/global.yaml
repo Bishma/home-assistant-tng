@@ -11,7 +11,7 @@
 - id: work_heater_on
   alias: Work Heater On
   trigger:
-  - entity_id: device_tracker.tile_78bc53da2fdc0a07
+  - entity_id: device_tracker.tile_a8b3ea596f9b44fd
     from: 'IDX'
     platform: state
   condition:
