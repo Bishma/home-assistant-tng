@@ -81,3 +81,19 @@
         service: script.livingroom_fan_speed
         service_data:
           entity_id: script.livingroom_fan_speed
+- id: roku-media-player
+  type: conditional
+  conditions:
+    - entity: sensor.living_room_media_device
+      state: "roku"
+  card:
+    type: media-control
+    entity: media_player.roku_yu00uj710265
+- id: kodi-media-player
+  type: conditional
+  conditions:
+    - entity: sensor.living_room_media_device
+      state: "htpc"
+  card:
+    type: media-control
+    entity: media_player.kodi
