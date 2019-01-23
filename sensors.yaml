@@ -154,6 +154,8 @@
           switch
         {% elif states.remote.living_room.attributes.current_activity == "Listen to Music" %}
           bluetooth
+        {% else %}
+          unknown
         {% endif %}
       friendly_name: 'Current Remote Device:'
     # Harmony current activity
