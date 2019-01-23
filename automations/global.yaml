@@ -31,3 +31,12 @@
   - service: hassio.addon_restart
     data:
       addon: core_letsencrypt
+- id: daily-backup
+  alias: Daily Backup at 00:30
+  trigger:
+    platform: time
+    at: '00:30:00'
+  action:
+  - service: hassio.addon_start
+    data:
+      addon: ce20243c_remote_backup
