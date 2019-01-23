@@ -51,7 +51,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * TP Link LB230 Multi-Color BR30
 * 2x TP Link HS100 Wifi Switch
 * 2x TP Link HS105 Mini Wifi Switch
-* 3x Tile Trackers
+* 2x Tile Trackers
 * Ring Video Doorbell 2
 * 2x Amcrest Pan/Tilt/Zoom security cameras (via synology surveillance stations)
 * Netatmo Indoor, Outdoor, Wind climate sensors
