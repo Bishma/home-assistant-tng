@@ -152,6 +152,8 @@
           ota
         {% elif states.remote.living_room.attributes.current_activity == "Play Switch" %}
           switch
+        {% elif states.remote.living_room.attributes.current_activity == "Listen to Music" %}
+          bluetooth
         {% endif %}
       friendly_name: 'Current Remote Device:'
     # Harmony current activity
