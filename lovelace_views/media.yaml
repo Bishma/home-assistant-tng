@@ -410,6 +410,36 @@
               device: 51736886
               command: HDMI2
               num_repeats: 1
+    - id: activity-specific-music
+      type: conditional
+      show_header_toggle: false
+      conditions:
+        - entity: sensor.living_room_remote_state
+          state: Listen to Music
+      card:
+        type: entities
+        title: Switch Tool
+        entities:
+          - type: call-service
+            name: Soundbar Bluetooth
+            action_name: Set Input
+            icon: mdi:bluetooth-connect
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 60888940
+              command: InputBluetooth
+              num_repeats: 1
+          - type: call-service
+            name: Voice Enhancement
+            action_name: Toggle
+            icon: mdi:voice
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 60888940
+              command: Dialogue
+              num_repeats: 1
 - id: activity-choice
   type: entities
   title: TV Activity
@@ -479,6 +509,14 @@
       service_data:
         entity_id: remote.living_room
         activity: 31480260
+    - type: call-service
+      icon: mdi:music
+      name: Music
+      action_name: Listen
+      service: remote.turn_on
+      service_data:
+        entity_id: remote.living_room
+        activity: 38156985
     - type: divider
     - type: weblink
       name: Plex Web Player
