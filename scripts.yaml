@@ -469,7 +469,7 @@
             {% endif %}
           num_repeats: >
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              3
+              2
             {% elif states.remote.living_room.attributes.current_activity == "Watch Amazon" %}
               4
             {% else %}
