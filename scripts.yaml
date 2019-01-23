@@ -326,7 +326,7 @@
       - service: remote.send_command
         entity_id: remote.living_room
         data_template:
-          device: 51736886
+          device: 60888940
           command: VolumeUp
           num_repeats: 2
   alexa_volume_up:
@@ -334,7 +334,7 @@
       - service: remote.send_command
         entity_id: remote.living_room
         data_template:
-          device: 51736886
+          device: 60888940
           command: VolumeUp
           num_repeats: >
             {{ amount }}
@@ -344,7 +344,7 @@
       - service: remote.send_command
         entity_id: remote.living_room
         data:
-          device: 51736886
+          device: 60888940
           command: VolumeDown
           num_repeats: 2
   alexa_volume_down:
@@ -352,7 +352,7 @@
       - service: remote.send_command
         entity_id: remote.living_room
         data_template:
-          device: 51736886
+          device: 60888940
           command: VolumeDown
           num_repeats: >
             {{ amount }}
