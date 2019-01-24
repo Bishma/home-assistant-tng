@@ -18,14 +18,21 @@
     action:
       service: script.turn_on
       data_template:
-        entity_id: script.media_{{ media_script | replace(" ", "_") }}
+        entity_id: script.media_{{ tv_scripts | replace(" ", "_") }}
   watch:
     action:
       service: script.watch_activity
       data_template:
-        media_activity: '{{ media_scripts | replace(" ", "_") }}'
+        media_activity: '{{ watch_scripts | replace(" ", "_") }}'
     speech:
-      text: "Switching to  {{ media_scripts }}"
+      text: "Switching to  {{ watch_scripts }}"
+  listen:
+    action:
+      service: script.watch_activity
+      data_template:
+        media_activity: '{{ listen_scripts | replace(" ", "_") }}'
+    speech:
+      text: "Switching to bluetooth audio."
   theweather:
     speech:
       text: "The inside temperature is {{ states('sensor.netatmo_indoor_temperature_2') }} degrees with {{ states('sensor.netatmo_indoor_humidity_2') }} percent humidity. Outside it's {{ states('sensor.netatmo_outdoor_temperature_2') }} degrees and {{ states('sensor.netatmo_outdoor_humidity_2') }} percent humidity."
