@@ -161,6 +161,8 @@
               31480190
             {% elif media_activity == "over_the_air" %}
               31480260
+            {% elif media_activity == "music" %}
+              38156985
             {% endif %}
   media_confirm:
     alias: TV Confirm
@@ -328,7 +330,7 @@
         data_template:
           device: 60888940
           command: VolumeUp
-          num_repeats: 2
+          num_repeats: 1
   alexa_volume_up:
     sequence:
       - service: remote.send_command
@@ -346,7 +348,7 @@
         data:
           device: 60888940
           command: VolumeDown
-          num_repeats: 2
+          num_repeats: 1
   alexa_volume_down:
     sequence:
       - service: remote.send_command
