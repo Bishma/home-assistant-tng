@@ -1,9 +1,0 @@
-- platform: roku
-  host: 192.168.131.5
-- platform: kodi
-  host: 192.168.131.3
-  port: 9090
-  turn_off_action:
-    - service: script.turn_on
-      data:
-        entity_id: script.media_off
