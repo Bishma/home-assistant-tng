@@ -183,138 +183,6 @@
               OK
             {% endif %}
           num_repeats: 1
-  media_up_arrow:
-    alias: TV Up
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            DirectionUp
-          num_repeats: 1
-  media_down_arrow:
-    alias: Down
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            DirectionDown
-          num_repeats: 1
-  media_left_arrow:
-    alias: TV Left
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            DirectionLeft
-          num_repeats: 1
-  media_right_arrow:
-    alias: TV Right
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            DirectionRight
-          num_repeats: 1
-  media_back:
-    alias: Back
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            Back
-          num_repeats: 1
-  media_page_up:
-    alias: Page Up
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              PageUp
-            {% else %}
-              ChannelUp
-            {% endif %}
-          num_repeats: 1
-  media_page_down:
-    alias: Page Down
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              PageDown
-            {% else %}
-              ChannelDown
-            {% endif %}
-          num_repeats: 1
-  media_home:
-    alias: Home
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              Esc
-            {% else %}
-              Home
-            {% endif %}
-          num_repeats: 1
   media_off:
     alias: TV Off
     sequence:
@@ -374,7 +242,7 @@
             {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
               Stop
             {% else %}
-              Exit
+              Back
             {% endif %}
           num_repeats: 1
   media_pause:
@@ -406,44 +274,6 @@
             {% endif %}
           command: >
             Play
-          num_repeats: 1
-  media_context:
-    alias: TV Context
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              c.
-            {% else %}
-              Options*
-            {% endif %}
-          num_repeats: 1
-  media_info:
-    alias: TV Info
-    sequence:
-      - service: remote.send_command
-        entity_id: remote.living_room
-        data_template:
-          device: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              51738178
-            {% else %}
-              51736885
-            {% endif %}
-          command: >
-            {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-              i.
-            {% else %}
-              Info
-            {% endif %}
           num_repeats: 1
   media_skip_back:
     alias: TV Skip Back
