@@ -48,3 +48,32 @@
     async_action: false
     speech:
       text: "{{ states('sensor.netatmo_indoor_temperature_2') }}" #sensor.last_alexa_weather_request
+  voiceenhance:
+    action:
+      service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 60888940
+        command: Dialogue
+  goodnight:
+    action:
+      service: script.turn_on
+      data:
+        entity_id: script.alexa_goodnight
+    async_action: true
+    speech: 
+      text: >
+        {% set goodnight_platitudes = [
+              "Goodnight.",
+              "Fremulon",
+              "Not a doctor. Shhhh",
+              "Goodnight.",
+              "Sleep well.",
+              "Goodnight.",
+              "Don't let the bedbugs bite.",
+              "Goodnight.",
+              "Time to ride the rainbow to dreamland!",
+              "Have a good one.",
+              "Later tater."
+        ] %}
+        {{ goodnight_platitudes | random }}
