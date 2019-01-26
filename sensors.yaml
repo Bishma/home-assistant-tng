@@ -135,7 +135,34 @@
       unit_of_measurement: "mph"
       friendly_name: 'Backyard Wind Gust Strenth'
       value_template: "{{ (states('sensor.netatmo_backyard_gust_strength') | float / 1.609) | round(2) }}"
-    # It will simplify cards and scripts to translate the current Harmony activity into the device in use
+    # It will simplify cards and scripts to translate the current Harmony activity into the device and IDs in use
+    living_room_media_activity_id:
+      entity_id: remote.living_room
+      value_template: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Amazon" %}
+          31480109
+        {% elif states.remote.living_room.attributes.current_activity == "Watch Hulu" %}
+          31949557
+        {% elif states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          31479535
+        {% elif states.remote.living_room.attributes.current_activity == "Watch Netflix" %}
+          31478989
+        {% elif states.remote.living_room.attributes.current_activity == "Watch OTA" %}
+          31480260
+        {% elif states.remote.living_room.attributes.current_activity == "Watch Plex" %}
+          31571897
+        {% elif states.remote.living_room.attributes.current_activity == "Watch Sling" %}
+          31480008
+        {% elif states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
+          33323580
+        {% elif states.remote.living_room.attributes.current_activity == "Listen to Music" %}
+          38156985
+        {% elif states.remote.living_room.attributes.current_activity == "Play Switch" %}
+          31480190
+        {% else %}
+          unknown
+        {% endif %}
+      friendly_name: 'Current Activity ID' 
     living_room_media_device:
       entity_id: remote.living_room
       value_template: >
@@ -143,7 +170,7 @@
           htpc
         {% elif states.remote.living_room.attributes.current_activity == "Watch Amazon"
               or  states.remote.living_room.attributes.current_activity == "Watch Hulu"
-              or  states.remote.living_room.attributes.current_activity == "Watch Netfix"
+              or  states.remote.living_room.attributes.current_activity == "Watch Netflix"
               or states.remote.living_room.attributes.current_activity == "Watch Plex"
               or states.remote.living_room.attributes.current_activity == "Watch Sling"
               or states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
@@ -158,6 +185,17 @@
           unknown
         {% endif %}
       friendly_name: 'Current Remote Device:'
+    living_room_media_device_id:
+      entity_id: sensor.living_room_media_device
+      value_template: >
+        {% if is_state("sensor.living_room_media_device", "htpc") %}
+          51738178
+        {% elif is_state("sensor.living_room_media_device", "roku") %}
+          51736885
+        {% else %}
+          off
+        {% endif %}
+      friendly_name: 'Current Media Device ID'
     # Harmony current activity
     living_room_remote_state:
       entity_id: remote.living_room
@@ -256,3 +294,6 @@
     - type: network_in
     - type: network_out
     - type: ipv4_address
+
+- platform: torque
+  email: bishma@gmail.com
