@@ -10,28 +10,36 @@ views:
     # Home Tab
   - id: home
     icon: mdi:home-assistant
+    title: Home
     cards: !include lovelace_views/home.yaml
   - id: media
     icon: mdi:youtube-tv
+    title: Media Controls
     cards: !include lovelace_views/media.yaml
   - id: climate
+    title: Climate (Outdoor Conditions)
     icon: mdi:weather-partlycloudy
     cards: !include lovelace_views/climate.yaml
   - id: indoors
+    title: Comfort (Indoor Conditions)
     icon: mdi:thermostat
     cards: !include lovelace_views/indoors.yaml
   - id: cameras
+    title: Cameras
     icon: mdi:cctv
     cards: !include lovelace_views/cameras.yaml
   - id: network
+    title: Technology
     icon: mdi:nas
     cards: !include lovelace_views/network.yaml
   - id: settings
+    title: Settings
     icon: mdi:settings-outline
     cards: !include lovelace_views/settings.yaml
     badges:
       - sensor.unoccupied_mode
       - sensor.nws_alert_count
   - id: documentation
+    title: Documentation
     icon: mdi:file-document
     cards: !include lovelace_views/documentation.yaml
