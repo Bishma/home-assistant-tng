@@ -375,13 +375,7 @@
               command: VolumeDown
             num_repeats: 1
           hold_action:
-            action: call-service
-            service: remote.send_command
-            service_data:
-              entity_id: remote.living_room
-              device: 60888940
-              command: VolumeDown
-            num_repeats: 5
+            action: none
         - type: entity-button
           entity: script.media_volume_up
           name: Vol +
