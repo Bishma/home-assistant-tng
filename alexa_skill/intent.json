@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "jason",
+            "invocationName": "janet",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -28,6 +28,9 @@
                         }
                     ],
                     "samples": [
+                        "turn up television volume by {amount}",
+                        "turn up the television by {amount}",
+                        "turn up television by {amount}",
                         "turn up tv by {amount}",
                         "turn up the tv by {amount}",
                         "turn up tv volume by {amount}"
@@ -42,6 +45,9 @@
                         }
                     ],
                     "samples": [
+                        "turn down the television by {amount}",
+                        "turn down television by {amount}",
+                        "turn television down by {amount}",
                         "turn tv down by {amount}",
                         "turn down tv by {amount}",
                         "turn down the tv by {amount}"
@@ -76,6 +82,9 @@
                         }
                     ],
                     "samples": [
+                        "{media_script} the television",
+                        "{media_script} television",
+                        "television {media_script}",
                         "tv {media_script}",
                         "{media_script} tv",
                         "{media_script} the tv"
@@ -103,6 +112,25 @@
                         "what the weather is",
                         "about the weather"
                     ]
+                },
+                {
+                    "name": "whatitslike",
+                    "slots": [
+                        {
+                            "name": "where",
+                            "type": "where_local"
+                        }
+                    ],
+                    "samples": [
+                        "how is it {where}",
+                        "what is the weather like {where}",
+                        "what is the weather {where}",
+                        "what it is like {where}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
                 }
             ],
             "types": [
@@ -183,6 +211,44 @@
                                 "synonyms": [
                                     "Kodi",
                                     "kodi"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "where_local",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "inside",
+                                "synonyms": [
+                                    "in the house",
+                                    "indoors"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "outside",
+                                "synonyms": [
+                                    "outdoors"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "sound_activities",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "music",
+                                "synonyms": [
+                                    "sound",
+                                    "audio",
+                                    "bluetooth",
+                                    "records"
                                 ]
                             }
                         }
