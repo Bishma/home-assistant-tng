@@ -363,6 +363,20 @@
           hold_action:
             action: none
         - type: entity-button
+          entity: remote.living_room
+          name: Voice
+          icon: mdi:voice
+          tap_action:
+            action: call-service
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 60888940
+              command: Dialogue
+            num_repeats: 1
+          hold_action:
+            action: none
+        - type: entity-button
           entity: script.media_volume_down
           name: Vol -
           icon: mdi:volume-minus
@@ -662,16 +676,6 @@
               entity_id: remote.living_room
               device: 60888940
               command: InputBluetooth
-              num_repeats: 1
-          - type: call-service
-            name: Voice Enhancement
-            action_name: Toggle
-            icon: mdi:voice
-            service: remote.send_command
-            service_data:
-              entity_id: remote.living_room
-              device: 60888940
-              command: Dialogue
               num_repeats: 1
 - id: activity-choice
   type: entities
