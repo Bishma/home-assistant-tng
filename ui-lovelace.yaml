@@ -34,7 +34,7 @@ views:
     cards: !include lovelace_views/network.yaml
   - id: settings
     title: Settings
-    icon: mdi:settings-outline
+    icon: mdi:settings
     cards: !include lovelace_views/settings.yaml
     badges:
       - sensor.unoccupied_mode
