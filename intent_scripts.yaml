@@ -82,3 +82,9 @@ goodnight:
             "Later tater."
       ] %}
       {{ goodnight_platitudes | random }}
+rise_and_shine:
+  action:
+    service: script.turn_on
+    data:
+      entity_id: script.alexa_rise_and_shine
+  async_action: true
