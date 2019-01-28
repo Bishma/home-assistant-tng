@@ -348,6 +348,23 @@
       data:
         entity_id: light.the_sink_hole
         brightness_pct: 1
+  alexa_rise_and_shine:
+    alias: Rise and Shine
+    sequence:
+    - service: switch.turn_on
+      entity_id: switch.the_sparkle
+    - service: light.turn_on
+      data:
+        entity_id: light.love_seat_middle
+        brightness_pct: 100
+    - service: light.turn_on
+      data:
+        entity_id: light.love_seat_up
+        brightness_pct: 100
+    - service: light.turn_on
+      data:
+        entity_id: light.the_sink_hole
+        brightness_pct: 100
   media_input1:
     alias: TV Input Kodi
     sequence:
