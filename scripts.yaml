@@ -331,6 +331,8 @@
     sequence:
     - service: switch.turn_off
       entity_id: switch.couch_lamp
+    - service: switch.turn_off
+      entity_id: switch.the_sparkle
     - service: light.turn_off
       entity_id: light.love_seat_middle
     - service: light.turn_off
@@ -341,11 +343,11 @@
       entity_id: switch.bonnie_bedroom_lamp
     - service: switch.turn_on
       entity_id: switch.derek_bedroom_lamp
-    - delay: '00:00:30'
+    - delay: '00:02:00'
     - service: light.turn_on
       data:
         entity_id: light.the_sink_hole
-        brightness: 1
+        brightness_pct: 1
   media_input1:
     alias: TV Input Kodi
     sequence:
