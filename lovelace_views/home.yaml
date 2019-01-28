@@ -82,3 +82,30 @@
         service: script.livingroom_fan_speed
         service_data:
           entity_id: script.livingroom_fan_speed
+- id: Routines
+  type: horizontal-stack
+  cards:
+    - type: entity-button
+      entity: script.alexa_dereks_morning
+      name: Early Morning
+      icon: mdi:weather-sunset-up
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+    - type: entity-button
+      entity: script.alexa_rise_and_shine
+      name: Rise & Shine
+      icon: mdi:white-balance-sunny
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+    - type: entity-button
+      entity: script.alexa_goodnight
+      name: Good Night
+      icon: mdi:hotel
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
