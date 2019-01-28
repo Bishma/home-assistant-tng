@@ -76,5 +76,5 @@
           name: West Eugene Air Quality
 - id: embeded-windy-precip
   type: iframe
-  url: https://embed.windy.com/embed2.html?lat=44.159&lon=-123.162&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=44.159&detailLon=-123.162&metricWind=default&metricTemp=default&radarRange=-1
+  url: https://embed.windy.com/embed2.html?lat=43.882&lon=-121.926&zoom=7&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=43.882&detailLon=-121.926&metricWind=default&metricTemp=default&radarRange=-1
   aspect_ratio: 100%
