@@ -244,6 +244,15 @@
           unknown
         {% endif %}
 
+- platform: time_date
+  display_options:
+  - 'time'
+  - 'date'
+  - 'date_time'
+  - 'time_date'
+  - 'time_utc'
+  - 'beat'
+
 # US Weather Service Emergency Data
 # https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853
 - platform: rest
