@@ -88,3 +88,15 @@ rise_and_shine:
     data:
       entity_id: script.alexa_rise_and_shine
   async_action: true
+dereks_morning:
+  action:
+    service: script.turn_on
+    data:
+      entity_id: script.alexa_dereks_morning
+  async_action: true
+  speech:
+    text: >
+      Hi There.
+      It is {{ sensor.time }} on {{ sensor.utility_dow }} and outdoor temperature is currently {{ sensor.netatmo_outdoor_temperature_2 }} degrees.
+
+      At the moment the weather is {{ sensor.dark_sky_minutely_summary }}. Today's forcast calls for {{ sensor.dark_sky_minutely_summary }}.
