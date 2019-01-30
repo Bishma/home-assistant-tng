@@ -53,7 +53,7 @@
           - sensor.allergy_index_forecasted_average.outlook
           - sensor.allergy_index_forecasted_average.season
           - sensor.allergy_index_forecasted_average.trend
-    - entity: sensor.cold__flu_forecasted_average
+    - entity: sensor.cold_flu_forecasted_average
       name: Cold/Flu Index Average
 - id: west_eugene_air_quality stack
   type: vertical-stack
@@ -76,5 +76,5 @@
           name: West Eugene Air Quality
 - id: embeded-windy-precip
   type: iframe
-  url: https://embed.windy.com/embed2.html?lat=43.882&lon=-121.926&zoom=7&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=43.882&detailLon=-121.926&metricWind=default&metricTemp=default&radarRange=-1
+  url: https://embed.windy.com/embed2.html?lat=43.926&lon=-123.085&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=43.882&detailLon=-121.926&metricWind=default&metricTemp=%C2%B0F&radarRange=-1
   aspect_ratio: 100%
