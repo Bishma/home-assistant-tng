@@ -33,16 +33,6 @@
         green: 0
         yellow: 90
         red: 95
-    - type: history-graph
-      title: NAS Load
-      hours_to_show: 12
-      entities:
-        - entity: sensor.cpu_load_1_min
-          name: Load 1
-        - entity: sensor.cpu_load_5_min
-          name: Load 5
-        - entity: sensor.cpu_load_15_min
-          name: Load 15
 - id: pi-stats
   type: vertical-stack
   cards:
@@ -64,8 +54,6 @@
       entities:
         - entity: sensor.load_1m
           name: Load 1
-        - entity: sensor.load_5m
-          name: Load 5
         - entity: sensor.load_15m
           name: Load 15
 - id: 5ac33fdfaceb437b804896f431df49fe  # Automatically created id
