@@ -9,6 +9,8 @@
   api_key: !secret forcastio_api
   update_interval:
     minutes: 10
+  forecast:
+    - 0
   monitored_conditions:
     - summary
     - icon
