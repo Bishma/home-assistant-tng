@@ -96,7 +96,8 @@ dereks_morning:
   async_action: true
   speech:
     text: >
-      Hi There.
-      It is {{ sensor.time }} on {{ sensor.utility_dow }} and outdoor temperature is currently {{ sensor.netatmo_outdoor_temperature_2 }} degrees.
-
-      At the moment the weather is {{ sensor.dark_sky_minutely_summary }}. Today's forcast calls for {{ sensor.dark_sky_minutely_summary }}.
+      Happy {{ states('sensor.utility_dow') }}.
+      
+      Weather today, the outdoor temperature is currently {{ states('sensor.netatmo_outdoor_temperature_2') }} degrees and will be {{ states('sensor.dark_sky_minutely_summary') }}.
+      Later, expect {{ states('sensor.dark_sky_hourly_summary') }} with a high of {{ states('sensor.dark_sky_daytime_high_temperature_0') }} degrees
+      and a low of {{ states('sensor.dark_sky_overnight_low_temperature_0') }} degrees.
