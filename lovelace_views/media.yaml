@@ -423,6 +423,16 @@
                   command: InputHdmi1
                   num_repeats: 1
               - type: call-service
+                name: Sound Bar Power
+                action_name: Toggle
+                icon: mdi:speaker
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 60888940
+                  command: PowerToggle
+                  num_repeats: 1
+              - type: call-service
                 name: Watched Status
                 action_name: Toggle
                 icon: mdi:eye
@@ -524,6 +534,16 @@
               command: InputHdmi3
               num_repeats: 1
           - type: call-service
+            name: Sound Bar Power
+            action_name: Toggle
+            icon: mdi:speaker
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 60888940
+              command: PowerToggle
+              num_repeats: 1
+          - type: call-service
             name: Home
             action_name: Home
             icon: mdi:home
@@ -584,6 +604,16 @@
               command: InputTv
               num_repeats: 1
           - type: call-service
+            name: Sound Bar Power
+            action_name: Toggle
+            icon: mdi:speaker
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 60888940
+              command: PowerToggle
+              num_repeats: 1
+          - type: call-service
             name: Channel Up
             action_name: Up
             icon: mdi:arrow-up
@@ -641,7 +671,7 @@
           state: Play Switch
       card:
         type: entities
-        title: Switch Tool
+        title: Switch Tools
         entities:
           - type: call-service
             name: Fix Input
@@ -653,6 +683,16 @@
               device: 51736886
               command: HDMI2
               num_repeats: 1
+          - type: call-service
+            name: Sound Bar Power
+            action_name: Toggle
+            icon: mdi:speaker
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 60888940
+              command: PowerToggle
+              num_repeats: 1
     - id: activity-specific-music
       type: conditional
       show_header_toggle: false
@@ -661,7 +701,7 @@
           state: Listen to Music
       card:
         type: entities
-        title: Switch Tool
+        title: Music Tools
         entities:
           - type: call-service
             name: Soundbar Bluetooth
@@ -672,6 +712,16 @@
               entity_id: remote.living_room
               device: 60888940
               command: InputBluetooth
+              num_repeats: 1
+          - type: call-service
+            name: Sound Bar Power
+            action_name: Toggle
+            icon: mdi:speaker
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room
+              device: 60888940
+              command: PowerToggle
               num_repeats: 1
 - id: activity-choice
   type: entities
