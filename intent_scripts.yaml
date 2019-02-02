@@ -79,7 +79,11 @@ goodnight:
             "Goodnight.",
             "Time to ride the rainbow to dreamland!",
             "Have a good one.",
-            "Later tater."
+            "Later tater.",
+            "Goodnight.",
+            "As Oscar Wilde said, goodnight.",
+            "Goodnight.",
+            "Light switches. Am I right?"
       ] %}
       {{ goodnight_platitudes | random }}
 rise_and_shine:
@@ -98,6 +102,6 @@ dereks_morning:
     text: >
       Happy {{ states('sensor.utility_dow') }}.
       
-      Weather today, the outdoor temperature is currently {{ states('sensor.netatmo_outdoor_temperature_2') }} degrees and will be {{ states('sensor.dark_sky_minutely_summary') }}.
-      Later, expect {{ states('sensor.dark_sky_hourly_summary') }} with a high of {{ states('sensor.dark_sky_daytime_high_temperature_0') }} degrees
-      and a low of {{ states('sensor.dark_sky_overnight_low_temperature_0') }} degrees.
+      It's currently {{ states('sensor.netatmo_outdoor_temperature_2') }} degrees at our weather stations. The immediate forcast calls forcast
+      {{ states('sensor.dark_sky_minutely_summary') }}. Later, expect {{ states('sensor.dark_sky_hourly_summary') }} with a high of
+      {{ states('sensor.dark_sky_daytime_high_temperature_0') }} degrees and a low of {{ states('sensor.dark_sky_overnight_low_temperature_0') }} degrees.
