@@ -1,12 +1,12 @@
+## Utility Sensors
+
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
 
 #
-# Hellow World App
+# Dates
+# Proof of concept to power intent speech
 #
-# Args:
-#
-
 class Date(hass.Hass):
 
     def initialize(self):
