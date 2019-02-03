@@ -2,16 +2,16 @@
   type: entities
   title: Living Room
   entities:
-    - entity: switch.the_sparkle
-      icon: mdi:star-face
-    - entity: light.love_seat_up
-      type: custom:slider-entity-row
-      icon: mdi:lightbulb
-    - entity: light.love_seat_middle
-      type: custom:slider-entity-row
-      icon: mdi:lightbulb
-    - entity: switch.couch_lamp
-      icon: mdi:floor-lamp
+  - entity: switch.the_sparkle
+    icon: mdi:star-face
+  - entity: light.love_seat_up
+    type: custom:slider-entity-row
+    icon: mdi:lightbulb
+  - entity: light.love_seat_middle
+    type: custom:slider-entity-row
+    icon: mdi:lightbulb
+  - entity: switch.couch_lamp
+    icon: mdi:floor-lamp
 - id: dining_room_controls
   type: entities
   title: Dining Room
