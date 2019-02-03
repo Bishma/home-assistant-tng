@@ -1,0 +1,4 @@
+---
+uility__sensor_date:
+  module: utility_sensor
+  class: Date
