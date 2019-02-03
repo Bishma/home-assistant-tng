@@ -1,3 +1,39 @@
+- id: location-stack
+  type: vertical-stack
+  cards:
+  - type: entities
+    title: Where Are We
+    show_header_toggle: false
+    entities:
+    - entity: device_tracker.tile_a8b3ea596f9b44fd
+      name: Derek
+      icon: mdi:owl
+    - entity: device_tracker.tile_4c66b3d3606d440e
+      name: Bonnie
+      icon: mdi:elephant
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - sensor.home_to_idx
+    - sensor.home_to_bend
+    - sensor.home_to_florence
+    - sensor.home_to_portland
+    - sensor.home_to_lincoln_city
+  - type: entities
+    title: Transport
+    show_header_toggle: false
+    entities:
+    - entity: sensor.lyft_time
+      name: Lyft Pickup Time
+    - entity: sensor.lyft_xl_time
+      name: Lyft XL Pickup Time
+    - type: divider
+    - entity: sensor.uberx_time
+      name: Uber X Pickup Time
+      icon: mdi:uber
+    - entity: sensor.uberxl_time
+      name: Uber XL Pickup Time
+      icon: mdi:uber
 - id: ui_and_automation
   type: entities
   title: UI and Automation Controls
@@ -48,40 +84,3 @@
         name: Equal Temp. Notification
       - entity: automation.nws_notification_weather_alert
         name: National Weather Service Alerts
-        
-- id: location-stack
-  type: vertical-stack
-  cards:
-    - type: entities
-      title: Where Are We
-      show_header_toggle: false
-      entities:
-        - entity: device_tracker.tile_a8b3ea596f9b44fd
-          name: Derek
-          icon: mdi:owl
-        - entity: device_tracker.tile_4c66b3d3606d440e
-          name: Bonnie
-          icon: mdi:elephant
-    - type: entities
-      show_header_toggle: false
-      entities:
-        - sensor.home_to_idx
-        - sensor.home_to_bend
-        - sensor.home_to_florence
-        - sensor.home_to_portland
-        - sensor.home_to_lincoln_city
-    - type: entities
-      title: Transport
-      show_header_toggle: false
-      entities:
-        - entity: sensor.lyft_time
-          name: Lyft Pickup Time
-        - entity: sensor.lyft_xl_time
-          name: Lyft XL Pickup Time
-        - type: divider
-        - entity: sensor.uberx_time
-          name: Uber X Pickup Time
-          icon: mdi:uber
-        - entity: sensor.uberxl_time
-          name: Uber XL Pickup Time
-          icon: mdi:uber
