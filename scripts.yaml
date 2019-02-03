@@ -343,6 +343,8 @@
       entity_id: switch.bonnie_bedroom_lamp
     - service: switch.turn_on
       entity_id: switch.derek_bedroom_lamp
+    - service: homeassistant.turn_off
+      entity_id: group.diningroom
     - delay: '00:02:00'
     - service: light.turn_on
       data:
