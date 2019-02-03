@@ -20,3 +20,4 @@ OZW_Log.txt
 pyozw.sqlite
 zwcfg_0xcce5c893.xml
 zwscene.xml
+appdaemon/apps/__pycache__/*
