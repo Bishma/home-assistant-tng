@@ -12,23 +12,30 @@
       icon: mdi:lightbulb
     - entity: switch.couch_lamp
       icon: mdi:floor-lamp
+- id: dining_room_controls
+  type: entities
+  title: Dining Room
+  entities:
+  - entity: group.diningroom
+    name: Dining Room
+    icon: mdi:silverware
 - id: kitchen_controls
   type: entities
   title: Kitchen
   entities:
-    - entity: light.the_sink_hole
-      type: custom:slider-entity-row
+  - entity: light.the_sink_hole
+    type: custom:slider-entity-row
 - id: bedroom_controls
   type: entities
   title: Bedroom
   entities:
-    - switch.derek_bedroom_lamp
-    - switch.bonnie_bedroom_lamp
+  - switch.derek_bedroom_lamp
+  - switch.bonnie_bedroom_lamp
 - id: exterior_controls
   type: entities
   title: Exterior
   entities:
-    - switch.ge_12720_outdoor_smart_switch_switch
+  - switch.ge_12720_outdoor_smart_switch_switch
 - id: thermostat
   type: thermostat
   entity: climate.cottage
@@ -54,58 +61,58 @@
 - id: stand_fan_conditional_controls
   type: conditional
   conditions:
-    - entity: input_boolean.fan_out
-      state: on
+  - entity: input_boolean.fan_out
+    state: on
   card:
     type: entities
     title: Living Room Stand Fan
     show_header_toggle: false
     entities:
-      - type: call-service
-        name: Power
-        action_name: Toggle
-        icon: mdi:power-standby
-        service: livingroom_fan_on
-        service_data:
-          entity_id: livingroom_fan_on
-      - type: call-service
-        name: Oscillate
-        action_name: Toggle
-        icon: mdi:rotate-3d
-        service: script.livingroom_fan_osc
-        service_data:
-          entity_id: script.livingroom_fan_osc livingroom_fan_speed
-      - type: call-service
-        name: Speed
-        action_name: Cycle
-        icon: mdi:speedometer
-        service: script.livingroom_fan_speed
-        service_data:
-          entity_id: script.livingroom_fan_speed
+    - type: call-service
+      name: Power
+      action_name: Toggle
+      icon: mdi:power-standby
+      service: livingroom_fan_on
+      service_data:
+        entity_id: livingroom_fan_on
+    - type: call-service
+      name: Oscillate
+      action_name: Toggle
+      icon: mdi:rotate-3d
+      service: script.livingroom_fan_osc
+      service_data:
+        entity_id: script.livingroom_fan_osc livingroom_fan_speed
+    - type: call-service
+      name: Speed
+      action_name: Cycle
+      icon: mdi:speedometer
+      service: script.livingroom_fan_speed
+      service_data:
+        entity_id: script.livingroom_fan_speed
 - id: Routines
   type: horizontal-stack
   cards:
-    - type: entity-button
-      entity: script.alexa_dereks_morning
-      name: Early Morning
-      icon: mdi:weather-sunset-up
-      tap_action:
-        action: toggle
-      hold_action:
-        action: none
-    - type: entity-button
-      entity: script.alexa_rise_and_shine
-      name: Rise & Shine
-      icon: mdi:white-balance-sunny
-      tap_action:
-        action: toggle
-      hold_action:
-        action: none
-    - type: entity-button
-      entity: script.alexa_goodnight
-      name: Good Night
-      icon: mdi:hotel
-      tap_action:
-        action: toggle
-      hold_action:
-        action: none
+  - type: entity-button
+    entity: script.alexa_dereks_morning
+    name: Early Morning
+    icon: mdi:weather-sunset-up
+    tap_action:
+      action: toggle
+    hold_action:
+      action: none
+  - type: entity-button
+    entity: script.alexa_rise_and_shine
+    name: Rise & Shine
+    icon: mdi:white-balance-sunny
+    tap_action:
+      action: toggle
+    hold_action:
+      action: none
+  - type: entity-button
+    entity: script.alexa_goodnight
+    name: Good Night
+    icon: mdi:hotel
+    tap_action:
+      action: toggle
+    hold_action:
+      action: none
