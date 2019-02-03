@@ -1,12 +1,12 @@
   - name: Home
     latitude: !secret me_lat
     longitude: !secret me_long
-    radius: 100
+    radius: 250
     icon: mdi:home
   - name: IDX
     latitude: 44.0497156
     longitude: -123.0910567
-    radius: 100
+    radius: 250
     icon: mdi:briefcase
   - name: Bend
     latitude: 44.0582
