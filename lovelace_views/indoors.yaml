@@ -55,81 +55,98 @@
       name: Humidity
       icon: mdi:water-percent
 - id: bedroom-controls
-  type: entities
-  title: Bedroom
-  show_header_toggle: false
-  entities:
-  - type: call-service
-    name: "Bedroom AC: The Usual"
-    action_name: "Cool + Fan Auto"
-    icon: mdi:air-conditioner
-    service: script.bedtime_ac_cool_auto
-    service_data:
-      entity_id: script.bedtime_ac_cool_auto
-  - type: divider
-  - type: call-service
-    name: Bedroom AC Power
-    action_name: Toggle
-    icon: mdi:power-standby
-    service: script.bedtime_ac_power
-    service_data:
-      entity_id: script.bedtime_ac_power
-  - type: call-service
-    name: Bedroom AC Mode
-    action_name: Cool
-    icon: mdi:air-conditioner
-    service: script.bedtime_ac_cool
-    service_data:
-      entity_id: script.bedtime_ac_cool
-  - type: call-service
-    name: Bedroom AC Mode
-    action_name: Energy Saver
-    icon: mdi:air-conditioner
-    service: script.bedtime_ac_energy_saver
-    service_data:
-      entity_id: script.bedtime_ac_energy_saver
-  - type: call-service
-    name: Bedroom AC Mode
-    action_name: Fan Only
-    icon: mdi:air-conditioner
-    service: script.bedtime_ac_fan_only
-    service_data:
-      entity_id: script.bedtime_ac_fan_only
-  - type: call-service
-    name: Bedroom AC Fan
-    action_name: Auto
-    icon: mdi:fan
-    service: script.bedtime_ac_auto_fan
-    service_data:
-      entity_id: script.bedtime_ac_auto_fan
-  - type: call-service
-    name: Bedroom AC Fan
-    action_name: Faster
-    icon: mdi:fan
-    service: script.bedtime_ac_fan_faster
-    service_data:
-      entity_id: script.bedtime_ac_fan_faster
-  - type: call-service
-    name: Bedroom AC Fan
-    action_name: Slower
-    icon: mdi:fan
-    service: script.bedtime_ac_fan_slower
-    service_data:
-      entity_id: script.bedtime_ac_fan_slower
-  - type: call-service
-    name: Bedroom AC Timer
-    action_name: Up
-    icon: mdi:timer-sand
-    service: script.bedtime_ac_temp_timer_up
-    service_data:
-      entity_id: script.bedtime_ac_temp_timer_up
-  - type: call-service
-    name: Bedroom AC Timer
-    action_name: Down
-    icon: mdi:timer-sand-empty
-    service: script.bedtime_ac_temp_timer_down
-    service_data:
-      entity_id: script.bedtime_ac_temp_timer_down
+  type: vertical-stack
+  cards:
+  - type: entities
+    title: Bedroom AC
+    show_header_toggle: false
+    entities:
+    - type: call-service
+      name: "Bedroom AC: The Usual"
+      action_name: "Cool + Fan Auto"
+      icon: mdi:air-conditioner
+      service: script.bedtime_ac_cool_auto
+      service_data:
+        entity_id: script.bedtime_ac_cool_auto
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: script.bedtime_ac_power
+      name: Power Toggle
+      icon: mdi:power-plug-off
+      theme: danger
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+    - type: entity-button
+      entity: script.bedtime_ac_temp_timer_up
+      name: Temp/Timer Up
+      icon: mdi:arrow-up-box
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+    - type: entity-button
+      entity: script.bedtime_ac_fan_faster
+      name: Fan Faster
+      icon: mdi:arrow-up-thick
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: script.bedtime_ac_auto_fan
+      name: Fan Auto
+      icon: mdi:fan
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+    - type: entity-button
+      entity: script.bedtime_ac_temp_timer_down
+      name: Temp/Timer Down
+      icon: mdi:arrow-down-box
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+    - type: entity-button
+      entity: script.bedtime_ac_fan_slower
+      name: Fan Slower
+      icon: mdi:arrow-down-thick
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: script.bedtime_ac_cool
+      name: Cool Mode
+      icon: mdi:air-conditioner
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+    - type: entity-button
+      entity: script.bedtime_ac_energy_saver
+      name: Energy Saver
+      icon: mdi:tree
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
+    - type: entity-button
+      entity: script.bedtime_ac_fan_only
+      name: Fan Only
+      icon: mdi:fan
+      tap_action:
+        action: toggle
+      hold_action:
+        action: none
 - id: indoor-outdoor-temperature-graph
   type: history-graph
   title: Temperature (Last 12 Hours)
