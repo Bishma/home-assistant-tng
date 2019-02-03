@@ -9,37 +9,46 @@
   type: vertical-stack
   cards:
     - type: entities
-      title: General Automations
+      title: General/Global Automations
       show_header_toggle: false
       entities:
-        - entity: automation.temperatures_equal
-          name: Equal Temp. Notification
-        - entity: automation.nws_notification_weather_alert
-          name: National Weather Service Alerts
-        - entity: automation.work_heater_on
-          name: Work heater warning
-        - entity: automation.let_s_encrypt_renewal
-          name: Let's Encrypt Auto-Renewal
+      - entity: automation.back_porch_off
+        name: Back Porch Auto-Off
+      - entity: automation.let_s_encrypt_renewal
+        name: Daily Automatic Backups
+      - entity: automation.let_s_encrypt_renewal
+        name: Let's Encrypt Auto-Renewal
+      - entity: automation.work_heater_on
+        name: Work Heater Warning
     - type: entities
       title: Occupied Automations
       show_header_toggle: false
       entities:
-        - entity: automation.pre_dusk_tasks
-          name: Pre-Dusk Lights Auto-On
-        - entity: automation.back_porch_off
-          name: Back Porch Auto-Off
-        - entity: automation.sleep_cool
-          name: Bedroom AC Cool
+      - entity: automation.sleep_cool
+        name: Hot Bedroom / Ready For Bed
+      - entity: automation.pre_dusk_tasks
+        name: Pre-Dusk Lights Auto-On
     - type: entities
       title: Unoccupied Automations
       show_header_toggle: false
       entities:
         - entity: automation.unoccupied_morning
           name: Away Morning Lights
+        - entity: automation.unoccupied_afternoon
+          name: Away Afternoon Lights
         - entity: automation.unoccupied_evening
           name: Away Evening Lights
         - entity: automation.unoccupied_night
           name: Away Night Lights
+    - type: entities
+      title: Notification Automations
+      show_header_toggle: false
+      entities:
+      - entity: automation.temperatures_equal
+        name: Equal Temp. Notification
+      - entity: automation.nws_notification_weather_alert
+        name: National Weather Service Alerts
+        
 - id: location-stack
   type: vertical-stack
   cards:
