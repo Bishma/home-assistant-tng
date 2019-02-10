@@ -69,6 +69,16 @@ intent_script: !include intent_scripts.yaml
 
 automation: !include_dir_merge_list automations
 
+calendar:
+- platform: caldav
+  username: !secret nextcloud_user
+  password: !secret nextcloud_passwd
+  url: http://192.168.131.2:32768/remote.php/dav/
+  custom_calendars:
+  - name: Day Off
+    calendar: Work
+    search: 'Day Off'
+
 camera: !include camera.yaml
 
 # Allows for direct on/off control through alexa w/o having to invoce my custom skill
