@@ -329,22 +329,12 @@
   alexa_goodnight:
     alias: Say Goodnight
     sequence:
-    - service: switch.turn_off
-      entity_id: switch.couch_lamp
-    - service: switch.turn_off
-      entity_id: switch.the_sparkle
-    - service: light.turn_off
-      entity_id: light.love_seat_middle
-    - service: light.turn_off
-      entity_id: light.love_seat_up
-    - service: script.toggle
-      entity_id: script.media_off
+    - service: scene.turn_on
+      entity_id: scene.living_room_bedtime
     - service: switch.turn_on
       entity_id: switch.bonnie_bedroom_lamp
     - service: switch.turn_on
       entity_id: switch.derek_bedroom_lamp
-    - service: homeassistant.turn_off
-      entity_id: group.diningroom
     - delay: '00:02:00'
     - service: light.turn_on
       data:

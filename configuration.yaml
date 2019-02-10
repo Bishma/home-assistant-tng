@@ -140,6 +140,22 @@ ring:
   username: !secret ring_user
   password: !secret ring_passwd
 
+scene:
+- name: Living Room Bedtime
+  entities:
+    switch.couch_lamp:
+      state: 'off'
+    switch.the_sparkle:
+      state: 'off'
+    light.love_seat_middle:
+      state: 'off'
+    light.love_seat_up:
+      state: 'off'
+    group.diningroom:
+      state: 'off'
+    script.media_off:
+      state: on # it's a script, so it turns on even though its urning things off
+
 script: !include scripts.yaml
 
 # Sensors and API interfaces
