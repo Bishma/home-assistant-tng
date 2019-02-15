@@ -162,3 +162,7 @@
   show_header_toggle: false
   entities:
     - entity: input_boolean.idx_heater_on
+- id: idx-lunch
+  type: custom:lunch-schedule
+  entity: sensor.janet_api_idx_lunch
+  title: IDX Upcoming Lunches

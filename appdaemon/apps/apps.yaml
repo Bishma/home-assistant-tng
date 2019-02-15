@@ -1,4 +1,7 @@
 ---
-uility__sensor_date:
+uility_sensor_date:
   module: utility_sensor
   class: Date
+lunch_schedule:
+  module: lunch-schedule
+  class: Lunch

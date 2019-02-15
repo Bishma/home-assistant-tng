@@ -1,8 +1,10 @@
 resources:
-  - url: /local/custom-lovelace/entity-attributes-card/entity-attributes-card.js?v=2
-    type: js
-  - url: /local/custom-lovelace/slider-entity-row/slider-entity-row.js
-    type: js
+- url: /local/custom-lovelace/entity-attributes-card/entity-attributes-card.js?v=2
+  type: js
+- url: /local/custom-lovelace/slider-entity-row/slider-entity-row.js
+  type: js
+- url: /local/custom-lovelace/lunch-schedule/lunch-schedule.js
+  type: js
 
 title: Yggdrasil
 

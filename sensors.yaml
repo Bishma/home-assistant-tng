@@ -126,6 +126,9 @@
 
 - platform: template
   sensors:
+    # App daemon secrets
+    appdaemon_lunch_api_endpoint:
+      value_template: !secret lunch_api_endpoint
     # Converting units
     convert_backyard_wind:
       entity_id: sensor.netatmo_backyard_strength
