@@ -5,6 +5,9 @@
   entities:
     - entity: input_boolean.idx_heater_on
 - id: idx-lunch
-  type: custom:lunch-schedule
+  type: custom:list-item-card
+  title: IDX Lunch
   entity: sensor.janet_api_idx_lunch
-  title: IDX Upcoming Lunches
+  attribute: nextThree
+  max_length: 3
+  icon: mdi:food-fork-drink
