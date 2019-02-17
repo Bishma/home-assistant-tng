@@ -156,13 +156,3 @@
       name: Living Room Temp.
     - entity: sensor.netatmo_outdoor_temperature_2
       name: Outdoor Temp.
-- id: idx-climate
-  type: entities
-  title: IDX
-  show_header_toggle: false
-  entities:
-    - entity: input_boolean.idx_heater_on
-- id: idx-lunch
-  type: custom:lunch-schedule
-  entity: sensor.janet_api_idx_lunch
-  title: IDX Upcoming Lunches
