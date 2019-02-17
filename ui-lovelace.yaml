@@ -26,6 +26,10 @@ views:
     title: Comfort (Indoor Conditions)
     icon: mdi:thermostat
     cards: !include lovelace_views/indoors.yaml
+  - id: work
+    title: Work
+    icon: mdi:office-building
+    cards: !include lovelace_views/work.yaml
   - id: cameras
     title: Cameras
     icon: mdi:cctv
