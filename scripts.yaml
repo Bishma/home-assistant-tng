@@ -372,6 +372,13 @@
       data:
         entity_id: remote.living_room
         activity: 31571897
+    - delay: '00:00:15'
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: 60888940
+        command: VolumeDown
+        num_repeats: 5
   media_input1:
     alias: TV Input Kodi
     sequence:
