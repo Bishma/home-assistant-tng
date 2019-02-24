@@ -1,7 +1,7 @@
 ## Fetch the IDX Lunch Menu and put it into a sensor
 
 import appdaemon.plugins.hass.hassapi as hass
-import datetime, json, requests
+import re, datetime, json, requests
 
 class Lunch(hass.Hass):
 
@@ -49,12 +49,33 @@ class Lunch(hass.Hass):
         nextCount = 0
         for dateString, lunchInfo in lunchDict.items():
             if lunchInfo["dateObj"] == today:
-                sensorState = lunchInfo["item"]
+                sensorState = self.stripEmoji(lunchInfo["item"])
             
             if lunchInfo["dateObj"] >= today and nextCount < 3:
-                nextThree.append(lunchInfo["dateObj"].strftime("%A, %m/%d") + ": "+lunchInfo["item"])
+                nextThree.append(lunchInfo["dateObj"].strftime("%A, %m/%d") + ": "+self.stripEmoji(lunchInfo["item"]))
                 nextCount+=1
         
         self.set_state("sensor.janet_api_idx_lunch", state = sensorState, attributes = {
             "nextThree": nextThree
         })
+    
+    def stripEmoji(self, itemString):
+        emoji_pattern = re.compile("["
+            u"\U0001F600-\U0001F64F"  # emoticons
+            u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+            u"\U0001F680-\U0001F6FF"  # transport & map symbols
+            u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
+            u"\U0001F1F2-\U0001F1F4"  # Macau flag
+            u"\U0001F1E6-\U0001F1FF"  # flags
+            u"\U0001F600-\U0001F64F"
+            u"\U00002702-\U000027B0"
+            u"\U000024C2-\U0001F251"
+            u"\U0001f926-\U0001f937"
+            u"\U0001F1F2"
+            u"\U0001F1F4"
+            u"\U0001F620"
+            u"\u200d"
+            u"\u2640-\u2642"
+            "]*", flags=re.UNICODE)
+        
+        return emoji_pattern.sub(r'', itemString)
