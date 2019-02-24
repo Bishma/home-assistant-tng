@@ -1,0 +1,20 @@
+- name: Living Room Bedtime
+  entities:
+    switch.couch_lamp:
+      state: 'off'
+    switch.the_sparkle:
+      state: 'off'
+    light.love_seat_middle:
+      state: 'off'
+    light.love_seat_up:
+      state: 'off'
+    group.diningroom:
+      state: 'off'
+    script.media_off:
+      state: 'on' # it's a script, so it turns on even though its urning things off
+- name: Bedroom Bedtime
+  entities:
+    switch.bonnie_bedroom_lamp:
+      state: 'on'
+    switch.derek_bedroom_lamp:
+      state: 'on'

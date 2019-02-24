@@ -326,15 +326,21 @@
             Play
           {% endif %}
         num_repeats: 1
+  # prevent the bedroom from turning on during sleep times
+  bedroom_on_safety:
+    alias: Bedroom On Safety Switch
+    sequence:
+    - condition: time
+      after: '09:00:00'
+    - service: scene.turn_on
+      entity_id: scene.bedroom_bedtime
   alexa_goodnight:
     alias: Say Goodnight
     sequence:
     - service: scene.turn_on
       entity_id: scene.living_room_bedtime
-    - service: switch.turn_on
-      entity_id: switch.bonnie_bedroom_lamp
-    - service: switch.turn_on
-      entity_id: switch.derek_bedroom_lamp
+    - service: script.turn_on
+      entity_id: script.bedroom_on_safety
     - delay: '00:02:00'
     - service: light.turn_on
       data:
