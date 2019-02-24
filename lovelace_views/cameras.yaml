@@ -31,3 +31,6 @@
 - id: 7b3478feed8a47d29e64df8610591dda  # Automatically created id
   type: picture
   image: http://70.102.97.236/cameras/video2.jpg
+- id: owen-rose-garden
+  type: picture
+  image: https://rgcam.eugene-or.gov/mjpg/video.mjpg
