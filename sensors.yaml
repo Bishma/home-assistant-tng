@@ -7,7 +7,7 @@
 # Weather Prediction
 - platform: darksky
   api_key: !secret forcastio_api
-  update_interval:
+  scan_interval:
     minutes: 10
   forecast:
     - 0
