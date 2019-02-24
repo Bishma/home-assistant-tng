@@ -29,16 +29,6 @@
     - hourly_summary
     - daily_summary
 
-# Internet
-- platform: speedtest
-  minute:
-    - 0
-    - 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
 # Synology DSM
 - platform: synologydsm
   host: 192.168.131.2
