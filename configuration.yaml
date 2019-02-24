@@ -59,6 +59,7 @@ logbook:
 
 # Enable the HASSIO tab
 hassio:
+system_health:
 
 ### --- Above: Stuff that configures HASS     --- ###
 ### --- Below: My stuff I'm feeding into HASS --- ###
@@ -129,6 +130,16 @@ notify:
   - name: General
     platform: telegram
     chat_id: !secret telegram_chat_id_1
+
+person:
+- name: Derek
+  id: derek
+  device_trackers:
+  - device_tracker.tile_a8b3ea596f9b44fd
+- name: Bonnie
+  id: bonnie
+  device_trackers:
+  - device_tracker.tile_4c66b3d3606d440e
       
 remote:
   - platform: harmony
@@ -160,6 +171,14 @@ script: !include scripts.yaml
 
 # Sensors and API interfaces
 sensor: !include sensors.yaml
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 # Track the sun
 sun:
