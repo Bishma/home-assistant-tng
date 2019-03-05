@@ -46,7 +46,7 @@
   entities:
   - type: call-service
     name: Bedroom AC
-    action_name: Power + Cool + Fan Auto
+    action_name: Power + Cool
     icon: mdi:air-conditioner
     service: script.bedtime_ac_cool_auto
     service_data:
