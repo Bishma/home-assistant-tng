@@ -10,7 +10,7 @@ livingroom:
   - switch.the_sparkle
   - light.love_seat_up
   - light.love_seat_middle
-  - switch.couch_lamp
+  - switch.couch
 kitchen:
   name: Kitchen
   entities:

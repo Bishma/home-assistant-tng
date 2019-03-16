@@ -1,6 +1,6 @@
 - name: Living Room Bedtime
   entities:
-    switch.couch_lamp:
+    switch.couch:
       state: 'off'
     switch.the_sparkle:
       state: 'off'

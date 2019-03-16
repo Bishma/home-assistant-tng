@@ -114,9 +114,6 @@ group: !include groups.yaml
 
 input_boolean: !include input_booleans.yaml
   
-# A lights... except the lights that are controlled by sensors
-light: !include lights.yaml
-
 media_player: !include media_players.yaml
 
 # Netatmo
@@ -171,6 +168,22 @@ sun:
 
 # Switches
 switch: !include switches.yaml
+
+tplink:
+  discovery: false
+  switch:
+  - host: 192.168.131.97
+  - host: 192.168.131.96
+  - host: 192.168.131.94
+  - host: 192.168.131.93
+  light:
+  - host: 192.168.131.95
+  - host: 192.168.131.90
+  - host: 192.168.131.91
+  - host: 192.168.131.92
+  - host: 192.168.131.99
+  - host: 192.168.131.100
+  - host: 192.168.131.101
 
 # Telegram Platform for use with notifications
 telegram_bot:
