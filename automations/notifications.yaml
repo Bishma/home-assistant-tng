@@ -40,3 +40,17 @@
           {{ state_attr('sensor.nws_alert_event', 'features')[i].properties.description }}
         {% endfor %}
     service: notify.general
+- id: notification_hass-update
+  alias: Home Assistant Update Notification
+  trigger:
+    platform: state
+    entity_id: sensor.update_available
+    from: 'off'
+    to: 'on'
+  action:
+  - data_template:
+      message: >
+        Hi There,
+
+        I am out of date. I am currently version {{ states("sensor.current_version") }} and {{ states("updater.updater") }} is now available. You should be able to find more information by visiting https://www.home-assistant.io/blog/
+    service: notify.general

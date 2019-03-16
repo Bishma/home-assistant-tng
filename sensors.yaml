@@ -212,6 +212,16 @@
         {% else %}
           on
         {% endif %}
+    # Home Assistant Updates Available
+    update_available:
+      friendly_name: "An update is available"
+      entity_id: updater.updater
+      value_template: >-
+        {% if state_attr('updater.updater', 'friendly_name') and (states.updater.updater != states.sensor.current_version) %}
+          on
+        {% else %}
+          off
+        {% endif %}
     # Utility Sensors
     utility_dow:
       entity_id: sensor.date
