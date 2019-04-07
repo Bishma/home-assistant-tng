@@ -44,7 +44,7 @@
     data:
       entity_id:
         - switch.derek_bedroom_lamp
-        - switch.ge_12720_outdoor_smart_switch_switch
+        - switch.jasco_products_12720_outdoor_smart_switch_switch
   - delay: '01:30:00'
   - service: switch.turn_on
     data:
@@ -62,7 +62,7 @@
   - service: switch.turn_off
     data:
       entity_id:
-        - switch.ge_12720_outdoor_smart_switch_switch
+        - switch.jasco_products_12720_outdoor_smart_switch_switch
         - switch.the_sparkle # just in case
   - service: light.turn_off
     data:

@@ -26,7 +26,7 @@
   script.bedtime_ac_cool_auto:
     assumed_state: true
     icon: mdi:air-conditioner
-  switch.ge_12720_outdoor_smart_switch_switch:
+  switch.jasco_products_12720_outdoor_smart_switch_switch:
     friendly_name: Back Porch
     icon: mdi:lightbulb
 

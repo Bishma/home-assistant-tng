@@ -87,9 +87,9 @@ cloud:
   alexa:
     filter:
       include_entities:
-        - switch.ge_12720_outdoor_smart_switch_switch
+        - switch.jasco_products_12720_outdoor_smart_switch_switch
     entity_config:
-      switch.ge_12720_outdoor_smart_switch_switch:
+      switch.jasco_products_12720_outdoor_smart_switch_switch:
         name: Back Porch
 
 device_tracker:
