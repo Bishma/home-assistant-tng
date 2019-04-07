@@ -3,7 +3,7 @@
   trigger:
   - platform: template
     value_template: >
-      {% if states('sensor.cottage_temperature') | round(1) == states('sensor.netatmo_outdoor_temperature_2') | round(1) %}
+      {% if states('sensor.cottage_temperature') | round(1) == states('sensor.netatmo_outdoor_temperature') | round(1) %}
         true
       {% endif %}
   condition: 
@@ -14,7 +14,7 @@
       message: >
         Hi There,
 
-        Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature_2") }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity_2") }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity_2") }}%.
+        Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature") }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity") }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity") }}%.
     service: notify.general
 - id: notification_nws-weather-alert
   alias: NWS Notification Weather Alert

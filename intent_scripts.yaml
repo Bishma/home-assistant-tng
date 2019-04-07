@@ -41,7 +41,7 @@ listen:
     text: "Switching to bluetooth audio."
 theweather:
   speech:
-    text: "The inside temperature is {{ states('sensor.netatmo_indoor_temperature_2') }} degrees with {{ states('sensor.netatmo_indoor_humidity_2') }} percent humidity. Outside it's {{ states('sensor.netatmo_outdoor_temperature_2') }} degrees and {{ states('sensor.netatmo_outdoor_humidity_2') }} percent humidity."
+    text: "The inside temperature is {{ states('sensor.netatmo_indoor_temperature') }} degrees with {{ states('sensor.netatmo_indoor_humidity') }} percent humidity. Outside it's {{ states('sensor.netatmo_outdoor_temperature') }} degrees and {{ states('sensor.netatmo_outdoor_humidity') }} percent humidity."
 whatitslike:
   action:
     # script will set the value in the sensor template below
@@ -52,7 +52,7 @@ whatitslike:
   # Even though this is default, we're going to set it to be sure
   async_action: false
   speech:
-    text: "{{ states('sensor.netatmo_indoor_temperature_2') }}" #sensor.last_alexa_weather_request
+    text: "{{ states('sensor.netatmo_indoor_temperature') }}" #sensor.last_alexa_weather_request
 voiceenhance:
   action:
     service: remote.send_command
@@ -103,7 +103,7 @@ dereks_morning:
       It's {{ states.sensor.janet_utility_date.attributes.r_dow }}, {{ states.sensor.janet_utility_date.attributes.r_month }} 
       {{ states.sensor.janet_utility_date.attributes.r_day }}, {{ states.sensor.janet_utility_date.attributes.year }}.
       
-      It's currently {{ states('sensor.netatmo_outdoor_temperature_2') }} degrees at our weather stations. The immediate forcast calls for
+      It's currently {{ states('sensor.netatmo_outdoor_temperature') }} degrees at our weather stations. The immediate forcast calls for
       {{ states('sensor.dark_sky_minutely_summary') }}. Later, expect {{ states('sensor.dark_sky_hourly_summary') }} with a high of
       {{ states('sensor.dark_sky_daytime_high_temperature_0') }} degrees and a low of {{ states('sensor.dark_sky_overnight_low_temperature_0') }} degrees.
 

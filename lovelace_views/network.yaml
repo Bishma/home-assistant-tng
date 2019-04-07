@@ -112,9 +112,9 @@
       title: Netatmo Status
       show_header_toggle: false
       entities:
-        - entity: sensor.netatmo_indoor_wifi_2
+        - entity: sensor.netatmo_indoor_wifi
           name: Indoor Connection Strength
-        - entity: sensor.netatmo_outdoor_battery_2
+        - entity: sensor.netatmo_outdoor_battery
           name: Outdoor Battery Level
         - entity: sensor.netatmo_backyard_battery
           name: Wind Guage Battery Level
@@ -122,5 +122,5 @@
       entities:
         - entity: sensor.netatmo_backyard_radio
           name: Backyard Wind Guage Radio Strength
-        - entity: sensor.netatmo_outdoor_radio_2
+        - entity: sensor.netatmo_outdoor_radio
           name: Outdoor Temp Sensor Radio Strength

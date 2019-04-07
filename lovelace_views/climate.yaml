@@ -17,9 +17,9 @@
   title: Exterior Conditions
   show_header_toggle: false
   entities:
-    - entity: sensor.netatmo_outdoor_temperature_2
+    - entity: sensor.netatmo_outdoor_temperature
       name: Current Temperature
-    - entity: sensor.netatmo_outdoor_humidity_2
+    - entity: sensor.netatmo_outdoor_humidity
       name: Current Humidity
     - entity: sensor.netatmo_backyard_angle
       name: Backyard Wind Direction

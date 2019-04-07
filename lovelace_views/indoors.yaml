@@ -8,19 +8,19 @@
       title: Living Room
       show_header_toggle: false
       entities:
-        - entity: sensor.netatmo_indoor_temperature_2
+        - entity: sensor.netatmo_indoor_temperature
           name: Temperature
           icon: mdi:thermometer
-        - entity: sensor.netatmo_indoor_humidity_2
+        - entity: sensor.netatmo_indoor_humidity
           name: Humidity
           icon: mdi:water-percent
-        - entity: sensor.netatmo_indoor_pressure_2
+        - entity: sensor.netatmo_indoor_pressure
           name: Barametric Pressure
           icon: mdi:gauge
-        - entity: sensor.netatmo_indoor_co2_2
+        - entity: sensor.netatmo_indoor_co2
           name: CO2 PPM
           icon: mdi:periodic-table-co2
-        - entity: sensor.netatmo_indoor_noise_2
+        - entity: sensor.netatmo_indoor_noise
           name: Noise Level
           icon: mdi:ear-hearing
     - type: conditional
@@ -152,7 +152,7 @@
   title: Temperature (Last 12 Hours)
   hours_to_show: 12
   entities:
-    - entity: sensor.netatmo_indoor_temperature_2
+    - entity: sensor.netatmo_indoor_temperature
       name: Living Room Temp.
-    - entity: sensor.netatmo_outdoor_temperature_2
+    - entity: sensor.netatmo_outdoor_temperature
       name: Outdoor Temp.
