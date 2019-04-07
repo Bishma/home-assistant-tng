@@ -29,12 +29,9 @@ config:
 
 http:
   # Add password to keep out the randos
-  ip_ban_enabled: True
+  #ip_ban_enabled: True
   login_attempts_threshold: 5
-  server_port: 443
   base_url: !secret hass_url
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
 
 # Checks for available updates
 # Note: This component will send some information about your system to
