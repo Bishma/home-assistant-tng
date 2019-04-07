@@ -1,5 +1,6 @@
 homeassistant:
   auth_providers:
+  - type: homeassistant
   - type: legacy_api_password
     api_password: !secret hass_password
   # Name of the location where Home Assistant is running
