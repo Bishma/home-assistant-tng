@@ -43,6 +43,7 @@ views:
     icon: mdi:settings
     cards: !include lovelace_views/settings.yaml
     badges:
+      - sun.sun
       - sensor.unoccupied_mode
       - sensor.nws_alert_count
   - id: documentation
