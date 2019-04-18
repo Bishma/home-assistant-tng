@@ -105,7 +105,7 @@ dereks_morning:
       
       It's currently {{ states('sensor.netatmo_outdoor_temperature') }} degrees at our weather stations. The immediate forcast calls for
       {{ states('sensor.dark_sky_minutely_summary') }}. Later, expect {{ states('sensor.dark_sky_hourly_summary') }} with a high of
-      {{ states('sensor.dark_sky_daytime_high_temperature_0') }} degrees and a low of {{ states('sensor.dark_sky_overnight_low_temperature_0') }} degrees.
+      {{ states('sensor.dark_sky_daytime_high_temperature_0d') }} degrees and a low of {{ states('sensor.dark_sky_overnight_low_temperature_0d') }} degrees.
 
       {% if states('sensor.janet_api_idx_lunch') != 'none' -%}
         Lunch today is {{ states('sensor.janet_api_idx_lunch') }}
