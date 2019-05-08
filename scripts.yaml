@@ -87,27 +87,27 @@
   livingroom_fan_on:
     alias: Living Room Fan Power
     sequence:
-        - service: remote.send_command
-          entity_id: remote.living_room
-          data:
-            device: 55184762
-            command: PowerToggle
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: 55184762
+        command: PowerToggle
   livingroom_fan_osc:
     alias: Living Room Fan Oscillate
     sequence:
-        - service: remote.send_command
-          entity_id: remote.living_room
-          data:
-            device: 55184762
-            command: Oscillation
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: 55184762
+        command: Oscillation
   livingroom_fan_speed:
     alias: Living Room Fan Speed
     sequence:
-        - service: remote.send_command
-          entity_id: remote.living_room
-          data:
-            device: 55184762
-            command: FanSpeed        
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: 55184762
+        command: FanSpeed        
   # Harmony Hub
   kodi_delete:
     alias: Delete
