@@ -32,6 +32,8 @@ http:
   #ip_ban_enabled: True
   login_attempts_threshold: 5
   base_url: !secret hass_url
+  use_x_forwarded_for: true
+  trusted_proxies: 172.30.33.2
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -82,7 +84,7 @@ calendar:
 
 camera: !include camera.yaml
 
-# Allows for direct on/off control through alexa w/o having to invoce my custom skill
+# Allows for direct on/off control through alexa w/o having to invoke my custom skill
 cloud:
   alexa:
     filter:
