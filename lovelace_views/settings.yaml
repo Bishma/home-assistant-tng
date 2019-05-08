@@ -50,10 +50,6 @@
       entities:
       - entity: automation.back_porch_off
         name: Back Porch Auto-Off
-      - entity: automation.let_s_encrypt_renewal
-        name: Daily Automatic Backups
-      - entity: automation.let_s_encrypt_renewal
-        name: Let's Encrypt Auto-Renewal
       - entity: automation.work_heater_on
         name: Work Heater Warning
     - type: entities
