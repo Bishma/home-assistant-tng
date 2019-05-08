@@ -5,3 +5,6 @@ uility_sensor_date:
 lunch_schedule:
   module: lunch-schedule
   class: Lunch
+alexa:
+  module: alexa
+  class: Alexa
