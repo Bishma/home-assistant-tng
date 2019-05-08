@@ -22,21 +22,21 @@
   - data:
       message: It looks like you may have left your work with your heater on.
     service: notify.general
-- id: letsencrypt-renewal
-  alias: "Let's Encrypt Renewal"
-  trigger:
-  - platform: time
-    at: '00:00:00'
-  action:
-  - service: hassio.addon_restart
-    data:
-      addon: core_letsencrypt
-- id: daily-backup
-  alias: Daily Backup at 00:30
-  trigger:
-    platform: time
-    at: '00:30:00'
-  action:
-  - service: hassio.addon_start
-    data:
-      addon: ce20243c_remote_backup
+#- id: letsencrypt-renewal
+#  alias: "Let's Encrypt Renewal"
+#  trigger:
+#  - platform: time
+#    at: '00:00:00'
+#  action:
+#  - service: hassio.addon_restart
+#    data:
+#      addon: core_letsencrypt
+#- id: daily-backup
+#  alias: Daily Backup at 00:30
+#  trigger:
+#    platform: time
+#    at: '00:30:00'
+#  action:
+#  - service: hassio.addon_start
+#    data:
+#      addon: ce20243c_remote_backup
