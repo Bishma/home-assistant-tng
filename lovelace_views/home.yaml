@@ -48,21 +48,21 @@
     name: Bedroom AC
     action_name: Power + Cool
     icon: mdi:air-conditioner
-    service: script.bedtime_ac_cool_auto
+    service: script.turn_on
     service_data:
       entity_id: script.bedtime_ac_cool_auto
   - type: call-service
     name: Bedroom AC
     action_name: Power Toggle
     icon: mdi:air-conditioner
-    service: script.bedtime_ac_power
+    service: script.turn_on
     service_data:
       entity_id: script.bedtime_ac_power
 - id: stand_fan_conditional_controls
   type: conditional
   conditions:
   - entity: input_boolean.fan_out
-    state: on
+    state: 'on'
   card:
     type: entities
     title: Living Room Stand Fan
@@ -72,9 +72,9 @@
       name: Power
       action_name: Toggle
       icon: mdi:power-standby
-      service: livingroom_fan_on
+      service: script.turn_on
       service_data:
-        entity_id: livingroom_fan_on
+        entity_id: script.livingroom_fan_on
     - type: call-service
       name: Oscillate
       action_name: Toggle
