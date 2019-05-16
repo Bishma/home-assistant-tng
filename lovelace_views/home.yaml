@@ -29,8 +29,12 @@
   type: entities
   title: Bedroom
   entities:
-  - switch.derek_bedroom_lamp
-  - switch.bonnie_bedroom_lamp
+  - entity: switch.derek_bedroom_lamp
+    name: Derek's Bedroom Lamp
+    icon: mdi:lamp
+  - entity: switch.bonnie_bedroom_lamp
+    name: Bonnie's Bedroom Lamp
+    icon: mdi:lamp
 - id: exterior_controls
   type: entities
   title: Exterior
