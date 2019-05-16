@@ -14,11 +14,21 @@
   - type: entities
     show_header_toggle: false
     entities:
-    - sensor.home_to_idx
-    - sensor.home_to_bend
-    - sensor.home_to_florence
-    - sensor.home_to_portland
-    - sensor.home_to_lincoln_city
+    - entity: sensor.home_to_idx
+      name: Home to IDX
+      icon: mdi:briefcase
+    - entity: sensor.home_to_bend
+      name: Home to Bend
+      icon: mdi:car
+    - entity: sensor.home_to_florence
+      name: Home to Florence
+      icon: mdi:anchor
+    - entity: sensor.home_to_portland
+      name: Home to Portland
+      icon: mdi:emoticon-poop
+    - entity: sensor.home_to_lincoln_city
+      name: Home to Portland
+      icon: mdi:beach
   - type: entities
     title: Transport
     show_header_toggle: false
