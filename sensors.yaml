@@ -86,17 +86,6 @@
     - remaining_size
     - uptime
 
-# Pollen
-- platform: pollen
-  zip_code: "97404"
-  monitored_conditions:
-    - allergy_average_forecasted
-    - allergy_average_historical
-    - allergy_index_today
-    - allergy_index_tomorrow
-    - allergy_index_yesterday
-    - disease_average_forecasted
-
 # Air Quality
 - platform: waqi
   token: 4c430aede0b393e4baa425b9ca43dd5c9afa29df
@@ -148,7 +137,7 @@
           31571897
         {% elif states.remote.living_room.attributes.current_activity == "Watch Sling" %}
           31480008
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Youtube" %}
           33323580
         {% elif states.remote.living_room.attributes.current_activity == "Listen to Music" %}
           38156985
@@ -168,7 +157,7 @@
               or  states.remote.living_room.attributes.current_activity == "Watch Netflix"
               or states.remote.living_room.attributes.current_activity == "Watch Plex"
               or states.remote.living_room.attributes.current_activity == "Watch Sling"
-              or states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
+              or states.remote.living_room.attributes.current_activity == "Youtube" %}
           roku
         {% elif states.remote.living_room.attributes.current_activity == "Watch OTA" %}
           ota
