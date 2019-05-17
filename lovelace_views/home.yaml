@@ -39,7 +39,9 @@
   type: entities
   title: Exterior
   entities:
-  - switch.jasco_products_12720_outdoor_smart_switch_switch
+  - entity: switch.jasco_products_12720_outdoor_smart_switch_switch
+    name: Back Porch
+    icon: mdi:lightbulb
 - id: thermostat
   type: thermostat
   entity: climate.cottage
