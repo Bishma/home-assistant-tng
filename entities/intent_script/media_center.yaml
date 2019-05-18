@@ -1,0 +1,48 @@
+turntvupby:
+  action:
+    service: script.alexa_volume_up
+    data_template:
+      amount: '{{ amount | int }}'
+turntvdownby:
+  action:
+    service: script.alexa_volume_down
+    data_template:
+      amount: '{{ amount | int }}'
+turntvup:
+  action:
+    service: script.media_volume_up
+turntvdown:
+  action:
+    service: script.media_volume_down
+thetv:
+  action:
+    service: script.turn_on
+    data_template:
+      entity_id: script.media_{{ tv_scripts | replace(" ", "_") }}
+skipback:
+  action:
+    service: script.turn_on
+    data_template:
+      entity_id: script.media_skip_back
+watch:
+  action:
+    service: script.watch_activity
+    data_template:
+      media_activity: '{{ watch_scripts | replace(" ", "_") }}'
+  speech:
+    text: "Switching to  {{ watch_scripts }}"
+listen:
+  action:
+    service: script.watch_activity
+    data_template:
+      media_activity: '{{ listen_scripts | replace(" ", "_") }}'
+  async_action: true
+  speech:
+    text: "Switching to bluetooth audio."
+voiceenhance:
+  action:
+    service: remote.send_command
+    data:
+      entity_id: remote.living_room
+      device: 60888940
+      command: Dialogue

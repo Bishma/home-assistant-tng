@@ -1,0 +1,8 @@
+# Local area webcams integrated using the generic ip camera
+# https://www.home-assistant.io/components/generic/
+- platform: generic
+  name: Beltline at River Rd
+  still_image_url: https://www.tripcheck.com/roadcams/cams/Eugene%20River%20Ave._pid2539.JPG
+- platform: generic
+  name: Downtown Eugene
+  still_image_url: http://70.102.97.236/cameras/video2.jpg

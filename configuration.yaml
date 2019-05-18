@@ -1,207 +1,25 @@
 homeassistant:
+  # I need this for my custom alexa skill
   auth_providers:
   - type: homeassistant
   - type: legacy_api_password
     api_password: !secret hass_password
+  
   # Name of the location where Home Assistant is running
   name: Yggdresil
+  
   # Location required to calculate the time the sun rises and sets
   latitude: !secret me_lat
   longitude: !secret me_long
+
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 410
-  # metric for Metric, imperial for Imperial
+  
+  # "metric" or "imperial"
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+  # See: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
 
-# Enables the frontend
-frontend:
-  themes: !include themes.yaml
-
-lovelace:
-  mode: yaml
-
-# Enables configuration UI
-config:
-
-http:
-  # Add password to keep out the randos
-  #ip_ban_enabled: True
-  login_attempts_threshold: 5
-  base_url: !secret hass_url
-  use_x_forwarded_for: true
-  trusted_proxies: 172.30.33.2
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
-
-# Discover some devices automatically
-#discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-#conversation:
-
-# Enables support for tracking state changes over time
-history:
-recorder:
-  purge_keep_days: 365
-  db_url: !secret mariadb
-
-# View all events in a logbook
-logbook:
-
-# Enable the HASSIO tab
-hassio:
-system_health:
-
-### --- Above: Stuff that configures HASS     --- ###
-### --- Below: My stuff I'm feeding into HASS --- ###
-
-# Enable Hass for custom intents
-alexa:
-intent_script: !include intent_scripts.yaml
-
-automation: !include_dir_merge_list automations
-
-calendar:
-- platform: caldav
-  username: !secret nextcloud_user
-  password: !secret nextcloud_passwd
-  url: http://192.168.131.2:32768/remote.php/dav/
-  custom_calendars:
-  - name: Day Off
-    calendar: Work
-    search: 'Day Off'
-
-camera: !include camera.yaml
-
-# Allows for direct on/off control through alexa w/o having to invoke my custom skill
-cloud:
-  alexa:
-    filter:
-      include_entities:
-        - switch.jasco_products_12720_outdoor_smart_switch_switch
-    entity_config:
-      switch.jasco_products_12720_outdoor_smart_switch_switch:
-        name: Back Porch
-
-device_tracker:
-  - platform: tile
-    username: !secret tile_user
-    password: !secret tile_passwd
-    monitored_variables:
-      - TILE
-
-# thermostat
-ecobee:
-  api_key: !secret ecobee_api
-
-geo_location:
-  - platform: usgs_earthquakes_feed
-    feed_type: 'past_day_m45_earthquakes'
-    radius: 1500
-    latitude: !secret me_lat
-    longitude: !secret me_long
- 
-group: !include groups.yaml
-
-input_boolean: !include input_booleans.yaml
-  
-media_player: !include media_players.yaml
-
-# Netatmo
-netatmo:
-  api_key: !secret netatmo_key
-  secret_key: !secret netatmo_secret
-  username: !secret netatmo_user
-  password: !secret netatmo_passwd
-
-notify:
-  - name: General
-    platform: telegram
-    chat_id: !secret telegram_chat_id_1
-
-person:
-- name: Derek
-  id: derek
-  device_trackers:
-  - device_tracker.tile_a8b3ea596f9b44fd
-- name: Bonnie
-  id: bonnie
-  device_trackers:
-  - device_tracker.tile_4c66b3d3606d440e
-      
-remote:
-  - platform: harmony
-    name: Living Room
-    host: 192.168.131.89
-    activity: Watch Kodi
-
-ring:
-  username: !secret ring_user
-  password: !secret ring_passwd
-
-scene: !include scenes.yaml
-
-script: !include scripts.yaml
-
-# Sensors and API interfaces
-sensor: !include sensors.yaml
-
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
-# Track the sun
-sun:
-
-# Switches
-switch: !include switches.yaml
-
-tplink:
-  discovery: false
-  switch:
-  - host: 192.168.131.97
-  - host: 192.168.131.96
-  - host: 192.168.131.94
-  - host: 192.168.131.93
-  light:
-  - host: 192.168.131.95
-  - host: 192.168.131.90
-  - host: 192.168.131.91
-  - host: 192.168.131.92
-  - host: 192.168.131.99
-  - host: 192.168.131.100
-  - host: 192.168.131.101
-
-# Telegram Platform for use with notifications
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_key
-    allowed_chat_ids:
-      - !secret telegram_chat_id_1
-
-weather:
-  - platform: darksky
-    api_key: !secret forcastio_api
-    latitude: !secret me_lat
-    longitude: !secret me_long
-    units: us
-    name: Weather
-    mode: daily
-
-zone: !include zones.yaml
-
-zwave:
-  usb_path: /dev/ttyACM0
+  # Load... everything
+  packages: !include_dir_named integrations

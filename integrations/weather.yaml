@@ -1,0 +1,10 @@
+# Weather Forecast
+# https://www.home-assistant.io/components/weather.darksky/
+weather:
+  - platform: darksky
+    api_key: !secret forcastio_api
+    latitude: !secret me_lat
+    longitude: !secret me_long
+    units: us
+    name: Weather
+    mode: daily

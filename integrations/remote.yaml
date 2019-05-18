@@ -1,0 +1,3 @@
+# We have a harmony hub that controls much of the living space
+# https://www.home-assistant.io/components/harmony/
+remote: !include_dir_merge_list ../entities/remote

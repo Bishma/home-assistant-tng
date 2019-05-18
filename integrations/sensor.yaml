@@ -1,0 +1,2 @@
+# Sensors and API interfaces
+sensor: !include_dir_merge_list ../entities/sensor

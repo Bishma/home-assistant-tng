@@ -11,10 +11,4 @@
     group.diningroom:
       state: 'off'
     script.media_off:
-      state: 'on' # it's a script, so it turns on even though its urning things off
-- name: Bedroom Bedtime
-  entities:
-    switch.bonnie_bedroom_lamp:
-      state: 'on'
-    switch.derek_bedroom_lamp:
-      state: 'on'
+      state: 'on' # it's a script, so it turns on even though its urning things offs

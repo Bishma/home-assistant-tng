@@ -1,0 +1,244 @@
+# Scripts to allow universal remote
+kodi_delete:
+  alias: Delete
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51738178
+      command: "Delete"
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51738178
+      command: "DirectionLeft"
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51738178
+      command: "Enter"
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51738178
+      command: "DirectionLeft"
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51738178
+      command: "Enter"
+watch_activity:
+  alias: Switch Activity
+  sequence:
+  - service: remote.turn_on
+    entity_id: remote.living_room
+    data_template:
+      activity: >
+        {% if media_activity == "Cody" or media_activity == "cody" %}
+          31479535
+        {% elif media_activity == "Hulu" or media_activity == "hulu" %}
+          31949557
+        {% elif media_activity == "Sling" or media_activity == "sling" %}
+          31480008
+        {% elif media_activity == "Netflix" or media_activity == "netflix" %}
+          31478989
+        {% elif media_activity == "Amazon" or media_activity == "amazon" %}
+          31480109
+        {% elif media_activity == "Plex" or media_activity == "plex" %}
+          31571897
+        {% elif media_activity == "switch" %}
+          31480190
+        {% elif media_activity == "over_the_air" %}
+          31480260
+        {% elif media_activity == "music" %}
+          38156985
+        {% endif %}
+media_confirm:
+  alias: TV Confirm
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          51738178
+        {% else %}
+          51736885
+        {% endif %}
+      command: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          Enter
+        {% else %}
+          OK
+        {% endif %}
+      num_repeats: 1
+media_off:
+  alias: TV Off
+  sequence:
+  - service: remote.turn_on
+    entity_id: remote.living_room
+    data:
+      activity: -1
+media_volume_up:
+  alias: TV Volume Up
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 60888940
+      command: VolumeUp
+      num_repeats: 1
+alexa_volume_up:
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 60888940
+      command: VolumeUp
+      num_repeats: >
+        {{ amount }}
+media_volume_down:
+  alias: TV Volume Down
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data:
+      device: 60888940
+      command: VolumeDown
+      num_repeats: 1
+alexa_volume_down:
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 60888940
+      command: VolumeDown
+      num_repeats: >
+        {{ amount }}
+media_stop:
+  alias: TV Stop
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          51738178
+        {% else %}
+          51736885
+        {% endif %}
+      command: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          Stop
+        {% else %}
+          Back
+        {% endif %}
+      num_repeats: 1
+media_pause:
+  alias: TV Pause
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          51738178
+        {% else %}
+          51736885
+        {% endif %}
+      command: >
+        Pause
+      num_repeats: 1
+media_play:
+  alias: TV Play
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          51738178
+        {% else %}
+          51736885
+        {% endif %}
+      command: >
+        Play
+      num_repeats: 1
+media_skip_back:
+  alias: TV Skip Back
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          51738178
+        {% else %}
+          51736885
+        {% endif %}
+      command: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi"
+          or states.remote.living_room.attributes.current_activity == "Watch Sling"
+          or  states.remote.living_room.attributes.current_activity == "Watch Hulu"
+          or  states.remote.living_room.attributes.current_activity == "Watch Plex"
+          or states.remote.living_room.attributes.current_activity == "Watch Netflix" %}
+          DirectionLeft
+        {% elif states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
+          Rewind
+        {% else %}
+          InstantReplay
+        {% endif %}
+      num_repeats: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          2
+        {% elif states.remote.living_room.attributes.current_activity == "Watch Amazon" %}
+          4
+        {% else %}
+          6
+        {% endif %}
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          51738178
+        {% else %}
+          51736885
+        {% endif %}
+      command: >
+        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+          DirectionLeft
+        {% elif states.remote.living_room.attributes.current_activity == "Watch Plex"
+          or  states.remote.living_room.attributes.current_activity == "Watch Hulu"
+          or states.remote.living_room.attributes.current_activity == "Watch Netflix"
+          or states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
+          Play
+        {% endif %}
+      num_repeats: 1
+media_input1:
+  alias: TV Input Kodi
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51736886
+      command: InputHdmi1
+      num_repeats: 1
+media_input2:
+  alias: TV Input Switch
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51736886
+      command: InputHdmi2
+      num_repeats: 1
+media_input3:
+  alias: TV Input Roku
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51736886
+      command: InputHdmi3
+      num_repeats: 1

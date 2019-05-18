@@ -1,0 +1,28 @@
+# Synology DSM
+- platform: synologydsm
+  host: 192.168.131.2
+  username: !secret nas_user
+  password: !secret nas_passwd
+  monitored_conditions:
+    - cpu_total_load
+    - cpu_1min_load
+    - cpu_5min_load
+    - memory_real_usage
+    - network_up
+    - network_down
+    - disk_status
+    - volume_size_used
+    - volume_percentage_used
+# NZB Get
+- platform: nzbget
+  host: 192.168.131.2
+  port: 6789
+# username: apiuser
+# password: apipass
+  monitored_variables:
+    - average_download_rate
+    - download_rate
+    - download_paused
+    - free_disk_space
+    - remaining_size
+    - uptime

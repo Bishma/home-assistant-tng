@@ -1,0 +1,4 @@
+# Our thermostat
+# https://www.home-assistant.io/components/ecobee/
+ecobee:
+  api_key: !secret ecobee_api

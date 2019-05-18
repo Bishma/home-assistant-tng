@@ -1,0 +1,3 @@
+# Enable Hass for custom intents
+# https://www.home-assistant.io/components/alexa.intent/
+alexa:

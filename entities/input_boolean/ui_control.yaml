@@ -1,0 +1,8 @@
+# If the stand fan is in the living room, it can be controlled via harmony remote commands
+fan_out:
+  name: Is the stand fan out?
+  icon: mdi:fan
+# Script that performs all the controls needed to delete a file from within kodi - since it's dangerous this is a saftey
+enable_kodi_delete:
+  name: Enable Delete?
+  icon: mdi:eye-off

@@ -1,0 +1,4 @@
+# Three cheers for yaml mode for lovelace.
+# https://www.home-assistant.io/lovelace/yaml-mode/
+lovelace:
+  mode: yaml

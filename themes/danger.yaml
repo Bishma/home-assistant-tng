@@ -1,3 +1,5 @@
+# Not a full theme
+# Used to highlight in lovelace cards
 danger:
   primary-color: "#ffffff"
   primary-text-color: "#ffffff"

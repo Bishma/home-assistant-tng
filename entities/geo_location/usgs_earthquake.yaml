@@ -1,0 +1,5 @@
+- platform: usgs_earthquakes_feed
+  feed_type: 'past_day_m45_earthquakes'
+  radius: 1500
+  latitude: !secret me_lat
+  longitude: !secret me_long

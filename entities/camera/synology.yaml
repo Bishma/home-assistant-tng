@@ -1,0 +1,7 @@
+# Local camera's via our synology diskstation
+# https://www.home-assistant.io/components/synology/
+- platform: synology
+  url: http://192.168.131.2:5000
+  username: !secret nas_user
+  password: !secret nas_passwd
+  verify_ssl: false

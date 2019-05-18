@@ -1,0 +1,5 @@
+# Checks for available updates
+# https://www.home-assistant.io/components/updater/
+updater:
+  reporting: true
+  include_used_components: true

@@ -1,0 +1,2 @@
+# Allows for direct on/off control through alexa w/o having to invoke my custom skill
+cloud: !include_dir_merge_named ../entities/cloud

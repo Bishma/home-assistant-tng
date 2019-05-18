@@ -1,0 +1,15 @@
+# "The http component serves all files and data required for the Home Assistant frontend."
+# https://www.home-assistant.io/components/http/
+http:
+  # Add password to keep out the randos
+  ip_ban_enabled: true
+
+  # More than this number of failures results in temp ban
+  login_attempts_threshold: 5
+
+  # My domain, obfuscated for security
+  base_url: !secret hass_url
+
+  # Because I use a proxy
+  use_x_forwarded_for: true
+  trusted_proxies: !secret trusty_proxy

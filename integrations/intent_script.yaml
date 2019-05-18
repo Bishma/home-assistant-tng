@@ -1,0 +1,3 @@
+# "The intent_script component allows users to configure actions and responses to intents."
+# https://www.home-assistant.io/components/intent_script/
+intent_script: !include_dir_merge_named ../entities/intent_script

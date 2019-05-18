@@ -1,0 +1,1 @@
+geo_location: !include_dir_merge_list ../entities/geo_location

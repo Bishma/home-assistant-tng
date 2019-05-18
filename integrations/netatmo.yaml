@@ -1,0 +1,7 @@
+# Netatmo weather station
+# https://www.home-assistant.io/components/netatmo/
+netatmo:
+  api_key: !secret netatmo_key
+  secret_key: !secret netatmo_secret
+  username: !secret netatmo_user
+  password: !secret netatmo_passwd

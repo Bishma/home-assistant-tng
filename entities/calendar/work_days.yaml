@@ -1,0 +1,8 @@
+- platform: caldav
+  username: !secret nextcloud_user
+  password: !secret nextcloud_passwd
+  url: http://192.168.131.2:32768/remote.php/dav/
+  custom_calendars:
+  - name: Day Off
+    calendar: Work
+    search: 'Day Off'

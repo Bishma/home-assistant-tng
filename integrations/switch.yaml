@@ -1,0 +1,2 @@
+# Switches
+switch: !include_dir_merge_list ../entities/switch

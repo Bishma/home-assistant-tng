@@ -1,0 +1,3 @@
+# Ring Doorbell
+# https://www.home-assistant.io/components/ring/
+- platform: ring

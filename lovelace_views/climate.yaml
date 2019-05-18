@@ -44,17 +44,23 @@
   title: Illness
   show_header_toggle: false
   entities:
-    - entity: sensor.allergy_index_forecasted_average
-      name: Allergy Index Forcase
-    - entity: sensor.allergy_index_forecasted_average
+    - entity: sensor.allergy_index_forecasted_average_2
+      name: Allergy Index Forcast
+    - entity: sensor.allergy_index_forecasted_average_2
       type: custom:entity-attributes-card
       filter:
         include:
-          - sensor.allergy_index_forecasted_average.outlook
-          - sensor.allergy_index_forecasted_average.season
-          - sensor.allergy_index_forecasted_average.trend
-    - entity: sensor.cold_flu_forecasted_average
-      name: Cold/Flu Index Average
+          - sensor.allergy_index_forecasted_average_2.outlook
+          - sensor.allergy_index_forecasted_average_2.season
+          - sensor.allergy_index_forecasted_average_2.trend
+    - entity: sensor.asthma_index_today
+      name: Asthma Index Today
+    - entity: sensor.asthma_index_forecasted_average
+      name: Asthma Index Forcast
+    - entity: sensor.cold_flu_index_today
+      name: Cold/Flu Index Today
+    - entity: sensor.cold_flu_forecasted_average_2
+      name: Cold and Flu Index Forcast
 - id: west_eugene_air_quality stack
   type: vertical-stack
   cards:

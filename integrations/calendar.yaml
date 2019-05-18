@@ -1,0 +1,3 @@
+# Calendars can be used as sesors. We use caldav
+# https://www.home-assistant.io/components/caldav/
+calendar: !include_dir_merge_list ../entities/calendar

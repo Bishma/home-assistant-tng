@@ -1,0 +1,7 @@
+diningroom:
+  name: Dining Room
+  entities:
+  - light.dr1
+  - light.dr2
+  - light.dr3
+  - light.dr4

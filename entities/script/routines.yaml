@@ -1,0 +1,59 @@
+# Scripted routines
+bedroom_on_safety:
+  alias: Bedroom On Safety Switch
+  sequence:
+  - condition: time
+    after: '09:00:00'
+  - service: scene.turn_on
+    entity_id: scene.bedroom_bedtime
+alexa_goodnight:
+  alias: Say Goodnight
+  sequence:
+  - service: scene.turn_on
+    entity_id: scene.living_room_bedtime
+  - service: script.turn_on
+    entity_id: script.bedroom_on_safety
+  - delay: '00:02:00'
+  - service: light.turn_on
+    data:
+      entity_id: light.the_sink_hole
+      brightness_pct: 1
+alexa_rise_and_shine:
+  alias: Rise and Shine
+  sequence:
+  - service: switch.turn_on
+    entity_id: switch.the_sparkle
+  - service: light.turn_on
+    data:
+      entity_id: light.love_seat_middle
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      entity_id: light.love_seat_up
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      entity_id: light.the_sink_hole
+      brightness_pct: 100
+alexa_dereks_morning:
+  alias: "Begin Derek's Morning"
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.the_sink_hole
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      entity_id: light.love_seat_up
+      brightness_pct: 25
+  - service: remote.turn_on
+    data:
+      entity_id: remote.living_room
+      activity: 31571897
+  - delay: '00:00:15'
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data:
+      device: 60888940
+      command: VolumeDown
+      num_repeats: 5

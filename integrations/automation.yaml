@@ -1,0 +1,3 @@
+# The automation part of home autiomation
+# https://www.home-assistant.io/components/automation/
+automation: !include_dir_merge_list ../entities/automation

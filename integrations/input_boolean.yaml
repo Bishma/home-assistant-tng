@@ -1,0 +1,3 @@
+# "The input_boolean component allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation."
+# https://www.home-assistant.io/components/input_boolean/
+input_boolean: !include_dir_merge_named ../entities/input_boolean
