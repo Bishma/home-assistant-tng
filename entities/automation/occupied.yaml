@@ -9,7 +9,7 @@
     state: 'off'
   - above: '75'
     condition: numeric_state
-    entity_id: sensor.dark_sky_daytime_high_temperature
+    entity_id: sensor.dark_sky_daytime_high_temperature_0d
   action:
   - service: script.bedtime_ac_cool_auto
 - id: 'occupied_pre-dusk-tasks'
