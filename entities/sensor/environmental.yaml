@@ -62,10 +62,3 @@
   token: 4c430aede0b393e4baa425b9ca43dd5c9afa29df
   locations:
     - eugene
-
-# RM Mini 3 in bedroom
-- platform: broadlink
-  host: '192.168.131.4'
-  mac: 'b4:43:0d:f9:34:99'
-  monitored_conditions:
-  - temperature

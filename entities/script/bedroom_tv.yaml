@@ -1,14 +1,16 @@
 bedtime_tv_power:
   alias: Bedroom TV Power
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
 bedtime_tv_input:
   alias: Bedroom TV Input
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABIZMTEhMSEzYTEhMSExITEhM2ExITERQSExEUERQ1FDUUNRQSExITERQRFBEUEhM1FBEUNRQ1FDUUNRQ1FDUUERQ1FAAFQAABI0kTAA0FAAAAAAAAAAA="

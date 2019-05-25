@@ -31,8 +31,9 @@ bedroom_roku_sleep_22:
   alias: Bedroom Roku Sleep 22
   sequence:
   - delay: '00:22:00'
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
   - service: remote.send_command
@@ -45,8 +46,9 @@ bedroom_roku_sleep_44:
   alias: Bedroom Roku Sleep 44
   sequence:
   - delay: '00:43:40'
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
   - service: remote.send_command
@@ -59,8 +61,9 @@ bedroom_roku_sleep_66:
   alias: Bedroom Roku Sleep 66
   sequence:
   - delay: '00:65:30'
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
   - service: remote.send_command
@@ -73,8 +76,9 @@ bedroom_roku_sleep_05:
   alias: Bedroom Roku Sleep 0.5
   sequence:
   - delay: '00:00:30'
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
   - service: remote.send_command

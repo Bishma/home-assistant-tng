@@ -2,85 +2,97 @@
 bedtime_ac_cool_auto:
   alias: Bedroom AC Cool
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBgAAABJJUTEREUEBQTNxMRExIQFBEUEzYTERE5ExEROBM3EzYQORE4ERQQFBEUEDkRFBAUERQQFBE4EjYTNhIUETkQORA5EAAFOQABIk0RAAxBAAEiShIADEEAASFLEwANBQAAAAAAAAAA"
       - "JgBQAAABJ5MTEhISExISNxITEhISExISEjgSEhI3ExISNxI3EjcTNxI3EhMSEhI3ExISEhMSEhITEhI3EzcTERI3EzcSNxM2EwAFNwABJEoTAA0FAAAAAAAAAAA="
 bedtime_ac_power:
   alias: Bedroom AC Power Toggle
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBYAAABI5YQFBEUEBUQORAVEBQQFRAUETkQFBE5EBQRORA5EDkRORA5ERQQFRAUEDkRFBAVEBQRFBA5ETkQOREUEDkRORA5EAAFPQABJUoQAAxLAAEhTBEADQU="
 bedtime_ac_temp_timer_up:
   alias: Bedroom AC Temp/Timer Up
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABJZMRExMSEBUSNxISEhMRFBISEzcRExE5ERMRORE4ETgSOBETETkROBE4EhMRFBAUERQROBEUEBQRFBA5EjgROBE4EgAFOwABIkwUAA0FAAAAAAAAAAA="
 bedtime_ac_temp_timer_down:
   alias: Bedroom AC Temp/Timer Down
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABI5YRExITEBQSOBETEhMRFBETEjgRExE5ERMROBE5ETgSOBE4ERQROBE4EhMRFBETERQRExI4ERMSExA5EjgROBE4EgAFOwABIk0RAA0FAAAAAAAAAAA="
 bedtime_ac_fan_faster:
   alias: Bedroom AC Fan Faster
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABJJQQFRAUERQQOREUERMRFBETETkRExE5ERMROBI4EjgROBE4EhMQFRAUERQQFBEUEBUQFBE5ETgROBI4ETgSOBE4EQAFOwABI0wSAA0FAAAAAAAAAAA="
 bedtime_ac_fan_slower:
   alias: Bedroom AC Fan Slower
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABJZURExEUEBQRORETERQQFBEUEDkSExA5EhMQORM3ETgSOBMRERQQORITEBQUERAVExERORM2EBUQORM2EzcTNhM2EgAFOwABIk0TAA0FAAAAAAAAAAA="
 bedtime_ac_cool:
   alias: Bedroom AC Cool
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABIpURExEUERQROBEUERMSExETEjgRExI4ERMSOBE4EjgROBE4EhMRFBE4ERQRExITERMSExE4EjgRExE5ETgSOBA5EQAFOwABI00RAA0FAAAAAAAAAAA="
 bedtime_ac_energy_saver:
   alias: Bedroom AC Energy Saver
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABJ5QRExEUEBUROBEUEBQRFBETETkRExI4ERMRORE4ETkROBEUETgRFBETERQRExEUERQQOREUETgROBI4EzYSOBE4EQAFPAABI0wRAA0FAAAAAAAAAAA="
 bedtime_ac_fan_only:
   alias: Bedroom AC Fan Only
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABJJQSExETERQROBITERQRExEUEDkSExE4EhMQORI4ETgROBI4ETgSOBETEhMRExEUERQRExEUERMRORE4EjgROBE4EQAFPAABIk0RAA0FAAAAAAAAAAA="
 bedtime_ac_sleep:
   alias: Bedroom AC Sleep
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABIpYRExEUEBQRORETERQQFRAUETkQFBE5ERMRORE4ETgTNxE4ETkROBE4EhMRFBETERQQFRAUERQTERE5ETgTNxE4EQAFPAABIk0TAA0FAAAAAAAAAAA="
 bedtime_ac_auto_fan:
   alias: Bedroom AC Auto Fan
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBYAAABJpMTEhMSEhITNhMSExISEhMSEzYTEhM2ExITNhM3EjcTNhM3EzYTNxI3ExISEhMSExISEhMSEhITEhM2EzcSNxM2EwAFOgABJEsTAAxHAAEkSRMADQU="
 bedtime_ac_timer:
   alias: Bedroom AC Timer
   sequence:
-  - service: switch.bedroom_ir
+  - service: broadlink.send
     data:
+      host: '192.168.131.4'
       packet:
       - "JgBQAAABJpQSExEUEBQSOBETEhMRExEUETgSExE4EhMRORA5EDkSOBAUEjgRNxIUEBQRFBEUERMRORETEhMROBI4ETgSOBE4EQAFPAABIk0RAA0FAAAAAAAAAAA="
