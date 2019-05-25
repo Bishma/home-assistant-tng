@@ -1,4 +1,5 @@
-bedtime_tv_power:
+# IR packet sending for our bedroom tv
+bedroom_tv_power:
   alias: Bedroom TV Power
   sequence:
   - service: broadlink.send
@@ -6,7 +7,7 @@ bedtime_tv_power:
       host: '192.168.131.4'
       packet:
       - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
-bedtime_tv_input:
+bedroom_tv_input:
   alias: Bedroom TV Input
   sequence:
   - service: broadlink.send
@@ -14,3 +15,176 @@ bedtime_tv_input:
       host: '192.168.131.4'
       packet:
       - "JgBQAAABIZMTEhMSEzYTEhMSExITEhM2ExITERQSExEUERQ1FDUUNRQSExITERQRFBEUEhM1FBEUNRQ1FDUUNRQ1FDUUERQ1FAAFQAABI0kTAA0FAAAAAAAAAAA="
+bedroom_tv_sleep:
+  alias: Bedroom TV Sleep
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABIpESExMSETgRFBEUExIRFBE4ERQRFBMSERQTEhE4ETgROBEUETgRFBEUERQROBEUEhMROBEUETYTOBI3ERQSNxI3EgAFQgABIUoUAA0FAAAAAAAAAAA="
+bedroom_tv_back:
+  alias: Bedroom TV Back
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABIpESExMSEjcSExEUExIRFBE4ERQTEhMSExITEhM2ETgROBEUExITEhE4ETgROBE4ERQROBE4EzYRFBMSExITEhM2EQAFQwABIUoUAA0FAAAAAAAAAAA="
+bedroom_tv_eco:
+  alias: Bedroom TV Eco
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBIAAABI5ERFBEUETgRFBMSExITEhM2ERQRFBEUERQTEhE4ETgROBEUETgROBEUERQSNxMSERQSNxEUERQROBE4ERQROBM2EQANBQ=="
+bedroom_tv_freeze:
+  alias: Bedroom TV Freeze
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABI5ESExITEjcSExMSEhMSExI3EhMSExMSEhMSExM2EzYTNhMSEzYTNhM2EzYTEhMSEzYTNhMSExITEhMSEzYTNhMSEwAFQQABI0YTAA0FAAAAAAAAAAA="
+bedroom_tv_up:
+  alias: Bedroom TV Up
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABI5EQFRAVEDkQFRAVEBUQFRA5EBUQFRAVEBUQFRA5EDkQORA5EDkQFRAVEDkQORA5EBUQFRAVEDkQORAVEBUQFRA5EAAFRAABIUoUAA0FAAAAAAAAAAA="
+bedroom_tv_down:
+  alias: Bedroom TV Down
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBIAAABIJMSExEUETgRFBAVERQRFBE4ERQRFBAVERQRFBE4ETgSNxEUERQROBEUETgROBE4ERQROBE4ERQQORITERQRFBE4EgANBQ=="
+bedroom_tv_left:
+  alias: Bedroom TV Left
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBIAAABI44VExITEjcTEhITEBUSExI3EhMSEhMSERQTEhM2EzYTNhMSEzYTNxISEzcSNxI3EhMSNxAVEhMSNxITEhMSEhM2EwANBQ=="
+bedroom_tv_right:
+  alias: Bedroom TV Right
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBIAAABIZMSExEUEDkRFBEUEBUSExA5EhMRFBAVEBUQFRA4EjgROBE4ERQSNxEUEjcROBE4EhMQFRI3ERQSNxEUERQSExE4EQANBQ=="
+bedroom_tv_ok:
+  alias: Bedroom TV OK
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABI5ETEhEUETgTEhEUERQTEhI3ERQRFBEUEhMSExE4ETgROBE4ETgROBEUETgROBE4ExIRFBEUERQSNxEUERQRFBI3EgAFQgABIEsSAA0FAAAAAAAAAAA="
+bedroom_tv_menu:
+  alias: Bedroom TV Menu
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBYAAABIZITEhEUEzYRFBEUExIRFBI3ERQSExEUEhMSExI3ETgROBEUEBUQFREUEjcROBE4ERQROBE4ETgSNxEUEhMQFRI3EQAFQgABIkoRAAwhAAEiShEADQU="
+bedroom_tv_info:
+  alias: Bedroom TV Info
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABI5ERFBITETgRFBITEhMQFBI3EhMSExMSExISExM2EjcSNxI3EjcSExE4EjcSExMSEzYSExMSEjcSExITEzYSNxITEwAFQQABIUoSAA0FAAAAAAAAAAA="
+bedroom_tv_volup:
+  alias: Bedroom TV Vol. Up
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABI5ERFBAVEDkRFBAVERQQFBE4EhQQFBITERQRFBI3EjcSNxITExITEhEUERQROBE4EhMROBI3EjcSNxI3EhMRFBE4EwAFQQABIUoTAA0FAAAAAAAAAAA="
+bedroom_tv_voldown:
+  alias: Bedroom TV Vol. Down
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - JgBQAAABIZMRFBAVEDkSExAVEhMQFBE4ExIRFBEUERQRFBE4EjcSNxI3EhMRFBEUERQROBI3ExIRFBE4EjcSNxM2EhMRFBI3EgAFQgABIUoSAA0FAAAAAAAAAAA=
+bedroom_tv_chup:
+  alias: Bedroom TV Ch. Up
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - JgBQAAABI5ESExITEjcSExITEhMRFBI3ERQRFBITEhMSExE4ETgROBITERQSExAUEjcSExI3EhMSNxI3EjgROBEUEjcRFBE4EQAFQgABI0kTAA0FAAAAAAAAAAA=
+bedroom_tv_chdown:
+  alias: Bedroom TV Ch. Down
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABIZMUERQRFDURFBMSExITEhM2ExITEhITEhMSExI3EjcSNxI3EhMSExITEjcSExI3ERQRFBI3ETgROBEUEjcRFBE4EgAFQQABI0kRAA0FAAAAAAAAAAA="
+bedroom_tv_mute:
+  alias: Bedroom TV Mute
+  sequence:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABIZMSExEUETgSExEUERQSExE4EhMSExEUEBUQFRA5EjcSNxITEBUQORITEBUQORI3EhMQORM2EhMQORI3EhMQFRI3EgAFQgABIkkRAA0FAAAAAAAAAAA="
+bedroom_roku_sleep_22:
+  alias: Bedroom Roku Sleep 22
+  sequence:
+  - delay: '00:22:00'
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Back
+      num_repeats: 1
+bedroom_roku_sleep_44:
+  alias: Bedroom Roku Sleep 44
+  sequence:
+  - delay: '00:43:40'
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Back
+      num_repeats: 1
+bedroom_roku_sleep_66:
+  alias: Bedroom Roku Sleep 66
+  sequence:
+  - delay: '00:65:30'
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Back
+      num_repeats: 1
