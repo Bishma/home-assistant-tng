@@ -54,11 +54,11 @@
     - entity: sensor.cottage_humidity
       name: Humidity
       icon: mdi:water-percent
-- id: bedroom-controls
+- id: bedroom-climate
   type: vertical-stack
   cards:
   - type: entities
-    title: Bedroom AC
+    title: Bedroom
     show_header_toggle: false
     entities:
     - type: call-service
@@ -156,3 +156,5 @@
       name: Living Room Temp.
     - entity: sensor.netatmo_outdoor_temperature
       name: Outdoor Temp.
+    - entity: sensor.cottage_temperature
+      name: Hallway Temp.
