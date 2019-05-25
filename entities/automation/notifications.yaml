@@ -3,7 +3,7 @@
   trigger:
   - platform: template
     value_template: >
-      {% if states('sensor.cottage_temperature') | round(1) == states('sensor.netatmo_outdoor_temperature') | round(1) %}
+      {% if states('sensor.cottage_temperature') | round == states('sensor.netatmo_outdoor_temperature') | round %}
         true
       {% endif %}
   condition: 
