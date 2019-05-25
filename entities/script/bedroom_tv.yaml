@@ -1,0 +1,14 @@
+bedtime_tv_power:
+  alias: Bedroom TV Power
+  sequence:
+  - service: switch.bedroom_ir
+    data:
+      packet:
+      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+bedtime_tv_input:
+  alias: Bedroom TV Input
+  sequence:
+  - service: switch.bedroom_ir
+    data:
+      packet:
+      - "JgBQAAABIZMTEhMSEzYTEhMSExITEhM2ExITERQSExEUERQ1FDUUNRQSExITERQRFBEUEhM1FBEUNRQ1FDUUNRQ1FDUUERQ1FAAFQAABI0kTAA0FAAAAAAAAAAA="

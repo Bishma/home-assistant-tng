@@ -805,3 +805,38 @@
       name: Plex Web Player
       url: https://app.plex.tv/desktop
       icon: mdi:link-variant
+- id: bedrroom_sleep
+  type: horizontal-stack
+  cards:
+  - type: entity-button
+    entity: script.bedroom_roku_sleep_05
+    name: Test (30s)
+    icon: mdi:sleep
+    tap_action:
+      action: toggle
+    hold_action:
+      action: none
+  - type: entity-button
+    entity: script.bedroom_roku_sleep_22
+    name: Sleep (1 Bob)
+    icon: mdi:sleep
+    tap_action:
+      action: toggle
+    hold_action:
+      action: none
+  - type: entity-button
+    entity: script.bedroom_roku_sleep_44
+    name: Sleep (2 Bobs)
+    icon: mdi:sleep
+    tap_action:
+      action: toggle
+    hold_action:
+      action: none
+  - type: entity-button
+    entity: script.bedroom_roku_sleep_66
+    name: Sleep (3 Bobs)
+    icon: mdi:sleep
+    tap_action:
+      action: toggle
+    hold_action:
+      action: none

@@ -27,6 +27,62 @@ kodi_delete:
     data_template:
       device: 51738178
       command: "Enter"
+bedroom_roku_sleep_22:
+  alias: Bedroom Roku Sleep 22
+  sequence:
+  - delay: '00:22:00'
+  - service: switch.bedroom_ir
+    data:
+      packet:
+      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Back
+      num_repeats: 1
+bedroom_roku_sleep_44:
+  alias: Bedroom Roku Sleep 44
+  sequence:
+  - delay: '00:43:40'
+  - service: switch.bedroom_ir
+    data:
+      packet:
+      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Back
+      num_repeats: 1
+bedroom_roku_sleep_66:
+  alias: Bedroom Roku Sleep 66
+  sequence:
+  - delay: '00:65:30'
+  - service: switch.bedroom_ir
+    data:
+      packet:
+      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Back
+      num_repeats: 1
+bedroom_roku_sleep_05:
+  alias: Bedroom Roku Sleep 0.5
+  sequence:
+  - delay: '00:00:30'
+  - service: switch.bedroom_ir
+    data:
+      packet:
+      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Back
+      num_repeats: 1
 watch_activity:
   alias: Switch Activity
   sequence:
