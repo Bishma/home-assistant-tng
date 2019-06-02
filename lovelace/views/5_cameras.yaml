@@ -1,0 +1,41 @@
+- id: cameras
+  title: Cameras
+  icon: mdi:cctv
+  path: cameras
+  cards:
+    - id: pan-tilt-zoom-1
+      type: picture-entity
+      entity: camera.pitz_1
+      show_name: true
+    - id: pan-tilt-zoom-2
+      type: picture-entity
+      entity: camera.pitz_2
+      show_name: true
+    - id: ring-details
+      type: vertical-stack
+      cards:
+        - type: picture-entity
+          entity: camera.front_door
+        - type: entities
+          entities:
+            - entity: sensor.ring_front_door_last_motion
+              icon: mdi:walk
+              name: Motion Last Detected
+            - entity: sensor.ring_front_door_last_ding
+              icon: mdi:bell-ring-outline
+              name: Last Ring
+            - entity: sensor.ring_front_door_battery
+              icon: mdi:battery-outline
+              name: Battery Level
+            - entity: sensor.ring_front_door_wifi_signal_category
+              icon: mdi:wifi
+              name: WiFi Connection Strength
+    - id: traffic-cam
+      type: picture
+      image: https://www.tripcheck.com/roadcams/cams/Eugene%20River%20Ave._pid2539.JPG
+    - id: kezi-weather-cam
+      type: picture
+      image: http://70.102.97.236/cameras/video2.jpg
+    - id: owen-rose-garden
+      type: picture
+      image: https://rgcam.eugene-or.gov/mjpg/video.mjpg

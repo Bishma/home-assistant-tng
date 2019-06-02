@@ -1,0 +1,90 @@
+- id: outdoors
+  title: Outdoor Conditions
+  icon: mdi:weather-partlycloudy
+  path: outdoors
+  cards:
+    - id: darksky-forcast-card
+      type: weather-forecast
+      entity: weather.weather
+    - id: celestials
+      type: vertical-stack
+      cards:
+        - type: entities
+          entities:
+            - entity: sun.sun
+        - type: entities
+          entities:
+            - entity: sensor.moon
+              name: Moon
+    - id: exterior-conditions
+      type: entities
+      title: Exterior Conditions
+      show_header_toggle: false
+      entities:
+        - entity: sensor.netatmo_outdoor_temperature
+          name: Current Temperature
+        - entity: sensor.netatmo_outdoor_humidity
+          name: Current Humidity
+        - entity: sensor.netatmo_backyard_angle
+          name: Backyard Wind Direction
+        - entity: sensor.convert_backyard_wind
+          name: Backyard Wind Stength
+          icon: mdi:weather-windy
+        - entity: sensor.netatmo_backyard_gust_angle
+          name: Backward Gust Direction
+        - entity: sensor.convert_backyard_gust
+          name: Backyard Gust Strength
+          icon: mdi:weather-windy
+        - entity: sensor.dark_sky_cloud_coverage
+        - entity: sensor.dark_sky_precip_probability
+          name: Chance of Precipitation
+        - entity: sensor.dark_sky_visibility
+        - type: weblink
+          name: Eugene, Or - Weather Underground
+          icon: mdi:link-variant
+          url: https://www.wunderground.com/weather/us/or/eugene
+    - id: allergey-cold-and-flu
+      type: entities
+      title: Illness
+      show_header_toggle: false
+      entities:
+        - entity: sensor.allergy_index_forecasted_average_2
+          name: Allergy Index Forcast
+        - entity: sensor.allergy_index_forecasted_average_2
+          type: custom:entity-attributes-card
+          filter:
+            include:
+              - sensor.allergy_index_forecasted_average_2.outlook
+              - sensor.allergy_index_forecasted_average_2.season
+              - sensor.allergy_index_forecasted_average_2.trend
+        - entity: sensor.asthma_index_today
+          name: Asthma Index Today
+        - entity: sensor.asthma_index_forecasted_average
+          name: Asthma Index Forcast
+        - entity: sensor.cold_flu_index_today
+          name: Cold/Flu Index Today
+        - entity: sensor.cold_flu_forecasted_average_2
+          name: Cold and Flu Index Forcast
+    - id: west_eugene_air_quality stack
+      type: vertical-stack
+      cards:
+        - type: picture-entity
+          entity: sensor.waqi_state
+          show_name: false
+          show_state: false
+          state_image:
+            "good": /local/air-quality/good.jpg
+            "moderate": /local/air-quality/moderate.jpg
+            "unhealthy-1": /local/air-quality/unhealthy-1.jpg
+            "unhealthy-2": /local/air-quality/unhealthy-2.jpg
+            "unhealthy-3": /local/air-quality/unhealthy-3.jpg
+            "hazardous": /local/air-quality/hazardous.jpg
+            "unknown": /local/air-quality/unknown.jpg
+        - type: entities
+          entities:
+            - entity: sensor.waqi_eugene_wilkes_drive_oregon_usa
+              name: West Eugene Air Quality
+    - id: embeded-windy-precip
+      type: iframe
+      url: https://embed.windy.com/embed2.html?lat=43.926&lon=-123.085&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=43.882&detailLon=-121.926&metricWind=default&metricTemp=%C2%B0F&radarRange=-1
+      aspect_ratio: 100%

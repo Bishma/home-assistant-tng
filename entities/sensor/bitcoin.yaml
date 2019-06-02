@@ -1,0 +1,5 @@
+# "The bitcoin sensor platform displays various details about the Bitcoin network."
+# https://www.home-assistant.io/components/bitcoin/
+- platform: bitcoin
+  display_options:
+  - exchangerate

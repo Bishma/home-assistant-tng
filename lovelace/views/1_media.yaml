@@ -1,0 +1,848 @@
+- id: media
+  icon: mdi:youtube-tv
+  title: Media Controls
+  path: media
+  cards:
+    - id: active-controls
+      type: vertical-stack
+      cards:
+        - id: roku-dpad
+          type: conditional
+          conditions:
+            - entity: sensor.living_room_media_device
+              state: roku
+          card:
+            type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: "Off"
+                    icon: mdi:power-plug-off
+                    tap_action: 
+                      action: call-service
+                      service: remote.turn_on
+                      service_data:
+                        entity_id: remote.living_room
+                        activity: -1
+                    hold_action:
+                      action: none
+                    theme: danger
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Up
+                    icon: mdi:arrow-up-box
+                    tap_action: 
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51736885
+                        command: DirectionUp
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Back
+                    icon: mdi:rotate-left
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51736885
+                        command: Back
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Ch Up
+                    icon: mdi:chevron-double-up
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51736885
+                        command: ChannelUp
+                    hold_action:
+                      action: none
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Left
+                    icon: mdi:arrow-left-box
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51736885
+                        command: DirectionLeft
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Confirm
+                    icon: mdi:check-circle
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51736885
+                        command: OK
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Right
+                    icon: mdi:arrow-right-box
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51736885
+                        command: DirectionRight
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Ch Dwn
+                    icon: mdi:chevron-double-down
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51736885
+                        command: ChannelDown
+                    hold_action:
+                      action: none
+              - type: horizontal-stack
+                cards:
+                    - type: entity-button
+                      entity: script.media_skip_back
+                      name: Skip Back
+                      icon: mdi:backburger
+                      tap_action:
+                        action: toggle
+                      hold_action:
+                        action: none
+                    - type: entity-button
+                      entity: remote.living_room
+                      name: Down
+                      icon: mdi:arrow-down-box
+                      tap_action:
+                        action: call-service
+                        service: remote.send_command
+                        service_data:
+                          entity_id: remote.living_room
+                          device: 51736885
+                          command: DirectionDown
+                      hold_action:
+                        action: none
+                    - type: entity-button
+                      entity: remote.living_room
+                      name: Options
+                      icon: mdi:asterisk
+                      tap_action:
+                        action: call-service
+                        service: remote.send_command
+                        service_data:
+                          entity_id: remote.living_room
+                          device: 51736885
+                          command: 'Options*'
+                      hold_action:
+                        action: none
+                    - type: entity-button
+                      entity: remote.living_room
+                      name: Info
+                      icon: mdi:information-outline
+                      tap_action:
+                        action: call-service
+                        service: remote.send_command
+                        service_data:
+                          entity_id: remote.living_room
+                          device: 51736885
+                          command: Info
+                      hold_action:
+                        action: none
+        - id: htpc-dpad
+          type: conditional
+          conditions:
+            - entity: sensor.living_room_media_device
+              state: htpc
+          card:
+            type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: "Off"
+                    icon: mdi:power-plug-off
+                    tap_action: 
+                      action: call-service
+                      service: remote.turn_on
+                      service_data:
+                        entity_id: remote.living_room
+                        activity: -1
+                    hold_action:
+                      action: none
+                    theme: danger
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Up
+                    icon: mdi:arrow-up-box
+                    tap_action: 
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51738178
+                        command: DirectionUp
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Back
+                    icon: mdi:rotate-left
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51738178
+                        command: Back
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Pg Up
+                    icon: mdi:chevron-double-up
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51738178
+                        command: PageUp
+                    hold_action:
+                      action: none
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Left
+                    icon: mdi:arrow-left-box
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51738178
+                        command: DirectionLeft
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Confirm
+                    icon: mdi:check-circle
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51738178
+                        command: Enter
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Right
+                    icon: mdi:arrow-right-box
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51738178
+                        command: DirectionRight
+                    hold_action:
+                      action: none
+                  - type: entity-button
+                    entity: remote.living_room
+                    name: Pg Dwn
+                    icon: mdi:chevron-double-down
+                    tap_action:
+                      action: call-service
+                      service: remote.send_command
+                      service_data:
+                        entity_id: remote.living_room
+                        device: 51738178
+                        command: PageDown
+                    hold_action:
+                      action: none
+              - type: horizontal-stack
+                cards:
+                    - type: entity-button
+                      entity: script.media_skip_back
+                      name: Skip Back
+                      icon: mdi:backburger
+                      tap_action:
+                        action: toggle
+                      hold_action:
+                        action: none
+                    - type: entity-button
+                      entity: remote.living_room
+                      name: Down
+                      icon: mdi:arrow-down-box
+                      tap_action:
+                        action: call-service
+                        service: remote.send_command
+                        service_data:
+                          entity_id: remote.living_room
+                          device: 51738178
+                          command: DirectionDown
+                      hold_action:
+                        action: none
+                    - type: entity-button
+                      entity: remote.living_room
+                      name: Context
+                      icon: mdi:menu
+                      tap_action:
+                        action: call-service
+                        service: remote.send_command
+                        service_data:
+                          entity_id: remote.living_room
+                          device: 51738178
+                          command: c.
+                      hold_action:
+                        action: none
+                    - type: entity-button
+                      entity: remote.living_room
+                      name: Info
+                      icon: mdi:information-outline
+                      tap_action:
+                        action: call-service
+                        service: remote.send_command
+                        service_data:
+                          entity_id: remote.living_room
+                          device: 51738178
+                          command: i.
+                      hold_action:
+                        action: none
+        - id: media-button-row
+          type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: script.media_pause
+              name: Pause
+              icon: mdi:pause
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: script.media_play
+              name: Play
+              icon: mdi:play
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: script.media_stop
+              name: Stop
+              icon: mdi:stop
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: remote.living_room
+              name: Voice
+              icon: mdi:voice
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 60888940
+                  command: Dialogue
+                num_repeats: 1
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: script.media_volume_down
+              name: Vol -
+              icon: mdi:volume-minus
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 60888940
+                  command: VolumeDown
+                num_repeats: 1
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: script.media_volume_up
+              name: Vol +
+              icon: mdi:volume-plus
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 60888940
+                  command: VolumeUp
+                num_repeats: 1
+              hold_action:
+                action: none
+        - id: activity-specific-kodi
+          type: conditional
+          conditions:
+            - entity: sensor.living_room_remote_state
+              state: Watch Kodi
+          card:
+            type: vertical-stack
+            cards:
+              - type: entities
+                title: HTPC Tools
+                show_header_toggle: false
+                entities:
+                  - type: call-service
+                    name: Fix Input
+                    action_name: HDMI 1
+                    icon: mdi:video-input-hdmi
+                    service: remote.send_command
+                    service_data:
+                      entity_id: remote.living_room
+                      device: 51736886
+                      command: InputHdmi1
+                      num_repeats: 1
+                  - type: call-service
+                    name: Sound Bar Power
+                    action_name: Toggle
+                    icon: mdi:speaker
+                    service: remote.send_command
+                    service_data:
+                      entity_id: remote.living_room
+                      device: 60888940
+                      command: PowerToggle
+                      num_repeats: 1
+                  - type: call-service
+                    name: Watched Status
+                    action_name: Toggle
+                    icon: mdi:eye
+                    service: remote.send_command
+                    service_data:
+                      entity_id: remote.living_room
+                      num_repeats: 1
+                      device: 51738178
+                      command: w.
+                  - type: call-service
+                    name: Launch Kodi
+                    action_name: Ctrl+Alt+4
+                    icon: mdi:kodi
+                    service: remote.send_command
+                    service_data:
+                      entity_id: remote.living_room
+                      num_repeats: 1
+                      device: 51738178
+                      command: Ctrl+Alt+3
+                  - type: call-service
+                    name: Fix Kodi
+                    action_name: Ctrl+Alt+3
+                    icon: mdi:kodi
+                    service: remote.send_command
+                    service_data:
+                      entity_id: remote.living_room
+                      num_repeats: 1
+                      device: 51738178
+                      command: Ctrl+Alt+3
+                  - type: call-service
+                    name: Kodi Power / Shutdown Menu
+                    action_name: Power
+                    icon: mdi:power-standby
+                    service: remote.send_command
+                    service_data:
+                      entity_id: remote.living_room
+                      num_repeats: 1
+                      device: 51738178
+                      command: s.
+                  - type: call-service
+                    name: Switch Windows
+                    action_name: Alt+Tab
+                    icon: mdi:window-restore
+                    service: remote.send_command
+                    service_data:
+                      entity_id: remote.living_room
+                      num_repeats: 1
+                      device: 51738178
+                      command: Alt+Tab
+                  - type: call-service
+                    name: Windows Key
+                    action_name: Engage
+                    icon: mdi:windows
+                    service: remote.send_command
+                    service_data:
+                      entity_id: remote.living_room
+                      num_repeats: 1
+                      device: 51738178
+                      command: Windows
+                  - entity: input_boolean.enable_kodi_delete
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.enable_kodi_delete
+                    state: "on"
+                card:
+                  type: entities
+                  entities:
+                    - type: call-service
+                      name: Delete
+                      action_name: Delete
+                      icon: mdi:trash-can
+                      service: script.kodi_delete
+                      service_data:
+                        entity_id: script.kodi_delete
+        - id: activity-specific-roku-multi
+          type: conditional
+          conditions:
+            - entity: sensor.living_room_remote_state
+              state_not: Watch Kodi
+            - entity: sensor.living_room_remote_state
+              state_not: Watch OTA
+            - entity: sensor.living_room_remote_state
+              state_not: Play Switch
+            - entity: sensor.living_room_remote_state
+              state_not: PowerOff
+          card:
+            type: entities
+            title: Roku Tools
+            show_header_toggle: false
+            entities:
+              - type: call-service
+                name: Fix Input
+                action_name: HDMI 3
+                icon: mdi:video-input-hdmi
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 51736886
+                  command: InputHdmi3
+                  num_repeats: 1
+              - type: call-service
+                name: Sound Bar Power
+                action_name: Toggle
+                icon: mdi:speaker
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 60888940
+                  command: PowerToggle
+                  num_repeats: 1
+              - type: call-service
+                name: Home
+                action_name: Home
+                icon: mdi:home
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736885
+                  command: Home
+              - type: call-service
+                name: Exit
+                action_name: Exit
+                icon: mdi:exit-run
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736885
+                  command: Exit
+              - type: call-service
+                name: Rewind
+                action_name: '<<'
+                icon: mdi:rewind
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736885
+                  command: Rewind
+              - type: call-service
+                name: Fast Forward
+                action_name: '>>'
+                icon: mdi:fast-forward
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736885
+                  command: FastForward
+        - id: activity-specific-ota
+          type: conditional
+          show_header_toggle: false
+          conditions:
+            - entity: sensor.living_room_remote_state
+              state: Watch OTA
+          card:
+            type: entities
+            title: OTA Tools
+            entities:
+              - type: call-service
+                name: Fix Input
+                action_name: Input TV
+                icon: mdi:video-input-hdmi
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 51736886
+                  command: InputTv
+                  num_repeats: 1
+              - type: call-service
+                name: Sound Bar Power
+                action_name: Toggle
+                icon: mdi:speaker
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 60888940
+                  command: PowerToggle
+                  num_repeats: 1
+              - type: call-service
+                name: Channel Up
+                action_name: Up
+                icon: mdi:arrow-up
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736886
+                  command: ChannelUp
+              - type: call-service
+                name: Channel Down
+                action_name: Down
+                icon: mdi:arrow-down
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736886
+                  command: ChannelDown
+              - type: call-service
+                name: Menu
+                action_name: Menu
+                icon: mdi:menu
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736886
+                  command: Menu
+              - type: call-service
+                name: Back
+                action_name: Back
+                icon: mdi:backburger
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736886
+                  command: Back
+              - type: call-service
+                name: Exit
+                action_name: Exit
+                icon: mdi:exit-run
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736886
+                  command: Exit
+        - id: activity-specific-switch
+          type: conditional
+          show_header_toggle: false
+          conditions:
+            - entity: sensor.living_room_remote_state
+              state: Play Switch
+          card:
+            type: entities
+            title: Switch Tools
+            entities:
+              - type: call-service
+                name: Fix Input
+                action_name: Input TV
+                icon: mdi:video-input-hdmi
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 51736886
+                  command: HDMI2
+                  num_repeats: 1
+              - type: call-service
+                name: Sound Bar Power
+                action_name: Toggle
+                icon: mdi:speaker
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 60888940
+                  command: PowerToggle
+                  num_repeats: 1
+        - id: activity-specific-music
+          type: conditional
+          show_header_toggle: false
+          conditions:
+            - entity: sensor.living_room_remote_state
+              state: Listen to Music
+          card:
+            type: entities
+            title: Music Tools
+            entities:
+              - type: call-service
+                name: Soundbar Bluetooth
+                action_name: Set Input
+                icon: mdi:bluetooth-connect
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 60888940
+                  command: InputBluetooth
+                  num_repeats: 1
+              - type: call-service
+                name: Sound Bar Power
+                action_name: Toggle
+                icon: mdi:speaker
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 60888940
+                  command: PowerToggle
+                  num_repeats: 1
+    - id: activity-choice
+      type: entities
+      title: TV Activity
+      show_header_toggle: false
+      entities:
+        - type: call-service
+          icon: mdi:kodi
+          name: Kodi
+          action_name: Watch
+          service: remote.turn_on
+          service_data:
+            entity_id: remote.living_room
+            activity: 31479535
+        - type: call-service
+          icon: mdi:hulu
+          name: Hulu
+          action_name: Watch
+          service: remote.turn_on
+          service_data:
+            entity_id: remote.living_room
+            activity: 31949557
+        - type: call-service
+          icon: mdi:netflix
+          name: Netflix
+          action_name: Watch
+          service: remote.turn_on
+          service_data:
+            entity_id: remote.living_room
+            activity: 31478989
+        - type: call-service
+          icon: mdi:amazon
+          name: Amazon
+          action_name: Watch
+          service: remote.turn_on
+          service_data:
+            entity_id: remote.living_room
+            activity: 31480109
+        - type: call-service
+          icon: mdi:plex
+          name: Plex
+          action_name: Watch
+          service: remote.turn_on
+          service_data:
+            entity_id: remote.living_room
+            activity: 31571897
+        - type: call-service
+          icon: mdi:youtube
+          name: Youtube
+          action_name: Watch
+          service: remote.turn_on
+          service_data:
+            entity_id: remote.living_room
+            activity: 33323580
+        - type: call-service
+          icon: mdi:nintendo-switch
+          name: Nintendo Switch
+          action_name: Play
+          service: remote.turn_on
+          service_data:
+            entity_id: remote.living_room
+            activity: 31480190
+        - type: call-service
+          icon: mdi:television-classic
+          name: Over The Air
+          action_name: Watch
+          service: remote.turn_on
+          service_data:
+            entity_id: remote.living_room
+            activity: 31480260
+        - type: call-service
+          icon: mdi:music
+          name: Music
+          action_name: Listen
+          service: remote.turn_on
+          service_data:
+            entity_id: remote.living_room
+            activity: 38156985
+        - type: divider
+        - type: weblink
+          name: Plex Web Player
+          url: https://app.plex.tv/desktop
+          icon: mdi:link-variant
+    - id: bedroom_sleep
+      type: horizontal-stack
+      cards:
+      - type: entity-button
+        entity: script.bedroom_tv_power
+        name: "Off"
+        icon: mdi:power-plug-off
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+        theme: danger
+      - type: entity-button
+        entity: script.bedroom_roku_sleep_22
+        name: 1 Bob
+        icon: mdi:sleep
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedroom_roku_sleep_44
+        name: 2 Bobs
+        icon: mdi:sleep
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedroom_roku_sleep_66
+        name: 3 Bobs
+        icon: mdi:sleep
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none

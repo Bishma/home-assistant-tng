@@ -1,0 +1,4 @@
+# "This card takes sensor attributes that are lists of strings and displays them as a card."
+# https://github.com/Bishma/custom-lovelace-cards/tree/master/list-item-card
+- url: /local/custom-lovelace/list-item-card/list-item-card.js
+  type: js

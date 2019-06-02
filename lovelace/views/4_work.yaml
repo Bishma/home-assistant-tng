@@ -1,0 +1,26 @@
+- id: work
+  title: Work
+  icon: mdi:office-building
+  path: work
+  cards:
+    - id: idx-climate
+      type: entities
+      title: IDX
+      show_header_toggle: false
+      entities:
+      - entity: input_boolean.idx_heater_on
+    - id: financials
+      type: vertical-stack
+      cards:
+      - type: history-graph
+        title: How's the laptop fund doing?
+        hours_to_show: 72
+        entities:
+        - sensor.exchange_rate_1_btc
+    #- id: idx-lunch
+    #  type: custom:list-item-card
+    #  title: IDX Lunch
+    #  entity: sensor.janet_api_idx_lunch
+    #  attribute: nextThree
+    #  max_length: 3
+    #  icon: mdi:food-fork-drink

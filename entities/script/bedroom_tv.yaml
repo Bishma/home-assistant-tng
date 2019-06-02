@@ -6,7 +6,8 @@ bedroom_tv_power:
     data:
       host: '192.168.131.4'
       packet:
-      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+      - "JgBkAA8ABwsLAAjWDQAGiAABIZMRFBEUETgRFBITEhMRFBI3EhMSExAVERQQFBM3EDkROBITERQSExAUExIROBITExITNhI3EjgROBE4EBUROBE4EgAFQgABIEsRAAUMCgAJtAoADQUAAAAA"
+# "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
 bedroom_tv_input:
   alias: Bedroom TV Input
   sequence:
@@ -143,6 +144,21 @@ bedroom_tv_mute:
       host: '192.168.131.4'
       packet:
       - "JgBQAAABIZMSExEUETgSExEUERQSExE4EhMSExEUEBUQFRA5EjcSNxITEBUQORITEBUQORI3EhMQORM2EhMQORI3EhMQFRI3EgAFQgABIkkRAA0FAAAAAAAAAAA="
+bedroom_roku_sleep_05:
+  alias: Bedroom Roku Sleep 30sec
+  sequence:
+  - delay: '00:00:30'
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBkAA8ABwsLAAjWDQAGiAABIZMRFBEUETgRFBITEhMRFBI3EhMSExAVERQQFBM3EDkROBITERQSExAUExIROBITExITNhI3EjgROBE4EBUROBE4EgAFQgABIEsRAAUMCgAJtAoADQUAAAAA"
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Back
+      num_repeats: 1
 bedroom_roku_sleep_22:
   alias: Bedroom Roku Sleep 22
   sequence:
@@ -151,7 +167,7 @@ bedroom_roku_sleep_22:
     data:
       host: '192.168.131.4'
       packet:
-      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+      - "JgBkAA8ABwsLAAjWDQAGiAABIZMRFBEUETgRFBITEhMRFBI3EhMSExAVERQQFBM3EDkROBITERQSExAUExIROBITExITNhI3EjgROBE4EBUROBE4EgAFQgABIEsRAAUMCgAJtAoADQUAAAAA"
   - service: remote.send_command
     entity_id: remote.living_room
     data_template:
@@ -161,12 +177,12 @@ bedroom_roku_sleep_22:
 bedroom_roku_sleep_44:
   alias: Bedroom Roku Sleep 44
   sequence:
-  - delay: '00:43:40'
+  - delay: '00:44:00'
   - service: broadlink.send
     data:
       host: '192.168.131.4'
       packet:
-      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+      - "JgBkAA8ABwsLAAjWDQAGiAABIZMRFBEUETgRFBITEhMRFBI3EhMSExAVERQQFBM3EDkROBITERQSExAUExIROBITExITNhI3EjgROBE4EBUROBE4EgAFQgABIEsRAAUMCgAJtAoADQUAAAAA"
   - service: remote.send_command
     entity_id: remote.living_room
     data_template:
@@ -176,12 +192,12 @@ bedroom_roku_sleep_44:
 bedroom_roku_sleep_66:
   alias: Bedroom Roku Sleep 66
   sequence:
-  - delay: '00:65:30'
+  - delay: '00:65:50'
   - service: broadlink.send
     data:
       host: '192.168.131.4'
       packet:
-      - "JgBQAAABI5ARFBAWDzkQFg8VEBUQFRA5EBUQFRAVEBUQFRA5EzYQORAVEBUQFRAVEBUQORAVEBUTNhA5EDkQORA5EBUQORA5EwAFQQABI0gSAA0FAAAAAAAAAAA="
+      - "JgBkAA8ABwsLAAjWDQAGiAABIZMRFBEUETgRFBITEhMRFBI3EhMSExAVERQQFBM3EDkROBITERQSExAUExIROBITExITNhI3EjgROBE4EBUROBE4EgAFQgABIEsRAAUMCgAJtAoADQUAAAAA"
   - service: remote.send_command
     entity_id: remote.living_room
     data_template:

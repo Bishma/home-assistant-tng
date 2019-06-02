@@ -1,0 +1,4 @@
+# "Entity attributes allows you to show basic attributes from multiple entities."
+# https://github.com/custom-cards/entity-attributes-card
+- url: /local/custom-lovelace/entity-attributes-card/entity-attributes-card.js?v=2
+  type: js
