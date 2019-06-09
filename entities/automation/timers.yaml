@@ -1,0 +1,47 @@
+- id: 'bedroom_sleep_timer_finished'
+  alias: Bedroom Sleep Timer Finished
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.bedroom_sleep
+  action:
+  - service: broadlink.send
+    data:
+      host: '192.168.131.4'
+      packet:
+      - "JgBkAA8ABwsLAAjWDQAGiAABIZMRFBEUETgRFBITEhMRFBI3EhMSExAVERQQFBM3EDkROBITERQSExAUExIROBITExITNhI3EjgROBE4EBUROBE4EgAFQgABIEsRAAUMCgAJtAoADQUAAAAA"
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Back
+      num_repeats: 1
+- id: 'bedroom_sleep_timer_paused'
+  alias: Bedroom Sleep Timer Paused
+  trigger:
+  - platform: event
+    event_type: timer.paused
+    event_data:
+      entity_id: timer.bedroom_sleep
+  action:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Pause
+      num_repeats: 1
+- id: 'bedroom_sleep_timer_restarted'
+  alias: Bedroom Sleep Timer Restarted
+  trigger:
+  - platform: event
+    event_type: timer.restarted
+    event_data:
+      entity_id: timer.bedroom_sleep
+  action:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 63164007
+      command: Play
+      num_repeats: 1

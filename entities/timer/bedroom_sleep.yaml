@@ -1,0 +1,4 @@
+bedroom_sleep:
+  name: Bedroom TV Sleep Timer
+  duration: '00:22:00'
+  icon: mdi:power-sleep

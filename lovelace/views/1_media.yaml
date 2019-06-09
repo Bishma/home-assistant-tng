@@ -814,15 +814,6 @@
       type: horizontal-stack
       cards:
       - type: entity-button
-        entity: script.bedroom_tv_power
-        name: "Off"
-        icon: mdi:power-plug-off
-        tap_action:
-          action: toggle
-        hold_action:
-          action: none
-        theme: danger
-      - type: entity-button
         entity: script.bedroom_roku_sleep_22
         name: 1 Bob
         icon: mdi:sleep
@@ -846,3 +837,42 @@
           action: toggle
         hold_action:
           action: none
+    - id: bedroom_sleep_timer
+      type: conditional
+      conditions:
+      - entity: timer.bedroom_sleep
+        state_not: idle
+      card:
+        type: entities
+        title: TV Activity
+        show_header_toggle: false
+        entities:
+          - type: call-service
+            icon: mdi:power-plug-off
+            name: Fuck-off to Sleep
+            action_name: "Off"
+            service: timer.finish
+            service_data:
+              entity_id: timer.bedroom_sleep
+          - entity: timer.bedroom_sleep
+          - type: call-service
+            icon: mdi:sleep-off
+            name: Cancel Timer
+            action_name: Cancel
+            service: timer.cancel
+            service_data:
+              entity_id: timer.bedroom_sleep
+          - type: call-service
+            icon: mdi:pause
+            name: Pause Timer & Roku
+            action_name: Pause
+            service: timer.pause
+            service_data:
+              entity_id: timer.bedroom_sleep
+          - type: call-service
+            icon: mdi:play
+            name: Resume Timer and Roku
+            action_name: Resume
+            service: timer.start
+            service_data:
+              entity_id: timer.bedroom_sleep
