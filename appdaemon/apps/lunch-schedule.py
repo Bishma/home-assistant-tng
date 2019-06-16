@@ -55,8 +55,12 @@ class Lunch(hass.Hass):
                 nextThree.append(lunchInfo["dateObj"].strftime("%A, %m/%d") + ": "+self.stripEmoji(lunchInfo["item"]))
                 nextCount+=1
         
+        lastUpdated = datetime.datetime.now()
+        lastUpdated = lastUpdated.strftime("%Y-%m-%d %H:%M:%S")
+
         self.set_state("sensor.janet_api_idx_lunch", state = sensorState, attributes = {
-            "nextThree": nextThree
+            "nextThree": nextThree,
+            "lastUpdated": lastUpdated
         })
     
     def stripEmoji(self, itemString):
