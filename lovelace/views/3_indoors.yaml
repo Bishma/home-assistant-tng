@@ -156,6 +156,7 @@
       type: history-graph
       title: Temperature (Last 12 Hours)
       hours_to_show: 12
+      refresh_interval: 300
       entities:
         - entity: sensor.netatmo_indoor_temperature
           name: Living Room Temp.
