@@ -38,21 +38,6 @@
         - entity: sensor.home_to_lincoln_city
           name: Home to Portland
           icon: mdi:beach
-      - type: entities
-        title: Transport
-        show_header_toggle: false
-        entities:
-        - entity: sensor.lyft_time
-          name: Lyft Pickup Time
-        - entity: sensor.lyft_xl_time
-          name: Lyft XL Pickup Time
-        - type: divider
-        - entity: sensor.uberx_time
-          name: Uber X Pickup Time
-          icon: mdi:uber
-        - entity: sensor.uberxl_time
-          name: Uber XL Pickup Time
-          icon: mdi:uber
     - id: ui_and_automation
       type: entities
       title: UI and Automation Controls

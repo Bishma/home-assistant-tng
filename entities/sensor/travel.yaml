@@ -1,13 +1,3 @@
-# Lyft and Uber
-- platform: lyft
-  client_id: !secret lyft_client_id
-  client_secret: !secret lyft_client_secret
-  start_latitude: !secret me_lat
-  start_longitude: !secret me_long
-- platform: uber
-  server_token: !secret uber_client_id
-  start_latitude: !secret me_lat
-  start_longitude: !secret me_long
 # Travel Times
 - platform: waze_travel_time
   name: Home to IDX
