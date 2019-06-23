@@ -1,0 +1,7 @@
+bedroom_ac_trigger_temp:
+  name: Daytime High Trigger
+  mode: slider
+  unit_of_measurement: °
+  min: 70
+  max: 85
+  step: 1

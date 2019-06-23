@@ -45,3 +45,9 @@
       entities:
         - entity: input_boolean.fan_out
         - entity: input_boolean.force_away_mode
+    - id: bedroom
+      type: entities
+      title: Bedroom
+      show_header_toggle: false
+      entities:
+        - entity: input_number.bedroom_ac_trigger_temp

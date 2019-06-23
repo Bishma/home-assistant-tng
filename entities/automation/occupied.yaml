@@ -7,9 +7,8 @@
   - condition: state
     entity_id: sensor.unoccupied_mode
     state: 'off'
-  - above: '80'
-    condition: numeric_state
-    entity_id: sensor.dark_sky_daytime_high_temperature_0d
+  - condition: template
+    value_template: "{{ states('sensor.dark_sky_daytime_high_temperature_0d') | int > states('bedroom_ac_trigger_temp') | int}}"
   action:
   - service: script.bedtime_ac_cool_auto
   - service: notify.general
@@ -17,7 +16,7 @@
       message: >
         Hi There,
 
-        It was over 80 degrees today and it looks like you're home, so I went ahead and turned the bedroom air-conditioner on for you. 
+        The high today was {{ states("sensor.dark_sky_daytime_high_temperature_0d") }} degrees and it looks like you're home, so I went ahead and turned the bedroom air-conditioner on for you. 
 - id: 'occupied_pre-dusk-tasks'
   alias: Pre-Dusk Tasks
   trigger:
