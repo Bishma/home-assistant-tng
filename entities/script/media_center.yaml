@@ -1,32 +1,4 @@
 # Scripts to allow universal remote
-kodi_delete:
-  alias: Delete
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51738178
-      command: "Delete"
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51738178
-      command: "DirectionLeft"
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51738178
-      command: "Enter"
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51738178
-      command: "DirectionLeft"
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51738178
-      command: "Enter"
 watch_activity:
   alias: Switch Activity
   sequence:

@@ -497,21 +497,6 @@
                       num_repeats: 1
                       device: 51738178
                       command: Windows
-                  - entity: input_boolean.enable_kodi_delete
-              - type: conditional
-                conditions:
-                  - entity: input_boolean.enable_kodi_delete
-                    state: "on"
-                card:
-                  type: entities
-                  entities:
-                    - type: call-service
-                      name: Delete
-                      action_name: Delete
-                      icon: mdi:trash-can
-                      service: script.kodi_delete
-                      service_data:
-                        entity_id: script.kodi_delete
         - id: activity-specific-roku-multi
           type: conditional
           conditions:
