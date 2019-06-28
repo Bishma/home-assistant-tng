@@ -8,7 +8,7 @@
     entity_id: sensor.unoccupied_mode
     state: 'off'
   - condition: template
-    value_template: "{{ states('sensor.dark_sky_daytime_high_temperature_0d') | int > states('bedroom_ac_trigger_temp') | int}}"
+    value_template: "{{ states('sensor.dark_sky_daytime_high_temperature_0d') | int > states('input_number.bedroom_ac_trigger_temp') | int }}"
   action:
   - service: script.bedtime_ac_cool_auto
   - service: notify.general
