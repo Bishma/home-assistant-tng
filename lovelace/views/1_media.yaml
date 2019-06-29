@@ -1077,9 +1077,9 @@
             service_data:
               entity_id: timer.bedroom_sleep
           - type: call-service
-          icon: mdi:play
-          name: Resume Timer and Roku
-          action_name: Resume
-          service: timer.start
-          service_data:
-            entity_id: timer.bedroom_sleep
+            icon: mdi:play
+            name: Resume Timer and Roku
+            action_name: Resume
+            service: timer.start
+            service_data:
+              entity_id: timer.bedroom_sleep
