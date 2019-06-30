@@ -1,7 +1,0 @@
-alexa:
-  filter:
-    include_entities:
-      - switch.jasco_products_12720_outdoor_smart_switch_switch
-  entity_config:
-    switch.jasco_products_12720_outdoor_smart_switch_switch:
-      name: Back Porch
