@@ -8,3 +8,6 @@ lunch_schedule:
 alexa:
   module: alexa
   class: Alexa
+log_bridge:
+  module: log_bridge
+  class: LogBridge
