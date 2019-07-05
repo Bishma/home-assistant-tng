@@ -337,8 +337,13 @@
                       hold_action:
                         action: none
         - id: media-button-row
-          type: horizontal-stack
-          cards:
+          type: conditional
+          conditions:
+            - entity: sensor.living_room_remote_state
+              state_not: PowerOff
+          card:
+            type: horizontal-stack
+            cards:
             - type: entity-button
               entity: script.media_pause
               name: Pause
