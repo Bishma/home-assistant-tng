@@ -62,22 +62,11 @@
     - id: bedroom-climate
       type: vertical-stack
       cards:
-      - type: entities
-        title: Bedroom
-        show_header_toggle: false
-        entities:
-        - type: call-service
-          name: "Bedroom AC: The Usual"
-          action_name: "Cool + Fan Auto"
-          icon: mdi:air-conditioner
-          service: script.bedtime_ac_cool_auto
-          service_data:
-            entity_id: script.bedtime_ac_cool_auto
       - type: horizontal-stack
         cards:
         - type: entity-button
           entity: script.bedtime_ac_power
-          name: Power Toggle
+          name: Power
           icon: mdi:power-plug-off
           theme: danger
           tap_action:
@@ -85,8 +74,16 @@
           hold_action:
             action: none
         - type: entity-button
+          entity: script.bedtime_ac_energy_saver
+          name: Eco
+          icon: mdi:tree
+          tap_action:
+            action: toggle
+          hold_action:
+            action: none
+        - type: entity-button
           entity: script.bedtime_ac_temp_timer_up
-          name: Temp/Timer Up
+          name: Temp
           icon: mdi:arrow-up-box
           tap_action:
             action: toggle
@@ -94,34 +91,16 @@
             action: none
         - type: entity-button
           entity: script.bedtime_ac_fan_faster
-          name: Fan Faster
+          name: Fan
           icon: mdi:arrow-up-thick
           tap_action:
             action: toggle
           hold_action:
             action: none
-      - type: horizontal-stack
-        cards:
         - type: entity-button
           entity: script.bedtime_ac_auto_fan
-          name: Fan Auto
+          name: Auto
           icon: mdi:fan
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_temp_timer_down
-          name: Temp/Timer Down
-          icon: mdi:arrow-down-box
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_fan_slower
-          name: Fan Slower
-          icon: mdi:arrow-down-thick
           tap_action:
             action: toggle
           hold_action:
@@ -130,23 +109,39 @@
         cards:
         - type: entity-button
           entity: script.bedtime_ac_cool
-          name: Cool Mode
+          name: Cool
           icon: mdi:air-conditioner
           tap_action:
             action: toggle
           hold_action:
             action: none
         - type: entity-button
-          entity: script.bedtime_ac_energy_saver
-          name: Energy Saver
-          icon: mdi:tree
+          entity: script.bedtime_ac_cool_auto
+          name: Eco/Auto
+          icon: mdi:air-conditioner
+          tap_action:
+            action: toggle
+          hold_action:
+            action: none
+        - type: entity-button
+          entity: script.bedtime_ac_temp_timer_down
+          name: Temp
+          icon: mdi:arrow-down-box
+          tap_action:
+            action: toggle
+          hold_action:
+            action: none
+        - type: entity-button
+          entity: script.bedtime_ac_fan_slower
+          name: Fan
+          icon: mdi:arrow-down-thick
           tap_action:
             action: toggle
           hold_action:
             action: none
         - type: entity-button
           entity: script.bedtime_ac_fan_only
-          name: Fan Only
+          name: Only
           icon: mdi:fan
           tap_action:
             action: toggle
