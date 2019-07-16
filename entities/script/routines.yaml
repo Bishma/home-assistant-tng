@@ -13,6 +13,8 @@ alexa_goodnight:
     entity_id: scene.living_room_bedtime
   - service: script.turn_on
     entity_id: script.bedroom_on_safety
+  - service: script.turn_on
+    entity_id: script.bedtime_ac_cool
   - delay: '00:02:00'
   - service: light.turn_on
     data:
