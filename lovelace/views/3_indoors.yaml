@@ -3,159 +3,159 @@
   icon: mdi:thermostat
   path: indoors
   cards:
-    - id: thermostat
-      type: thermostat
-      entity: climate.cottage
-    - id: living-room-stack
-      type: vertical-stack
+  - id: thermostat
+    type: thermostat
+    entity: climate.cottage
+  - id: living-room-stack
+    type: vertical-stack
+    cards:
+      - type: entities
+        title: Living Room
+        show_header_toggle: false
+        entities:
+          - entity: sensor.netatmo_indoor_temperature
+            name: Temperature
+            icon: mdi:thermometer
+          - entity: sensor.netatmo_indoor_humidity
+            name: Humidity
+            icon: mdi:water-percent
+          - entity: sensor.netatmo_indoor_pressure
+            name: Barametric Pressure
+            icon: mdi:gauge
+          - entity: sensor.netatmo_indoor_co2
+            name: CO2 PPM
+            icon: mdi:periodic-table-co2
+          - entity: sensor.netatmo_indoor_noise
+            name: Noise Level
+            icon: mdi:ear-hearing
+      - type: conditional
+        conditions:
+          - entity: input_boolean.fan_out
+            state: on
+        card:
+          type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: script.livingroom_fan_on
+              name: Fan Power
+              icon: mdi:fan
+              tap_action: toggle
+            - type: entity-button
+              entity: script.livingroom_fan_osc
+              name: Oscillate
+              icon: mdi:rotate-3d
+              tap_action: toggle
+            - type: entity-button
+              entity: script.livingroom_fan_speed
+              name: Speed
+              icon: mdi:speedometer
+              tap_action: toggle
+  - id: hallway-sensors
+    type: entities
+    title: Hallway
+    show_header_toggle: false
+    entities:
+      - entity: climate.cottage
+      - entity: sensor.cottage_humidity
+        name: Humidity
+        icon: mdi:water-percent
+  - id: bedroom-climate
+    type: vertical-stack
+    cards:
+    - type: horizontal-stack
       cards:
-        - type: entities
-          title: Living Room
-          show_header_toggle: false
-          entities:
-            - entity: sensor.netatmo_indoor_temperature
-              name: Temperature
-              icon: mdi:thermometer
-            - entity: sensor.netatmo_indoor_humidity
-              name: Humidity
-              icon: mdi:water-percent
-            - entity: sensor.netatmo_indoor_pressure
-              name: Barametric Pressure
-              icon: mdi:gauge
-            - entity: sensor.netatmo_indoor_co2
-              name: CO2 PPM
-              icon: mdi:periodic-table-co2
-            - entity: sensor.netatmo_indoor_noise
-              name: Noise Level
-              icon: mdi:ear-hearing
-        - type: conditional
-          conditions:
-            - entity: input_boolean.fan_out
-              state: on
-          card:
-            type: horizontal-stack
-            cards:
-              - type: entity-button
-                entity: script.livingroom_fan_on
-                name: Fan Power
-                icon: mdi:fan
-                tap_action: toggle
-              - type: entity-button
-                entity: script.livingroom_fan_osc
-                name: Oscillate
-                icon: mdi:rotate-3d
-                tap_action: toggle
-              - type: entity-button
-                entity: script.livingroom_fan_speed
-                name: Speed
-                icon: mdi:speedometer
-                tap_action: toggle
-    - id: hallway-sensors
-      type: entities
-      title: Hallway
-      show_header_toggle: false
-      entities:
-        - entity: climate.cottage
-        - entity: sensor.cottage_humidity
-          name: Humidity
-          icon: mdi:water-percent
-    - id: bedroom-climate
-      type: vertical-stack
+      - type: entity-button
+        entity: script.bedtime_ac_power
+        name: Power
+        icon: mdi:power-plug-off
+        theme: danger
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedtime_ac_energy_saver
+        name: Eco
+        icon: mdi:tree
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedtime_ac_temp_timer_up
+        name: Temp
+        icon: mdi:arrow-up-box
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedtime_ac_fan_faster
+        name: Fan
+        icon: mdi:arrow-up-thick
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedtime_ac_auto_fan
+        name: Auto
+        icon: mdi:fan
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+    - type: horizontal-stack
       cards:
-      - type: horizontal-stack
-        cards:
-        - type: entity-button
-          entity: script.bedtime_ac_power
-          name: Power
-          icon: mdi:power-plug-off
-          theme: danger
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_energy_saver
-          name: Eco
-          icon: mdi:tree
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_temp_timer_up
-          name: Temp
-          icon: mdi:arrow-up-box
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_fan_faster
-          name: Fan
-          icon: mdi:arrow-up-thick
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_auto_fan
-          name: Auto
-          icon: mdi:fan
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-      - type: horizontal-stack
-        cards:
-        - type: entity-button
-          entity: script.bedtime_ac_cool
-          name: Cool
-          icon: mdi:air-conditioner
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_cool_auto
-          name: Eco/Auto
-          icon: mdi:air-conditioner
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_temp_timer_down
-          name: Temp
-          icon: mdi:arrow-down-box
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_fan_slower
-          name: Fan
-          icon: mdi:arrow-down-thick
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedtime_ac_fan_only
-          name: Only
-          icon: mdi:fan
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-    - id: indoor-outdoor-temperature-graph
+      - type: entity-button
+        entity: script.bedtime_ac_cool
+        name: Cool
+        icon: mdi:air-conditioner
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedtime_ac_cool_auto
+        name: Eco/Auto
+        icon: mdi:air-conditioner
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedtime_ac_temp_timer_down
+        name: Temp
+        icon: mdi:arrow-down-box
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedtime_ac_fan_slower
+        name: Fan
+        icon: mdi:arrow-down-thick
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+      - type: entity-button
+        entity: script.bedtime_ac_fan_only
+        name: Only
+        icon: mdi:fan
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+  - id: indoor-outdoor-temperature-graph
       type: history-graph
       title: Temperature (Last 12 Hours)
       hours_to_show: 12
       refresh_interval: 300
       entities:
-        - entity: sensor.netatmo_indoor_temperature
-          name: Living Room Temp.
-        - entity: sensor.netatmo_outdoor_temperature
-          name: Outdoor Temp.
-        - entity: sensor.cottage_temperature
-          name: Hallway Temp.
+      - entity: sensor.netatmo_indoor_temperature
+        name: Living Room Temp.
+      - entity: sensor.netatmo_outdoor_temperature
+        name: Outdoor Temp.
+      - entity: sensor.cottage_temperature
+        name: Hallway Temp.
