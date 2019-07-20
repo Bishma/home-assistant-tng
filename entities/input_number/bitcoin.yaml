@@ -1,0 +1,12 @@
+bitcoin_average_cost:
+  name: Bitcoin Average Cost
+  min: 5000
+  max: 10000
+  mode: box
+  icon: mdi:currency-usd
+bitcoin_quantity:
+  name: Bitcoins Owned
+  min: 0
+  max: 1
+  mode: box
+  icon: mdi:bitcoin

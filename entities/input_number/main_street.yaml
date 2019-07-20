@@ -1,0 +1,12 @@
+main_street_average_cost:
+  name: Main Street Ave. Cost
+  min: 0
+  max: 50
+  mode: box
+  icon: mdi:currency-usd
+main_street_shared_owned:
+  name: Main Street Shares
+  min: 0
+  max: 50
+  mode: box
+  icon: mdi:finance

@@ -2,6 +2,11 @@
   title: Work
   icon: mdi:office-building
   path: work
+  badges:
+  - sensor.p_and_l
+  - sensor.combined_current_value
+  - sensor.bitcoin_current_value
+  - sensor.main_street_current_value
   cards:
     - id: idx-climate
       type: entities
@@ -13,10 +18,33 @@
       type: vertical-stack
       cards:
       - type: history-graph
+        title: Bitcoin Last Week
+        hours_to_show: 168
+        entities:
+        - sensor.exchange_rate_1_btc
+      - type: history-graph
+        title: Main-Street Last Week
+        hours_to_show: 168
+        entities:
+        - sensor.main_street
+    - id: financials-inputs
+      type: vertical-stack
+      cards:
+      - type: entities
+        title: Holdings
+        show_header_toggle: false
+        entities:
+        - entity: input_number.main_street_shared_owned
+        - entity: input_number.main_street_average_cost
+        - entity: input_number.bitcoin_quantity
+        - entity: input_number.bitcoin_average_cost
+      - type: history-graph
         title: How's the laptop fund doing?
         hours_to_show: 72
         entities:
-        - sensor.exchange_rate_1_btc
+        - sensor.combined_current_value
+        - sensor.bitcoin_current_value
+        - sensor.main_street_current_value
     #- id: idx-lunch
     #  type: custom:list-item-card
     #  title: IDX Lunch

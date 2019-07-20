@@ -82,6 +82,39 @@
       entity_id: remote.living_room
       value_template: '{{ states.remote.living_room.attributes.current_activity }}'
       friendly_name: 'Current Activity:'
+    # Money Math
+    bitcoin_current_value:
+      entity_id: 
+       - sensor.exchange_rate_1_btc
+       - input_number.bitcoin_quantity
+      value_template: '{{ (states("sensor.exchange_rate_1_btc") | float * states("input_number.bitcoin_quantity") | float) | round(2) }}'
+      friendly_name: BTC Position
+      unit_of_measurement: USD
+    combined_current_value:
+      entity_id:
+      - sensor.main_street_current_value
+      - sensor.bitcoin_current_value
+      value_template: '{{ (states("sensor.bitcoin_current_value") | float + states("sensor.main_street_current_value") | float) | round(2) }}'
+      friendly_name: Total Postion
+      unit_of_measurement: USD
+    main_street_current_value:
+      entity_id:
+      - sensor.main_street
+      - input_number.main_street_shared_owned
+      value_template: '{{ (states("sensor.main_street") | float * states("input_number.main_street_shared_owned") | float) | round(2) }}'
+      friendly_name: MAIN Postion
+      unit_of_measurement: USD
+    p_and_l:
+      entity_id:
+      - sensor.main_street
+      - input_number.main_street_shared_owned
+      - input_number.main_street_average_cost
+      - sensor.exchange_rate_1_btc
+      - input_number.bitcoin_quantity
+      - input_number.bitcoin_average_cost
+      value_template: '{{ ((states("sensor.main_street") | float * states("input_number.main_street_shared_owned") | float) - (states("input_number.main_street_average_cost") | float * states("input_number.main_street_shared_owned") | float) + (states("sensor.exchange_rate_1_btc") | float * states("input_number.bitcoin_quantity") | float) - (states("input_number.bitcoin_average_cost") | float * states("input_number.bitcoin_quantity") | float)) | round(2) }}'
+      friendly_name: P&L
+      unit_of_measurement: USD
     # Simple bool for decided if the house is empty of residents
     unoccupied_mode:
       entity_id:
