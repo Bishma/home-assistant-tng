@@ -3,4 +3,4 @@
 logger:
   default: warning
   logs:
-    homeassistant.components.python_script.log.py: info
+    homeassistant.components.python_script.log.py: debug

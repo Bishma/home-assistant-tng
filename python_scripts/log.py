@@ -7,11 +7,11 @@ if not message:
   logger.error('No message provided')
 
 # Send to the appropriate log level
-received_level = str(data.get('level')).lower
+received_level = str(data.get('level')).lower()
 if received_level == 'debug':
   logger.debug(message)
-elif received_level == 'warn':
-  logger.warn(message)
+elif received_level == 'warning':
+  logger.warning(message)
 elif received_level == 'error':
   logger.error(message)
 else:
