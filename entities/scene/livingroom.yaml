@@ -8,7 +8,7 @@
       state: 'off'
     light.love_seat_up:
       state: 'off'
-    group.diningroom:
+    group.dining_room:
       state: 'off'
     script.media_off:
       state: 'on' # it's a script, so it turns on even though its urning things offs

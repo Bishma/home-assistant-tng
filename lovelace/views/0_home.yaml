@@ -21,7 +21,7 @@
       type: entities
       title: Dining Room
       entities:
-      - entity: group.diningroom
+      - entity: group.dining_room
         name: Dining Room
         icon: mdi:silverware
     - id: kitchen_controls

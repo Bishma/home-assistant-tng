@@ -1,4 +1,4 @@
-diningroom:
+dining_room:
   name: Dining Room
   entities:
   - light.dr1

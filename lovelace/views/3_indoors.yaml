@@ -148,14 +148,14 @@
         hold_action:
           action: none
   - id: indoor-outdoor-temperature-graph
-      type: history-graph
-      title: Temperature (Last 12 Hours)
-      hours_to_show: 12
-      refresh_interval: 300
-      entities:
-      - entity: sensor.netatmo_indoor_temperature
-        name: Living Room Temp.
-      - entity: sensor.netatmo_outdoor_temperature
-        name: Outdoor Temp.
-      - entity: sensor.cottage_temperature
-        name: Hallway Temp.
+    type: history-graph
+    title: Temperature (Last 12 Hours)
+    hours_to_show: 12
+    refresh_interval: 300
+    entities:
+    - entity: sensor.netatmo_indoor_temperature
+      name: Living Room Temp.
+    - entity: sensor.netatmo_outdoor_temperature
+      name: Outdoor Temp.
+    - entity: sensor.cottage_temperature
+      name: Hallway Temp.
