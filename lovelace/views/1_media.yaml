@@ -463,16 +463,6 @@
                       device: 51738178
                       command: Ctrl+Alt+3
                   - type: call-service
-                    name: Fix Kodi
-                    action_name: Ctrl+Alt+3
-                    icon: mdi:kodi
-                    service: remote.send_command
-                    service_data:
-                      entity_id: remote.living_room
-                      num_repeats: 1
-                      device: 51738178
-                      command: Ctrl+Alt+3
-                  - type: call-service
                     name: Kodi Power / Shutdown Menu
                     action_name: Power
                     icon: mdi:power-standby
