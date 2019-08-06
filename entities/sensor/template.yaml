@@ -82,6 +82,12 @@
       entity_id: remote.living_room
       value_template: '{{ states.remote.living_room.attributes.current_activity }}'
       friendly_name: 'Current Activity:'
+    # Attribute -> state
+    outdoor_pressure:
+      entity_id:  sensor.waqi_eugene_highway_99_oregon_usa
+      value_template: '{{ states.sensor.waqi_eugene_highway_99_oregon_usa.attributes.pressure }}'
+      friendly_name: 'Outdoor Pressure'
+      unit_of_measurement: mbar
     # Money Math
     bitcoin_current_value:
       entity_id: 
