@@ -1,0 +1,4 @@
+# A different take on the thermostat card for Home Assistant Lovelace UI.
+# https://github.com/nervetattoo/simple-thermostat
+- url: /community_plugin/simple-thermostat/simple-thermostat.js
+  type: module
