@@ -2,10 +2,7 @@
   alias: Temperatures Equal
   trigger:
   - platform: template
-    value_template: >
-      {% if states('sensor.cottage_temperature') | round == states('sensor.netatmo_outdoor_temperature') | round %}
-        true
-      {% endif %}
+    value_template: "{{ states('sensor.cottage_temperature') | round == states('sensor.netatmo_outdoor_temperature') | round }}"
   condition: 
     - condition: template
       value_template: '{{ as_timestamp(now()) | int - as_timestamp(states.automation.temperatures_equal.attributes.last_triggered) | int > 21600 }}'
@@ -15,7 +12,7 @@
         Hi There,
 
         Indoor and outdoor temperatures have equalized at {{ states("sensor.netatmo_outdoor_temperature") }} degrees. Inside the humidity is {{ states("sensor.netatmo_indoor_humidity") }}%. Outdoor humidity is {{ states("sensor.netatmo_outdoor_humidity") }}%.
-    service: notify.general
+    service: notify.reports
 - id: notification_nws-weather-alert
   alias: NWS Notification Weather Alert
   trigger:
@@ -39,7 +36,7 @@
           {{ state_attr('sensor.nws_alert_event', 'features')[i].properties.headline }}
           {{ state_attr('sensor.nws_alert_event', 'features')[i].properties.description }}
         {% endfor %}
-    service: notify.general
+    service: notify.reports
 - id: notification_hass-update
   alias: Home Assistant Update Notification
   trigger:
@@ -53,4 +50,37 @@
         Hi There,
 
         I am out of date. I am currently version {{ states("sensor.current_version") }} and {{ states("updater.updater") }} is now available. You should be able to find more information by visiting https://www.home-assistant.io/blog/
-    service: notify.general
+    service: notify.reports
+- id: notification_btc-buy
+  alias: BTC buy
+  trigger:
+  - platform: template
+    value_template: "{{ states('sensor.exchange_rate_1_btc') | float <= states('input_number.bitcoin_average_cost') | float }}"
+  condition: 
+    - condition: template
+      value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.btc_buy.attributes.last_triggered) | int > 3600 }}"
+  action:
+  - data_template:
+      message: >
+        Hi There,
+
+        Bitcoin has fallen below your current average price. It is currently at {{ states("sensor.exchange_rate_1_btc") }}. Consider buying.
+    service: notify.reports
+- id: notification_main-buy
+  alias: MAIN buy
+  trigger:
+  - platform: template
+    value_template: "{{ states('sensor.main_street') | float <= states('input_number.main_street_average_cost') | float }}"
+  condition: 
+    - condition: template
+      value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.main_buy.attributes.last_triggered) | int > 21600 }}"
+  action:
+  - data_template:
+      message: >
+        Hi There,
+
+        Main Street Financial has fallen below your current average price. It is currently at {{ states("sensor.main_street") }}. Consider buying.
+    service: notify.reports
+#bitcoin buy
+#bitcoin sell
+#ms buy

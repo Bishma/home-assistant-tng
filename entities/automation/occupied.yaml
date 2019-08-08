@@ -11,7 +11,7 @@
     value_template: "{{ states('sensor.dark_sky_daytime_high_temperature_0d') | int > states('input_number.bedroom_ac_trigger_temp') | int }}"
   action:
   - service: script.bedtime_ac_cool_auto
-  - service: notify.general
+  - service: notify.reports
     data:
       message: >
         Hi There,

@@ -21,7 +21,7 @@
   action:
   - data:
       message: It looks like you may have left your work with your heater on.
-    service: notify.general
+    service: notify.reports
 #- id: letsencrypt-renewal
 #  alias: "Let's Encrypt Renewal"
 #  trigger:
