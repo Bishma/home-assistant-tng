@@ -214,3 +214,12 @@ media_input3:
       device: 51736886
       command: InputHdmi3
       num_repeats: 1
+media_cr_break:
+  alias: 15 Min. FF
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data:
+      device: 51736885
+      command: FastForward
+      num_repeats: 90
