@@ -156,7 +156,7 @@
     # WAQI States
     waqi_state:
       entity_id: sensor.waqi_eugene_wilkes_drive_oregon_usa
-      friendly_name: Santa Clara Air Quality
+      friendly_name: Air Quality
       value_template: >
         {% if states('sensor.waqi_eugene_wilkes_drive_oregon_usa') | int < 51 %}
           good
