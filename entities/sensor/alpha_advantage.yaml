@@ -5,3 +5,7 @@
   symbols:
   - symbol: MAIN
     name: Main Street
+  foreign_exchange:
+  - from: BTC
+    to: USD
+    name: Bitcoin
