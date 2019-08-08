@@ -1,0 +1,4 @@
+# "A minimalistic and customizable graph card for Home Assistant Lovelace UI."
+# https://github.com/kalkih/mini-graph-card
+- url: /community_plugin/mini-graph-card/mini-graph-card.js
+  type: module
