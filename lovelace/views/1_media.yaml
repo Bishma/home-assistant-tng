@@ -510,13 +510,13 @@
             entities:
               - type: call-service
                 name: Fix Input
-                action_name: HDMI 3
+                action_name: HDMI 2
                 icon: mdi:video-input-hdmi
                 service: remote.send_command
                 service_data:
                   entity_id: remote.living_room
                   device: 51736886
-                  command: InputHdmi3
+                  command: InputHdmi2
                   num_repeats: 1
               - type: call-service
                 name: Sound Bar Power
@@ -648,36 +648,6 @@
                   num_repeats: 1
                   device: 51736886
                   command: Exit
-        - id: activity-specific-switch
-          type: conditional
-          show_header_toggle: false
-          conditions:
-            - entity: sensor.living_room_remote_state
-              state: Play Switch
-          card:
-            type: entities
-            title: Switch Tools
-            entities:
-              - type: call-service
-                name: Fix Input
-                action_name: Input TV
-                icon: mdi:video-input-hdmi
-                service: remote.send_command
-                service_data:
-                  entity_id: remote.living_room
-                  device: 51736886
-                  command: HDMI2
-                  num_repeats: 1
-              - type: call-service
-                name: Sound Bar Power
-                action_name: Toggle
-                icon: mdi:speaker
-                service: remote.send_command
-                service_data:
-                  entity_id: remote.living_room
-                  device: 60888940
-                  command: PowerToggle
-                  num_repeats: 1
         - id: activity-specific-music
           type: conditional
           show_header_toggle: false
@@ -710,86 +680,10 @@
                   num_repeats: 1
     - id: activity-choice
       type: entities
-      title: Living Room TV Activity
+      title: Change TV Activity
       show_header_toggle: false
       entities:
-        - type: call-service
-          icon: mdi:kodi
-          name: Kodi
-          action_name: Watch
-          service: remote.turn_on
-          service_data:
-            entity_id: remote.living_room
-            activity: 31479535
-        - type: call-service
-          icon: mdi:hulu
-          name: Hulu
-          action_name: Watch
-          service: remote.turn_on
-          service_data:
-            entity_id: remote.living_room
-            activity: 31949557
-        - type: call-service
-          icon: mdi:netflix
-          name: Netflix
-          action_name: Watch
-          service: remote.turn_on
-          service_data:
-            entity_id: remote.living_room
-            activity: 31478989
-        - type: call-service
-          icon: mdi:amazon
-          name: Amazon
-          action_name: Watch
-          service: remote.turn_on
-          service_data:
-            entity_id: remote.living_room
-            activity: 31480109
-        - type: call-service
-          icon: mdi:plex
-          name: Plex
-          action_name: Watch
-          service: remote.turn_on
-          service_data:
-            entity_id: remote.living_room
-            activity: 31571897
-        - type: call-service
-          icon: mdi:youtube
-          name: Youtube
-          action_name: Watch
-          service: remote.turn_on
-          service_data:
-            entity_id: remote.living_room
-            activity: 33323580
-        - type: call-service
-          icon: mdi:nintendo-switch
-          name: Nintendo Switch
-          action_name: Play
-          service: remote.turn_on
-          service_data:
-            entity_id: remote.living_room
-            activity: 31480190
-        - type: call-service
-          icon: mdi:television-classic
-          name: Over The Air
-          action_name: Watch
-          service: remote.turn_on
-          service_data:
-            entity_id: remote.living_room
-            activity: 31480260
-        - type: call-service
-          icon: mdi:music
-          name: Music
-          action_name: Listen
-          service: remote.turn_on
-          service_data:
-            entity_id: remote.living_room
-            activity: 38156985
-        - type: divider
-        - type: weblink
-          name: Plex Web Player
-          url: https://app.plex.tv/desktop
-          icon: mdi:link-variant
+        - entity: input_select.media_switch
     - id: bedroom-controls
       type: vertical-stack
       cards:
