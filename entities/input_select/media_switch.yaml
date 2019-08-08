@@ -1,0 +1,14 @@
+# Input method for changing Harmony activites
+media_switch:
+  name: Living Room Activity
+  icon: mdi:television-play
+  options:
+  - Kodi
+  - Hulu
+  - Netflix
+  - Youtube
+  - Amazon
+  - Plex
+  - Over the Air
+  - Listen To Music
+  - 'Off'
