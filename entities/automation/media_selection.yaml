@@ -1,0 +1,62 @@
+- id: 'update_media_input_select'
+  alias: Update the Media Input Select
+  trigger:
+  - platform: state
+    entity_id: sensor.living_room_remote_state
+  action:
+  - service: input_select.select_option
+    data_template:
+     entity_id: input_select.media_switch
+     option: >
+      {%- if is_state("sensor.living_room_remote_state", "Watch Kodi") -%}
+        Kodi
+      {%- elif is_state("sensor.living_room_remote_state", "Watch Hulu") -%}
+        Hulu
+      {%- elif is_state("sensor.living_room_remote_state", "Watch Netflix") -%}
+        Netflix
+      {%- elif is_state("sensor.living_room_remote_state", "Youtube") -%}
+        Youtube
+      {%- elif is_state("sensor.living_room_remote_state", "Watch Amazon") -%}
+        Amazon
+      {%- elif is_state("sensor.living_room_remote_state", "Watch Plex") -%}
+        Plex
+      {%- elif is_state("sensor.living_room_remote_state", "Play Switch") -%}
+        Nintendo Switch
+      {%- elif is_state("sensor.living_room_remote_state", "Watch OTA") -%}
+        Over the Air
+      {%- elif is_state("sensor.living_room_remote_state", "Listen to Music") -%}
+        Listen To Music
+      {%- else -%}
+        Off
+      {%- endif -%}
+- id: 'media_input_select_change_handler'
+  alias: Change Activity Based on Input Select
+  trigger:
+  - platform: state
+    entity_id: input_select.media_switch
+  action:
+  - service: remote.turn_on
+    data_template:
+      entity_id: remote.living_room
+      activity: >
+        {%- if is_state("input_select.media_switch", "Kodi") -%}
+          31479535
+        {%- elif is_state("input_select.media_switch", "Hulu") -%}
+          31949557
+        {%- elif is_state("input_select.media_switch", "Netflix") -%}
+          31478989
+        {%- elif is_state("input_select.media_switch", "Youtube") -%}
+          33323580
+        {%- elif is_state("input_select.media_switch", "Amazon") -%}
+          31480109
+        {%- elif is_state("input_select.media_switch", "Plex") -%}
+          31571897
+        {%- elif is_state("input_select.media_switch", "Nintendo Switch") -%}
+          31480190
+        {%- elif is_state("input_select.media_switch", "Over the Air") -%}
+          31480260
+        {%- elif is_state("input_select.media_switch", "Listen To Music") -%}
+          38156985
+        {%- else -%}
+          -1
+        {%- endif -%}
