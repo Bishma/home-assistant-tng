@@ -24,7 +24,7 @@ class Lunch(hass.Hass):
     def fetchMenu(self):
         # @TODO handle get errors
         # @TODO handle unexpected data from api
-        r = requests.get(self.get_state("sensor.appdaemon_lunch_api_endpoint"))
+        r = requests.get(self.get_state("input_text.appdaemon_lunch_api_endpoint"))
         lunchJson = r.json()
         return lunchJson
     
