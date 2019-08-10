@@ -568,6 +568,13 @@
                   num_repeats: 1
                   device: 51736885
                   command: FastForward
+              - type: call-service
+                name: Critical Role - Skip Break
+                action_name: '>>>>'
+                icon: mdi:fast-forward-outline
+                service: script.turn_on
+                service_data:
+                  entity_id: script.media_cr_break
         - id: activity-specific-ota
           type: conditional
           show_header_toggle: false
