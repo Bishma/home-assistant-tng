@@ -1,6 +1,4 @@
 - name: Bedroom Bedtime
   entities:
-    switch.bonnie_bedroom_lamp:
-      state: 'on'
     switch.derek_bedroom_lamp:
       state: 'on'
