@@ -72,6 +72,25 @@
           off
         {% endif %}
       friendly_name: 'Current Media Device ID'
+    # First Alert smoke detector translation
+    garage_smoke_detector_status:
+      friendly_name: 'Garage Smoke Detector Status'
+      value_template: >-
+        {% if is_state("sensor.first_alert_brk_brands_inc_zcombo_smoke_and_carbon_monoxide_detector_alarm_level", "255") and is_state("sensor.first_alert_brk_brands_inc_zcombo_smoke_and_carbon_monoxide_detector_alarm_type", "1")%}
+          smoke
+        {% elif is_state("sensor.first_alert_brk_brands_inc_zcombo_smoke_and_carbon_monoxide_detector_alarm_level", "255") and is_state("sensor.first_alert_brk_brands_inc_zcombo_smoke_and_carbon_monoxide_detector_alarm_type", "2")%}
+          co
+        {% else %}
+          idle
+        {% endif %}
+      icon_template: >-
+        {% if is_state("sensor.first_alert_brk_brands_inc_zcombo_smoke_and_carbon_monoxide_detector_alarm_level", "255") and is_state("sensor.first_alert_brk_brands_inc_zcombo_smoke_and_carbon_monoxide_detector_alarm_type", "1")%}
+          mdi:fire
+        {% elif is_state("sensor.first_alert_brk_brands_inc_zcombo_smoke_and_carbon_monoxide_detector_alarm_level", "255") and is_state("sensor.first_alert_brk_brands_inc_zcombo_smoke_and_carbon_monoxide_detector_alarm_type", "2")%}
+          mdi:cloud-outline
+        {% else %}
+          mdi:smoke-detector
+        {% endif %}
     # Harmony current activity
     living_room_remote_state:
       entity_id: remote.living_room

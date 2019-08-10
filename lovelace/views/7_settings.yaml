@@ -6,6 +6,7 @@
     - sun.sun
     - sensor.unoccupied_mode
     - sensor.nws_alert_count
+    - sensor.garage_smoke_detector_status
   cards:
     - id: location-stack
       type: vertical-stack

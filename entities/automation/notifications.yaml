@@ -81,6 +81,19 @@
 
         Main Street Financial has fallen below your current average price. It is currently at {{ states("sensor.main_street") }}. Consider buying.
     service: notify.reports
-#bitcoin buy
-#bitcoin sell
-#ms buy
+- id: notification_garage-smoke-co
+  alias: Garage Smoke / Carbon Monoxide
+  trigger:
+  - platform: state
+    entity_id: sensor.garage_smoke_detector_status
+    to: smoke
+  - platform: state
+    entity_id: sensor.garage_smoke_detector_status
+    to: co
+  action:
+  - data_template:
+      message: >
+        Hi, there! We have a Category 55 Emergency Doomsday Crisis.
+
+        The smoke detector in the garage has detected {{ states("sensor.garage_smoke_detector_status") }} and I suggest something be done about it quickly. Here is a link to the camera page so you can look at things. https://{{ states("input_text.hass_url") }}/lovelace/cameras
+    service: notify.reports
