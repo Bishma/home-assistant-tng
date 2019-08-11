@@ -140,17 +140,34 @@
       entity_id:
         - device_tracker.tile_a8b3ea596f9b44fd
         - device_tracker.tile_4c66b3d3606d440e
-        - input_boolean.force_away_mode
-      friendly_name: 'Unoccuped Mode'
+        - input_select.occupation_override
+      friendly_name: 'Presence Detection'
       value_template: >
-        {% if is_state("input_boolean.force_away_mode", "on") %}
-          on
-        {% elif is_state("device_tracker.tile_a8b3ea596f9b44fd", "home")
-          or is_state("device_tracker.tile_4c66b3d3606d440e", "home") %}
-          off
-        {% else %}
-          on
-        {% endif %}
+        {%- if states("input_select.occupation_override") != "Automatic" -%}
+          {{ states("input_select.occupation_override") }}
+        {%- elif is_state("device_tracker.tile_a8b3ea596f9b44fd", "home")
+          or is_state("device_tracker.tile_4c66b3d3606d440e", "home") -%}
+          Occupied
+        {%- else -%}
+          Unoccupied
+        {%- endif -%}
+      icon_template: >
+        {% set icons = {
+          "Occupied": "mdi:account-group",
+          "Unoccupied": "mdi:account-group-outline"
+        } %}
+        {%- if states("input_select.occupation_override") != "Automatic" -%}
+          {%- if is_states("input_select.occupation_override", "Occupied") -%}
+            {{ icons.Occupied }}
+          {%- else -%}
+            {{ icons.Unoccupied }}
+          {%- endif -%}
+        {%- elif is_state("device_tracker.tile_a8b3ea596f9b44fd", "home")
+          or is_state("device_tracker.tile_4c66b3d3606d440e", "home") -%}
+          {{ icons.Occupied }}
+        {%- else -%}
+          {{ icons.Unoccupied }}
+        {%- endif -%}
     # Home Assistant Updates Available
     update_available:
       friendly_name: "An update is available"

@@ -1,0 +1,8 @@
+# For the times when presence detection breaks
+occupation_override:
+  name: Force Occupation Setting
+  icon: mdi:account-group
+  options:
+  - Automatic
+  - Occupied
+  - Unoccupied

@@ -1,7 +1,3 @@
-# We can force all our away mode automations even if trackers get left home
-force_away_mode:
-  name: Force Unoccupied Mode?
-  icon: mdi:home-minus
 # Used as a geo-fence based reminder to turn my space heater off before I leave work
 idx_heater_on:
   name: Heater On

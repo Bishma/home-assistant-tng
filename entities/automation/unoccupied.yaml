@@ -7,7 +7,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: 'on'
+    state: Unoccupied
   action:
   - service: light.turn_on
     data:
@@ -23,7 +23,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: 'on'
+    state: Unoccupied
   action:
   - service: light.turn_on
     data:
@@ -38,7 +38,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: 'on'
+    state: Unoccupied
   action:
   - service: switch.turn_on
     data:
@@ -57,7 +57,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: 'on'
+    state: Unoccupied
   action:
   - service: switch.turn_off
     data:

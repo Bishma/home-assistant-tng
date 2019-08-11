@@ -45,7 +45,7 @@
       show_header_toggle: false
       entities:
         - entity: input_boolean.fan_out
-        - entity: input_boolean.force_away_mode
+        - entity: input_select.occupation_override
     - id: bedroom
       type: entities
       title: Bedroom

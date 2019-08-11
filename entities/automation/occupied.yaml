@@ -6,7 +6,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: 'off'
+    state: Occupied
   - condition: template
     value_template: "{{ states('sensor.dark_sky_daytime_high_temperature_0d') | int > states('input_number.bedroom_ac_trigger_temp') | int }}"
   action:
@@ -26,7 +26,7 @@
   condition:
   - condition: state
     entity_id: sensor.unoccupied_mode
-    state: 'off'
+    state: Occupied
   action:
   - service: switch.turn_on
     data:
