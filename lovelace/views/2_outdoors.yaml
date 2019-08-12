@@ -73,14 +73,13 @@
           show_name: false
           show_state: false
           state_image:
-            "good": /local/air-quality/good.jpg
-            "moderate": /local/air-quality/moderate.jpg
-            "unhealthy-1": /local/air-quality/unhealthy-1.jpg
-            "unhealthy-2": /local/air-quality/unhealthy-2.jpg
-            "unhealthy-3": /local/air-quality/unhealthy-3.jpg
-            "hazardous": /local/air-quality/hazardous.jpg
-            "unknown": /local/air-quality/unknown.jpg
-        - type: entities
+            "Good": /local/air-quality/good.jpg
+            "Moderate": /local/air-quality/moderate.jpg
+            "Unhealthy for Sensitive Groups": /local/air-quality/unhealthy-1.jpg
+            "Unhealthy": /local/air-quality/unhealthy-2.jpg
+            "Very Unhealthy": /local/air-quality/unhealthy-3.jpg
+            "Hazardous": /local/air-quality/hazardous.jpg
+            "Unknown": /local/air-quality/unknown.jpg
           entities:
             - entity: sensor.waqi_eugene_wilkes_drive_oregon_usa
               name: West Eugene Air Quality
