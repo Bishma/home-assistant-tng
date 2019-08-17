@@ -1,0 +1,4 @@
+# "Vertical Stack In Card allows you to group multiple cards in one card."
+# https://github.com/custom-cards/vertical-stack-in-card
+- url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+  type: js
