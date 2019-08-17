@@ -14,19 +14,36 @@
       show_header_toggle: false
       entities:
       - entity: input_boolean.idx_heater_on
+    - id: holdings
+      type: 'custom:mini-graph-card'
+      name: Holdings
+      icon: mdi:currency-usd
+      hours_to_show: 36
+      points_per_hour: 30
+      line_width: 4
+      show:
+        fill: false
+      entities:
+      - entity: sensor.combined_current_value
+        name: Combined
+      - entity: sensor.bitcoin_current_value
+        name: BTC
+      - entity: sensor.main_street_current_value
+        name: MAIN
     - id: financials
-      type: vertical-stack
-      cards:
-      - type: history-graph
-        title: Bitcoin Last Week
-        hours_to_show: 168
-        entities:
-        - sensor.exchange_rate_1_btc
-      - type: history-graph
-        title: Main-Street Last Week
-        hours_to_show: 168
-        entities:
-        - sensor.main_street
+      type: 'custom:mini-graph-card'
+      name: Assets
+      hours_to_show: 168
+      points_per_hour: 12
+      line_width: 4
+      show:
+        fill: false
+      entities:
+      - entity: sensor.exchange_rate_1_btc
+        name: BTC
+      - entity: sensor.main_street
+        name: MAIN
+        y_axis: secondary
     - id: financials-inputs
       type: vertical-stack
       cards:
@@ -38,13 +55,6 @@
         - entity: input_number.main_street_average_cost
         - entity: input_number.bitcoin_quantity
         - entity: input_number.bitcoin_average_cost
-      - type: history-graph
-        title: How's the laptop fund doing?
-        hours_to_show: 72
-        entities:
-        - sensor.combined_current_value
-        - sensor.bitcoin_current_value
-        - sensor.main_street_current_value
     #- id: idx-lunch
     #  type: custom:list-item-card
     #  title: IDX Lunch
