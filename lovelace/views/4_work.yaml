@@ -14,6 +14,13 @@
       show_header_toggle: false
       entities:
       - entity: input_boolean.idx_heater_on
+    - id: idx-lunch
+      type: custom:list-item-card
+      title: IDX Lunch
+      entity: sensor.janet_api_idx_lunch
+      attribute: nextThree
+      max_length: 3
+      icon: mdi:food-fork-drink
     - id: holdings
       type: 'custom:mini-graph-card'
       name: Holdings
@@ -55,10 +62,3 @@
         - entity: input_number.main_street_average_cost
         - entity: input_number.bitcoin_quantity
         - entity: input_number.bitcoin_average_cost
-    #- id: idx-lunch
-    #  type: custom:list-item-card
-    #  title: IDX Lunch
-    #  entity: sensor.janet_api_idx_lunch
-    #  attribute: nextThree
-    #  max_length: 3
-    #  icon: mdi:food-fork-drink
