@@ -11,6 +11,8 @@ alexa_goodnight:
   sequence:
   - service: scene.turn_on
     entity_id: scene.living_room_bedtime
+  - service: scene.turn_on
+    entity_id: scene.exterior_bedtime
   - service: script.turn_on
     entity_id: script.bedroom_on_safety
   - service: script.turn_on
