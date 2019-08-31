@@ -31,15 +31,15 @@
       show:
         fill: false
       entities:
-      - entity: sensor.combined_current_value
-        name: Combined
       - entity: sensor.bitcoin_current_value
         name: BTC
       - entity: sensor.main_street_current_value
         name: MAIN
+      - entity: sensor.combined_current_value
+        name: Combined
     - id: financials
       type: 'custom:mini-graph-card'
-      name: Assets
+      name: Tracked Prices
       hours_to_show: 168
       points_per_hour: 12
       line_width: 4
@@ -62,3 +62,4 @@
         - entity: input_number.main_street_average_cost
         - entity: input_number.bitcoin_quantity
         - entity: input_number.bitcoin_average_cost
+        - entity: input_number.bitcoin_notify_if_less_than

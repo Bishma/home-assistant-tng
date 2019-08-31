@@ -1,0 +1,140 @@
+- id: conditions
+  title: Conditions
+  icon: mdi:weather-partly-cloudy
+  path: conditions
+  cards:
+  - type: entities
+    title: Interior Conditions
+    show_header_toggle: false
+    entities:
+    - entity: sensor.netatmo_indoor_temperature
+      name: Living Room Temperature
+      icon: mdi:thermometer
+    - entity: sensor.cottage_temperature
+      name: Hallway Temperature
+      icon: mdi:thermometer
+    - entity: sensor.netatmo_indoor_humidity
+      name: Living Room Humidity
+      icon: mdi:water-percent
+    - entity: sensor.cottage_humidity
+      name: Hallway Humidity
+      icon: mdi:water-percent
+    - entity: sensor.netatmo_indoor_pressure
+      name: Barametric Pressure
+      icon: mdi:gauge
+    - entity: sensor.netatmo_indoor_co2
+      name: CO2 PPM
+      icon: mdi:periodic-table-co2
+    - entity: sensor.netatmo_indoor_noise
+      name: Noise Level
+      icon: mdi:ear-hearing
+  - type: horizontal-stack
+    cards:
+    - type: 'custom:mini-graph-card'
+      name: Temperatures
+      hours_to_show: 18
+      height: 180
+      points_per_hour: 1
+      line_width: 5
+      entities:
+      - entity: sensor.netatmo_indoor_temperature
+        name: In
+      - entity: sensor.netatmo_outdoor_temperature
+        name: Out
+      - entity: sensor.convert_night_binary
+        color: gray
+        name: Night
+        show_line: false
+        show_points: false
+        show_indicator: false
+        show_legend: false
+        y_axis: secondary
+    - type: 'custom:mini-graph-card'
+      entities:
+      - entity: sensor.netatmo_indoor_humidity
+        name: In
+      - entity: sensor.netatmo_outdoor_humidity
+        name: Out
+      - entity: sensor.convert_night_binary
+        color: gray
+        name: Night
+        show_line: false
+        show_points: false
+        show_indicator: false
+        show_legend: false
+        y_axis: secondary
+      name: Humidity
+      hours_to_show: 18
+      height: 180
+      points_per_hour: 1
+      line_width: 5
+  - id: darksky-forcast-card
+    type: weather-forecast
+    entity: weather.weather
+  - id: exterior-conditions
+    type: entities
+    title: Exterior Conditions
+    show_header_toggle: false
+    entities:
+    - entity: sensor.netatmo_outdoor_temperature
+      name: Current Temperature
+    - entity: sensor.netatmo_outdoor_humidity
+      name: Current Humidity
+    - entity: sensor.netatmo_backyard_angle
+      name: Backyard Wind Direction
+    - entity: sensor.convert_backyard_wind
+      name: Backyard Wind Stength
+      icon: mdi:weather-windy
+    - entity: sensor.netatmo_backyard_gust_angle
+      name: Backward Gust Direction
+    - entity: sensor.convert_backyard_gust
+      name: Backyard Gust Strength
+      icon: mdi:weather-windy
+    - entity: sensor.dark_sky_cloud_coverage
+    - entity: sensor.dark_sky_precip_probability
+      name: Chance of Precipitation
+    - entity: sensor.dark_sky_visibility
+    - entity: sun.sun
+    - entity: sensor.moon
+    - type: weblink
+      name: Eugene, Or - Weather Underground
+      icon: mdi:link-variant
+      url: https://www.wunderground.com/weather/us/or/eugene
+  - id: allergey-cold-and-flu
+    type: entities
+    title: Illness
+    show_header_toggle: false
+    entities:
+      - entity: sensor.allergy_index_forecasted_average_2
+        name: Allergy Index Forcast
+      - entity: sensor.allergy_index_forecasted_average_2
+      - entity: sensor.asthma_index_today
+        name: Asthma Index Today
+      - entity: sensor.asthma_index_forecasted_average
+        name: Asthma Index Forcast
+      - entity: sensor.cold_flu_index_today
+        name: Cold/Flu Index Today
+      - entity: sensor.asthma_index_forecasted_average
+        name: Cold and Flu Index Forcast
+  - id: west_eugene_air_quality stack
+    type: vertical-stack
+    cards:
+      - type: picture-entity
+        entity: sensor.waqi_state
+        show_name: false
+        show_state: false
+        state_image:
+          "Good": /local/air-quality/good.jpg
+          "Moderate": /local/air-quality/moderate.jpg
+          "Unhealthy for Sensitive Groups": /local/air-quality/unhealthy-1.jpg
+          "Unhealthy": /local/air-quality/unhealthy-2.jpg
+          "Very Unhealthy": /local/air-quality/unhealthy-3.jpg
+          "Hazardous": /local/air-quality/hazardous.jpg
+          "Unknown": /local/air-quality/unknown.jpg
+        entities:
+          - entity: sensor.waqi_eugene_wilkes_drive_oregon_usa
+            name: West Eugene Air Quality
+  - id: embeded-windy-precip
+    type: iframe
+    url: https://embed.windy.com/embed2.html?lat=43.926&lon=-123.085&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=43.882&detailLon=-121.926&metricWind=default&metricTemp=%C2%B0F&radarRange=-1
+    aspect_ratio: 100%
