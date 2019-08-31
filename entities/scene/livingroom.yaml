@@ -1,14 +1,14 @@
 - name: Living Room Bedtime
   entities:
     switch.couch:
-      state: 'off'
+      state: off
     switch.the_sparkle:
-      state: 'off'
+      state: off
     light.love_seat_middle:
-      state: 'off'
+      state: off
     light.love_seat_up:
-      state: 'off'
+      state: off
     group.dining_room:
-      state: 'off'
+      state: off
     script.media_off:
-      state: 'on' # it's a script, so it turns on even though its urning things offs
+      state: on # it's a script, so it turns on even though its urning things offs

@@ -1,4 +1,4 @@
 - name: Exterior Bedtime
   entities:
     switch.jasco_products_12720_outdoor_smart_switch_switch:
-      state: 'off'
+      state: off
