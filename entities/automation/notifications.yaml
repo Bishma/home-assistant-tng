@@ -66,6 +66,21 @@
 
         Bitcoin has fallen below your current average price. It is currently at {{ states("sensor.exchange_rate_1_btc") }}. Consider buying.
     service: notify.reports
+- id: notification_btc-buy-high
+  alias: BTC buy high
+  trigger:
+  - platform: template
+    value_template: "{{ states('sensor.exchange_rate_1_btc') | float <= 9000 }}"
+  condition: 
+    - condition: template
+      value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.btc_buy.attributes.last_triggered) | int > 10700 }}"
+  action:
+  - data_template:
+      message: >
+        Hi There,
+
+        Bitcoin has fallen below your current average price. It is currently at {{ states("sensor.exchange_rate_1_btc") }}. Consider buying.
+    service: notify.reports
 - id: notification_main-buy
   alias: MAIN buy
   trigger:
