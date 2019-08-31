@@ -41,7 +41,7 @@
   alias: Home Assistant Update Notification
   trigger:
     platform: state
-    entity_id: sensor.update_available
+    entity_id: binary_sensor.updater
     from: 'off'
     to: 'on'
   action:
