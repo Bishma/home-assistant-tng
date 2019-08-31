@@ -10,3 +10,9 @@ bitcoin_quantity:
   max: 1
   mode: box
   icon: mdi:bitcoin
+bitcoin_notify_if_less_than:
+  name: Notify Me When BTC Reaches
+  min: 1000
+  max: 10000
+  mode: box
+  icon: mdi:alert-decagram
