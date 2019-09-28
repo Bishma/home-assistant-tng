@@ -11,7 +11,7 @@ bitcoin_quantity:
   mode: box
   icon: mdi:bitcoin
 bitcoin_notify_if_less_than:
-  name: Notify Me When BTC Reaches
+  name: BTC Buy Notification Threashold
   min: 1000
   max: 10000
   mode: box

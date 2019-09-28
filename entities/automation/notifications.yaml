@@ -49,10 +49,10 @@
       message: >
         Hi There,
 
-        I am out of date. I am currently version {{ states("sensor.current_version") }} and {{ states("updater.updater") }} is now available. You should be able to find more information by visiting https://www.home-assistant.io/blog/
+        I am out of date. I am currently version {{ states("sensor.current_version") }} and {{ state_attr("binary_sensor.updater","newest_version") }} is now available. You should be able to find more information by visiting https://www.home-assistant.io/blog/
     service: notify.reports
-- id: notification_btc-buy
-  alias: BTC buy
+- id: notification_btc-must-buy
+  alias: BTC must-buy
   trigger:
   - platform: template
     value_template: "{{ states('sensor.exchange_rate_1_btc') | float <= states('input_number.bitcoin_average_cost') | float }}"
@@ -64,13 +64,13 @@
       message: >
         Hi There,
 
-        Bitcoin has fallen below your current average price. It is currently at {{ states("sensor.exchange_rate_1_btc") }}. Consider buying.
+        Bitcoin has fallen below your current average price. It is currently at {{ states("sensor.exchange_rate_1_btc") }}. Buy ASAP to lower average cost.
     service: notify.reports
-- id: notification_btc-buy-high
-  alias: BTC buy high
+- id: notification_btc-buy-price
+  alias: BTC buy threshold
   trigger:
   - platform: template
-    value_template: "{{ states('sensor.exchange_rate_1_btc') | float <= 9000 }}"
+    value_template: "{{ states('sensor.exchange_rate_1_btc') | float <= states('input_number.bitcoin_notify_if_less_than') | float }}"
   condition: 
     - condition: template
       value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.btc_buy.attributes.last_triggered) | int > 10700 }}"
@@ -79,7 +79,7 @@
       message: >
         Hi There,
 
-        Bitcoin has fallen below your current average price. It is currently at {{ states("sensor.exchange_rate_1_btc") }}. Consider buying.
+        Bitcoin has fallen below your set buy alert price of ${{ states("input_number.bitcoin_notify_if_less_than") }}. It is currently at {{ states("sensor.exchange_rate_1_btc") }}. Consider buying.
     service: notify.reports
 - id: notification_main-buy
   alias: MAIN buy
