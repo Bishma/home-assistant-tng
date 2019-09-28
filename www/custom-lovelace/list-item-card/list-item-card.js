@@ -48,7 +48,6 @@ class ListItem extends HTMLElement {
 
         // the number of items to display is the small of this.config.max_length or listData.length
         const listLength = this.config.max_length < listData.length ? this.config.max_length : listData.length;
-        console.log(listLength)
 
         let cardContent = "";
         for (let i = 0; i < listLength; i++) {
