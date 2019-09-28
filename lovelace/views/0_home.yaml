@@ -56,19 +56,26 @@
       show_header_toggle: false
       entities:
       - type: call-service
-        name: Bedroom AC
-        action_name: Power + Cool
+        name: Power
+        action_name: Toggle
+        icon: mdi:air-conditioner
+        service: script.turn_on
+        service_data:
+          entity_id: script.bedtime_ac_power
+      - type: call-service
+        name: Pre-Cooling Mode
+        action_name: Eco + Auto Fan
         icon: mdi:air-conditioner
         service: script.turn_on
         service_data:
           entity_id: script.bedtime_ac_cool_auto
       - type: call-service
-        name: Bedroom AC
-        action_name: Power Toggle
+        name: AC Mode
+        action_name: Cool
         icon: mdi:air-conditioner
         service: script.turn_on
         service_data:
-          entity_id: script.bedtime_ac_power
+          entity_id: script.bedtime_ac_cool
     - id: stand_fan_conditional_controls
       type: conditional
       conditions:
