@@ -23,6 +23,7 @@ zwscene.xml
 appdaemon/apps/__pycache__/*
 appdaemon/appdaemon.yaml
 
-
 custom_components/hacs/*
 www/community/*
+
+teckin-1.yaml
