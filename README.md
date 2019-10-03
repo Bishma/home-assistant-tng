@@ -1,6 +1,6 @@
 # Home Assistant Config by Bishma
 
-![Universal remote phone view](images/screenshots/mobile_media.png)
+![Universal remote phone view](www/screenshots/media_mobile.png)
 
 I have been working to automate my home as much as my 50 year old wiring allows. I aim to accomplish all my automations with a RaspPi, no other hubs apart from the usb z-wave stick. This has been a slowly evolving config.
 
@@ -25,25 +25,24 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 
 ## Screen Shots
 
-* [Home Tab](images/screenshots/view_home.png)
-* [Climate Tab](images/screenshots/view_climate.png)
-* [Indoor Climate Tab](images/screenshots/view_indoor-climate.png)
-* [Camera Tab](images/screenshots/view_camera.png)
-* [Network Tab](images/screenshots/view_network.png)
-* [Media Center Tab](images/screenshots/mobile_media.png)
+* [Home Tab](www/screenshots/home.png)
+* [Media Center Tab](www/screenshots/media.png)
+* [Climate Tab](www/screenshots/climate.png)
+* [Infrastructure Tab](www/screenshots/infrastructure.png)
 
 # My Setup
 
 ## Hardware
 
-* Raspberry Pi 3b
+* Raspberry Pi 3b+
 * Aeotech Z-Wave Stick
 * GE Outdoor Z-Wave Switch
 * EcoBee 2 Thermostat
 * Harmony Home Hub
 * Broadlink RM Mini 3 IR Blaster
 * Intel NUC D54250WYK1 Intel 4th Gen Core i5-4250U running Windows 10 (HTPC / Plex Server)
-* Roku Stick
+* Roku Express
+* Roku Premier
 * Synology
 * Amazon Echo
 * Amazon Echo Dot
@@ -55,28 +54,23 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Ring Video Doorbell 2
 * 2x Amcrest Pan/Tilt/Zoom security cameras (via synology surveillance stations)
 * Netatmo Indoor, Outdoor, Wind climate sensors
+* First Alert Z-Wave Smoke Detector
 
 ## Software / API
 
 * Home Assistant
-* Home Assisant Cloud
+* Nebu Casa
 * Hass.io
+* Appdaemon
 * Custom Alexa Skill
 * Dark Sky Sensor and Weather
 * Speedtest.net
 * Waze Travel Time
-* Lyft and Uber
 * Windy.com
 
 # This Repo
 
 * This is a living document. What you see here is what is running my house.
-
-## Structure
-* All configs branch off configuration.yaml
-* Files are broken up by functionality. Switches, sensors, scripts, etc.
-* Generated files (.conf, .log, .json, etc) are generally not committed.
-* All sensitive information is stored on secrets.yaml which is also not committed.
 
 ## Home Assistant "TNG?"
 
