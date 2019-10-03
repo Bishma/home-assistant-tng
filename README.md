@@ -1,4 +1,4 @@
-# Home Assistant Config by Bishma
+# Home Assistant Config
 
 ![Universal remote phone view](www/screenshots/media_mobile.png)
 
