@@ -222,7 +222,7 @@ media_cr_break:
     data:
       device: 51736885
       command: FastForward
-      num_repeats: 80
+      num_repeats: 100
   - service: remote.send_command
     entity_id: remote.living_room
     data:
