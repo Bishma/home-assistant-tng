@@ -3,24 +3,27 @@
   icon: mdi:office-building
   path: work
   badges:
-  - sensor.p_and_l
   - sensor.combined_current_value
   - sensor.bitcoin_current_value
   - sensor.main_street_current_value
   cards:
     - id: idx-climate
       type: entities
-      title: IDX
+      title: Work
       show_header_toggle: false
       entities:
       - entity: input_boolean.idx_heater_on
     - id: idx-lunch
       type: custom:list-item-card
-      title: IDX Lunch
+      title: Work Lunch
       entity: sensor.janet_api_idx_lunch
       attribute: nextThree
       max_length: 3
       icon: mdi:food-fork-drink
+    #- id: air-quality-meter
+    #  type: custom:waqi-meter-card
+    #  title: Maxwell Rd Air Quality
+    #  entity: sensor.waqi_eugene_highway_99_oregon_usa
     - id: holdings
       type: 'custom:mini-graph-card'
       name: Holdings

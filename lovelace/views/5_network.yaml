@@ -17,9 +17,9 @@
             - entity: sensor.synology_dsm_memory_usage_real
               name: Memory Use
             - entity: sensor.synology_dsm_network_down
-              name: Download Speed
+              name: Network Down
             - entity: sensor.synology_dsm_network_up
-              name: Upload Speed
+              name: Network Up
             - type: divider
             - entity: sensor.synology_dsm_status_sda
               name: Disk A Status
@@ -87,14 +87,14 @@
         - entity: sensor.speedtest_upload
           name: Upload Speed
         - entity: sensor.speedtest_ping
-          name: ICMP Ping the Corvallis
+          name: Ping
     - id: web-links
       type: entities
       title: Local Links
       show_header_toggle: false
       entities:
         - type: weblink
-          name: Plex (plays anywhere)
+          name: Plex Local
           icon: mdi:plex
           url: https://app.plex.tv/desktop
         - type: weblink
