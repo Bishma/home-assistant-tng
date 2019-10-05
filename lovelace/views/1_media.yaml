@@ -660,7 +660,7 @@
           show_header_toggle: false
           conditions:
             - entity: sensor.living_room_remote_state
-              state: Listen to Music
+              state: Listen to Records
           card:
             type: entities
             title: Music Tools

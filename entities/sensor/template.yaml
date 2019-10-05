@@ -41,7 +41,9 @@
           31480008
         {% elif states.remote.living_room.attributes.current_activity == "Youtube" %}
           33323580
-        {% elif states.remote.living_room.attributes.current_activity == "Listen to Music" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Listen to Spotify" %}
+          41363814  
+        {% elif states.remote.living_room.attributes.current_activity == "Listen to Records" %}
           38156985
         {% elif states.remote.living_room.attributes.current_activity == "Play Switch" %}
           31480190
@@ -58,6 +60,7 @@
               or  states.remote.living_room.attributes.current_activity == "Watch Hulu"
               or  states.remote.living_room.attributes.current_activity == "Watch Netflix"
               or states.remote.living_room.attributes.current_activity == "Watch Plex"
+              or states.remote.living_room.attributes.current_activity == "Listen to Spotify"
               or states.remote.living_room.attributes.current_activity == "Watch Sling"
               or states.remote.living_room.attributes.current_activity == "Youtube" %}
           roku
@@ -65,7 +68,7 @@
           ota
         {% elif states.remote.living_room.attributes.current_activity == "Play Switch" %}
           switch
-        {% elif states.remote.living_room.attributes.current_activity == "Listen to Music" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Listen to Records" %}
           bluetooth
         {% else %}
           unknown

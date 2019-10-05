@@ -24,8 +24,10 @@
         Nintendo Switch
       {%- elif is_state("sensor.living_room_remote_state", "Watch OTA") -%}
         Over the Air
-      {%- elif is_state("sensor.living_room_remote_state", "Listen to Music") -%}
-        Listen To Music
+      {%- elif is_state("sensor.living_room_remote_state", "Listen to Spotify") -%}
+        Listen To Spotify
+      {%- elif is_state("sensor.living_room_remote_state", "Listen to Records") -%}
+        Listen To Records
       {%- else -%}
         Off
       {%- endif -%}
@@ -51,11 +53,13 @@
           31480109
         {%- elif is_state("input_select.media_switch", "Plex") -%}
           31571897
+        {%- elif is_state("sensor.living_room_remote_state", "Listen to Spotify") -%}
+          41363814
         {%- elif is_state("input_select.media_switch", "Nintendo Switch") -%}
           31480190
         {%- elif is_state("input_select.media_switch", "Over the Air") -%}
           31480260
-        {%- elif is_state("input_select.media_switch", "Listen To Music") -%}
+        {%- elif is_state("input_select.media_switch", "Listen To Records") -%}
           38156985
         {%- else -%}
           -1
