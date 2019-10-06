@@ -58,7 +58,7 @@
     value_template: "{{ states('sensor.exchange_rate_1_btc') | float <= states('input_number.bitcoin_average_cost') | float }}"
   condition: 
     - condition: template
-      value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.btc_buy.attributes.last_triggered) | int > 3600 }}"
+      value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.btc_must-buy.attributes.last_triggered) | int > 28800 }}"
   action:
   - data_template:
       message: >
@@ -73,7 +73,7 @@
     value_template: "{{ states('sensor.exchange_rate_1_btc') | float <= states('input_number.bitcoin_notify_if_less_than') | float }}"
   condition: 
     - condition: template
-      value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.btc_buy.attributes.last_triggered) | int > 10700 }}"
+      value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.btc_buy_threshold.attributes.last_triggered) | int > 86400 }}"
   action:
   - data_template:
       message: >
@@ -88,7 +88,7 @@
     value_template: "{{ states('sensor.main_street') | float <= states('input_number.main_street_average_cost') | float }}"
   condition: 
     - condition: template
-      value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.main_buy.attributes.last_triggered) | int > 21600 }}"
+      value_template: "{{ as_timestamp(now()) | int - as_timestamp(states.automation.main_buy.attributes.last_triggered) | int > 28800 }}"
   action:
   - data_template:
       message: >
