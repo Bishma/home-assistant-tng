@@ -5,21 +5,5 @@ homeassistant:
   - type: legacy_api_password
     api_password: !secret hass_password
   
-  # Name of the location where Home Assistant is running
-  name: Yggdresil
-  
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret me_lat
-  longitude: !secret me_long
-
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 410
-  
-  # "metric" or "imperial"
-  unit_system: imperial
-
-  # See: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: America/Los_Angeles
-
   # Load... everything
   packages: !include_dir_named integrations
