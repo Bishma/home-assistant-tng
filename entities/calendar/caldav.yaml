@@ -1,0 +1,13 @@
+# "The caldav platform allows you to connect to your WebDav calendar and generate binary sensors."
+# https://www.home-assistant.io/integrations/caldav
+- platform: caldav
+  username: !secret nextcloud_user
+  password: !secret nextcloud_passwd
+  url: http://192.168.131.2:32768/remote.php/dav/
+  custom_calendars:
+  - name: Day Off
+    calendar: Work
+    search: 'Day Off'
+  - name: Pickup Day
+    calendar: 'Yard Debris'
+    search: 'Yard Debris Removal'
