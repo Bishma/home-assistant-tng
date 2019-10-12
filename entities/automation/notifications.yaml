@@ -112,3 +112,16 @@
 
         The smoke detector in the garage has detected {{ states("sensor.garage_smoke_detector_status") }} and I suggest something be done about it quickly. Here is a link to the camera page so you can look at things. https://{{ states("input_text.hass_url") }}/lovelace/cameras
     service: notify.reports
+- id: notification_yard-debris-pickup
+  alias: Yard Debris Pickup Week
+  trigger:
+  - platform: state
+    entity_id: calendar.reminders_yard_debris_pickup_week
+    to: 'on'
+  action:
+  - data_template:
+      message: >
+        Hello,
+
+        Just a friendly reminder that you should put out the compost bin this week.
+    service: notify.reports
