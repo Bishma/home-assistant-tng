@@ -65,13 +65,13 @@
       title: Downloads
       show_header_toggle: false
       entities:
-        - entity: sensor.nzbget_average_speed
+        - entity: sensor.nzbget_average_download_rate
           name: Average Speed
-        - entity: sensor.nzbget_queue_size
+        - entity: sensor.nzbget_remaining_size
           name: Download Queue Size
-        - entity: sensor.nzbget_speed
+        - entity: sensor.nzbget_average_download_rate
           name: Current Speed
-        - entity: sensor.nzbget_disk_free
+        - entity: sensor.nzbget_free_disk_space
           name: Free Disk Space
         - entity: sensor.nzbget_download_paused
           name: Downloading Paused

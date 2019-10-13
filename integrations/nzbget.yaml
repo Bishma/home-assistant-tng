@@ -1,0 +1,5 @@
+# "The nzbget platform will allow you to monitor and control your downloads with NZBGet from within Home Assistant and setup automation based on the information."
+# https://www.home-assistant.io/integrations/nzbget/
+nzbget:
+  host: 192.168.131.2
+  port: 6789
