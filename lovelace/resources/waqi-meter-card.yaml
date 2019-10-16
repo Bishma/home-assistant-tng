@@ -1,0 +1,4 @@
+# "This card uses the world air quality index to produce a local air quality meter."
+# url to custom cards
+- url: /local/custom-lovelace/waqi-meter-card/waqi-meter-card.js
+  type: js
