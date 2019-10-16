@@ -20,10 +20,6 @@
       attribute: nextThree
       max_length: 3
       icon: mdi:food-fork-drink
-    #- id: air-quality-meter
-    #  type: custom:waqi-meter-card
-    #  title: Maxwell Rd Air Quality
-    #  entity: sensor.waqi_eugene_highway_99_oregon_usa
     - id: holdings
       type: 'custom:mini-graph-card'
       name: Holdings
