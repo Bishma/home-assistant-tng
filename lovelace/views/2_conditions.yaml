@@ -116,24 +116,10 @@
         name: Cold/Flu Index Today
       - entity: sensor.asthma_index_forecasted_average
         name: Cold and Flu Index Forcast
-  - id: west_eugene_air_quality stack
-    type: vertical-stack
-    cards:
-      - type: picture-entity
-        entity: sensor.waqi_state
-        show_name: false
-        show_state: false
-        state_image:
-          "Good": /local/air-quality/good.jpg
-          "Moderate": /local/air-quality/moderate.jpg
-          "Unhealthy for Sensitive Groups": /local/air-quality/unhealthy-1.jpg
-          "Unhealthy": /local/air-quality/unhealthy-2.jpg
-          "Very Unhealthy": /local/air-quality/unhealthy-3.jpg
-          "Hazardous": /local/air-quality/hazardous.jpg
-          "Unknown": /local/air-quality/unknown.jpg
-        entities:
-          - entity: sensor.waqi_eugene_wilkes_drive_oregon_usa
-            name: West Eugene Air Quality
+  - id: air-quality-meter
+    type: custom:waqi-meter-card
+    title: Maxwell Rd Air Quality
+    entity: sensor.waqi_eugene_highway_99_oregon_usa
   - id: embeded-windy-precip
     type: iframe
     url: https://embed.windy.com/embed2.html?lat=43.926&lon=-123.085&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=43.882&detailLon=-121.926&metricWind=default&metricTemp=%C2%B0F&radarRange=-1
