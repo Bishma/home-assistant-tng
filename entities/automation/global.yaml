@@ -26,8 +26,8 @@
   alias: Daily Backup at 00:30
   trigger:
     platform: time
-    at: '00:30:00'
+    at: '00:15'
   action:
   - service: hassio.addon_start
     data:
-      addon: 36883ed7_remote_backup
+      addon: 954f2f4e_remote_backup
