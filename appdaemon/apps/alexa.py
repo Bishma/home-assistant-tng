@@ -42,7 +42,7 @@ class Alexa(hass.Hass):
 
         return context
     
-    def set_request(self, data):
+    def get_request(self, data):
         """
         Reformat the requestion information from the alexa request.
 
@@ -75,7 +75,7 @@ class Alexa(hass.Hass):
         self.log("Context information: {}".format(self.context), level = "DEBUG")
 
         # Get the request data
-        self.request = self.set_request(data)
+        self.request = self.get_request(data)
         self.log("Request information: {}".format(self.request), level = "DEBUG")
 
         # If we got an error, log it
@@ -136,6 +136,7 @@ class Alexa(hass.Hass):
         service = ""
         service_data = {}
 
+        # The TV can have it's volume increased or decreased incrementally.
         if device_id == "the_tv":
             service = "remote/send_command"
             service_data = {
@@ -145,6 +146,7 @@ class Alexa(hass.Hass):
                 "num_repeats": increment
             }
             self.call_service(service, **service_data)
+        # The fan only increments. It loops to the slowest speed when after maxing out.
         elif device_id == "the_fan":
             service = "remote/send_command"
             service_data = {
@@ -154,6 +156,7 @@ class Alexa(hass.Hass):
                 "num_repeats": increment
             }
             self.call_service(service, **service_data)
+        # The bedroom AC's temperature can been incremented or decremented.
         elif device_id == "bedroom_ac":
             service = "broadlink/send"
             if up_down == "up":
@@ -164,6 +167,7 @@ class Alexa(hass.Hass):
                 "host": "192.168.131.4",
                 "packet": [ packet ] * increment
             }
+            self.call_service(service, **service_data)
         else:
             service = None
             service_data = None
