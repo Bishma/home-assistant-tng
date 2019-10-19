@@ -168,11 +168,30 @@ class Alexa(hass.Hass):
                 "packet": [ packet ] * increment
             }
             self.call_service(service, **service_data)
+        # Climate is less straight forward. We can't increment directly.
+        elif device_id == "the_thermostat":
+            service = "climate/set_temperature"
+            thermostate_entity_id =  "climate.cottage"
+
+            # We need to get the current temp then add or remove the get to the new value.
+            current_temp = self.get_state(thermostate_entity_id, attribute="temperature")
+            self.log("Current temperature: {}".format(current_temp), level = "DEBUG")
+
+            if up_down == "up":
+                target_temp = current_temp + increment
+            else:
+                target_temp = current_temp - increment
+
+            service_data = {
+                "entity_id": thermostate_entity_id,
+                "temperature": target_temp
+            }
+            self.call_service(service, **service_data)
         else:
             service = None
             service_data = None
-        # TODO: thermostat service call
         # TODO: Add bedroom tv volume control
+        # TODO: sanity check (especially thermostat) and throw errors if outside. Gracefully handle in alexa_intent_parser
         
         self.log("Device: {} - Up/Down: {} - Service: {} - Service Data: {}".format(device_id, up_down, service, service_data), level = "DEBUG")
 
