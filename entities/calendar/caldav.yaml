@@ -11,6 +11,9 @@
   - name: Yard Debris Pickup Week
     calendar: Reminders
     search: Yard Debris Week
-#  - name: Pickup Day
-#    calendar: 'Yard Debris'
-#    search: 'Yard Debris Removal'
+  - name: Pickup Day
+    calendar: 'Yard Debris'
+    search: 'Yard Debris Removal'
+  - name: Orchid Watering
+    calendar: Reminders
+    search: Water Orchid
