@@ -5,3 +5,4 @@ telegram_bot:
     api_key: !secret telegram_key
     allowed_chat_ids:
       - !secret telegram_chat_id_1
+      - !secret telegram_chat_id_2
