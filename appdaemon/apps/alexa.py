@@ -106,11 +106,11 @@ class Alexa(hass.Hass):
             #"AMAZON.NoIntent": self.amazon_no_intent_handler,
             #"AMAZON.StopIntent": self.amazon_stop_intent_handler,
             #"AMAZON.YesIntent": self.amazon_yes_intent_handler,
-            "turn_on": "int_turn_on",
-            "turn_off": "int_turn_off",
+            "turn_on": "int_turn_on_off",
+            "turn_off": "int_turn_on_off",
             "turn_up_down_by": "int_up_down"
             # fan oscillate/turn on & oscillate
-            # ecobee resume schedule / set to specific temperature
+            # ecobee resume schedule (cancel hold) / set to specific temperature
         }
 
         # Check that the sent intent is mapped above.
@@ -190,20 +190,28 @@ class Alexa(hass.Hass):
         else:
             service = None
             service_data = None
-        # TODO: Add bedroom tv volume control
-        # TODO: sanity check (especially thermostat) and throw errors if outside. Gracefully handle in alexa_intent_parser
+        # TODO: phase2: Add bedroom tv volume control
+        # TODO: phase2: sanity check (especially thermostat) and throw errors if outside. Gracefully handle in alexa_intent_parser
         
         self.log("Device: {} - Up/Down: {} - Service: {} - Service Data: {}".format(device_id, up_down, service, service_data), level = "DEBUG")
 
         return self.just_saying("Up down! Whooooo!")
 
-    def int_turn_on(self):
+    def int_turn_on_off(self):
         """
         Find a device by name (Amazon.SearchQuery intent type) and then turn it on.
         """
 
+        # Use the intent name to decide if this is an on or an off.
+        if self.intent_name == "turn_on":
+            on_off = "on"
+            slot_name = "on_device"
+        else:
+            on_off = "off"
+            slot_name = "off_device"
+
         # Turn the sent value into a dictionary or search tokens.
-        heard_device_tokens = self.device_tokenizer(self.slots['on_device']['value'])
+        heard_device_tokens = self.device_tokenizer(self.slots[slot_name]['value'])
 
         # Find the device by name.
         device = self.device_by_name(heard_device_tokens)
@@ -214,48 +222,21 @@ class Alexa(hass.Hass):
             service_data = {}
             # HA devices can be turned on and off directly
             if device['domain'] != "method":
-                service = "homeassistant/turn_on"
+                service = "homeassistant/turn_{}".format(on_off)
                 service_data = { "entity_id": device["entity_id"] }
             # Python methods can return explicit service and service data.
             else:
                 method = getattr(self, device['entity_id'])
-                service, service_data = method(device["name"], 'on')
+                service, service_data = method(device["name"], on_off)
 
             # Call the service that was found.
             self.log("Service: {} - Service Data: {}".format(service, service_data), level = "DEBUG")
             if service and service_data:
                 self.call_service(service, **service_data)
-                msg = "I'll turn on {}".format(device["name"].replace("_", " "))
+                msg = "I'll turn {} {}".format(on_off, device["name"].replace("_", " "))
             else:
                 self.log("Invalid service or service data values. Service: {} - Service Data: {}".format(service, service_data), level = "ERROR")
                 msg = self.fallback(fb_from = "service and service data check")
-        else:
-            msg = self.fallback(fb_from = "device check")
-
-        return self.just_saying(msg)
-
-    def int_turn_off(self):
-        # Turn the sent value into a dictionary or search tokens.
-        heard_device_tokens = self.device_tokenizer(self.slots['off_device']['value'])
-
-        # Find the device by name.
-        device = self.device_by_name(heard_device_tokens)
-
-        # If were don't need to fall back then we should have domain and entity data.
-        if device["fallback"] == False:
-            # HA devices can be turned on and off directly
-            if device['domain'] != "method":
-                service = "homeassistant/turn_off"
-                service_data = { "entity_id": device["entity_id"] }
-            # python methods can return explicit service and service data
-            else:
-                method = getattr(self, device['entity_id'])
-                service, service_data = method(device["name"], 'off')
-
-            self.log("Service: {} - Service Data: {}".format(service, service_data), level = "DEBUG")
-            self.call_service(service, **service_data)
-
-            msg = "I'll turn off {}".format(device["name"].replace("_", " "))
         else:
             msg = self.fallback(fb_from = "device check")
 
