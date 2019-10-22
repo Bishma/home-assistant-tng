@@ -125,3 +125,16 @@
 
         Just a friendly reminder that you should put out the compost bin this week.
     service: notify.reminders
+- id: notification_orchid-watering
+  alias: Orchid Watering Reminder
+  trigger:
+  - platform: state
+    entity_id: calendar.reminders_orchid_watering
+    to: 'on'
+  action:
+  - data_template:
+      message: >
+        Hello,
+
+        Check on the orchid. It may need water.
+    service: notify.reminders
