@@ -108,7 +108,8 @@ class Alexa(hass.Hass):
             #"AMAZON.YesIntent": self.amazon_yes_intent_handler,
             "turn_on": "int_turn_on_off",
             "turn_off": "int_turn_on_off",
-            "turn_up_down_by": "int_up_down"
+            "turn_up_down_by": "int_up_down",
+            "media_control": "int_media_control"
             # fan oscillate/turn on & oscillate
             # ecobee resume schedule (cancel hold) / set to specific temperature
         }
@@ -130,7 +131,15 @@ class Alexa(hass.Hass):
         An intent for turning something up of down incrementally.
         TV volume, fan speed, thermostat, etc.
         """
-        increment = int(self.slots['up_down_by_increment']['value']) if "value" in self.slots['up_down_by_increment'] else 1
+        
+        # The increment can be controlled by a number slot or a once/twice slot
+        if "up_down_by_once_twice" in self.slots:
+            increment = 2 if self.slots['up_down_by_once_twice']['value'] == "twice" else 1
+        elif "value" in self.slots['up_down_by_increment']:
+            increment = int(self.slots['up_down_by_increment']['value'])
+        else:
+            increment = 1
+        
         device_id = self.slots['up_down_by_device']['resolutions']['resolutionsPerAuthority'][0]['values'][0]['value']['id']
         up_down = self.slots['up_down_by_up_down']['value']
         service = ""
@@ -199,7 +208,9 @@ class Alexa(hass.Hass):
 
     def int_turn_on_off(self):
         """
-        Find a device by name (Amazon.SearchQuery intent type) and then turn it on.
+        Find a device by name (Amazon.SearchQuery intent type) and then turn it on or off.
+        Devices defined in the database as being in the "method" domain will send
+            their data to the method special_on_off
         """
 
         # Use the intent name to decide if this is an on or an off.
@@ -239,6 +250,15 @@ class Alexa(hass.Hass):
                 msg = self.fallback(fb_from = "service and service data check")
         else:
             msg = self.fallback(fb_from = "device check")
+
+        return self.just_saying(msg)
+
+    def int_media_control(self):
+        """
+        Basic media control functionality. Play, Pause, Stop, etc
+        """
+
+        msg = "Hey weird future Daryl"
 
         return self.just_saying(msg)
 
