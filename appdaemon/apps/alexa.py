@@ -184,7 +184,6 @@ class Alexa(hass.Hass):
 
             # We need to get the current temp then add or remove the get to the new value.
             current_temp = self.get_state(thermostate_entity_id, attribute="temperature")
-            self.log("Current temperature: {}".format(current_temp), level = "DEBUG")
 
             if up_down == "up":
                 target_temp = current_temp + increment
