@@ -132,15 +132,7 @@ class Alexa(hass.Hass):
         TV volume, fan speed, thermostat, etc.
         """
         
-        # The increment can be controlled by a number slot or a once/twice slot
-        if "up_down_by_once_twice" in self.slots:
-            increment = 2 if self.slots['up_down_by_once_twice']['value'] == "twice" else 1
-        elif "value" in self.slots['up_down_by_increment']:
-            increment = int(self.slots['up_down_by_increment']['value'])
-        else:
-            increment = 1
-        
-        device_id = self.slots['up_down_by_device']['resolutions']['resolutionsPerAuthority'][0]['values'][0]['value']['id']
+        device_id = self.slot_value_id("up_down_by_device")
         up_down = self.slots['up_down_by_up_down']['value']
         service = ""
         service_data = {}
@@ -257,9 +249,17 @@ class Alexa(hass.Hass):
         Basic media control functionality. Play, Pause, Stop, etc
         """
 
+        device = self.slot_value_id("media_device")
         msg = "Hey weird future Daryl"
 
         return self.just_saying(msg)
+
+    def slot_value_id(self, slot):
+        """
+        I use slot value IDs, when possible, to avoid having to deal
+        with spaces or anything else.
+        """
+        return self.slots[slot]['resolutions']['resolutionsPerAuthority'][0]['values'][0]['value']['id']
 
     ###
     # Special control methods.
