@@ -492,10 +492,14 @@ class Alexa(hass.Hass):
             "shouldEndSession": True
         }
 
+        return self.response_object_builder(response)
+
+    def response_object_builder(self, response_object):
+
         sessionAttributes = {} #self.getSessionAttributes(data)
 
         return {
             "version": "1.0",
-            "response": response,
+            "response": response_object,
             "sessionAttributes": sessionAttributes
         }
