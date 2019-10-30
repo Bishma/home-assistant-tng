@@ -278,10 +278,10 @@ class Alexa(hass.Hass):
         service = ""
         service_data = {}
         if name == "the_tv":
-            service = "remote/turn_on"
+            service = "script.media_on_off"
             service_data = {
-                "entity_id": "remote.living_room",
-                "activity": -1 if on_off == "off" else 31479535
+                "entity_id": "script.media_on_off",
+                "on_off": on_off
             }
         elif name == "the_fan":
             service = "remote/send_command"
