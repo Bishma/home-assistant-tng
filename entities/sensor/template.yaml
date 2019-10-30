@@ -21,6 +21,11 @@
         {%- else -%}
           1
         {%- endif -%}
+    # Harmony current activity
+    living_room_remote_state:
+      entity_id: remote.living_room
+      value_template: '{{ states.remote.living_room.attributes.current_activity }}'
+      friendly_name: 'Current Activity:'
     # It will simplify cards and scripts to translate the current Harmony activity into the device and IDs in use
     living_room_media_activity_id:
       entity_id: remote.living_room
@@ -104,11 +109,6 @@
         {% else %}
           mdi:smoke-detector
         {% endif %}
-    # Harmony current activity
-    living_room_remote_state:
-      entity_id: remote.living_room
-      value_template: '{{ states.remote.living_room.attributes.current_activity }}'
-      friendly_name: 'Current Activity:'
     # Attribute -> state
     outdoor_pressure:
       entity_id:  sensor.waqi_eugene_highway_99_oregon_usa
