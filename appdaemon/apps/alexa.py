@@ -134,6 +134,7 @@ class Alexa(hass.Hass):
         
         device_id = self.slot_value_id("up_down_by_device")
         up_down = self.slots['up_down_by_up_down']['value']
+        increment = self.increment_handler(self.slots['up_down_by_increment']['value'], self.slots['up_down_by_once_twice'])
         service = ""
         service_data = {}
 
@@ -249,10 +250,35 @@ class Alexa(hass.Hass):
         Basic media control functionality. Play, Pause, Stop, etc
         """
 
+        action = self.slots["media_action"]["value"]
         device = self.slot_value_id("media_device")
+        increment = self.increment_handler(self.slots["media_increment"], self.slots["media_once_twice"])
+
+        self.log("Media command. Action: {}, Device: {}, Increment: {}".format(action, device, increment), level = "DEBUG")
+
         msg = "Hey weird future Daryl"
 
         return self.just_saying(msg)
+
+    ###
+    # Utility Function
+    ###
+
+    def increment_handler(self, numeric_increment, once_twice = {}):
+        """
+        To handle increments expressed as "once" or "twice" I need to be able to
+        interpret those responses.
+        """
+
+        increment = 1
+
+        if "value" in once_twice.keys():
+            increment = 2 if once_twice["value"] else 1
+        elif "value" in numeric_increment.keys():
+            increment = int(numeric_increment["value"])
+
+        return increment
+
 
     def slot_value_id(self, slot):
         """
