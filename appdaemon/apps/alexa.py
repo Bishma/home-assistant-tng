@@ -251,7 +251,7 @@ class Alexa(hass.Hass):
         Basic media control functionality. Play, Pause, Stop, etc
         """
 
-        action = self.slots["media_action"]["value"]
+        action = self.slot_value_id("media_action")
         device = self.slot_value_id("media_device")
         increment = self.increment_handler(self.slots["media_increment"], self.slots["media_once_twice"])
 
@@ -313,9 +313,8 @@ class Alexa(hass.Hass):
         service = ""
         service_data = {}
         if name == "the_tv":
-            service = "script.media_on_off"
+            service = "script/media_on_off"
             service_data = {
-                "entity_id": "script.media_on_off",
                 "on_off": on_off
             }
         elif name == "the_fan":
