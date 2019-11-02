@@ -426,12 +426,7 @@
                     name: Fix Input
                     action_name: HDMI 1
                     icon: mdi:video-input-hdmi
-                    service: remote.send_command
-                    service_data:
-                      entity_id: remote.living_room
-                      device: 51736886
-                      command: InputHdmi1
-                      num_repeats: 1
+                    service: script.media_input1
                   - type: call-service
                     name: Sound Bar Power
                     action_name: Toggle
@@ -492,6 +487,16 @@
                       num_repeats: 1
                       device: 51738178
                       command: Windows
+                  - type: call-service
+                    name: Rewind
+                    action_name: '<<'
+                    icon: mdi:rewind
+                    service: script.media_rewind
+                  - type: call-service
+                    name: Fast Forward
+                    action_name: '>>'
+                    icon: mdi:fast-forward
+                    service: script.media_rewind
         - id: activity-specific-roku-multi
           type: conditional
           conditions:
@@ -512,12 +517,7 @@
                 name: Fix Input
                 action_name: HDMI 2
                 icon: mdi:video-input-hdmi
-                service: remote.send_command
-                service_data:
-                  entity_id: remote.living_room
-                  device: 51736886
-                  command: InputHdmi2
-                  num_repeats: 1
+                service: script.media_input2
               - type: call-service
                 name: Sound Bar Power
                 action_name: Toggle
@@ -552,22 +552,12 @@
                 name: Rewind
                 action_name: '<<'
                 icon: mdi:rewind
-                service: remote.send_command
-                service_data:
-                  entity_id: remote.living_room
-                  num_repeats: 1
-                  device: 51736885
-                  command: Rewind
+                service: script.media_rewind
               - type: call-service
                 name: Fast Forward
                 action_name: '>>'
                 icon: mdi:fast-forward
-                service: remote.send_command
-                service_data:
-                  entity_id: remote.living_room
-                  num_repeats: 1
-                  device: 51736885
-                  command: FastForward
+                service: script.media_rewind
               - type: call-service
                 name: Critical Role - Skip Break
                 action_name: '>>>>'
