@@ -1,30 +1,39 @@
-# Scripts to allow universal remote
-watch_activity:
+# Changes the activity based on a passed media_activity value
+media_activity:
   alias: Switch Activity
   sequence:
   - service: remote.turn_on
     entity_id: remote.living_room
     data_template:
       activity: >
-        {% if media_activity == "Cody" or media_activity == "cody" %}
+        {%- if media_activity|lower == "kodi" or media_activity|lower == "cody" -%}
           31479535
-        {% elif media_activity == "Hulu" or media_activity == "hulu" %}
+        {%- elif media_activity|lower == "hulu" -%}
           31949557
-        {% elif media_activity == "Sling" or media_activity == "sling" %}
+        {%- elif media_activity|lower == "sling" -%}
           31480008
-        {% elif media_activity == "Netflix" or media_activity == "netflix" %}
+        {%- elif media_activity|lower == "netflix" -%}
           31478989
-        {% elif media_activity == "Amazon" or media_activity == "amazon" %}
+        {%- elif media_activity|lower == "amazon" -%}
           31480109
-        {% elif media_activity == "Plex" or media_activity == "plex" %}
+        {%- elif media_activity|lower == "plex" -%}
           31571897
-        {% elif media_activity == "switch" %}
+        {%- elif media_activity|lower == "switch" -%}
           31480190
-        {% elif media_activity == "over_the_air" %}
+        {%- elif media_activity|lower == "spotify" -%}
+          41363814
+        {%- elif media_activity|lower == "over_the_air" -%}
           31480260
-        {% elif media_activity == "music" %}
+        {%- elif media_activity|lower == "music" -%}
           38156985
+        {%-
+          # If all else fails default to plex 
+          else
+        -%}
+          31571897
+          
         {% endif %}
+# Press the OK button
 media_confirm:
   alias: TV Confirm
   sequence:
@@ -32,188 +41,20 @@ media_confirm:
     entity_id: remote.living_room
     data_template:
       device: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-          51738178
-        {% else %}
-          51736885
-        {% endif %}
+        {{ states.sensor.living_room_media_device_id }}
       command: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+        {%- if states.sensor.living_room_media_device == "htpc" -%}
           Enter
-        {% else %}
+        {%- else -%}
           OK
-        {% endif %}
-      num_repeats: 1
-media_off:
-  alias: TV Off
-  sequence:
-  - service: remote.turn_on
-    entity_id: remote.living_room
-    data:
-      activity: -1
-media_volume_up:
-  alias: TV Volume Up
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 60888940
-      command: VolumeUp
-      num_repeats: 1
-alexa_volume_up:
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 60888940
-      command: VolumeUp
+        {%- endif -%}
       num_repeats: >
-        {{ amount }}
-media_volume_down:
-  alias: TV Volume Down
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data:
-      device: 60888940
-      command: VolumeDown
-      num_repeats: 1
-alexa_volume_down:
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 60888940
-      command: VolumeDown
-      num_repeats: >
-        {{ amount }}
-media_stop:
-  alias: TV Stop
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-          51738178
-        {% else %}
-          51736885
-        {% endif %}
-      command: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-          Stop
-        {% else %}
-          Back
-        {% endif %}
-      num_repeats: 1
-media_pause:
-  alias: TV Pause
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-          51738178
-        {% else %}
-          51736885
-        {% endif %}
-      command: >
-        Pause
-      num_repeats: 1
-media_play:
-  alias: TV Play
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-          51738178
-        {% else %}
-          51736885
-        {% endif %}
-      command: >
-        Play
-      num_repeats: 1
-media_skip_back:
-  alias: TV Skip Back
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-          51738178
-        {% else %}
-          51736885
-        {% endif %}
-      command: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi"
-          or states.remote.living_room.attributes.current_activity == "Watch Sling"
-          or  states.remote.living_room.attributes.current_activity == "Watch Hulu"
-          or  states.remote.living_room.attributes.current_activity == "Watch Plex"
-          or states.remote.living_room.attributes.current_activity == "Watch Netflix" %}
-          DirectionLeft
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
-          Rewind
-        {% else %}
-          InstantReplay
-        {% endif %}
-      num_repeats: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-          2
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Amazon" %}
-          4
-        {% else %}
-          6
-        {% endif %}
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-          51738178
-        {% else %}
-          51736885
-        {% endif %}
-      command: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
-          DirectionLeft
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Plex"
-          or  states.remote.living_room.attributes.current_activity == "Watch Hulu"
-          or states.remote.living_room.attributes.current_activity == "Watch Netflix"
-          or states.remote.living_room.attributes.current_activity == "Watch Youtube" %}
-          Play
-        {% endif %}
-      num_repeats: 1
-media_input1:
-  alias: TV Input Kodi
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51736886
-      command: InputHdmi1
-      num_repeats: 1
-media_input2:
-  alias: TV Input Switch
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51736886
-      command: InputHdmi2
-      num_repeats: 1
-media_input3:
-  alias: TV Input Roku
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51736886
-      command: InputHdmi3
-      num_repeats: 1
+        {%- if increment is defined -%}
+          {{ increment | int }}
+        {%- else -%}
+          1
+        {%- endif -%}
+# Skitting forward 1000 seconds in youtube for critical role breaks.
 media_cr_break:
   alias: CR FF
   sequence:
@@ -229,3 +70,219 @@ media_cr_break:
       device: 51736885
       command: OK
       num_repeats: 1
+# Turn the TV on or off. On defaults to Plex.
+media_on_off:
+  alias: TV On and Off
+  sequence:
+  - service: remote.turn_on
+    entity_id: remote.living_room
+    data_template:
+      activity: >
+        {%- if on_off is defined -%}
+          {%- if on_off == "on" -%}
+            31571897
+          {%- else -%}
+            -1
+          {%- endif -%}
+        {%- else -%}
+          {%- if states('sensor.living_room_remote_state') == "off" -%}
+            31571897
+          {%- else -%}
+            -1
+          {%- endif -%}
+        {% endif -%}
+media_pause:
+  alias: TV Pause
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {{ states.sensor.living_room_media_device_id }}
+      command: Pause
+      num_repeats: >
+        {%- if increment is defined -%}
+          {{ increment | int }}
+        {%- else -%}
+          1
+        {%- endif -%}
+media_play:
+  alias: TV Play
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {{ states.sensor.living_room_media_device_id }}
+      command: Play
+      num_repeats: >
+        {%- if increment is defined -%}
+          {{ increment | int }}
+        {%- else -%}
+          1
+        {%- endif -%}
+media_rewind:
+  alias: TV Rewind
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {{ states.sensor.living_room_media_device_id }}
+      command: >
+          {% if states.sensor.living_room_remote_state == "Watch Kodi"
+            or states.sensor.living_room_remote_state == "Watch Sling"
+            or  states.sensor.living_room_remote_state == "Watch Hulu"
+            or  states.sensor.living_room_remote_state == "Watch Plex"
+            or states.sensor.living_room_remote_state == "Watch Netflix" %}
+            DirectionLeft
+          {% elif states.sensor.living_room_remote_state == "Watch Youtube" %}
+            Rewind
+          {% else %}
+            InstantReplay
+          {% endif %}
+      num_repeats: >
+          {%- if increment is defined -%}
+            {{ increment | int }}
+          {%- else -%}
+            1
+          {%- endif -%}
+media_fast_forward:
+  alias: TV Fast Forward
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {{ states.sensor.living_room_media_device_id }}
+      command: >
+          {% if states.sensor.living_room_remote_state == "Watch Kodi"
+            or states.sensor.living_room_remote_state == "Watch Sling"
+            or  states.sensor.living_room_remote_state == "Watch Hulu"
+            or  states.sensor.living_room_remote_state == "Watch Plex"
+            or states.sensor.living_room_remote_state == "Watch Netflix" %}
+            DirectionRight
+          {% elif states.sensor.living_room_remote_state == "Watch Youtube" %}
+            FastForward
+          {% endif %}
+      num_repeats: >
+          {%- if increment is defined -%}
+            {{ increment | int }}
+          {%- else -%}
+            1
+          {%- endif -%}
+media_input1:
+  alias: TV Input Kodi
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51736886
+      command: InputHdmi1
+      num_repeats: 1
+media_input2:
+  alias: TV Input Roku
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51736886
+      command: InputHdmi2
+      num_repeats: 1
+media_input3:
+  alias: TV Input Switch
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 51736886
+      command: InputHdmi3
+      num_repeats: 1
+# Performs a 1 minute rewind
+media_skip_back:
+  alias: TV Skip Back
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {{ states.sensor.living_room_media_device_id }}
+      command: >
+        {%- if states.sensor.living_room_remote_state == "Watch Kodi"
+          or states.sensor.living_room_remote_state == "Watch Sling"
+          or  states.sensor.living_room_remote_state == "Watch Hulu"
+          or  states.sensor.living_room_remote_state == "Watch Plex"
+          or states.sensor.living_room_remote_state == "Watch Netflix" -%}
+          DirectionLeft
+        {%- elif states.sensor.living_room_remote_state == "Watch Youtube" -%}
+          Rewind
+        {%- else -%}
+          InstantReplay
+        {%- endif -%}
+      num_repeats: >
+        {%- if states.sensor.living_room_remote_state == "Watch Kodi" -%}
+          2
+        {%- elif states.sensor.living_room_remote_state == "Watch Amazon" -%}
+          4
+        {%- else -%}
+          6
+        {%- endif -%}
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {%- if states.sensor.living_room_media_device == "htpc" -%}
+          51738178
+        {%- else -%}
+          51736885
+        {%- endif -%}
+      command: >
+        {%- if states.sensor.living_room_remote_state == "Watch Kodi" -%}
+          DirectionLeft
+        {%- elif states.sensor.living_room_remote_state == "Watch Plex"
+          or  states.sensor.living_room_remote_state == "Watch Hulu"
+          or states.sensor.living_room_remote_state == "Watch Netflix"
+          or states.sensor.living_room_remote_state == "Watch Youtube" -%}
+          Play
+        {%- endif -%}
+      num_repeats: >
+        {%- if states.sensor.living_room_remote_state == "Watch Kodi" -%}
+          2
+        {%- else -%}
+          1
+        {%- endif -%}
+media_stop:
+  alias: TV Stop
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: >
+        {{ states.sensor.living_room_media_device_id }}
+      command: >
+        {%- if states.sensor.living_room_media_device == "htpc" -%}
+          Stop
+        {%- else -%}
+          Back
+        {%- endif -%}
+      num_repeats: >
+        {%- if increment is defined -%}
+          {{ increment | int }}
+        {%- else -%}
+          1
+        {%- endif -%}
+media_volume_up:
+  alias: TV Volume Up
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 60888940
+      command: VolumeUp
+      num_repeats: >
+        {%- if increment is defined -%}
+          {{ increment | int }}
+        {%- else -%}
+          1
+        {%- endif -%}
+media_volume_down:
