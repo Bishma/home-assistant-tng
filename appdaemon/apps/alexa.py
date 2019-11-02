@@ -109,7 +109,8 @@ class Alexa(hass.Hass):
             "turn_on": "int_turn_on_off",
             "turn_off": "int_turn_on_off",
             "turn_up_down_by": "int_up_down",
-            "media_control": "int_media_control"
+            "media_control": "int_media_control",
+            "media_switch": "int_media_switch"
             # fan oscillate/turn on & oscillate
             # ecobee resume schedule (cancel hold) / set to specific temperature
         }
@@ -268,6 +269,24 @@ class Alexa(hass.Hass):
         msg = "Hey weird future Daryl"
 
         return self.just_saying(msg)
+
+    def int_media_switch(self):
+        """
+        Changing between Harmony activities
+        """
+
+        activity = self.slot_value_id("media_switch_activity")
+        
+        # The slot value I will match the activity data for the script
+        service = "script/media_activity"
+        service_data = {
+            "media_activity": activity
+        }
+
+        self.log("Media switch command. Activity: {}".format(activity))
+        self.call_service(service, **service_data)
+
+        return self.just_saying("You'll be watching {} in just a few seconds.".format(activity))
 
     ###
     # Utility Function
