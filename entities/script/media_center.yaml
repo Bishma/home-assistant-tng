@@ -26,12 +26,8 @@ media_activity:
           31480260
         {%- elif media_activity|lower == "music" -%}
           38156985
-        {%-
-          # If all else fails default to plex 
-          else
-        -%}
+        {%- else -%}
           31571897
-          
         {% endif %}
 # Press the OK button
 media_confirm:
@@ -41,7 +37,7 @@ media_confirm:
     entity_id: remote.living_room
     data_template:
       device: >
-        {{ states.sensor.living_room_media_device_id }}
+        {{ states("sensor.living_room_media_device_id") }}
       command: >
         {%- if states.sensor.living_room_media_device == "htpc" -%}
           Enter
@@ -98,7 +94,7 @@ media_pause:
     entity_id: remote.living_room
     data_template:
       device: >
-        {{ states.sensor.living_room_media_device_id }}
+        {{ states("sensor.living_room_media_device_id") }}
       command: Pause
       num_repeats: >
         {%- if increment is defined -%}
@@ -113,7 +109,7 @@ media_play:
     entity_id: remote.living_room
     data_template:
       device: >
-        {{ states.sensor.living_room_media_device_id }}
+        {{ states("sensor.living_room_media_device_id") }}
       command: Play
       num_repeats: >
         {%- if increment is defined -%}
@@ -128,7 +124,7 @@ media_rewind:
     entity_id: remote.living_room
     data_template:
       device: >
-        {{ states.sensor.living_room_media_device_id }}
+        {{ states("sensor.living_room_media_device_id") }}
       command: >
           {% if states.sensor.living_room_remote_state == "Watch Kodi"
             or states.sensor.living_room_remote_state == "Watch Sling"
@@ -154,7 +150,7 @@ media_fast_forward:
     entity_id: remote.living_room
     data_template:
       device: >
-        {{ states.sensor.living_room_media_device_id }}
+        {{ states("sensor.living_room_media_device_id") }}
       command: >
           {% if states.sensor.living_room_remote_state == "Watch Kodi"
             or states.sensor.living_room_remote_state == "Watch Sling"
@@ -206,7 +202,7 @@ media_skip_back:
     entity_id: remote.living_room
     data_template:
       device: >
-        {{ states.sensor.living_room_media_device_id }}
+        {{ states("sensor.living_room_media_device_id") }}
       command: >
         {%- if states.sensor.living_room_remote_state == "Watch Kodi"
           or states.sensor.living_room_remote_state == "Watch Sling"
@@ -258,7 +254,7 @@ media_stop:
     entity_id: remote.living_room
     data_template:
       device: >
-        {{ states.sensor.living_room_media_device_id }}
+        {{ states("sensor.living_room_media_device_id") }}
       command: >
         {%- if states.sensor.living_room_media_device == "htpc" -%}
           Stop
@@ -286,3 +282,16 @@ media_volume_up:
           1
         {%- endif -%}
 media_volume_down:
+  alias: TV Volume Down
+  sequence:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: 60888940
+      command: VolumeDown
+      num_repeats: >
+        {%- if increment is defined -%}
+          {{ increment | int }}
+        {%- else -%}
+          1
+        {%- endif -%}
