@@ -141,6 +141,7 @@ class Alexa(hass.Hass):
         # The TV can have it's volume increased or decreased incrementally.
         if device_id == "the_tv":
             service = "remote/send_command"
+            # TODO: Change this to use a script
             service_data = {
                 "entity_id": "remote.living_room",
                 "device": 60888940,
@@ -254,7 +255,15 @@ class Alexa(hass.Hass):
         device = self.slot_value_id("media_device")
         increment = self.increment_handler(self.slots["media_increment"], self.slots["media_once_twice"])
 
+        # There are home assistant scripts for each media function. These standardize the functionality between devices/activities
+        service = "script/media_{}".format(action)
+        service_data = {
+            "increment": increment
+        }
+
+
         self.log("Media command. Action: {}, Device: {}, Increment: {}".format(action, device, increment), level = "DEBUG")
+        self.call_service(service, **service_data)
 
         msg = "Hey weird future Daryl"
 
