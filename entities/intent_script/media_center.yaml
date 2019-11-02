@@ -26,14 +26,14 @@ skipback:
       entity_id: script.media_skip_back
 watch:
   action:
-    service: script.watch_activity
+    service: script.media_activity
     data_template:
       media_activity: '{{ watch_scripts | replace(" ", "_") }}'
   speech:
     text: "Switching to  {{ watch_scripts }}"
 listen:
   action:
-    service: script.watch_activity
+    service: script.media_activity
     data_template:
       media_activity: '{{ listen_scripts | replace(" ", "_") }}'
   async_action: true
