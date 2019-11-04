@@ -110,7 +110,8 @@ class Alexa(hass.Hass):
             "turn_off": "int_turn_on_off",
             "turn_up_down_by": "int_up_down",
             "media_control": "int_media_control",
-            "media_switch": "int_media_switch"
+            "media_switch": "int_media_switch",
+            "skip_back": "int_routine"
             # fan oscillate/turn on & oscillate
             # ecobee resume schedule (cancel hold) / set to specific temperature
         }
@@ -287,6 +288,24 @@ class Alexa(hass.Hass):
         self.call_service(service, **service_data)
 
         return self.just_saying("You'll be watching {} in just a few seconds.".format(activity))
+
+    def int_routine(self):
+        """
+        There are some intents I want to trigger more like routines. These are command phrases.
+        The only information we should need to know is which intent triggard the method call.
+        """
+
+        self.log("Routing Processor. Intent Name: {}".format(self.intent_name), level = "DEBUG")
+
+        # Use the intent name to decide which routine is being run
+        if self.intent_name == "skip_back":
+            service = "script/media_skip_back"
+            self.call_service(service)
+            return self.just_saying("Skipping back")
+        else:
+            self.log("Encountered unknown routine: {}".format(self.intent_name), level = "WARNING")
+            return self.just_saying("Invalid routine")
+
 
     ###
     # Utility Function
