@@ -136,7 +136,7 @@ class Alexa(hass.Hass):
         
         device_id = self.slot_value_id("up_down_by_device")
         up_down = self.slots['up_down_by_up_down']['value']
-        increment = self.increment_handler(self.slots['up_down_by_increment']['value'], self.slots['up_down_by_once_twice'])
+        increment = self.increment_handler(self.slots['up_down_by_increment'], self.slots['up_down_by_once_twice'])
         service = ""
         service_data = {}
 
