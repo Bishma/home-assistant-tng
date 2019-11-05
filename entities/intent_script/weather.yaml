@@ -1,3 +1,0 @@
-theweather:
-  speech:
-    text: "The inside temperature is {{ states('sensor.netatmo_indoor_temperature') }} degrees with {{ states('sensor.netatmo_indoor_humidity') }} percent humidity. Outside it's {{ states('sensor.netatmo_outdoor_temperature') }} degrees and {{ states('sensor.netatmo_outdoor_humidity') }} percent humidity."

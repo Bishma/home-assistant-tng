@@ -1,9 +1,6 @@
 homeassistant:
-  # I need this for my custom alexa skill
   auth_providers:
   - type: homeassistant
-  - type: legacy_api_password
-    api_password: !secret hass_password
   
   # Load... everything
   packages: !include_dir_named integrations

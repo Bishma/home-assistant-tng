@@ -11,8 +11,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
   * E.g. The buttons to control my stand fan (via Harmony IR) only show if I indicate that my stand fan is out. It gets put away for the winter.
 * Fully managed for all my sensors and devices. No auto discovery.
 * Universal remote for my media center.
-* Dynamic alexa intents. So far just for my media center.
-  * "Alexa ask home assistant to turn the tv up by _#_."
+* AppDaemon Alexa skill API
 * Presence detection using Tile trackers.
   * Sensor template to indicate when the house is empty.
 * On/Off control for Z-Wave through Home Assistant Cloud / Nebu Casa
