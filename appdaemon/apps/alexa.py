@@ -199,7 +199,7 @@ class Alexa(hass.Hass):
         
         self.log("Device: {} - Up/Down: {} - Service: {} - Service Data: {}".format(device_id, up_down, service, service_data), level = "DEBUG")
 
-        return self.just_saying("Up down! Whooooo!")
+        return self.silent_response()
 
     def int_turn_on_off(self):
         """
@@ -222,6 +222,8 @@ class Alexa(hass.Hass):
         # Find the device by name.
         device = self.device_by_name(heard_device_tokens)
 
+        msg = ""
+
         # If were don't need to fall back then we should have domain and entity data.
         if device["fallback"] == False:
             service = ""
@@ -239,12 +241,16 @@ class Alexa(hass.Hass):
             self.log("Service: {} - Service Data: {}".format(service, service_data), level = "DEBUG")
             if service and service_data:
                 self.call_service(service, **service_data)
-                msg = "I'll turn {} {}".format(on_off, device["name"].replace("_", " "))
             else:
                 self.log("Invalid service or service data values. Service: {} - Service Data: {}".format(service, service_data), level = "ERROR")
                 msg = self.fallback(fb_from = "service and service data check")
         else:
             msg = self.fallback(fb_from = "device check")
+
+        if msg:
+            response = self.just_saying(msg)
+        else:
+            response = self.silent_response()
 
         return self.just_saying(msg)
 
@@ -267,9 +273,7 @@ class Alexa(hass.Hass):
         self.log("Media command. Action: {}, Device: {}, Increment: {}".format(action, device, increment), level = "DEBUG")
         self.call_service(service, **service_data)
 
-        msg = "Hey weird future Daryl"
-
-        return self.just_saying(msg)
+        return self.silent_response()
 
     def int_media_switch(self):
         """
@@ -286,6 +290,9 @@ class Alexa(hass.Hass):
 
         self.log("Media switch command. Activity: {}".format(activity))
         self.call_service(service, **service_data)
+
+        msg = "Switching to {}".format(activity)
+        # TODO: If switching from off, add "it'll be a second" or something similar
 
         return self.just_saying("You'll be watching {} in just a few seconds.".format(activity))
 
