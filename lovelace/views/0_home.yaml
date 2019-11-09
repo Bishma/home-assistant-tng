@@ -49,6 +49,10 @@
         icon: mdi:lightbulb
     - type: 'custom:simple-thermostat'
       entity: climate.cottage
+      sensors:
+        - attribute: current_humidity
+          name: Humidity
+      control: false
       step_size: 1
     - id: bedroom_ac
       type: entities
