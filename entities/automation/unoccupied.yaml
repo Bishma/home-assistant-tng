@@ -33,7 +33,7 @@
   alias: Unoccupied Evening
   trigger:
   - event: sunset
-    offset: -00:45:00
+    offset: +00:25:00
     platform: sun
   condition:
   - condition: state
@@ -45,10 +45,6 @@
       entity_id:
         - switch.derek_bedroom_lamp
         - switch.jasco_products_12720_outdoor_smart_switch_switch
-  - delay: '01:30:00'
-  - service: switch.turn_on
-    data:
-      entity_id: switch.bonnie_bedroom_lamp
 - id: 'unoccupied_night'
   alias: Unoccupied Night
   trigger:
