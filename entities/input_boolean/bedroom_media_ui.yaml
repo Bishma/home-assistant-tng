@@ -1,0 +1,4 @@
+# Controls whether the bedroom media center controls are displayed
+bedroom_media_ui:
+  name: Enable Bedroom Controls
+  icon: mdi:hotel

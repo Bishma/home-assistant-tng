@@ -681,40 +681,209 @@
       show_header_toggle: false
       entities:
         - entity: input_select.media_switch
-    - id: bedroom-controls
-      type: vertical-stack
-      cards:
-      - id: bedroom-dpad
+        - entity: input_boolean.bedroom_media_ui
+    - id: bedroom-control-condition
+      type: conditional
+      conditions:
+      - entity: input_boolean.bedroom_media_ui
+        state: 'on'
+      card:
         type: vertical-stack
         cards:
-        - type: horizontal-stack
+        - id: bedroom-dpad
+          type: vertical-stack
+          cards:
+          - type: horizontal-stack
+            cards:
+            - type: entity-button
+              entity: script.bedroom_tv_power
+              name: "Off"
+              icon: mdi:power-plug-off
+              tap_action:
+                action: toggle
+              hold_action:
+                action: none
+              theme: danger
+            - type: entity-button
+              entity: remote.living_room
+              name: Up
+              icon: mdi:arrow-up-box
+              tap_action: 
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: DirectionUp
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: remote.living_room
+              name: Back
+              icon: mdi:rotate-left
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: Back
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: remote.living_room
+              name: Rewind
+              icon: mdi:rewind
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: Rewind
+              hold_action:
+                action: none
+          - type: horizontal-stack
+            cards:
+            - type: entity-button
+              entity: remote.living_room
+              name: Left
+              icon: mdi:arrow-left-box
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: DirectionLeft
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: remote.living_room
+              name: Confirm
+              icon: mdi:check-circle
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: OK
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: remote.living_room
+              name: Right
+              icon: mdi:arrow-right-box
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: DirectionRight
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: remote.living_room
+              name: F. Fwd
+              icon: mdi:fast-forward
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: FastForward
+              hold_action:
+                action: none
+          - type: horizontal-stack
+            cards:
+            - type: entity-button
+              entity: remote.living_room
+              name: Home
+              icon: mdi:home
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: Home
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: remote.living_room
+              name: Down
+              icon: mdi:arrow-down-box
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: DirectionDown
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: remote.living_room
+              name: Options
+              icon: mdi:asterisk
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: 'Options*'
+              hold_action:
+                action: none
+            - type: entity-button
+              entity: remote.living_room
+              name: Info
+              icon: mdi:information-outline
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  device: 63164007
+                  command: Info
+              hold_action:
+                action: none
+        - id: bedroom-media-button-row
+          type: horizontal-stack
           cards:
           - type: entity-button
-            entity: script.bedroom_tv_power
-            name: "Off"
-            icon: mdi:power-plug-off
-            tap_action:
-              action: toggle
-            hold_action:
-              action: none
-            theme: danger
-          - type: entity-button
             entity: remote.living_room
-            name: Up
-            icon: mdi:arrow-up-box
-            tap_action: 
+            name: Pause
+            icon: mdi:pause
+            tap_action:
               action: call-service
               service: remote.send_command
               service_data:
                 entity_id: remote.living_room
                 device: 63164007
-                command: DirectionUp
+                command: Pause
             hold_action:
               action: none
           - type: entity-button
             entity: remote.living_room
-            name: Back
-            icon: mdi:rotate-left
+            name: Play
+            icon: mdi:play
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.living_room
+                device: 63164007
+                command: Play
+            hold_action:
+              action: none
+          - type: entity-button
+            entity: remote.living_room
+            name: Stop
+            icon: mdi:stop
             tap_action:
               action: call-service
               service: remote.send_command
@@ -725,247 +894,84 @@
             hold_action:
               action: none
           - type: entity-button
-            entity: remote.living_room
-            name: Rewind
-            icon: mdi:rewind
+            entity: script.bedroom_tv_voldown
+            name: Vol -
+            icon: mdi:volume-minus
             tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                entity_id: remote.living_room
-                device: 63164007
-                command: Rewind
+              action: toggle
             hold_action:
               action: none
-        - type: horizontal-stack
+          - type: entity-button
+            entity: script.bedroom_tv_volup
+            name: Vol +
+            icon: mdi:volume-plus
+            tap_action:
+              action: toggle
+            hold_action:
+              action: none
+        - id: bedroom-sleep-buttons
+          type: horizontal-stack
           cards:
           - type: entity-button
-            entity: remote.living_room
-            name: Left
-            icon: mdi:arrow-left-box
+            entity: script.bedroom_roku_sleep_22
+            name: 1 Bob
+            icon: mdi:sleep
             tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                entity_id: remote.living_room
-                device: 63164007
-                command: DirectionLeft
+              action: toggle
             hold_action:
               action: none
           - type: entity-button
-            entity: remote.living_room
-            name: Confirm
-            icon: mdi:check-circle
+            entity: script.bedroom_roku_sleep_44
+            name: 2 Bobs
+            icon: mdi:sleep
             tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                entity_id: remote.living_room
-                device: 63164007
-                command: OK
+              action: toggle
             hold_action:
               action: none
           - type: entity-button
-            entity: remote.living_room
-            name: Right
-            icon: mdi:arrow-right-box
+            entity: script.bedroom_roku_sleep_66
+            name: 3 Bobs
+            icon: mdi:sleep
             tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                entity_id: remote.living_room
-                device: 63164007
-                command: DirectionRight
+              action: toggle
             hold_action:
               action: none
-          - type: entity-button
-            entity: remote.living_room
-            name: F. Fwd
-            icon: mdi:fast-forward
-            tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                entity_id: remote.living_room
-                device: 63164007
-                command: FastForward
-            hold_action:
-              action: none
-        - type: horizontal-stack
-          cards:
-          - type: entity-button
-            entity: remote.living_room
-            name: Home
-            icon: mdi:home
-            tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                entity_id: remote.living_room
-                device: 63164007
-                command: Home
-            hold_action:
-              action: none
-          - type: entity-button
-            entity: remote.living_room
-            name: Down
-            icon: mdi:arrow-down-box
-            tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                entity_id: remote.living_room
-                device: 63164007
-                command: DirectionDown
-            hold_action:
-              action: none
-          - type: entity-button
-            entity: remote.living_room
-            name: Options
-            icon: mdi:asterisk
-            tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                entity_id: remote.living_room
-                device: 63164007
-                command: 'Options*'
-            hold_action:
-              action: none
-          - type: entity-button
-            entity: remote.living_room
-            name: Info
-            icon: mdi:information-outline
-            tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                entity_id: remote.living_room
-                device: 63164007
-                command: Info
-            hold_action:
-              action: none
-      - id: bedroom-media-button-row
-        type: horizontal-stack
-        cards:
-        - type: entity-button
-          entity: remote.living_room
-          name: Pause
-          icon: mdi:pause
-          tap_action:
-            action: call-service
-            service: remote.send_command
-            service_data:
-              entity_id: remote.living_room
-              device: 63164007
-              command: Pause
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: remote.living_room
-          name: Play
-          icon: mdi:play
-          tap_action:
-            action: call-service
-            service: remote.send_command
-            service_data:
-              entity_id: remote.living_room
-              device: 63164007
-              command: Play
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: remote.living_room
-          name: Stop
-          icon: mdi:stop
-          tap_action:
-            action: call-service
-            service: remote.send_command
-            service_data:
-              entity_id: remote.living_room
-              device: 63164007
-              command: Back
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedroom_tv_voldown
-          name: Vol -
-          icon: mdi:volume-minus
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedroom_tv_volup
-          name: Vol +
-          icon: mdi:volume-plus
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-      - id: bedroom-sleep-buttons
-        type: horizontal-stack
-        cards:
-        - type: entity-button
-          entity: script.bedroom_roku_sleep_22
-          name: 1 Bob
-          icon: mdi:sleep
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedroom_roku_sleep_44
-          name: 2 Bobs
-          icon: mdi:sleep
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-        - type: entity-button
-          entity: script.bedroom_roku_sleep_66
-          name: 3 Bobs
-          icon: mdi:sleep
-          tap_action:
-            action: toggle
-          hold_action:
-            action: none
-      - id: bedroom-sleep-timer
-        type: conditional
-        conditions:
-        - entity: timer.bedroom_sleep
-          state_not: idle
-        card:
-          type: entities
-          title: TV Activity
-          show_header_toggle: false
-          entities:
-          - type: call-service
-            icon: mdi:power-plug-off
-            name: Fuck-off to Sleep
-            action_name: "Off"
-            service: timer.finish
-            service_data:
-              entity_id: timer.bedroom_sleep
+        - id: bedroom-sleep-timer
+          type: conditional
+          conditions:
           - entity: timer.bedroom_sleep
-          - type: call-service
-            icon: mdi:sleep-off
-            name: Cancel Timer
-            action_name: Cancel
-            service: timer.cancel
-            service_data:
-              entity_id: timer.bedroom_sleep
-          - type: call-service
-            icon: mdi:pause
-            name: Pause Timer & Roku
-            action_name: Pause
-            service: timer.pause
-            service_data:
-              entity_id: timer.bedroom_sleep
-          - type: call-service
-            icon: mdi:play
-            name: Resume Timer and Roku
-            action_name: Resume
-            service: timer.start
-            service_data:
-              entity_id: timer.bedroom_sleep
+            state_not: idle
+          card:
+            type: entities
+            title: TV Activity
+            show_header_toggle: false
+            entities:
+            - type: call-service
+              icon: mdi:power-plug-off
+              name: Off to Sleep
+              action_name: "Off"
+              service: timer.finish
+              service_data:
+                entity_id: timer.bedroom_sleep
+            - entity: timer.bedroom_sleep
+            - type: call-service
+              icon: mdi:sleep-off
+              name: Cancel Timer
+              action_name: Cancel
+              service: timer.cancel
+              service_data:
+                entity_id: timer.bedroom_sleep
+            - type: call-service
+              icon: mdi:pause
+              name: Pause Timer & Roku
+              action_name: Pause
+              service: timer.pause
+              service_data:
+                entity_id: timer.bedroom_sleep
+            - type: call-service
+              icon: mdi:play
+              name: Resume Timer and Roku
+              action_name: Resume
+              service: timer.start
+              service_data:
+                entity_id: timer.bedroom_sleep
