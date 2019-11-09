@@ -146,22 +146,14 @@ media_rewind:
   - service: remote.send_command
     entity_id: remote.living_room
     data_template:
-      device: >
+      device: 51736885
+      command: Play
+      num_repeats: >
         {%- if states("sensor.living_room_media_device") == "htpc" -%}
-          51738178
+          0
         {%- else -%}
-          51736885
+          1
         {%- endif -%}
-      command: >
-        {%- if states("sensor.living_room_remote_state") == "Watch Kodi" -%}
-          DirectionLeft
-        {%- elif states("sensor.living_room_remote_state") == "Watch Plex"
-          or  states("sensor.living_room_remote_state") == "Watch Hulu"
-          or states("sensor.living_room_remote_state") == "Watch Netflix"
-          or states("sensor.living_room_remote_state") == "Watch Youtube" -%}
-          Play
-        {%- endif -%}
-      num_repeats: 1
 media_fast_forward:
   alias: TV Fast Forward
   sequence:
@@ -189,22 +181,14 @@ media_fast_forward:
   - service: remote.send_command
     entity_id: remote.living_room
     data_template:
-      device: >
+      device: 51736885
+      command: Play
+      num_repeats: >
         {%- if states("sensor.living_room_media_device") == "htpc" -%}
-          51738178
+          0
         {%- else -%}
-          51736885
+          1
         {%- endif -%}
-      command: >
-        {%- if states("sensor.living_room_remote_state") == "Watch Kodi" -%}
-          DirectionLeft
-        {%- elif states("sensor.living_room_remote_state") == "Watch Plex"
-          or  states("sensor.living_room_remote_state") == "Watch Hulu"
-          or states("sensor.living_room_remote_state") == "Watch Netflix"
-          or states("sensor.living_room_remote_state") == "Watch Youtube" -%}
-          Play
-        {%- endif -%}
-      num_repeats: 1
 media_input1:
   alias: TV Input Kodi
   sequence:
