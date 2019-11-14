@@ -20,12 +20,14 @@
         Amazon
       {%- elif is_state("sensor.living_room_remote_state", "Watch Plex") -%}
         Plex
+      {%- elif is_state("sensor.living_room_remote_state", "Watch Sling") -%}
+        Sling
       {%- elif is_state("sensor.living_room_remote_state", "Play Switch") -%}
         Nintendo Switch
       {%- elif is_state("sensor.living_room_remote_state", "Watch OTA") -%}
         Over the Air
       {%- elif is_state("sensor.living_room_remote_state", "Listen to Spotify") -%}
-        Listen To Spotify
+        Spotify
       {%- elif is_state("sensor.living_room_remote_state", "Listen to Records") -%}
         Listen To Records
       {%- else -%}
@@ -53,7 +55,9 @@
           31480109
         {%- elif is_state("input_select.media_switch", "Plex") -%}
           31571897
-        {%- elif is_state("sensor.living_room_remote_state", "Listen to Spotify") -%}
+        {%- elif is_state("input_select.media_switch", "Sling") -%}
+          31480008
+        {%- elif is_state("sensor.living_room_remote_state", "Spotify") -%}
           41363814
         {%- elif is_state("input_select.media_switch", "Nintendo Switch") -%}
           31480190
