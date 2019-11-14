@@ -552,12 +552,22 @@
                 name: Rewind
                 action_name: '<<'
                 icon: mdi:rewind
-                service: script.media_rewind
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736885
+                  command: Rewind
               - type: call-service
                 name: Fast Forward
                 action_name: '>>'
                 icon: mdi:fast-forward
-                service: script.media_rewind
+                service: remote.send_command
+                service_data:
+                  entity_id: remote.living_room
+                  num_repeats: 1
+                  device: 51736885
+                  command: FastForward
               - type: call-service
                 name: Critical Role - Skip Break
                 action_name: '>>>>'
