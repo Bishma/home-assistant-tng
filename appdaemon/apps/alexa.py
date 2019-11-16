@@ -117,7 +117,7 @@ class Alexa(hass.Hass):
         }
 
         # Check that the sent intent is mapped above.
-        if self.intent_name in intents:
+        if self.intent_name in intents.keys():
             method = getattr(self, intents[self.intent_name])
             return method()
         else:
