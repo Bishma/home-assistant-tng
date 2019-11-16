@@ -565,8 +565,8 @@ class Alexa(hass.Hass):
     def just_saying(self, speech):
         response = {
             "outputSpeech": {
-                "type": "PlainText",
-                "text": speech
+                "type": "SSML",
+                "ssml": "<speak>{}</speak>".format(speech)
             },
             "shouldEndSession": True
         }
