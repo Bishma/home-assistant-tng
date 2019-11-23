@@ -327,7 +327,8 @@ class Alexa(hass.Hass):
         increment = 1
 
         if "value" in once_twice.keys():
-            increment = 2 if once_twice["value"] else 1
+            self.log("Once Twice Data: {}".format(once_twice["value"]), level = "DEBUG")
+            increment = 2 if once_twice["value"] == "twice" else 1
         elif "value" in numeric_increment.keys():
             increment = int(numeric_increment["value"])
 
