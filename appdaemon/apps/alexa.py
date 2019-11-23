@@ -194,6 +194,7 @@ class Alexa(hass.Hass):
         else:
             service = None
             service_data = None
+        # TODO: turn on the sound bar
         # TODO: phase2: Add bedroom tv volume control
         # TODO: phase2: sanity check (especially thermostat) and throw errors if outside. Gracefully handle in alexa_intent_parser
         
@@ -273,6 +274,10 @@ class Alexa(hass.Hass):
         self.log("Media command. Action: {}, Device: {}, Increment: {}".format(action, device, increment), level = "DEBUG")
         self.call_service(service, **service_data)
 
+        # FF and Rew need a confirm step to restart playback
+        if action == "rewind" or action == "fast_forward":
+            self.call_service("script/media_confirm")
+
         return self.silent_response()
 
     def int_media_switch(self):
@@ -312,6 +317,24 @@ class Alexa(hass.Hass):
         else:
             self.log("Encountered unknown routine: {}".format(self.intent_name), level = "WARNING")
             return self.just_saying("Invalid routine")
+
+        # TODO: Weather (The inside temperature is {{ states('sensor.netatmo_indoor_temperature') }} degrees with {{ states('sensor.netatmo_indoor_humidity') }} percent humidity. Outside it's {{ states('sensor.netatmo_outdoor_temperature') }} degrees and {{ states('sensor.netatmo_outdoor_humidity') }} percent humidity.)
+        # TODO: Goodnight
+        # TODO: Rise and Shine
+        """
+        TODO: Derek's morning
+        It's {{ states.sensor.janet_utility_date.attributes.r_dow }}, {{ states.sensor.janet_utility_date.attributes.r_month }} 
+        {{ states.sensor.janet_utility_date.attributes.r_day }}, {{ states.sensor.janet_utility_date.attributes.year }}.
+        
+        It's currently {{ states('sensor.netatmo_outdoor_temperature') }} degrees at our weather stations. The immediate forcast calls for
+        {{ states('sensor.dark_sky_minutely_summary') }}. Later, expect {{ states('sensor.dark_sky_hourly_summary') }} with a high of
+        {{ states('sensor.dark_sky_daytime_high_temperature_0d') }} degrees and a low of {{ states('sensor.dark_sky_overnight_low_temperature_0d') }} degrees.
+
+        {% if states('sensor.janet_api_idx_lunch') != 'none' -%}
+            Lunch today is {{ states('sensor.janet_api_idx_lunch') }}
+        {%- endif -%}
+        """
+        # TODO: Voice Enhance
 
 
     ###

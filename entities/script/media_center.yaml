@@ -143,17 +143,6 @@ media_rewind:
           {%- else -%}
             1
           {%- endif -%}
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51736885
-      command: Play
-      num_repeats: >
-        {%- if states("sensor.living_room_media_device") == "htpc" -%}
-          0
-        {%- else -%}
-          1
-        {%- endif -%}
 media_fast_forward:
   alias: TV Fast Forward
   sequence:
@@ -178,17 +167,6 @@ media_fast_forward:
           {%- else -%}
             1
           {%- endif -%}
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 51736885
-      command: Play
-      num_repeats: >
-        {%- if states("sensor.living_room_media_device") == "htpc" -%}
-          0
-        {%- else -%}
-          1
-        {%- endif -%}
 media_input1:
   alias: TV Input Kodi
   sequence:
