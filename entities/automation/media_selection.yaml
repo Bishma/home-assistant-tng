@@ -8,23 +8,23 @@
     data_template:
      entity_id: input_select.media_switch
      option: >
-      {%- if is_state("sensor.living_room_remote_state", "Watch Kodi") -%}
+      {%- if is_state("sensor.living_room_remote_state", "Kodi") -%}
         Kodi
-      {%- elif is_state("sensor.living_room_remote_state", "Watch Hulu") -%}
+      {%- elif is_state("sensor.living_room_remote_state", "Hulu") -%}
         Hulu
-      {%- elif is_state("sensor.living_room_remote_state", "Watch Netflix") -%}
+      {%- elif is_state("sensor.living_room_remote_state", "Netflix") -%}
         Netflix
       {%- elif is_state("sensor.living_room_remote_state", "Youtube") -%}
         Youtube
-      {%- elif is_state("sensor.living_room_remote_state", "Watch Amazon") -%}
+      {%- elif is_state("sensor.living_room_remote_state", "Amazon") -%}
         Amazon
-      {%- elif is_state("sensor.living_room_remote_state", "Watch Plex") -%}
+      {%- elif is_state("sensor.living_room_remote_state", "Plex") -%}
         Plex
-      {%- elif is_state("sensor.living_room_remote_state", "Watch Sling") -%}
+      {%- elif is_state("sensor.living_room_remote_state", "Sling") -%}
         Sling
       {%- elif is_state("sensor.living_room_remote_state", "Play Switch") -%}
         Nintendo Switch
-      {%- elif is_state("sensor.living_room_remote_state", "Watch OTA") -%}
+      {%- elif is_state("sensor.living_room_remote_state", "OTA") -%}
         Over the Air
       {%- elif is_state("sensor.living_room_remote_state", "Listen to Spotify") -%}
         Spotify
@@ -46,17 +46,17 @@
         {%- if is_state("input_select.media_switch", "Kodi") -%}
           31479535
         {%- elif is_state("input_select.media_switch", "Hulu") -%}
-          31949557
+          42299847
         {%- elif is_state("input_select.media_switch", "Netflix") -%}
-          31478989
+          42299623
         {%- elif is_state("input_select.media_switch", "Youtube") -%}
-          33323580
+          42299799
         {%- elif is_state("input_select.media_switch", "Amazon") -%}
-          31480109
+          42299705
         {%- elif is_state("input_select.media_switch", "Plex") -%}
-          31571897
+          42299678
         {%- elif is_state("input_select.media_switch", "Sling") -%}
-          31480008
+          42299732
         {%- elif is_state("sensor.living_room_remote_state", "Spotify") -%}
           41363814
         {%- elif is_state("input_select.media_switch", "Nintendo Switch") -%}

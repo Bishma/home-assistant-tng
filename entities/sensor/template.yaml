@@ -30,19 +30,19 @@
     living_room_media_activity_id:
       entity_id: remote.living_room
       value_template: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Amazon" %}
+        {% if states.remote.living_room.attributes.current_activity == "Amazon" %}
           31480109
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Hulu" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Hulu" %}
           31949557
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Kodi" %}
           31479535
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Netflix" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Netflix" %}
           31478989
-        {% elif states.remote.living_room.attributes.current_activity == "Watch OTA" %}
+        {% elif states.remote.living_room.attributes.current_activity == "OTA" %}
           31480260
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Plex" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Plex" %}
           31571897
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Sling" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Sling" %}
           31480008
         {% elif states.remote.living_room.attributes.current_activity == "Youtube" %}
           33323580
@@ -59,17 +59,17 @@
     living_room_media_device:
       entity_id: remote.living_room
       value_template: >
-        {% if states.remote.living_room.attributes.current_activity == "Watch Kodi" %}
+        {% if states.remote.living_room.attributes.current_activity == "Kodi" %}
           htpc
-        {% elif states.remote.living_room.attributes.current_activity == "Watch Amazon"
-              or  states.remote.living_room.attributes.current_activity == "Watch Hulu"
-              or  states.remote.living_room.attributes.current_activity == "Watch Netflix"
-              or states.remote.living_room.attributes.current_activity == "Watch Plex"
+        {% elif states.remote.living_room.attributes.current_activity == "Amazon"
+              or  states.remote.living_room.attributes.current_activity == "Hulu"
+              or  states.remote.living_room.attributes.current_activity == "Netflix"
+              or states.remote.living_room.attributes.current_activity == "Plex"
               or states.remote.living_room.attributes.current_activity == "Listen to Spotify"
-              or states.remote.living_room.attributes.current_activity == "Watch Sling"
+              or states.remote.living_room.attributes.current_activity == "Sling"
               or states.remote.living_room.attributes.current_activity == "Youtube" %}
           roku
-        {% elif states.remote.living_room.attributes.current_activity == "Watch OTA" %}
+        {% elif states.remote.living_room.attributes.current_activity == "OTA" %}
           ota
         {% elif states.remote.living_room.attributes.current_activity == "Play Switch" %}
           switch
@@ -85,7 +85,7 @@
         {% if is_state("sensor.living_room_media_device", "htpc") %}
           51738178
         {% elif is_state("sensor.living_room_media_device", "roku") %}
-          51736885
+          63164007
         {% else %}
           off
         {% endif %}

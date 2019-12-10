@@ -38,7 +38,7 @@
                       service: remote.send_command
                       service_data:
                         entity_id: remote.living_room
-                        device: 51736885
+                        device: 66658758
                         command: DirectionUp
                     hold_action:
                       action: none
@@ -51,7 +51,7 @@
                       service: remote.send_command
                       service_data:
                         entity_id: remote.living_room
-                        device: 51736885
+                        device: 66658758
                         command: Back
                     hold_action:
                       action: none
@@ -64,7 +64,7 @@
                       service: remote.send_command
                       service_data:
                         entity_id: remote.living_room
-                        device: 51736885
+                        device: 66658758
                         command: ChannelUp
                     hold_action:
                       action: none
@@ -79,7 +79,7 @@
                       service: remote.send_command
                       service_data:
                         entity_id: remote.living_room
-                        device: 51736885
+                        device: 66658758
                         command: DirectionLeft
                     hold_action:
                       action: none
@@ -92,7 +92,7 @@
                       service: remote.send_command
                       service_data:
                         entity_id: remote.living_room
-                        device: 51736885
+                        device: 66658758
                         command: OK
                     hold_action:
                       action: none
@@ -105,7 +105,7 @@
                       service: remote.send_command
                       service_data:
                         entity_id: remote.living_room
-                        device: 51736885
+                        device: 66658758
                         command: DirectionRight
                     hold_action:
                       action: none
@@ -118,7 +118,7 @@
                       service: remote.send_command
                       service_data:
                         entity_id: remote.living_room
-                        device: 51736885
+                        device: 66658758
                         command: ChannelDown
                     hold_action:
                       action: none
@@ -141,7 +141,7 @@
                         service: remote.send_command
                         service_data:
                           entity_id: remote.living_room
-                          device: 51736885
+                          device: 66658758
                           command: DirectionDown
                       hold_action:
                         action: none
@@ -154,7 +154,7 @@
                         service: remote.send_command
                         service_data:
                           entity_id: remote.living_room
-                          device: 51736885
+                          device: 66658758
                           command: 'Options*'
                       hold_action:
                         action: none
@@ -167,7 +167,7 @@
                         service: remote.send_command
                         service_data:
                           entity_id: remote.living_room
-                          device: 51736885
+                          device: 66658758
                           command: Info
                       hold_action:
                         action: none
@@ -414,7 +414,7 @@
           type: conditional
           conditions:
             - entity: sensor.living_room_remote_state
-              state: Watch Kodi
+              state: Kodi
           card:
             type: vertical-stack
             cards:
@@ -501,9 +501,9 @@
           type: conditional
           conditions:
             - entity: sensor.living_room_remote_state
-              state_not: Watch Kodi
+              state_not: Kodi
             - entity: sensor.living_room_remote_state
-              state_not: Watch OTA
+              state_not: OTA
             - entity: sensor.living_room_remote_state
               state_not: Play Switch
             - entity: sensor.living_room_remote_state
@@ -536,7 +536,7 @@
                 service_data:
                   entity_id: remote.living_room
                   num_repeats: 1
-                  device: 51736885
+                  device: 66658758
                   command: Home
               - type: call-service
                 name: Exit
@@ -546,7 +546,7 @@
                 service_data:
                   entity_id: remote.living_room
                   num_repeats: 1
-                  device: 51736885
+                  device: 66658758
                   command: Exit
               - type: call-service
                 name: Rewind
@@ -556,7 +556,7 @@
                 service_data:
                   entity_id: remote.living_room
                   num_repeats: 1
-                  device: 51736885
+                  device: 66658758
                   command: Rewind
               - type: call-service
                 name: Fast Forward
@@ -566,7 +566,7 @@
                 service_data:
                   entity_id: remote.living_room
                   num_repeats: 1
-                  device: 51736885
+                  device: 66658758
                   command: FastForward
               - type: call-service
                 name: Critical Role - Skip Break
@@ -580,7 +580,7 @@
           show_header_toggle: false
           conditions:
             - entity: sensor.living_room_remote_state
-              state: Watch OTA
+              state: OTA
           card:
             type: entities
             title: OTA Tools
