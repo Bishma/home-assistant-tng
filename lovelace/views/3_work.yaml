@@ -30,12 +30,15 @@
       show:
         fill: false
       entities:
-      - entity: sensor.bitcoin_current_value
-        name: BTC
-      - entity: sensor.main_street_current_value
-        name: MAIN
       - entity: sensor.combined_current_value
         name: Combined
+        color: orange
+      - entity: sensor.bitcoin_current_value
+        name: BTC
+        color: blue
+      - entity: sensor.main_street_current_value
+        name: MAIN
+        color: red
     - id: financials
       type: 'custom:mini-graph-card'
       name: Tracked Prices
@@ -47,8 +50,10 @@
       entities:
       - entity: sensor.exchange_rate_1_btc
         name: BTC
+        color: orange
       - entity: sensor.main_street
         name: MAIN
+        color: blue
         y_axis: secondary
     - id: financials-inputs
       type: vertical-stack
