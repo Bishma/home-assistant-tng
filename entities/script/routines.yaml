@@ -53,7 +53,7 @@ alexa_dereks_morning:
   - service: remote.turn_on
     data:
       entity_id: remote.living_room
-      activity: 33323580
+      activity: 42299678
   - delay: '00:00:15'
   - service: remote.send_command
     entity_id: remote.living_room

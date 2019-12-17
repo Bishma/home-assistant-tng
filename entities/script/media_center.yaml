@@ -57,13 +57,13 @@ media_cr_break:
   - service: remote.send_command
     entity_id: remote.living_room
     data:
-      device: 63164007
+      device: 66658758
       command: FastForward
       num_repeats: 80
   - service: remote.send_command
     entity_id: remote.living_room
     data:
-      device: 63164007
+      device: 66658758
       command: OK
       num_repeats: 1
 # Turn the TV on or off. On defaults to Plex.

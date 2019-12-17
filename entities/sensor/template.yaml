@@ -85,7 +85,7 @@
         {% if is_state("sensor.living_room_media_device", "htpc") %}
           51738178
         {% elif is_state("sensor.living_room_media_device", "roku") %}
-          63164007
+          66658758
         {% else %}
           off
         {% endif %}
