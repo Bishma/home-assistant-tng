@@ -40,7 +40,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Harmony Home Hub
 * Broadlink RM Mini 3 IR Blaster
 * Intel NUC D54250WYK1 Intel 4th Gen Core i5-4250U running Windows 10 (HTPC / Plex Server)
-* Roku Express
+* Roku Ultra
 * Roku Premier
 * Synology
 * Amazon Echo
@@ -63,7 +63,6 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Appdaemon
 * Custom Alexa Skill
 * Dark Sky Sensor and Weather
-* Speedtest.net
 * Waze Travel Time
 * Windy.com
 
