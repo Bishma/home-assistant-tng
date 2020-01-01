@@ -8,6 +8,16 @@
   - data:
       entity_id: switch.jasco_products_12720_outdoor_smart_switch_switch
     service: switch.turn_off
+- id: 'tree-on'
+  alias: Tree On
+  trigger:
+  - at: '16:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.couch
+    service: switch.turn_on
 - id: work_heater_on
   alias: Work Heater On
   trigger:
