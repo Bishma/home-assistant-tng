@@ -9,15 +9,15 @@ media_activity:
         {%- if media_activity|lower == "kodi" or media_activity|lower == "cody" -%}
           31479535
         {%- elif media_activity|lower == "hulu" -%}
-          31949557
+          42299847
         {%- elif media_activity|lower == "sling" -%}
-          31480008
+          42299732
         {%- elif media_activity|lower == "netflix" -%}
-          31478989
+          42299623
         {%- elif media_activity|lower == "amazon" -%}
-          31480109
+          42299705
         {%- elif media_activity|lower == "plex" -%}
-          31571897
+          42299678
         {%- elif media_activity|lower == "switch" -%}
           31480190
         {%- elif media_activity|lower == "spotify" -%}
