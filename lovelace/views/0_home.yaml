@@ -16,7 +16,8 @@
         type: custom:slider-entity-row
         icon: mdi:lightbulb
       - entity: switch.couch
-        icon: mdi:floor-lamp
+        icon: mdi:pine-tree
+        name: The Sparkle
     - id: dining_room_controls
       type: entities
       title: Dining Room
