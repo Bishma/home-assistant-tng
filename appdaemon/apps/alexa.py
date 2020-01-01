@@ -299,7 +299,7 @@ class Alexa(hass.Hass):
         msg = "Switching to {}".format(activity)
         # TODO: If switching from off, add "it'll be a second" or something similar
 
-        return self.just_saying("You'll be watching {} in just a few seconds.".format(activity))
+        return self.just_saying("Switching to {}!".format(activity))
 
     def int_routine(self):
         """
