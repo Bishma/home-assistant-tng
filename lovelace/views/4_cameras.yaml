@@ -15,21 +15,18 @@
       type: vertical-stack
       cards:
         - type: picture-entity
-          entity: camera.front_door
+          entity: camera.front_door_2
         - type: entities
           entities:
-            - entity: sensor.ring_front_door_last_motion
+            - entity: sensor.front_door_last_motion
               icon: mdi:walk
               name: Motion Last Detected
-            - entity: sensor.ring_front_door_last_ding
+            - entity: sensor.front_door_last_ding
               icon: mdi:bell-ring-outline
               name: Last Ring
-            - entity: sensor.ring_front_door_battery
+            - entity: sensor.front_door_battery
               icon: mdi:battery-outline
               name: Battery Level
-            - entity: sensor.ring_front_door_wifi_signal_category
-              icon: mdi:wifi
-              name: WiFi Connection Strength
     - id: traffic-cam
       type: picture
       image: https://www.tripcheck.com/roadcams/cams/Eugene%20River%20Ave._pid2539.JPG
