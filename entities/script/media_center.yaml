@@ -21,7 +21,7 @@ media_activity:
         {%- elif media_activity|lower == "switch" -%}
           31480190
         {%- elif media_activity|lower == "spotify" -%}
-          41363814
+          43030123
         {%- elif media_activity|lower == "over_the_air" -%}
           31480260
         {%- elif media_activity|lower == "music" -%}

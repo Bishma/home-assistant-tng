@@ -58,7 +58,7 @@
         {%- elif is_state("input_select.media_switch", "Sling") -%}
           42299732
         {%- elif is_state("sensor.living_room_remote_state", "Spotify") -%}
-          41363814
+          43030123
         {%- elif is_state("input_select.media_switch", "Nintendo Switch") -%}
           31480190
         {%- elif is_state("input_select.media_switch", "Over the Air") -%}
