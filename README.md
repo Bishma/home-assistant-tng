@@ -12,7 +12,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * Fully managed for all my sensors and devices. No auto discovery.
 * Universal remote for my media center.
 * AppDaemon Alexa skill API
-* Presence detection using Tile trackers.
+* Presence detection using android mobile app.
   * Sensor template to indicate when the house is empty.
 * On/Off control for Z-Wave through Home Assistant Cloud / Nebu Casa
 * Documentation tab in the app through markdown cards
@@ -49,7 +49,7 @@ I have been working to automate my home as much as my 50 year old wiring allows.
 * TP Link LB230 Multi-Color BR30
 * 2x TP Link HS100 Wifi Switch
 * 2x TP Link HS105 Mini Wifi Switch
-* 2x Tile Trackers
+* 2x Home Assistant Android Apps
 * Ring Video Doorbell 2
 * 2x Amcrest Pan/Tilt/Zoom security cameras (via synology surveillance stations)
 * Netatmo Indoor, Outdoor, Wind climate sensors

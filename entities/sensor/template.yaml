@@ -151,15 +151,15 @@
     # Simple bool for decided if the house is empty of residents
     unoccupied_mode:
       entity_id:
-        - device_tracker.tile_a8b3ea596f9b44fd
-        - device_tracker.tile_4c66b3d3606d440e
+        - person.derek
+        - person.bonnie
         - input_select.occupation_override
       friendly_name: 'Presence Detection'
       value_template: >
         {%- if states("input_select.occupation_override") != "Automatic" -%}
           {{ states("input_select.occupation_override") }}
-        {%- elif is_state("device_tracker.tile_a8b3ea596f9b44fd", "home")
-          or is_state("device_tracker.tile_4c66b3d3606d440e", "home") -%}
+        {%- elif is_state("person.derek", "home")
+          or is_state("person.bonnie", "home") -%}
           Occupied
         {%- else -%}
           Unoccupied
@@ -175,8 +175,8 @@
           {%- else -%}
             {{ icons.Unoccupied }}
           {%- endif -%}
-        {%- elif is_state("device_tracker.tile_a8b3ea596f9b44fd", "home")
-          or is_state("device_tracker.tile_4c66b3d3606d440e", "home") -%}
+        {%- elif is_state("person.derek", "home")
+          or is_state("person.bonnie", "home") -%}
           {{ icons.Occupied }}
         {%- else -%}
           {{ icons.Unoccupied }}
