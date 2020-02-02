@@ -27,3 +27,6 @@ custom_components/hacs/*
 www/community/*
 
 teckin-1.yaml
+
+.Trash*
+.Trash*/*
