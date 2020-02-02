@@ -138,3 +138,14 @@
 
         Check on the orchid. It may need water.
     service: notify.reminders
+- id: notification_criical-role
+  alias: Critical Role
+  trigger:
+  - platform: state
+    entity_id: calendar.reminders_critical_role
+    to: 'on'
+  action:
+  - data_template:
+      message: >
+        Welcome to Critical Role, where a bunch of nerdy-ass voice actors sit around and play Dungeons & Dragons!
+    service: notify.reminders
