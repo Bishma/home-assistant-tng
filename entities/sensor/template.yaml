@@ -46,9 +46,9 @@
           31480008
         {% elif states.remote.living_room.attributes.current_activity == "Youtube" %}
           33323580
-        {% elif states.remote.living_room.attributes.current_activity == "Listen to Spotify" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Spotify" %}
           43030123  
-        {% elif states.remote.living_room.attributes.current_activity == "Listen to Records" %}
+        {% elif states.remote.living_room.attributes.current_activity == "Record Player" %}
           38156985
         {% elif states.remote.living_room.attributes.current_activity == "Play Switch" %}
           31480190
