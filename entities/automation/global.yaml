@@ -18,20 +18,6 @@
   - data:
       entity_id: switch.couch
     service: switch.turn_on
-- id: work_heater_on
-  alias: Work Heater On
-  trigger:
-  - entity_id: device_tracker.tile_a8b3ea596f9b44fd
-    from: 'IDX'
-    platform: state
-  condition:
-  - condition: state
-    entity_id: input_boolean.idx_heater_on
-    state: 'on'
-  action:
-  - data:
-      message: It looks like you may have left your work with your heater on.
-    service: notify.reports
 - id: daily-backup
   alias: Daily Backup at 00:30
   trigger:

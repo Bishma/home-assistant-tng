@@ -15,10 +15,10 @@
         title: Where Are We
         show_header_toggle: false
         entities:
-        - entity: device_tracker.tile_a8b3ea596f9b44fd
+        - entity: person.derek
           name: Derek
           icon: mdi:owl
-        - entity: device_tracker.tile_4c66b3d3606d440e
+        - entity: person.bonnie
           name: Bonnie
           icon: mdi:elephant
       - type: entities

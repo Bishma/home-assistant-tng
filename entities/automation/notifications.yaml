@@ -149,3 +149,17 @@
       message: >
         Welcome to Critical Role, where a bunch of nerdy-ass voice actors sit around and play Dungeons & Dragons!
     service: notify.reminders
+- id: work_heater_on
+  alias: Work Heater On
+  trigger:
+  - entity_id: person.derek
+    from: 'IDX'
+    platform: state
+  condition:
+  - condition: state
+    entity_id: input_boolean.idx_heater_on
+    state: 'on'
+  action:
+  - data:
+      message: It looks like you may have left your work with your heater on.
+    service: notify.reports
