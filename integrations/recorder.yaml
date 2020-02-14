@@ -1,12 +1,18 @@
 # "The recorder component is responsible for storing details in a database, which then are handled by the history component."
 # https://www.home-assistant.io/components/recorder/
 recorder:
-  purge_keep_days: 365
+  purge_keep_days: 120
   db_url: !secret mariadb
   exclude:
+    domains:
+    - script
     entities:
-      - sensor.date
-      - sensor.janet_utility_date
-      - sensor.time
-      - sensor.time_date
-      - sensor.time_utc
+    - sensor.date
+    - sensor.date_time
+    - sensor.janet_utility_date
+    - sensor.time
+    - sensor.time_date
+    - sensor.time_utc
+    - input_text.appdaemon_database_passwd
+    - input_text.appdaemon_lunch_api_endpoint
+    - input_text.hass_url
