@@ -107,13 +107,9 @@
           entities:
             - entity: sensor.netatmo_indoor_wifi
               name: Indoor Connection Strength
-            - entity: sensor.netatmo_outdoor_battery
-              name: Outdoor Battery Level
             - entity: sensor.netatmo_backyard_battery
               name: Wind Guage Battery Level
         - type: history-graph
           entities:
             - entity: sensor.netatmo_backyard_radio
               name: Backyard Wind Guage Radio Strength
-            - entity: sensor.netatmo_outdoor_radio
-              name: Outdoor Temp Sensor Radio Strength

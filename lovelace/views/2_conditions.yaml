@@ -39,7 +39,7 @@
       entities:
       - entity: sensor.netatmo_indoor_temperature
         name: In
-      - entity: sensor.netatmo_outdoor_temperature
+      - entity: sensor.dark_sky_temperature
         name: Out
       - entity: sensor.convert_night_binary
         color: gray
@@ -53,7 +53,7 @@
       entities:
       - entity: sensor.netatmo_indoor_humidity
         name: In
-      - entity: sensor.netatmo_outdoor_humidity
+      - entity: sensor.dark_sky_humidity
         name: Out
       - entity: sensor.convert_night_binary
         color: gray
@@ -76,9 +76,9 @@
     title: Exterior Conditions
     show_header_toggle: false
     entities:
-    - entity: sensor.netatmo_outdoor_temperature
+    - entity: sensor.dark_sky_temperature
       name: Current Temperature
-    - entity: sensor.netatmo_outdoor_humidity
+    - entity: sensor.dark_sky_humidity
       name: Current Humidity
     - entity: sensor.netatmo_backyard_angle
       name: Backyard Wind Direction
