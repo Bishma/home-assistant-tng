@@ -9,6 +9,7 @@
       entities:
       - entity: switch.the_sparkle
         icon: mdi:star-face
+        state_color: true
       - entity: light.love_seat_up
         type: custom:slider-entity-row
         icon: mdi:lightbulb
@@ -25,6 +26,7 @@
       - entity: group.dining_room
         name: Dining Room
         icon: mdi:silverware
+        state_color: true
     - id: kitchen_controls
       type: entities
       title: Kitchen
@@ -38,9 +40,11 @@
       - entity: switch.derek_bedroom_lamp
         name: Derek's Bedroom Lamp
         icon: mdi:lamp
+        state_color: true
       - entity: switch.bonnie_bedroom_lamp
         name: Bonnie's Bedroom Lamp
         icon: mdi:lamp
+        state_color: true
     - id: exterior_controls
       type: entities
       title: Exterior
@@ -48,6 +52,7 @@
       - entity: switch.jasco_products_12720_outdoor_smart_switch_switch
         name: Back Porch
         icon: mdi:lightbulb
+        state_color: true
     - type: 'custom:simple-thermostat'
       entity: climate.cottage
       sensors:
