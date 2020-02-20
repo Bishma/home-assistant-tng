@@ -29,9 +29,8 @@ media_activity:
         {%- else -%}
           31571897
         {% endif %}
-# Press the OK button
-media_confirm:
-  alias: TV Confirm
+livingroom_media_command:
+  alias: Living Room Media Center Command Interface
   sequence:
   - service: remote.send_command
     entity_id: remote.living_room
@@ -39,10 +38,44 @@ media_confirm:
       device: >
         {{ states("sensor.living_room_media_device_id") }}
       command: >
-        {%- if states("sensor.living_room_media_device") == "htpc" -%}
-          Enter
-        {%- else -%}
-          OK
+        {%- if command == "confirm" -%}
+          {%- if states("sensor.living_room_media_device") == "htpc" -%}
+            Enter
+          {%- else -%}
+            OK
+          {%- endif -%}
+        {%- elif command == "pause" -%}
+          Pause
+        {%- elif command == "play" -%}
+          Play
+        {%- elif command == "rewind" -%}
+          {% if states("sensor.living_room_remote_state") == "Kodi"
+            or states("sensor.living_room_remote_state") == "Sling"
+            or  states("sensor.living_room_remote_state") == "Hulu"
+            or  states("sensor.living_room_remote_state") == "Plex"
+            or states("sensor.living_room_remote_state") == "Netflix" %}
+            DirectionLeft
+          {% elif states("sensor.living_room_remote_state") == "Youtube" %}
+            Rewind
+          {% else %}
+            InstantReplay
+          {% endif %}
+        {%- elif command == "fast_forward" -%}
+          {% if states("sensor.living_room_remote_state") == "Kodi"
+            or states("sensor.living_room_remote_state") == "Sling"
+            or  states("sensor.living_room_remote_state") == "Hulu"
+            or  states("sensor.living_room_remote_state") == "Plex"
+            or states("sensor.living_room_remote_state") == "Netflix" %}
+            DirectionRight
+          {% elif states("sensor.living_room_remote_state") == "Youtube" %}
+            FastForward
+          {% endif %}
+        {%- elif command == "stop" -%}
+          {%- if states("sensor.living_room_media_device") == "htpc" -%}
+            Stop
+          {%- else -%}
+            Back
+          {%- endif -%}
         {%- endif -%}
       num_repeats: >
         {%- if increment is defined -%}
@@ -87,86 +120,6 @@ media_on_off:
             -1
           {%- endif -%}
         {% endif -%}
-media_pause:
-  alias: TV Pause
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {{ states("sensor.living_room_media_device_id") }}
-      command: Pause
-      num_repeats: >
-        {%- if increment is defined -%}
-          {{ increment | int }}
-        {%- else -%}
-          1
-        {%- endif -%}
-media_play:
-  alias: TV Play
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {{ states("sensor.living_room_media_device_id") }}
-      command: Play
-      num_repeats: >
-        {%- if increment is defined -%}
-          {{ increment | int }}
-        {%- else -%}
-          1
-        {%- endif -%}
-media_rewind:
-  alias: TV Rewind
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {{ states("sensor.living_room_media_device_id") }}
-      command: >
-          {% if states("sensor.living_room_remote_state") == "Kodi"
-            or states("sensor.living_room_remote_state") == "Sling"
-            or  states("sensor.living_room_remote_state") == "Hulu"
-            or  states("sensor.living_room_remote_state") == "Plex"
-            or states("sensor.living_room_remote_state") == "Netflix" %}
-            DirectionLeft
-          {% elif states("sensor.living_room_remote_state") == "Youtube" %}
-            Rewind
-          {% else %}
-            InstantReplay
-          {% endif %}
-      num_repeats: >
-          {%- if increment is defined -%}
-            {{ increment | int }}
-          {%- else -%}
-            1
-          {%- endif -%}
-media_fast_forward:
-  alias: TV Fast Forward
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {{ states("sensor.living_room_media_device_id") }}
-      command: >
-          {% if states("sensor.living_room_remote_state") == "Kodi"
-            or states("sensor.living_room_remote_state") == "Sling"
-            or  states("sensor.living_room_remote_state") == "Hulu"
-            or  states("sensor.living_room_remote_state") == "Plex"
-            or states("sensor.living_room_remote_state") == "Netflix" %}
-            DirectionRight
-          {% elif states("sensor.living_room_remote_state") == "Youtube" %}
-            FastForward
-          {% endif %}
-      num_repeats: >
-          {%- if increment is defined -%}
-            {{ increment | int }}
-          {%- else -%}
-            1
-          {%- endif -%}
 media_input1:
   alias: TV Input Kodi
   sequence:
@@ -245,26 +198,6 @@ media_skip_back:
       num_repeats: >
         {%- if states("sensor.living_room_remote_state") == "Kodi" -%}
           2
-        {%- else -%}
-          1
-        {%- endif -%}
-media_stop:
-  alias: TV Stop
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: >
-        {{ states("sensor.living_room_media_device_id") }}
-      command: >
-        {%- if states("sensor.living_room_media_device") == "htpc" -%}
-          Stop
-        {%- else -%}
-          Back
-        {%- endif -%}
-      num_repeats: >
-        {%- if increment is defined -%}
-          {{ increment | int }}
         {%- else -%}
           1
         {%- endif -%}

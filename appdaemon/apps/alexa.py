@@ -276,7 +276,7 @@ class Alexa(hass.Hass):
 
         # FF and Rew need a confirm step to restart playback
         if action == "rewind" or action == "fast_forward":
-            self.call_service("script/media_confirm")
+            self.call_service("script/livingroom_media_command", command="confirm")
 
         return self.silent_response()
 

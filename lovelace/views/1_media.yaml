@@ -84,16 +84,14 @@
                     hold_action:
                       action: none
                   - type: entity-button
-                    entity: remote.living_room
+                    entity: script.livingroom_media_command
                     name: Confirm
                     icon: mdi:check-circle
                     tap_action:
                       action: call-service
-                      service: remote.send_command
+                      service: script.livingroom_media_command
                       service_data:
-                        entity_id: remote.living_room
-                        device: 66658758
-                        command: OK
+                        command: confirm
                     hold_action:
                       action: none
                   - type: entity-button
@@ -345,27 +343,36 @@
             type: horizontal-stack
             cards:
             - type: entity-button
-              entity: script.media_pause
+              entity: script.livingroom_media_command
               name: Pause
               icon: mdi:pause
               tap_action:
-                action: toggle
+                action: call-service
+                service: script.livingroom_media_command
+                service_data:
+                  command: pause
               hold_action:
                 action: none
             - type: entity-button
-              entity: script.media_play
+              entity: script.livingroom_media_command
               name: Play
               icon: mdi:play
               tap_action:
-                action: toggle
+                action: call-service
+                service: script.livingroom_media_command
+                service_data:
+                  command: play
               hold_action:
                 action: none
             - type: entity-button
-              entity: script.media_stop
+              entity: script.livingroom_media_command
               name: Stop
               icon: mdi:stop
               tap_action:
-                action: toggle
+                action: call-service
+                service: script.livingroom_media_command
+                service_data:
+                  command: stop
               hold_action:
                 action: none
             - type: entity-button
@@ -491,12 +498,18 @@
                     name: Rewind
                     action_name: '<<'
                     icon: mdi:rewind
-                    service: script.media_rewind
+                    action: call-service
+                    service: script.livingroom_media_command
+                    service_data:
+                      command: rewind
                   - type: call-service
                     name: Fast Forward
                     action_name: '>>'
                     icon: mdi:fast-forward
-                    service: script.media_rewind
+                    action: call-service
+                    service: script.livingroom_media_command
+                    service_data:
+                      command: fast_forward
         - id: activity-specific-roku-multi
           type: conditional
           conditions:
@@ -552,22 +565,18 @@
                 name: Rewind
                 action_name: '<<'
                 icon: mdi:rewind
-                service: remote.send_command
+                action: call-service
+                service: script.livingroom_media_command
                 service_data:
-                  entity_id: remote.living_room
-                  num_repeats: 1
-                  device: 66658758
-                  command: Rewind
+                  command: rewind
               - type: call-service
                 name: Fast Forward
                 action_name: '>>'
                 icon: mdi:fast-forward
-                service: remote.send_command
+                action: call-service
+                service: script.livingroom_media_command
                 service_data:
-                  entity_id: remote.living_room
-                  num_repeats: 1
-                  device: 66658758
-                  command: FastForward
+                  command: fast_forward
               - type: call-service
                 name: Critical Role - Skip Break
                 action_name: '>>>>'
@@ -741,16 +750,14 @@
               hold_action:
                 action: none
             - type: entity-button
-              entity: remote.living_room
+              entity: script.livingroom_media_command
               name: Rewind
               icon: mdi:rewind
               tap_action:
                 action: call-service
-                service: remote.send_command
+                service: script.livingroom_media_command
                 service_data:
-                  entity_id: remote.living_room
-                  device: 63164007
-                  command: Rewind
+                  command: rewind
               hold_action:
                 action: none
           - type: horizontal-stack
@@ -769,16 +776,14 @@
               hold_action:
                 action: none
             - type: entity-button
-              entity: remote.living_room
+              entity: script.livingroom_media_command
               name: Confirm
               icon: mdi:check-circle
               tap_action:
                 action: call-service
-                service: remote.send_command
+                service: script.livingroom_media_command
                 service_data:
-                  entity_id: remote.living_room
-                  device: 63164007
-                  command: OK
+                  command: confirm
               hold_action:
                 action: none
             - type: entity-button
@@ -795,16 +800,14 @@
               hold_action:
                 action: none
             - type: entity-button
-              entity: remote.living_room
+              entity: script.livingroom_media_command
               name: F. Fwd
               icon: mdi:fast-forward
               tap_action:
                 action: call-service
-                service: remote.send_command
+                service: script.livingroom_media_command
                 service_data:
-                  entity_id: remote.living_room
-                  device: 63164007
-                  command: FastForward
+                  command: fast_forward
               hold_action:
                 action: none
           - type: horizontal-stack
