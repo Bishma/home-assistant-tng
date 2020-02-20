@@ -235,11 +235,12 @@ media_skip_back:
       command: >
         {%- if states("sensor.living_room_remote_state") == "Kodi" -%}
           DirectionLeft
-        {%- elif states("sensor.living_room_remote_state") == "Plex"
-          or  states("sensor.living_room_remote_state") == "Hulu"
+        {%- elif states("sensor.living_room_remote_state") == "Hulu"
           or states("sensor.living_room_remote_state") == "Netflix"
           or states("sensor.living_room_remote_state") == "Youtube" -%}
           Play
+        {%- else -%}
+          OK
         {%- endif -%}
       num_repeats: >
         {%- if states("sensor.living_room_remote_state") == "Kodi" -%}
