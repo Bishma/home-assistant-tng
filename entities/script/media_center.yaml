@@ -201,28 +201,23 @@ media_skip_back:
         {%- else -%}
           1
         {%- endif -%}
-media_volume_up:
-  alias: TV Volume Up
+livingroom_media_volume:
+  alias: TV Volume Up/Down
   sequence:
   - service: remote.send_command
     entity_id: remote.living_room
     data_template:
       device: 60888940
-      command: VolumeUp
-      num_repeats: >
-        {%- if increment is defined -%}
-          {{ increment | int }}
-        {%- else -%}
-          1
+      command: >
+        {%- if command is defined -%}
+          {%- if command == "up" -%}
+            VolumeUp
+          {%- elif command == "down" -%}
+            VolumeDown
+          {%- elif command == "voice" -%}
+            Dialogue
+          {%- endif -%}
         {%- endif -%}
-media_volume_down:
-  alias: TV Volume Down
-  sequence:
-  - service: remote.send_command
-    entity_id: remote.living_room
-    data_template:
-      device: 60888940
-      command: VolumeDown
       num_repeats: >
         {%- if increment is defined -%}
           {{ increment | int }}

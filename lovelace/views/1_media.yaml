@@ -376,47 +376,46 @@
               hold_action:
                 action: none
             - type: entity-button
-              entity: remote.living_room
+              entity: script.livingroom_media_volume
               name: Voice
               icon: mdi:voice
               tap_action:
                 action: call-service
-                service: remote.send_command
+                service: script.livingroom_media_volume
                 service_data:
-                  entity_id: remote.living_room
-                  device: 60888940
-                  command: Dialogue
-                num_repeats: 1
+                  command: voice
               hold_action:
                 action: none
             - type: entity-button
-              entity: script.media_volume_down
+              entity: script.livingroom_media_volume
               name: Vol -
               icon: mdi:volume-minus
               tap_action:
                 action: call-service
-                service: remote.send_command
+                service: script.livingroom_media_volume
                 service_data:
-                  entity_id: remote.living_room
-                  device: 60888940
-                  command: VolumeDown
-                num_repeats: 1
+                  command: down
               hold_action:
-                action: none
+                action: call-service
+                service: script.livingroom_media_volume
+                service_data:
+                  command: down
+                  increment: 3
             - type: entity-button
-              entity: script.media_volume_up
+              entity: script.livingroom_media_volume
               name: Vol +
               icon: mdi:volume-plus
               tap_action:
                 action: call-service
-                service: remote.send_command
+                service: script.livingroom_media_volume
                 service_data:
-                  entity_id: remote.living_room
-                  device: 60888940
-                  command: VolumeUp
-                num_repeats: 1
+                  command: up
               hold_action:
-                action: none
+                action: call-service
+                service: script.livingroom_media_volume
+                service_data:
+                  command: up
+                  increment: 3
         - id: activity-specific-kodi
           type: conditional
           conditions:
