@@ -3,9 +3,7 @@
   icon: mdi:office-building
   path: work
   badges:
-  - sensor.combined_current_value
   - sensor.bitcoin_current_value
-  - sensor.main_street_current_value
   cards:
     - id: idx-climate
       type: entities
@@ -20,25 +18,6 @@
       attribute: nextThree
       max_length: 3
       icon: mdi:food-fork-drink
-    - id: holdings
-      type: 'custom:mini-graph-card'
-      name: Holdings
-      icon: mdi:currency-usd
-      hours_to_show: 36
-      points_per_hour: 30
-      line_width: 4
-      show:
-        fill: false
-      entities:
-      - entity: sensor.combined_current_value
-        name: Combined
-        color: orange
-      - entity: sensor.bitcoin_current_value
-        name: BTC
-        color: blue
-      - entity: sensor.main_street_current_value
-        name: MAIN
-        color: red
     - id: financials
       type: 'custom:mini-graph-card'
       name: Tracked Prices
@@ -62,8 +41,6 @@
         title: Holdings
         show_header_toggle: false
         entities:
-        - entity: input_number.main_street_shared_owned
-        - entity: input_number.main_street_average_cost
         - entity: input_number.bitcoin_quantity
         - entity: input_number.bitcoin_average_cost
         - entity: input_number.bitcoin_notify_if_less_than
