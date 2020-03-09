@@ -265,8 +265,9 @@ class Alexa(hass.Hass):
         increment = self.increment_handler(self.slots["media_increment"], self.slots["media_once_twice"])
 
         # There are home assistant scripts for each media function. These standardize the functionality between devices/activities
-        service = "script/media_{}".format(action)
+        service = "script/livingroom_media_command"
         service_data = {
+            "command": action,
             "increment": increment
         }
 
@@ -276,7 +277,7 @@ class Alexa(hass.Hass):
 
         # FF and Rew need a confirm step to restart playback
         if action == "rewind" or action == "fast_forward":
-            self.call_service("script/livingroom_media_command", command="confirm")
+            self.call_service(service, command="confirm")
 
         return self.silent_response()
 
