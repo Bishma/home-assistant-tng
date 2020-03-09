@@ -183,7 +183,7 @@ media_skip_back:
         {%- if states("sensor.living_room_media_device") == "htpc" -%}
           51738178
         {%- else -%}
-          63164007
+          66658758
         {%- endif -%}
       command: >
         {%- if states("sensor.living_room_remote_state") == "Kodi" -%}
